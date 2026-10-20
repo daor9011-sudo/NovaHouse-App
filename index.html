@@ -1504,6 +1504,69 @@ tr.porrev td{background:#FFFBF2}
 .nh-tipos-top button.act{background:var(--navy);color:#fff;border-color:var(--navy)}
 .nh-tipos td input.gr{width:150px}
 .nh-tipos td select.cat{max-width:130px}
+
+/* ===== Registro v2: pantalla completa, grupos laterales y lista densa ===== */
+main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;padding-right:20px}
+#app-screen-registro.reg-screen{max-width:none!important}
+.reg-pos{grid-template-columns:minmax(0,1fr) 410px;gap:14px;height:calc(100vh - 172px);min-height:600px}
+.reg-pos>*{min-height:0}
+.reg-col{min-height:0;gap:12px}
+.reg-ticket{max-height:none;height:100%;top:0}
+.reg-card.reg-pac{padding:12px 16px;container-type:inline-size;overflow:visible}
+.reg-pac-row{display:grid;grid-template-columns:auto minmax(0,1.5fr) minmax(0,.8fr) minmax(0,1.6fr) minmax(0,1fr) 172px;gap:12px;align-items:end}
+.reg-pac-row .reg-tt{font-family:var(--font-d);font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px;color:var(--navy);align-self:center;padding-right:2px;white-space:nowrap}
+.reg-pac-row .reg-tt .n{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:11.5px;display:grid;place-items:center}
+.reg-pac-row .form-group{gap:5px;min-width:0}
+.reg-pac-row select,.reg-pac-row input{width:100%;min-width:0}
+.reg-pac-row input[type=date]{min-width:160px;padding-right:8px;font-variant-numeric:tabular-nums}
+.reg-card.reg-cat{flex:1;min-height:0;display:flex;flex-direction:column;padding:0}
+.reg-cat-h{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--g1);flex-wrap:wrap}
+.reg-cat-h .reg-h{margin:0 4px 0 0}
+.reg-cat-h .reg-tabs{margin:0;flex-wrap:nowrap}
+.reg-cat-h .reg-tab{padding:7px 12px;font-size:12.5px}
+.reg-cat-h .reg-search{flex:1;min-width:220px;margin:0;padding:9px 12px}
+.reg-cat-body{flex:1;min-height:0;display:grid;grid-template-columns:220px minmax(0,1fr)}
+.reg-chips{display:block!important;overflow-y:auto;overflow-x:hidden;border-right:1px solid var(--g1);padding:10px 8px;margin:0}
+.reg-chips:empty::before{content:"Resultados de la búsqueda";display:block;padding:8px 10px;font-size:12px;color:var(--g6)}
+.reg-chips button{display:flex!important;justify-content:space-between;align-items:center;gap:8px;width:100%;border:0!important;background:none;text-align:left;padding:8px 10px!important;border-radius:9px!important;font:600 13px var(--font-b)!important;color:var(--g6);white-space:normal!important;line-height:1.25}
+.reg-chips button em{font-style:normal;font-size:11px;color:var(--g4);font-weight:700;flex:none}
+.reg-chips button:hover{background:var(--g1);color:var(--navy)}
+.reg-chips button.on{background:var(--navy)!important;color:#fff!important}.reg-chips button.on em{color:rgba(255,255,255,.7)}
+.reg-grid{max-height:none;overflow-y:auto;padding:12px;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:6px;align-content:start;grid-auto-rows:max-content}
+.rg-it{min-height:0;flex-direction:row;align-items:center;gap:10px;padding:8px 12px}
+.rg-it .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.rg-it .nm{font-size:12.8px}
+.rg-it .sb{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rg-it .ft{margin:0;flex:none;gap:8px}
+.rg-it .ft .stk{margin-left:0;order:-1}
+.rg-it .qb{top:-7px;right:-7px}
+#reg-serv-sel .a-row{padding:10px 16px}
+#reg-serv-sel .a-row .atendido-select{grid-column:2;grid-row:2}
+#reg-serv-sel .a-row .monto-wrap{grid-column:3;grid-row:2}
+#reg-serv-sel .a-row.farm .a-qty{grid-column:2;grid-row:3}
+#reg-serv-sel .a-row.farm .sub-farm{grid-column:3;grid-row:3;text-align:right}
+.reg-ticket .tk-medios{grid-template-columns:repeat(6,1fr);gap:5px}
+.reg-ticket .tk-medios button{padding:6px 2px;font-size:10.5px;line-height:1.15}
+.reg-ticket .tk-medios button span{font-size:15px}
+.reg-ticket .tk-extra{grid-template-columns:1fr 1fr}
+.reg-ticket .tk-pay{padding:12px 16px}
+.reg-ticket .tk-tot{padding:12px 16px}
+@container (max-width:1150px){ .reg-pac-row{grid-template-columns:minmax(0,1.5fr) minmax(0,.8fr) minmax(0,1.6fr) minmax(0,1fr) 168px} .reg-pac-row .reg-tt{display:none} }
+@container (max-width:860px){ .reg-pac-row{grid-template-columns:1fr 1fr 1fr} }
+@container (max-width:560px){ .reg-pac-row{grid-template-columns:1fr 1fr} }
+@media (max-width:1250px){ .reg-pos{grid-template-columns:minmax(0,1fr) 370px} .reg-cat-body{grid-template-columns:180px minmax(0,1fr)} .reg-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))} }
+@media (max-width:900px){
+  .reg-pos{height:auto;min-height:0}
+  .reg-card.reg-cat{min-height:0}
+  .reg-cat-body{display:block}
+  .reg-grid{overflow:visible}
+  .reg-cat-body{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+  .reg-chips{display:flex!important;overflow-x:auto;border-right:0;border-bottom:1px solid var(--g1);gap:4px}
+  .reg-chips button{width:auto;flex:none;white-space:nowrap!important}
+  .reg-grid{grid-template-columns:1fr}
+  .reg-ticket{height:auto}
+  .reg-ticket .tk-medios{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body>
@@ -1646,9 +1709,9 @@ tr.porrev td{background:#FFFBF2}
     <div class="card screen2 act reg-screen" id="app-screen-registro">
       <div class="reg-pos" id="reg-form-grid">
         <div class="reg-col">
-          <div class="reg-card">
-            <div class="reg-h"><span class="n">1</span>Paciente<span class="r"><input type="date" id="reg-fecha" title="Fecha de la visita"/></span></div>
-            <div class="reg-pac-grid">
+          <div class="reg-card reg-pac">
+            <div class="reg-pac-row">
+              <div class="reg-tt"><span class="n">1</span>Paciente</div>
               <div class="form-group" style="position:relative">
                 <label>Paciente</label>
                 <input type="text" id="reg-paciente-nombre" placeholder="Nombre o teléfono…" autocomplete="off"/>
@@ -1657,20 +1720,24 @@ tr.porrev td{background:#FFFBF2}
               </div>
               <div class="form-group"><label>Teléfono</label><input type="text" id="reg-telefono" placeholder="10 dígitos"/></div>
               <div class="form-group" id="reg-grp-dueno"><label>Doctora <span class="req-badge">obligatorio</span></label><select id="reg-dueno"><option value="">Seleccionar...</option></select></div>
-
               <div class="form-group" id="reg-grp-procedencia"><label>¿Cómo nos conoció?</label><select id="reg-procedencia"><option value="">Seleccionar...</option></select></div>
+              <div class="form-group"><label>Fecha</label><input type="date" id="reg-fecha" title="Fecha de la visita"/></div>
             </div>
           </div>
-          <div class="reg-card">
-            <div class="reg-h"><span class="n">2</span>¿Qué se le hizo o llevó?<span class="r">Toca para agregar · otra vez suma una pieza</span></div>
+          <div class="reg-card reg-cat">
+            <div class="reg-cat-h">
+            <div class="reg-h"><span class="n">2</span>¿Qué se le hizo o llevó?</div>
             <div class="reg-tabs" id="reg-serv-filtros">
               <button type="button" class="a-filtro-btn reg-tab active" data-cat="cons">🩺 Consultas <em id="reg-n-cons">0</em></button>
               <button type="button" class="a-filtro-btn reg-tab" data-cat="proc">✨ Procedimientos <em id="reg-n-proc">0</em></button>
               <button type="button" class="a-filtro-btn reg-tab" data-cat="farm">💊 Farmacia <em id="reg-n-farm">0</em></button>
             </div>
             <input class="reg-search" type="text" id="reg-serv-buscar" placeholder="🔎 Buscar en todo el catálogo…  (atajo: /)" autocomplete="off"/>
-            <div class="reg-chips" id="reg-serv-chips"></div>
-            <div class="reg-grid" id="reg-serv-grid"></div>
+            </div>
+            <div class="reg-cat-body">
+              <div class="reg-chips" id="reg-serv-chips"></div>
+              <div class="reg-grid" id="reg-serv-grid"></div>
+            </div>
           </div>
         </div>
         <aside class="reg-ticket" id="reg-ticket">
@@ -2468,7 +2535,7 @@ tr.porrev td{background:#FFFBF2}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.20-4';
+const APP_VERSION = 'v2026.10.20-5';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 
@@ -4067,9 +4134,11 @@ function regPintarChips(items){
   const cont = document.getElementById('reg-serv-chips');
   if(!cont) return;
   if(normalizar(document.getElementById('reg-serv-buscar').value || '').trim()){ cont.innerHTML = ''; return; }
-  const grupos = [...new Set(items.filter(i => i.t === REG_CAT_FILTRO).map(regGrupoDe))].sort((a, b) => (a === 'Otras marcas' || a === 'Otras') - (b === 'Otras marcas' || b === 'Otras') || a.localeCompare(b, 'es'));
+  const deTab = items.filter(i => i.t === REG_CAT_FILTRO);
+  const cuenta = {}; deTab.forEach(i => { const g = regGrupoDe(i); cuenta[g] = (cuenta[g] || 0) + 1; });
+  const grupos = Object.keys(cuenta).sort((a, b) => (a === 'Otras marcas' || a === 'Otras') - (b === 'Otras marcas' || b === 'Otras') || a.localeCompare(b, 'es'));
   if(REG_GRUPO && !grupos.includes(REG_GRUPO)) REG_GRUPO = '';
-  cont.innerHTML = grupos.length > 1 ? `<button type="button" class="${!REG_GRUPO ? 'on' : ''}" data-g="">Todo</button>` + grupos.map(g => `<button type="button" class="${REG_GRUPO === g ? 'on' : ''}" data-g="${esc2(g)}">${esc2(g)}</button>`).join('') : '';
+  cont.innerHTML = `<button type="button" class="${!REG_GRUPO ? 'on' : ''}" data-g="">Todo<em>${deTab.length}</em></button>` + grupos.map(g => `<button type="button" class="${REG_GRUPO === g ? 'on' : ''}" data-g="${esc2(g)}">${esc2(g)}<em>${cuenta[g]}</em></button>`).join('');
 }
 function regContarTabs(items){
   ['cons','proc','farm'].forEach(t => { const el = document.getElementById('reg-n-' + t); if(el) el.textContent = items.filter(i => i.t === t).length; });
@@ -4087,7 +4156,7 @@ function renderTarjetasRegistro(grid, filtro, selMap){
     return;
   }
   const TABN = { cons:'🩺 Consulta', proc:'✨ Procedimiento', farm:'💊 Farmacia' };
-  grid.innerHTML = lista.slice(0, 240).map(i => {
+  grid.innerHTML = lista.slice(0, 400).map(i => {
     const v = selMap.get(i.id);
     const n = v ? (i.t === 'farm' ? (parseInt(v.cantidad, 10) || 1) : 1) : 0;
     let sb = '';
@@ -4095,10 +4164,11 @@ function renderTarjetasRegistro(grid, filtro, selMap){
       const d = CATALOGOS.personal.find(p => p.id === i.doctor_id);
       sb = d ? `<span class="sb"><span class="rg-av">${esc2(inicialesPersona(d.nombre))}</span>${esc2(d.nombre)}</span>` : '<span class="sb">Sin doctora asignada</span>';
     } else sb = `<span class="sb">${f ? TABN[i.t] + ' · ' : ''}${esc2(regGrupoDe(i))}</span>`;
-    const stk = (i.t === 'farm' && i.existencia != null) ? `<span class="stk ${i.existencia > 0 ? '' : 'no'}" title="Existencia según Odoo">${i.existencia > 0 ? i.existencia + ' en stock' : 'sin stock'}</span>` : '';
+    const stk = (i.t === 'farm' && i.existencia != null) ? `<span class="stk ${i.existencia > 0 ? '' : 'no'}" title="Existencia según Odoo">${i.existencia > 0 ? i.existencia + ' pzas' : 'sin stock'}</span>` : '';
     const precio = i.precio != null ? fmtMoney0(i.precio) : (i.ref || '—');
-    return `<button type="button" class="rg-it ${n ? 'in' : ''}" data-id="${esc2(i.id)}" data-t="${i.t}"><span class="qb">${n}</span><span class="nm">${esc2(i.nombre)}</span>${sb}<span class="ft"><span class="pr">${esc2(precio)}</span>${stk}</span></button>`;
-  }).join('') + (lista.length > 240 ? `<div class="reg-vacio">Mostrando 240 de ${lista.length}. Escribe en el buscador para encontrar el resto.</div>` : '');
+    const titulo = (i.t === 'cons' && i.doctor_id) ? i.nombre.replace(/\s*·\s*Dra?\..*$/, '') : i.nombre;
+    return `<button type="button" class="rg-it ${n ? 'in' : ''}" data-id="${esc2(i.id)}" data-t="${i.t}" title="${esc2(i.nombre)}"><span class="qb">${n}</span><span class="tx"><span class="nm">${esc2(titulo)}</span>${sb}</span><span class="ft"><span class="pr">${esc2(precio)}</span>${stk}</span></button>`;
+  }).join('') + (lista.length > 400 ? `<div class="reg-vacio">Mostrando 400 de ${lista.length}. Escribe en el buscador para encontrar el resto.</div>` : '');
 }
 function renderServiciosGrid(gridId, filtro, selMap, opts){
   const grid = document.getElementById(gridId);

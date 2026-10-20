@@ -1384,6 +1384,125 @@ table.cpd-tx tr.sin td{color:var(--g4)} table.cpd-tx tr.sin td.pac{color:var(--g
   #com-detalle-wrap .tx-table td{white-space:normal}
   #com-detalle-wrap .tx-table tfoot td{display:block}
 }
+
+/* ===== Registro NovaHouse: catálogo + ticket (diseño A "punto de venta") ===== */
+.reg-screen{background:transparent!important;box-shadow:none!important;padding:0!important;overflow:visible!important}
+.reg-screen::before,.reg-screen::after{display:none!important}
+.reg-pos{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:18px;align-items:start}
+.reg-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.reg-card{background:#fff;border:1px solid var(--g2);border-radius:14px;box-shadow:0 6px 20px -14px rgba(11,22,40,.25);padding:16px 18px}
+.reg-h{font-family:var(--font-d);font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px;margin-bottom:12px;color:var(--navy)}
+.reg-h .n{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:11.5px;display:grid;place-items:center;flex:none}
+.reg-h .r{margin-left:auto;font-family:var(--font-b);font-weight:600;font-size:12px;color:var(--g6)}
+.reg-h .r input[type=date]{border:1.5px solid var(--g2);border-radius:8px;padding:5px 8px;font:600 12.5px var(--font-b);color:var(--navy)}
+.reg-pac-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:12px}
+.reg-pac-grid .form-group{gap:5px}
+.reg-tabs{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.reg-tab{display:flex;align-items:center;gap:8px;border:1.5px solid var(--g2);background:#fff;border-radius:12px;padding:9px 14px;font:700 13px var(--font-b);color:var(--g6);cursor:pointer}
+.reg-tab em{font-style:normal;font-size:11px;background:var(--g1);border-radius:999px;padding:1px 7px}
+.reg-tab.active[data-cat=cons]{border-color:var(--teal);background:var(--teal-soft);color:#138a8a}
+.reg-tab.active[data-cat=proc]{border-color:#5B4FA8;background:#EFEDFA;color:#5B4FA8}
+.reg-tab.active[data-cat=farm]{border-color:#C9A27A;background:#F7EFE6;color:#9C7650}
+.reg-search{width:100%;border:1.5px solid var(--g2);border-radius:12px;padding:11px 14px;font-size:14px;background:var(--g1);margin-bottom:10px}
+.reg-search:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px var(--teal-soft)}
+.reg-chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px;scrollbar-width:thin}
+.reg-chips:empty{display:none}
+.reg-chips button{flex:none;border:1px solid var(--g2);background:#fff;border-radius:999px;padding:5px 11px;font:600 12px var(--font-b);color:var(--g6);white-space:nowrap;cursor:pointer}
+.reg-chips button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.reg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;max-height:520px;overflow-y:auto;padding:8px 4px 4px 2px;scrollbar-width:thin}
+.rg-it{position:relative;text-align:left;border:1.5px solid var(--g2);background:#fff;border-radius:12px;padding:11px 12px 10px;display:flex;flex-direction:column;gap:6px;min-height:92px;cursor:pointer;transition:.12s;font-family:var(--font-b)}
+.rg-it:hover{border-color:var(--teal);transform:translateY(-1px);box-shadow:0 8px 18px -12px rgba(11,22,40,.35)}
+.rg-it .nm{font-weight:600;font-size:12.6px;line-height:1.3;color:var(--navy)}
+.rg-it .sb{font-size:11px;color:var(--g6);display:flex;gap:5px;align-items:center}
+.rg-it .ft{margin-top:auto;display:flex;align-items:center;gap:6px}
+.rg-it .pr{font-family:var(--font-d);font-weight:800;font-size:14.5px;color:var(--navy)}
+.rg-it .stk{margin-left:auto;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;background:#EAF7EE;color:#2E7D4F}
+.rg-it .stk.no{background:#FDEDEA;color:#B8481F}
+.rg-it .qb{position:absolute;top:-8px;right:-8px;border-radius:999px;font-size:11px;font-weight:800;min-width:22px;height:22px;display:none;place-items:center;padding:0 6px;color:#fff;background:var(--teal);box-shadow:0 4px 10px rgba(42,191,191,.45)}
+.rg-it.in{border-color:var(--teal);background:#f3fcfc}.rg-it.in .qb{display:grid}
+.rg-it[data-t=proc].in{border-color:#5B4FA8;background:#faf9ff}.rg-it[data-t=proc] .qb{background:#5B4FA8}
+.rg-it[data-t=farm].in{border-color:#C9A27A;background:#fffaf4}.rg-it[data-t=farm] .qb{background:#9C7650}
+.rg-av{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:8.5px;font-weight:800;background:var(--teal-soft);color:#138a8a;flex:none}
+.reg-vacio{grid-column:1/-1;text-align:center;color:var(--g6);padding:28px;font-size:13px}
+.reg-ticket{position:sticky;top:14px;background:#fff;border:1px solid var(--g2);border-radius:14px;box-shadow:0 10px 30px -16px rgba(11,22,40,.35);max-height:calc(100vh - 28px);display:flex;flex-direction:column}
+.reg-ticket .tk-h{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid var(--g1)}
+.reg-ticket .tk-h b{font-family:var(--font-d);font-size:15px;color:var(--navy)}
+.reg-ticket .tk-h .tag{margin-left:auto;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--g1);color:var(--g6)}
+.reg-ticket .tk-close{display:none;border:0;background:var(--g1);border-radius:8px;padding:4px 9px;cursor:pointer}
+.reg-ticket .tk-scroll{overflow-y:auto;flex:1;min-height:0;scrollbar-width:thin}
+#reg-serv-sel .a-vacio{padding:26px 18px;text-align:center;color:var(--g6);font-size:13px}
+#reg-serv-sel .a-row{display:grid;grid-template-columns:4px minmax(0,1fr) auto;gap:6px 10px;padding:12px 18px;border-bottom:1px solid var(--g1);align-items:center}
+#reg-serv-sel .a-row::before{content:"";grid-row:1/span 4;align-self:stretch;border-radius:4px;background:var(--teal)}
+#reg-serv-sel .a-row[data-t=proc]::before{background:#5B4FA8}
+#reg-serv-sel .a-row.farm::before{background:#C9A27A}
+#reg-serv-sel .a-row .nom{grid-column:2;font-weight:600;font-size:12.8px;line-height:1.3;color:var(--navy)}
+#reg-serv-sel .a-row .nom .ref{display:block;font-size:10.5px;color:var(--g4);font-weight:400}
+#reg-serv-sel .a-row .quitar{grid-column:3;grid-row:1;border:0;background:none;color:var(--g4);font-size:15px;cursor:pointer}
+#reg-serv-sel .a-row .quitar:hover{color:#B8481F}
+#reg-serv-sel .a-row .atendido-select{grid-column:2/4;max-width:none;width:100%;border:1.5px solid var(--g2);border-radius:8px;padding:6px 8px;font-size:12.5px;background:#fff}
+#reg-serv-sel .a-row .atendido-select.req{border-color:#F0B07A;background:#FFF8F0}
+#reg-serv-sel .a-row .monto-wrap{grid-column:3;justify-self:end}
+#reg-serv-sel .a-row .a-qty{grid-column:2;justify-self:start}
+#reg-serv-sel .a-row .sub-farm{grid-column:2/4;font-size:11px;color:var(--g6)}
+#reg-serv-sel .a-row .split-pago-row{grid-column:2/4}
+#reg-serv-sel .a-row .rg-rep{grid-column:2/4;font-size:11px;color:var(--g6);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+#reg-serv-sel .a-row .rg-rep i{display:inline-block;height:6px;border-radius:3px;background:var(--teal)}
+#reg-serv-sel .a-row .rg-rep i.nh{background:var(--g2)}
+#reg-serv-sel .promo-wrap{padding:8px 18px}
+.reg-ticket .tk-pay{padding:14px 18px;border-top:1px solid var(--g1)}
+.reg-ticket .tk-lbl{font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--g6);margin-bottom:7px;display:flex;justify-content:space-between;align-items:center}
+.reg-ticket .tk-lbl .toggle-link{text-transform:none;letter-spacing:0;margin:0}
+.reg-ticket .tk-medios{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.reg-ticket .tk-medios button{border:1.5px solid var(--g2);background:#fff;border-radius:10px;padding:7px 4px;font:700 11.5px var(--font-b);color:var(--g6);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.reg-ticket .tk-medios button span{font-size:16px}
+.reg-ticket .tk-medios button.on{border-color:var(--teal);background:var(--teal-soft);color:#138a8a}
+.reg-ticket .tk-medios button:disabled{opacity:.45;cursor:not-allowed}
+.reg-ticket .tk-hidden{display:none!important}
+.reg-ticket .tk-pagos{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;margin-top:8px}
+.reg-ticket .tk-pagos .form-group{gap:4px}
+.reg-ticket .tk-pagos .full{grid-column:1/-1}
+.reg-ticket .tk-extra{display:grid;gap:8px;margin-top:10px}
+.reg-ticket .tk-extra .form-group{gap:4px}
+.reg-ticket .tk-opts{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;font-weight:600;color:var(--g6)}
+.reg-ticket .tk-opts label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.reg-ticket .tk-opts input{accent-color:var(--teal);width:16px;height:16px}
+.reg-ticket .tk-tot{padding:14px 18px;border-top:1px solid var(--g1);background:linear-gradient(180deg,#fff,#f7fafd);border-radius:0 0 14px 14px}
+.reg-ticket .tk-meta{font-size:11.5px;color:var(--g6);line-height:1.4}
+.reg-ticket .tk-meta #reg-r-name{font-weight:700;color:var(--navy);font-size:12.5px}
+.reg-ticket .tk-big{display:flex;justify-content:space-between;align-items:baseline;margin:6px 0 10px}
+.reg-ticket .tk-big span{font-weight:700;color:var(--g6)}
+.reg-ticket .tk-big b{font-family:var(--font-d);font-size:27px;color:var(--navy)}
+.reg-ticket .tk-cta{width:100%;padding:13px;font-size:14.5px;justify-content:center}
+.reg-ticket .tk-falta{font-size:11.5px;color:#B8481F;margin-top:7px;text-align:center;min-height:15px}
+.reg-ticket .tk-limpiar{display:block;margin:6px auto 0;border:0;background:none;color:var(--g6);font:600 12px var(--font-b);cursor:pointer;text-decoration:underline}
+.reg-mbar{display:none}
+@media (max-width:1060px){
+  .reg-pac-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .reg-pos{grid-template-columns:minmax(0,1fr)}
+  .reg-ticket{position:fixed;left:0;right:0;bottom:0;top:auto;border-radius:18px 18px 0 0;max-height:88vh;transform:translateY(105%);transition:transform .25s;z-index:70}
+  .reg-ticket.open{transform:none}
+  .reg-ticket .tk-close{display:inline-block}
+  .reg-mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:65;background:var(--navy);color:#fff;border:0;border-radius:14px;padding:13px 16px;align-items:center;justify-content:space-between;font:700 14px var(--font-b);box-shadow:0 12px 26px -10px rgba(11,22,40,.6);cursor:pointer}
+  #app-screen-registro{padding-bottom:80px!important}
+  .reg-grid{max-height:none;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .reg-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+  .reg-tab{flex:none;padding:8px 11px}
+}
+@media (max-width:560px){ .reg-pac-grid{grid-template-columns:1fr} }
+/* Configuración: conceptos por revisar */
+.nh-revisar{display:flex;align-items:center;gap:10px;background:#FFF7E6;border:1px solid #F0D18A;border-left:4px solid #C8820A;border-radius:10px;padding:10px 12px;margin-bottom:12px;font-size:12.5px;color:#7A4B00;flex-wrap:wrap}
+.nh-revisar b{font-family:var(--font-d)}
+.nh-revisar button{margin-left:auto}
+tr.porrev td{background:#FFFBF2}
+.nh-rev-tag{display:inline-block;margin-top:4px;font-size:10.5px;font-weight:700;color:#9A6010;background:#FFF2E2;border-radius:6px;padding:2px 6px;max-width:320px;white-space:normal}
+.nh-rev-ok{border:1px solid #F0D18A;background:#fff;color:#9A6010;border-radius:6px;font:700 10.5px var(--font-b);padding:2px 7px;margin-left:4px;cursor:pointer}
+.nh-tipos-top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.nh-tipos-top input{flex:1;min-width:200px;border:1.5px solid var(--g2);border-radius:10px;padding:8px 12px;font-size:13px}
+.nh-tipos-top button.act{background:var(--navy);color:#fff;border-color:var(--navy)}
+.nh-tipos td input.gr{width:150px}
+.nh-tipos td select.cat{max-width:130px}
 </style>
 </head>
 <body>
@@ -1523,76 +1642,72 @@ table.cpd-tx tr.sin td{color:var(--g4)} table.cpd-tx tr.sin td.pac{color:var(--g
   </div>
 
   <main class="appmain">
-    <div class="card screen2 act" id="app-screen-registro">
-      <div class="tab-title"><span>📝 Registrar Consulta / Servicio</span></div>
-      <div class="form-grid" id="reg-form-grid">
-        <div class="form-group"><label>Fecha</label><input type="date" id="reg-fecha"/></div>
-        <div class="form-group" style="position:relative">
-          <label>Paciente</label>
-          <input type="text" id="reg-paciente-nombre" placeholder="Nombre completo" autocomplete="off"/>
-          <div class="suggest-box" id="reg-paciente-suggest"></div>
-          <div id="reg-paciente-selected" style="display:none;margin-top:6px"></div>
-        </div>
-        <div class="form-group"><label>Teléfono</label><input type="text" id="reg-telefono" placeholder="10 dígitos"/></div>
-        <div class="form-group" id="reg-grp-procedencia"><label>Procedencia</label><select id="reg-procedencia"><option value="">Seleccionar...</option></select></div>
-        <div class="form-group" id="reg-grp-dueno"><label>Dueño del paciente <span class="req-badge">obligatorio</span></label><select id="reg-dueno"><option value="">Seleccionar...</option></select></div>
-        <div class="form-group full">
-          <label>Servicios y productos <span class="req-badge">al menos uno</span></label>
-          <div class="a-box">
-            <div class="a-filtros" id="reg-serv-filtros">
-              <button type="button" class="a-filtro-btn" data-cat="todos">Todos</button>
-              <button type="button" class="a-filtro-btn active" data-cat="serv">🩺 Servicios</button>
-              <button type="button" class="a-filtro-btn" data-cat="farm">💊 Farmacia</button>
-            </div>
-            <input class="a-search" type="text" id="reg-serv-buscar" placeholder="🔎 Buscar servicio o producto de farmacia..." autocomplete="off"/>
-            <div class="a-grid" id="reg-serv-grid"></div>
-            <div class="a-seleccion">
-              <div class="a-seleccion-titulo">Seleccionados y su valor cobrado</div>
-              <div id="reg-serv-sel"></div>
+    <div class="card screen2 act reg-screen" id="app-screen-registro">
+      <div class="reg-pos" id="reg-form-grid">
+        <div class="reg-col">
+          <div class="reg-card">
+            <div class="reg-h"><span class="n">1</span>Paciente<span class="r"><input type="date" id="reg-fecha" title="Fecha de la visita"/></span></div>
+            <div class="reg-pac-grid">
+              <div class="form-group" style="position:relative">
+                <label>Paciente</label>
+                <input type="text" id="reg-paciente-nombre" placeholder="Nombre o teléfono…" autocomplete="off"/>
+                <div class="suggest-box" id="reg-paciente-suggest"></div>
+                <div id="reg-paciente-selected" style="display:none;margin-top:6px"></div>
+              </div>
+              <div class="form-group"><label>Teléfono</label><input type="text" id="reg-telefono" placeholder="10 dígitos"/></div>
+              <div class="form-group" id="reg-grp-procedencia"><label>¿Cómo nos conoció?</label><select id="reg-procedencia"><option value="">Seleccionar...</option></select></div>
+              <div class="form-group" id="reg-grp-dueno"><label>Dueño del paciente <span class="req-badge">obligatorio</span></label><select id="reg-dueno"><option value="">Seleccionar...</option></select></div>
             </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label>Medio de pago</label>
-          <select id="reg-medio"><option value="">Seleccionar...</option></select>
-          <button class="toggle-link" id="reg-btn-2pago" type="button" style="margin-top:4px">+ agregar 2do pago</button>
-        </div>
-        <div class="form-group" id="reg-grp-monto1" style="display:none"><label>Monto 1er pago ($)</label><input type="number" id="reg-monto1" min="0" step="0.01" value="0"/></div>
-        <div class="form-group" id="reg-grp-medio2" style="display:none"><label>2do medio de pago</label><select id="reg-medio2"><option value="">Seleccionar...</option></select></div>
-        <div class="form-group" id="reg-grp-monto2" style="display:none"><label>Monto 2do pago ($)</label><input type="number" id="reg-monto2" min="0" step="0.01" value="0"/></div>
-        <div class="form-group full" id="reg-btn3-wrap" style="display:none;align-items:flex-start;text-align:left"><button class="toggle-link" id="reg-btn-3pago" type="button">+ agregar 3er pago</button></div>
-        <div class="form-group" id="reg-grp-medio3" style="display:none"><label>3er medio de pago</label><select id="reg-medio3"><option value="">Seleccionar...</option></select></div>
-        <div class="form-group" id="reg-grp-monto3" style="display:none"><label>Monto 3er pago ($)</label><input type="number" id="reg-monto3" min="0" step="0.01" value="0"/></div>
-        <div class="form-group full" id="reg-split-check" style="display:none;font-size:11.5px;font-weight:700;padding:6px 2px"></div>
-        <div class="form-group"><label>Terminal</label><select id="reg-terminal"><option value="">— Sin terminal —</option></select><div id="reg-terminal-hint" style="display:none;font-size:10.5px;color:var(--g6);margin-top:4px">Pago en efectivo: no se usa terminal.</div></div>
-        <div class="form-group full"><label>Notas (opcional)</label><input type="text" id="reg-notas" placeholder="Observaciones..."/></div>
-      </div>
-      <div style="display:flex;gap:12px;margin:16px 0;flex-wrap:wrap">
-        <div class="check-box-panel" style="flex:1;min-width:220px"><label style="display:flex;align-items:center;gap:10px;cursor:pointer"><input type="checkbox" id="reg-factura"/> ¿Requiere factura?</label></div>
-        <div class="warn-box" style="flex:2;min-width:280px">
-          <label><input type="checkbox" id="reg-novino"/> 👻 El paciente no vino / no se presentó</label>
-          <div class="warn-sub">Se guarda para que aparezca en PRM/CRM y le des seguimiento — no cuenta como ingreso ni aparece en Historial normal.</div>
-        </div>
-      </div>
-      <div class="reg-bar-espaciador"></div>
-      <div class="reg-bar-fija">
-        <div class="inner">
-          <div class="reg-bar-left">
-            <div class="reg-bar-total">
-              <div class="lbl">Resumen en vivo</div>
-              <div class="val" id="reg-r-val">$0.00</div>
+          <div class="reg-card">
+            <div class="reg-h"><span class="n">2</span>¿Qué se le hizo o llevó?<span class="r">Toca para agregar · otra vez suma una pieza</span></div>
+            <div class="reg-tabs" id="reg-serv-filtros">
+              <button type="button" class="a-filtro-btn reg-tab active" data-cat="cons">🩺 Consultas <em id="reg-n-cons">0</em></button>
+              <button type="button" class="a-filtro-btn reg-tab" data-cat="proc">✨ Procedimientos <em id="reg-n-proc">0</em></button>
+              <button type="button" class="a-filtro-btn reg-tab" data-cat="farm">💊 Farmacia <em id="reg-n-farm">0</em></button>
             </div>
-            <div class="reg-bar-info">
-              <div class="reg-bar-name" id="reg-r-name">—</div>
-              <div class="reg-bar-meta" id="reg-r-meta">—</div>
-            </div>
-          </div>
-          <div class="reg-bar-actions">
-            <button class="appbtn appbtn-s" id="reg-btn-limpiar" type="button">Limpiar</button>
-            <button class="appbtn appbtn-p" id="reg-btn-guardar" type="button">✓ Guardar registro</button>
+            <input class="reg-search" type="text" id="reg-serv-buscar" placeholder="🔎 Buscar en todo el catálogo…  (atajo: /)" autocomplete="off"/>
+            <div class="reg-chips" id="reg-serv-chips"></div>
+            <div class="reg-grid" id="reg-serv-grid"></div>
           </div>
         </div>
+        <aside class="reg-ticket" id="reg-ticket">
+          <div class="tk-h"><b>🧾 Ticket</b><span class="tag" id="reg-tk-n">0 conceptos</span><button class="tk-close" id="reg-tk-close" type="button" aria-label="Cerrar ticket">✕</button></div>
+          <div class="tk-scroll">
+            <div id="reg-serv-sel"></div>
+            <div class="tk-pay">
+              <div class="tk-lbl"><span>Forma de pago</span><button class="toggle-link" id="reg-btn-2pago" type="button">+ agregar 2do pago</button></div>
+              <div class="tk-medios" id="reg-medio-chips"></div>
+              <select id="reg-medio" class="tk-hidden"><option value="">Seleccionar...</option></select>
+              <div class="tk-pagos">
+                <div class="form-group" id="reg-grp-monto1" style="display:none"><label>Monto 1er pago ($)</label><input type="number" id="reg-monto1" min="0" step="0.01" value="0"/></div>
+                <div class="form-group" id="reg-grp-medio2" style="display:none"><label>2do medio de pago</label><select id="reg-medio2"><option value="">Seleccionar...</option></select></div>
+                <div class="form-group" id="reg-grp-monto2" style="display:none"><label>Monto 2do pago ($)</label><input type="number" id="reg-monto2" min="0" step="0.01" value="0"/></div>
+                <div class="form-group full" id="reg-btn3-wrap" style="display:none;align-items:flex-start;text-align:left"><button class="toggle-link" id="reg-btn-3pago" type="button">+ agregar 3er pago</button></div>
+                <div class="form-group" id="reg-grp-medio3" style="display:none"><label>3er medio de pago</label><select id="reg-medio3"><option value="">Seleccionar...</option></select></div>
+                <div class="form-group" id="reg-grp-monto3" style="display:none"><label>Monto 3er pago ($)</label><input type="number" id="reg-monto3" min="0" step="0.01" value="0"/></div>
+                <div class="form-group full" id="reg-split-check" style="display:none;font-size:11.5px;font-weight:700;padding:4px 2px"></div>
+              </div>
+              <div class="tk-extra">
+                <div class="form-group"><label>Terminal</label><select id="reg-terminal"><option value="">— Sin terminal —</option></select><div id="reg-terminal-hint" style="display:none;font-size:10.5px;color:var(--g6);margin-top:2px">Pago en efectivo: no se usa terminal.</div></div>
+                <div class="form-group"><label>Notas (opcional)</label><input type="text" id="reg-notas" placeholder="Observaciones..."/></div>
+              </div>
+              <div class="tk-opts">
+                <label><input type="checkbox" id="reg-factura"/> Requiere factura</label>
+                <label title="Se guarda para darle seguimiento en PRM/CRM; no cuenta como ingreso"><input type="checkbox" id="reg-novino"/> 👻 No vino</label>
+              </div>
+            </div>
+          </div>
+          <div class="tk-tot">
+            <div class="tk-meta"><div id="reg-r-name">—</div><div id="reg-r-meta">—</div></div>
+            <div class="tk-big"><span>Total</span><b id="reg-r-val">$0.00</b></div>
+            <button class="appbtn appbtn-p tk-cta" id="reg-btn-guardar" type="button">✓ Registrar</button>
+            <div class="tk-falta" id="reg-falta"></div>
+            <button class="tk-limpiar" id="reg-btn-limpiar" type="button">Limpiar todo</button>
+          </div>
+        </aside>
       </div>
+      <button class="reg-mbar" id="reg-mbar" type="button"><span id="reg-mbar-l">Ticket vacío</span><span>Ver ticket ▴</span></button>
     </div>
     <div class="card screen2" id="app-screen-historial">
       <div class="tab-title">
@@ -1966,9 +2081,15 @@ table.cpd-tx tr.sin td{color:var(--g4)} table.cpd-tx tr.sin td.pac{color:var(--g
       <div class="config-section">
         <div class="config-title"><span>🧾 Tipos de servicio</span></div>
         <div class="note" style="margin-bottom:10px">Cada servicio pertenece a una doctora y trae su precio y el <b>% que se queda la doctora</b> (el resto es de NovaHouse). Los cambios se guardan al salir de cada campo y aplican a todos los meses que no estén cerrados.</div>
-        <div class="tx-table-wrap">
+        <div class="nh-revisar" id="cfg-tipos-alerta" style="display:none"></div>
+        <div class="nh-tipos-top">
+          <input type="search" id="cfg-tipos-buscar" placeholder="🔎 Buscar servicio…" autocomplete="off"/>
+          <button class="btn-sm act" type="button" data-tf="todos">Todos</button><button class="btn-sm" type="button" data-tf="consulta">Consultas</button><button class="btn-sm" type="button" data-tf="procedimiento">Procedimientos</button><button class="btn-sm" type="button" data-tf="sinpct">Sin %</button><button class="btn-sm" type="button" data-tf="revisar">⚠ Por revisar</button>
+          <span class="fp-count" id="cfg-tipos-count"></span>
+        </div>
+        <div class="tx-table-wrap" style="max-height:620px;overflow:auto">
           <table class="tx-table nh-tipos">
-            <thead><tr><th>Servicio</th><th>Doctora</th><th>Precio</th><th>% doctora</th><th>Reparto</th><th>Consulta</th><th>1ra vez</th><th>Activo</th><th></th></tr></thead>
+            <thead><tr><th>Servicio</th><th>Tipo</th><th>Grupo</th><th>Doctora</th><th>Precio</th><th>% doctora</th><th>Reparto</th><th>Consulta</th><th>1ra vez</th><th>Activo</th><th></th></tr></thead>
             <tbody id="cfg-tipos-tbody"></tbody>
           </table>
         </div>
@@ -1977,6 +2098,8 @@ table.cpd-tx tr.sin td{color:var(--g4)} table.cpd-tx tr.sin td.pac{color:var(--g
           <div class="form-group"><label>Doctora</label><select id="cfg-tipo-doctor"></select></div>
           <div class="form-group"><label>Precio</label><input type="number" id="cfg-tipo-precio" min="0" step="0.01" placeholder="0.00"/></div>
           <div class="form-group"><label>% doctora</label><input type="number" id="cfg-tipo-pct" min="0" max="100" step="0.01" placeholder="Ej. 60"/></div>
+          <div class="form-group"><label>Tipo</label><select id="cfg-tipo-cat"><option value="consulta">Consulta</option><option value="procedimiento">Procedimiento</option></select></div>
+          <div class="form-group"><label>Grupo</label><input type="text" id="cfg-tipo-grupo" placeholder="Ej. Ginecología, Faciales…"/></div>
           <div class="form-group"><label style="display:flex;align-items:center;gap:8px;text-transform:none;font-weight:400;font-size:12.5px;padding-top:8px;color:var(--navy)"><input type="checkbox" id="cfg-tipo-consulta" checked style="width:15px;height:15px;flex:none"/> Es consulta</label></div>
           <div class="form-group"><label style="display:flex;align-items:center;gap:8px;text-transform:none;font-weight:400;font-size:12.5px;padding-top:8px;color:var(--navy)"><input type="checkbox" id="cfg-tipo-primera" style="width:15px;height:15px;flex:none"/> Primera vez</label></div>
         </div>
@@ -1986,9 +2109,10 @@ table.cpd-tx tr.sin td{color:var(--g4)} table.cpd-tx tr.sin td.pac{color:var(--g
       <div class="config-section" id="cfg-farmacia-sec">
         <div class="config-title"><span>💊 Catálogo de farmacia</span></div>
         <div class="fp-imp"><div class="t">⬆ Importar desde Excel</div><div class="s">Elige tu archivo de inventario: toma la hoja con <b>Clave</b> y <b>Descripción</b> (la “Hoja1”) y el <b>Precio</b> del reporte como precio sugerido. Solo agrega los productos que no existan; no pisa precios que ya editaste.</div><button class="btn-sm act" id="cfg-farm-btn-importar" type="button">Elegir Excel…</button><input type="file" id="cfg-farm-file" accept=".xlsx,.xls" style="display:none"/></div>
+        <div class="nh-revisar" id="cfg-farm-alerta" style="display:none"></div>
         <div class="fp-top">
           <input type="text" id="cfg-farm-buscar" placeholder="🔎 Buscar por nombre o clave…" autocomplete="off"/>
-          <button class="btn-sm act" type="button" data-fpf="todos">Todos</button><button class="btn-sm" type="button" data-fpf="editados">Precio editado</button><button class="btn-sm" type="button" data-fpf="inactivos">Inactivos</button>
+          <button class="btn-sm act" type="button" data-fpf="todos">Todos</button><button class="btn-sm" type="button" data-fpf="editados">Precio editado</button><button class="btn-sm" type="button" data-fpf="inactivos">Inactivos</button><button class="btn-sm" type="button" data-fpf="revisar">⚠ Por revisar</button>
           <span class="fp-count" id="cfg-farm-count"></span>
         </div>
         <div class="tx-table-wrap" id="cfg-farm-wrap">
@@ -2342,7 +2466,7 @@ table.cpd-tx tr.sin td{color:var(--g4)} table.cpd-tx tr.sin td.pac{color:var(--g
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.20-2';
+const APP_VERSION = 'v2026.10.20-3';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 
@@ -3815,13 +3939,13 @@ function iconoPago(medio){ return medio ? (PAGO_ICON[medio] || '💰') + ' ' : '
 
 async function cargarCatalogos(){
   const [tipos, equipos, terminales, medios, procedencias, personal, farmacia] = await Promise.all([
-    sb.from('catalogo_tipos_servicio').select('id,nombre,requiere_descripcion,requiere_equipo,referencia_precio,doctor_id,precio,pct_doctor,es_consulta,es_primera_vez,activo,orden').order('orden'),
+    sb.from('catalogo_tipos_servicio').select('id,nombre,requiere_descripcion,requiere_equipo,referencia_precio,doctor_id,precio,pct_doctor,es_consulta,es_primera_vez,activo,orden,categoria,grupo').order('orden'),
     sb.from('catalogo_equipos').select('id,nombre,doctor_id').eq('activo', true).order('nombre'),
     sb.from('catalogo_terminales').select('id,nombre').eq('activo', true).order('nombre'),
     sb.from('catalogo_medios_pago').select('id,nombre').eq('activo', true).order('orden'),
     sb.from('catalogo_procedencia').select('id,nombre').eq('activo', true).order('orden'),
     sb.from('personal').select('id,nombre,rol,baja_hasta,especialidad,esquema_pago,renta_mensual').eq('activo', true).in('rol', ['doctor','cosmetologo']).order('nombre'),
-    sb.from('farmacia_productos').select('id,clave,nombre,precio,piezas,promo_grupo,promo_cada,promo_precio').eq('activo', true).order('nombre').limit(3000),
+    sb.from('farmacia_productos').select('id,clave,nombre,precio,piezas,promo_grupo,promo_cada,promo_precio,grupo,existencia').eq('activo', true).order('nombre').limit(3000),
   ]);
   if(tipos.error) console.error('[NovaHouse] Error cargando tipos_servicio:', tipos.error);
   if(equipos.error) console.error('[NovaHouse] Error cargando equipos:', equipos.error);
@@ -3844,6 +3968,7 @@ async function cargarCatalogos(){
   regServRender(document.getElementById('reg-serv-buscar').value);
   poblarSelect('reg-terminal', CATALOGOS.terminales.map(t=>({value:t.id, label:t.nombre})), '— Sin terminal —');
   poblarSelect('reg-medio', CATALOGOS.mediosPago.map(m=>({value:m.nombre, label:m.nombre})));
+  regPintarMedios();
   poblarSelect('reg-medio2', CATALOGOS.mediosPago.map(m=>({value:m.nombre, label:m.nombre})));
   poblarSelect('reg-medio3', CATALOGOS.mediosPago.map(m=>({value:m.nombre, label:m.nombre})));
   poblarSelect('reg-procedencia', CATALOGOS.procedencias.map(p=>({value:p.id, label:p.nombre})));
@@ -3922,8 +4047,60 @@ function nombresServicios(consultaServicios, doctorPrincipalNombre){
 // "igual que el doctor/atendido principal de arriba" (así una consulta de un doctor puede derivar
 // un servicio de cabina hecho por otra persona, ej. una cosmetóloga).
 const esFarmKey = k => String(k).startsWith('f:');
+// Registro: tarjetas por pestaña (Consultas / Procedimientos / Farmacia) con sub-filtro por grupo.
+// Con texto en el buscador se busca en TODO el catálogo, sin importar la pestaña.
+const REG_TAB_DE = s => (s.categoria === 'procedimiento' ? 'proc' : 'cons');
+function regGrupoDe(it){
+  if(it.t === 'farm') return it.grupo || 'Otras marcas';
+  if(it.t === 'proc') return it.grupo || 'Otros';
+  const d = CATALOGOS.personal.find(p => p.id === it.doctor_id);
+  return it.grupo || d?.especialidad || 'Otras';
+}
+function regItemsCatalogo(){
+  const serv = CATALOGOS.tiposServicio.map(s => ({ id:s.id, t:REG_TAB_DE(s), nombre:s.nombre, precio:s.precio, ref:s.referencia_precio, doctor_id:s.doctor_id, grupo:s.grupo, pct:s.pct_doctor }));
+  const farm = (CATALOGOS.farmacia || []).map(p => ({ id:'f:' + p.id, t:'farm', nombre:p.nombre, precio:p.precio, grupo:p.grupo, existencia:p.existencia, piezas:p.piezas }));
+  return serv.concat(farm);
+}
+function regPintarChips(items){
+  const cont = document.getElementById('reg-serv-chips');
+  if(!cont) return;
+  if(normalizar(document.getElementById('reg-serv-buscar').value || '').trim()){ cont.innerHTML = ''; return; }
+  const grupos = [...new Set(items.filter(i => i.t === REG_CAT_FILTRO).map(regGrupoDe))].sort((a, b) => (a === 'Otras marcas' || a === 'Otras') - (b === 'Otras marcas' || b === 'Otras') || a.localeCompare(b, 'es'));
+  if(REG_GRUPO && !grupos.includes(REG_GRUPO)) REG_GRUPO = '';
+  cont.innerHTML = grupos.length > 1 ? `<button type="button" class="${!REG_GRUPO ? 'on' : ''}" data-g="">Todo</button>` + grupos.map(g => `<button type="button" class="${REG_GRUPO === g ? 'on' : ''}" data-g="${esc2(g)}">${esc2(g)}</button>`).join('') : '';
+}
+function regContarTabs(items){
+  ['cons','proc','farm'].forEach(t => { const el = document.getElementById('reg-n-' + t); if(el) el.textContent = items.filter(i => i.t === t).length; });
+}
+function renderTarjetasRegistro(grid, filtro, selMap){
+  const items = regItemsCatalogo();
+  regContarTabs(items);
+  regPintarChips(items);
+  const f = normalizar(filtro || '').trim();
+  const lista = f ? items.filter(i => normalizar(i.nombre).includes(f))
+                  : items.filter(i => i.t === REG_CAT_FILTRO && (!REG_GRUPO || regGrupoDe(i) === REG_GRUPO));
+  lista.sort((a, b) => a.t !== b.t ? ['cons','proc','farm'].indexOf(a.t) - ['cons','proc','farm'].indexOf(b.t) : (f || a.t !== 'cons' ? a.nombre.localeCompare(b.nombre, 'es') : 0));
+  if(!lista.length){
+    grid.innerHTML = `<div class="reg-vacio">${f ? 'Nada coincide con “' + esc2(filtro) + '”.<br><small>Prueba con una parte del nombre.</small>' : (REG_CAT_FILTRO === 'farm' ? 'Todavía no hay productos de farmacia activos.' : 'Sin servicios en esta pestaña.')}</div>`;
+    return;
+  }
+  const TABN = { cons:'🩺 Consulta', proc:'✨ Procedimiento', farm:'💊 Farmacia' };
+  grid.innerHTML = lista.slice(0, 240).map(i => {
+    const v = selMap.get(i.id);
+    const n = v ? (i.t === 'farm' ? (parseInt(v.cantidad, 10) || 1) : 1) : 0;
+    let sb = '';
+    if(i.t === 'cons'){
+      const d = CATALOGOS.personal.find(p => p.id === i.doctor_id);
+      sb = d ? `<span class="sb"><span class="rg-av">${esc2(inicialesPersona(d.nombre))}</span>${esc2(d.nombre)}</span>` : '<span class="sb">Sin doctora asignada</span>';
+    } else sb = `<span class="sb">${f ? TABN[i.t] + ' · ' : ''}${esc2(regGrupoDe(i))}</span>`;
+    const stk = (i.t === 'farm' && i.existencia != null) ? `<span class="stk ${i.existencia > 0 ? '' : 'no'}" title="Existencia según Odoo">${i.existencia > 0 ? i.existencia + ' en stock' : 'sin stock'}</span>` : '';
+    const precio = i.precio != null ? fmtMoney0(i.precio) : (i.ref || '—');
+    return `<button type="button" class="rg-it ${n ? 'in' : ''}" data-id="${esc2(i.id)}" data-t="${i.t}"><span class="qb">${n}</span><span class="nm">${esc2(i.nombre)}</span>${sb}<span class="ft"><span class="pr">${esc2(precio)}</span>${stk}</span></button>`;
+  }).join('') + (lista.length > 240 ? `<div class="reg-vacio">Mostrando 240 de ${lista.length}. Escribe en el buscador para encontrar el resto.</div>` : '');
+}
 function renderServiciosGrid(gridId, filtro, selMap, opts){
   const grid = document.getElementById(gridId);
+  if(opts && opts.cards){ renderTarjetasRegistro(grid, filtro, selMap); return; }
   const f = normalizar(filtro || '');
   const cat = (opts && opts.cat) || 'serv';
   const items = [];
@@ -4051,7 +4228,7 @@ function renderFilaFarmacia(id, selMap, mostrarSplit, fechaFormServ){
   }
   return `<div class="a-row farm" data-id="${esc2(id)}">
       <div class="nom">${nombre}<span class="ref">ref. ${fmtMoney0(sug)}${piezasPaq > 1 ? ' · ' + piezasPaq + ' pzas' : ''}</span></div>
-      <select class="atendido-select" title="¿Quién generó la venta?">
+      <select class="atendido-select ${val.atendidoPor ? '' : 'req'}" title="¿Quién generó la venta?">
         <option value="">Vendido por...</option>
         ${opcionesPersonalAgrupadoHtml(val.atendidoPor || '', false, fechaFormServ)}
       </select>
@@ -4064,7 +4241,7 @@ function renderFilaFarmacia(id, selMap, mostrarSplit, fechaFormServ){
 }
 function renderServiciosSel(selId, selMap, debeMostrarSplitPago){
   const cont = document.getElementById(selId);
-  if(!selMap.size){ cont.innerHTML = '<div class="a-vacio">Todavía no has seleccionado ningún servicio.</div>'; return; }
+  if(!selMap.size){ cont.innerHTML = selId === 'reg-serv-sel' ? '<div class="a-vacio">🧺<br>Toca un servicio o producto<br>para agregarlo aquí.</div>' : '<div class="a-vacio">Todavía no has seleccionado ningún servicio.</div>'; return; }
   const promoInfo = aplicarPromosFarm(selMap);
   // El desglose "1er pago / 2do pago" por servicio solo tiene sentido (y solo se muestra) cuando
   // hay un 2do pago activo en la consulta Y hay más de un servicio — con un solo servicio, todo
@@ -4098,23 +4275,60 @@ function renderServiciosSel(selId, selMap, debeMostrarSplitPago){
         <span class="split2-preview">2do pago: ${fmtMoney(monto2Num)}</span>
       </div>`;
     }
-    return `<div class="a-row" data-id="${esc2(id)}">
+    let repHtml = '';
+    if(selId === 'reg-serv-sel' && s){
+      const at = CATALOGOS.personal.find(p => p.id === atendidoPor);
+      const montoN = Number(monto) || 0;
+      if(at && at.esquema_pago === 'renta') repHtml = `<div class="rg-rep">🏠 Renta fija · ${esc2(at.nombre)} cobra en su terminal</div>`;
+      else if(at && at.rol === 'doctor' && s.pct_doctor != null && montoN > 0){
+        const pc = Number(s.pct_doctor), dra = montoN * pc;
+        repHtml = `<div class="rg-rep"><i style="width:${Math.round(pc * 56)}px"></i><i class="nh" style="width:${Math.round((1 - pc) * 56)}px"></i>Dra. ${fmtMoney0(dra)} · NovaHouse ${fmtMoney0(montoN - dra)} (${Math.round(pc * 1000) / 10}%)</div>`;
+      } else if(at && at.rol === 'doctor' && s.pct_doctor == null) repHtml = '<div class="rg-rep">⚠ Este servicio aún no tiene % de doctora (queda 100% NovaHouse)</div>';
+    }
+    return `<div class="a-row" data-id="${esc2(id)}" data-t="${s && s.categoria === 'procedimiento' ? 'proc' : 'cons'}">
       <div class="nom">${nombre}${ref}</div>
-      <select class="atendido-select" title="¿Quién atendió este servicio?">
+      <select class="atendido-select ${atendidoPor ? '' : 'req'}" title="¿Quién atendió este servicio?">
         <option value="">Seleccionar...</option>
         ${opcionesPersonalAgrupadoHtml(atendidoPor, soloDoctor, fechaFormServ)}
       </select>
       <div class="monto-wrap"><span>$</span><input type="number" min="0" step="0.01" placeholder="0.00" value="${esc2(monto)}"/></div>
       <button class="quitar" type="button">✕</button>
-      ${splitHtml}
+      ${splitHtml}${repHtml}
     </div>`;
   }).join('') + (promoInfo.length ? `<div class="promo-wrap">${promoFarmHtml(promoInfo)}</div>` : '');
   if(triple) cont.querySelectorAll('.a-row').forEach(r => r.insertAdjacentHTML('beforeend', '<div class="split-pago-row split-triple"></div>'));
 }
 function crearSelectorServicios(ids, selMap, onChange, valorAtendidoPorDefecto, debeMostrarSplitPago){
   function refrescar(){
-    renderServiciosGrid(ids.grid, document.getElementById(ids.buscar).value, selMap, ids.farmacia ? { farmacia:true, cat: ids.cat ? ids.cat() : 'serv' } : undefined);
+    renderServiciosGrid(ids.grid, document.getElementById(ids.buscar).value, selMap, ids.cards ? { cards:true } : (ids.farmacia ? { farmacia:true, cat: ids.cat ? ids.cat() : 'serv' } : undefined));
     renderServiciosSel(ids.sel, selMap, debeMostrarSplitPago);
+    if(ids.cards){
+      document.getElementById(ids.grid).querySelectorAll('.rg-it').forEach(card=>{
+        card.addEventListener('click', ()=>{
+          const id = card.dataset.id;
+          if(selMap.has(id)){
+            if(esFarmKey(id)){
+              const prev = selMap.get(id); const cant = (parseInt(prev.cantidad, 10) || 1) + 1;
+              selMap.set(id, { ...prev, cantidad: cant, monto: String(Math.round(cant * (Number(prev.precio) || 0) * 100) / 100) });
+              toast('＋1 pieza · ' + (prev.nombre || ''));
+            } else { toast('Ya está en el ticket. Para quitarlo usa ✕ en el ticket.'); return; }
+          } else {
+            const atendidoPor = valorAtendidoPorDefecto ? (valorAtendidoPorDefecto(id) || '') : '';
+            if(esFarmKey(id)){
+              const prod = (CATALOGOS.farmacia || []).find(x => 'f:' + x.id === id);
+              const sug = Number(prod?.precio) || 0;
+              selMap.set(id, { monto: String(sug), atendidoPor, cantidad:1, precio: String(sug), sugerido: sug, nombre: prod?.nombre || '', piezas: prod?.piezas || 1 });
+            } else {
+              const tsv = tipoServicioPorId(id);
+              const precioLista = (tsv && tsv.precio != null) ? String(Number(tsv.precio)) : '';
+              selMap.set(id, { monto: precioLista, atendidoPor: atendidoPor || tsv?.doctor_id || '' });
+            }
+            toast('＋ ' + card.querySelector('.nm').textContent.slice(0, 48));
+          }
+          refrescar();
+        });
+      });
+    }
     document.getElementById(ids.grid).querySelectorAll('.a-chip').forEach(chip=>{
       const id = chip.dataset.id;
       chip.querySelector('input').addEventListener('change', e=>{
@@ -4160,7 +4374,7 @@ function crearSelectorServicios(ids, selMap, onChange, valorAtendidoPorDefecto, 
           const pw = document.getElementById(ids.sel).querySelector('.promo-wrap'); if(pw) pw.innerHTML = promoFarmHtml(promoInfo);
           onChange();
         });
-        row.querySelector('.atendido-select').addEventListener('change', e=>{ selMap.set(id, { ...(selMap.get(id) || {}), atendidoPor: e.target.value }); onChange(); });
+        row.querySelector('.atendido-select').addEventListener('change', e=>{ selMap.set(id, { ...(selMap.get(id) || {}), atendidoPor: e.target.value }); e.target.classList.toggle('req', !e.target.value); onChange(); });
         const sp = row.querySelector('.split1-input');
         if(sp) sp.addEventListener('input', e=>{
           const prev = selMap.get(id) || {};
@@ -4190,6 +4404,7 @@ function crearSelectorServicios(ids, selMap, onChange, valorAtendidoPorDefecto, 
       row.querySelector('.atendido-select').addEventListener('change', e=>{
         const prev = selMap.get(id) || { monto:'', atendidoPor:'' };
         selMap.set(id, { ...prev, atendidoPor: e.target.value });
+        if(ids.cards){ refrescar(); return; }
         onChange();
       });
       const split1Input = row.querySelector('.split1-input');
@@ -4279,17 +4494,19 @@ function obtenerAtendidoPorDefectoReg(tipoServicioId){
   if(esTipoServicioConsulta(tipoServicioId) && MI_PERFIL.rol !== 'doctor') return '';
   return MI_PERFIL.id;
 }
-let REG_CAT_FILTRO = 'serv'; // 'todos' | 'serv' | 'farm' — segmentador del selector del Registro
-const regServRefrescar = crearSelectorServicios({ buscar:'reg-serv-buscar', grid:'reg-serv-grid', sel:'reg-serv-sel', farmacia:true, cat: () => REG_CAT_FILTRO }, REG_SERV_SEL, updateResumen, obtenerAtendidoPorDefectoReg, () => document.getElementById('reg-grp-medio2').style.display !== 'none');
+let REG_CAT_FILTRO = 'cons'; // 'cons' | 'proc' | 'farm' — pestaña del catálogo del Registro
+let REG_GRUPO = '';          // sub-filtro (especialidad, tipo de procedimiento o marca)
+const regServRefrescar = crearSelectorServicios({ buscar:'reg-serv-buscar', grid:'reg-serv-grid', sel:'reg-serv-sel', farmacia:true, cards:true, cat: () => REG_CAT_FILTRO }, REG_SERV_SEL, updateResumen, obtenerAtendidoPorDefectoReg, () => document.getElementById('reg-grp-medio2').style.display !== 'none');
 document.getElementById('reg-fecha').addEventListener('change', () => { poblarSelectDueno(); regServRefrescar(); });
 document.querySelectorAll('#reg-serv-filtros .a-filtro-btn').forEach(btn => btn.addEventListener('click', () => {
-  REG_CAT_FILTRO = btn.dataset.cat;
+  REG_CAT_FILTRO = btn.dataset.cat; REG_GRUPO = '';
+  document.getElementById('reg-serv-buscar').value = '';
   document.querySelectorAll('#reg-serv-filtros .a-filtro-btn').forEach(b => b.classList.toggle('active', b === btn));
   regServRefrescar();
 }));
 // Catálogo de farmacia (solo productos activos) para el selector del Registro
 async function cargarCatalogoFarmaciaReg(){
-  const { data, error } = await sb.from('farmacia_productos').select('id,clave,nombre,precio,piezas,promo_grupo,promo_cada,promo_precio').eq('activo', true).order('nombre').limit(3000);
+  const { data, error } = await sb.from('farmacia_productos').select('id,clave,nombre,precio,piezas,promo_grupo,promo_cada,promo_precio,grupo,existencia').eq('activo', true).order('nombre').limit(3000);
   if(error){ console.error('[NovaHouse] Error cargando catálogo de farmacia:', error); return; }
   CATALOGOS.farmacia = data || [];
   regServRefrescar();
@@ -4397,6 +4614,31 @@ document.addEventListener('click', (e)=>{
 });
 
 // ── Resumen en vivo ──
+const REG_MEDIO_ICO = { 'Efectivo':'💵', 'Tarjeta Crédito':'💳', 'Tarjeta Débito':'💳', 'Transferencia':'🏦', 'Amex':'💠', 'Cortesía':'🎁' };
+function regPintarMedios(){
+  const cont = document.getElementById('reg-medio-chips'); if(!cont) return;
+  const sel = document.getElementById('reg-medio');
+  cont.innerHTML = CATALOGOS.mediosPago.map(m => `<button type="button" data-m="${esc2(m.nombre)}" class="${sel.value === m.nombre ? 'on' : ''}" ${sel.disabled ? 'disabled' : ''}><span>${REG_MEDIO_ICO[m.nombre] || '💰'}</span>${esc2(m.nombre.replace('Tarjeta ', 'T. '))}</button>`).join('');
+}
+function regSyncMedios(){
+  const sel = document.getElementById('reg-medio');
+  document.querySelectorAll('#reg-medio-chips button').forEach(b => { b.classList.toggle('on', b.dataset.m === sel.value); b.disabled = sel.disabled; });
+}
+document.getElementById('reg-medio-chips').addEventListener('click', e => {
+  const b = e.target.closest('button[data-m]'); if(!b || b.disabled) return;
+  const sel = document.getElementById('reg-medio');
+  sel.value = b.dataset.m; sel.dispatchEvent(new Event('change'));
+  regSyncMedios(); updateResumen();
+});
+function regFaltaTexto(){
+  const noVino = document.getElementById('reg-novino').checked;
+  if(!document.getElementById('reg-paciente-nombre').value.trim()) return 'Falta el paciente';
+  if(!REG_SERV_SEL.size) return 'Agrega al menos un servicio o producto';
+  if(noVino && [...REG_SERV_SEL.keys()].some(esFarmKey)) return '"No vino" no puede llevar productos de farmacia';
+  if([...REG_SERV_SEL.values()].some(v => !v?.atendidoPor)) return 'Elige quién atendió / vendió en los renglones en naranja';
+  if(!noVino && !document.getElementById('reg-medio').value) return 'Elige la forma de pago';
+  return '';
+}
 function updateResumen(){
   regRepartirSplitAuto();
   const nombre = document.getElementById('reg-paciente-nombre').value.trim();
@@ -4446,7 +4688,28 @@ function updateResumen(){
   document.getElementById('reg-r-meta').textContent = metaParts.join(' · ');
   document.getElementById('reg-r-val').textContent = fmtMoney(montoServicios);
   regPreviewTriple();
+  regSyncMedios();
+  const nCon = REG_SERV_SEL.size;
+  const tkN = document.getElementById('reg-tk-n'); if(tkN) tkN.textContent = nCon + (nCon === 1 ? ' concepto' : ' conceptos');
+  const mb = document.getElementById('reg-mbar-l'); if(mb) mb.textContent = nCon ? `${nCon} concepto${nCon === 1 ? '' : 's'} · ${fmtMoney0(montoServicios)}` : 'Ticket vacío';
+  const falta = regFaltaTexto();
+  const fEl = document.getElementById('reg-falta'); if(fEl) fEl.textContent = falta;
+  const bG = document.getElementById('reg-btn-guardar');
+  if(bG && !bG.disabled) bG.textContent = noVino ? '👻 Registrar "No vino"' : (montoServicios ? '✓ Registrar cobro · ' + fmtMoney0(montoServicios) : '✓ Registrar');
 }
+document.getElementById('reg-mbar').addEventListener('click', () => document.getElementById('reg-ticket').classList.add('open'));
+document.getElementById('reg-tk-close').addEventListener('click', () => document.getElementById('reg-ticket').classList.remove('open'));
+document.getElementById('reg-serv-chips').addEventListener('click', e => {
+  const b = e.target.closest('button[data-g]'); if(!b) return;
+  REG_GRUPO = b.dataset.g; regServRefrescar();
+});
+document.addEventListener('keydown', e => {
+  if(e.key !== '/' || e.ctrlKey || e.metaKey) return;
+  const tag = (document.activeElement?.tagName || '').toLowerCase();
+  if(tag === 'input' || tag === 'textarea' || tag === 'select') return;
+  if(!document.getElementById('app-screen-registro')?.classList.contains('act')) return;
+  e.preventDefault(); document.getElementById('reg-serv-buscar').focus();
+});
 ['reg-paciente-nombre','reg-monto1','reg-monto2'].forEach(id=>{
   document.getElementById(id).addEventListener('input', updateResumen);
 });
@@ -4523,6 +4786,7 @@ document.getElementById('reg-btn-2pago').addEventListener('click', ()=>{
 // ── No vino ──
 document.getElementById('reg-novino').addEventListener('change', (e)=>{
   const noVino = e.target.checked;
+  setTimeout(regSyncMedios, 0);
   ['reg-medio','reg-terminal','reg-btn-2pago'].forEach(id=>{
     document.getElementById(id).disabled = noVino;
   });
@@ -8421,25 +8685,49 @@ function cfgRepartoHtml(precio, pct, doctorId){
   const p = Number(precio) || 0, d = p * Number(pct);
   return `Dra. <b>${fmtMoney(d)}</b> · NH <b>${fmtMoney(p - d)}</b>`;
 }
+let CFG_TIPOS = [];
+let CFG_TIPOS_FILTRO = 'todos';
 async function cargarCatalogoTipos(){
   const tbody = document.getElementById('cfg-tipos-tbody');
-  tbody.innerHTML = '<tr><td colspan="9" class="empty-note">Cargando...</td></tr>';
+  tbody.innerHTML = '<tr><td colspan="11" class="empty-note">Cargando...</td></tr>';
   const selNuevo = document.getElementById('cfg-tipo-doctor');
   if(selNuevo) selNuevo.innerHTML = cfgDoctorasOpciones(selNuevo.value);
   const { data, error } = await sb.from('catalogo_tipos_servicio').select('*').order('orden');
   if(error){
     console.error('[NovaHouse] Error listando tipos_servicio:', error);
-    tbody.innerHTML = '<tr><td colspan="9" class="empty-note">No se pudo cargar.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="11" class="empty-note">No se pudo cargar.</td></tr>';
     return;
   }
-  const lista = data || [];
-  if(!lista.length){ tbody.innerHTML = '<tr><td colspan="9" class="empty-note">Sin registros.</td></tr>'; return; }
+  CFG_TIPOS = data || [];
+  renderCatalogoTipos();
+}
+function cfgTipoSinPct(t){ return (t.pct_doctor === null || t.pct_doctor === undefined) && (CATALOGOS.personal || []).find(p => p.id === t.doctor_id)?.esquema_pago !== 'renta'; }
+function renderCatalogoTipos(){
+  const tbody = document.getElementById('cfg-tipos-tbody');
+  const rev = CFG_TIPOS.filter(t => t.por_revisar);
+  const al = document.getElementById('cfg-tipos-alerta');
+  if(rev.length){
+    al.innerHTML = `⚠ <span><b>${rev.length} servicio${rev.length === 1 ? '' : 's'} por revisar</b> del catálogo de Odoo (sin doctora, precios distintos o conceptos que no parecen venta).</span><button class="btn-sm" type="button" data-tf="revisar">Ver cuáles</button>`;
+    al.style.display = '';
+  } else al.style.display = 'none';
+  const q = normalizar(document.getElementById('cfg-tipos-buscar').value || '').trim();
+  const lista = CFG_TIPOS.filter(t => {
+    if(q && !normalizar(t.nombre + ' ' + (t.grupo || '')).includes(q)) return false;
+    if(CFG_TIPOS_FILTRO === 'consulta' || CFG_TIPOS_FILTRO === 'procedimiento') return (t.categoria || 'consulta') === CFG_TIPOS_FILTRO;
+    if(CFG_TIPOS_FILTRO === 'revisar') return t.por_revisar;
+    if(CFG_TIPOS_FILTRO === 'sinpct') return cfgTipoSinPct(t) && t.activo;
+    return true;
+  });
+  document.getElementById('cfg-tipos-count').textContent = lista.length + ' de ' + CFG_TIPOS.length;
+  if(!lista.length){ tbody.innerHTML = '<tr><td colspan="11" class="empty-note">Sin resultados.</td></tr>'; return; }
   const pctTxt = v => (v === null || v === undefined) ? '' : String(Math.round(Number(v) * 10000) / 100);
   tbody.innerHTML = lista.map(t => {
-    const sinPct = (t.pct_doctor === null || t.pct_doctor === undefined) && (CATALOGOS.personal || []).find(p => p.id === t.doctor_id)?.esquema_pago !== 'renta';
+    const sinPct = cfgTipoSinPct(t);
     return `
-    <tr data-id="${t.id}" class="${sinPct ? 'sinpct' : ''}">
-      <td><input type="text" class="nm cfg-tipo-nm" value="${esc2(t.nombre)}"/></td>
+    <tr data-id="${t.id}" class="${sinPct ? 'sinpct' : ''} ${t.por_revisar ? 'porrev' : ''}">
+      <td><input type="text" class="nm cfg-tipo-nm" value="${esc2(t.nombre)}"/>${t.por_revisar ? `<div class="nh-rev-tag">⚠ ${esc2(t.nota_revision || 'Por revisar')}</div><button class="nh-rev-ok cfg-tipo-revok" type="button" title="Marcar como revisado">✓ Revisado</button>` : ''}</td>
+      <td><select class="cat cfg-tipo-cat"><option value="consulta" ${t.categoria !== 'procedimiento' ? 'selected' : ''}>Consulta</option><option value="procedimiento" ${t.categoria === 'procedimiento' ? 'selected' : ''}>Procedimiento</option></select></td>
+      <td><input type="text" class="gr cfg-tipo-gr" value="${esc2(t.grupo || '')}" placeholder="Grupo"/></td>
       <td><select class="cfg-tipo-doc">${cfgDoctorasOpciones(t.doctor_id)}</select></td>
       <td><input type="number" class="pr cfg-tipo-pr" min="0" step="0.01" value="${t.precio ?? ''}" placeholder="0.00"/></td>
       <td><input type="number" class="pc cfg-tipo-pc" min="0" max="100" step="0.01" value="${pctTxt(t.pct_doctor)}" placeholder="%"/></td>
@@ -8452,13 +8740,19 @@ async function cargarCatalogoTipos(){
   tbody.querySelectorAll('tr').forEach(tr=>{
     const id = tr.dataset.id;
     const t = lista.find(x => x.id === id) || {};
+    tr.querySelector('.cfg-tipo-revok')?.addEventListener('click', async ()=>{
+      const ok = await catalogoActualizar('catalogo_tipos_servicio', id, { por_revisar: false, nota_revision: null });
+      if(ok){ t.por_revisar = false; t.nota_revision = null; toast('✓ Marcado como revisado'); renderCatalogoTipos(); }
+    });
+    tr.querySelector('.cfg-tipo-cat').addEventListener('change', async e => { if(await catalogoActualizar('catalogo_tipos_servicio', id, { categoria: e.target.value })){ t.categoria = e.target.value; toast('✓ Guardado'); cargarCatalogos(); } });
+    tr.querySelector('.cfg-tipo-gr').addEventListener('change', async e => { const g = e.target.value.trim() || null; if(await catalogoActualizar('catalogo_tipos_servicio', id, { grupo: g })){ t.grupo = g; toast('✓ Grupo guardado'); cargarCatalogos(); } });
     const refrescarMon = () => {
       const precio = tr.querySelector('.cfg-tipo-pr').value, pcv = tr.querySelector('.cfg-tipo-pc').value;
       const pct = pcv === '' ? null : Number(pcv) / 100;
       tr.querySelector('.mon').innerHTML = cfgRepartoHtml(precio, pct, tr.querySelector('.cfg-tipo-doc').value);
       tr.classList.toggle('sinpct', pct === null && (CATALOGOS.personal || []).find(p => p.id === tr.querySelector('.cfg-tipo-doc').value)?.esquema_pago !== 'renta');
     };
-    const guardar = async (payload, msg) => { const ok = await catalogoActualizar('catalogo_tipos_servicio', id, payload); if(ok){ toast(msg || '✓ Guardado'); cargarCatalogos(); } return ok; };
+    const guardar = async (payload, msg) => { const ok = await catalogoActualizar('catalogo_tipos_servicio', id, payload); if(ok){ Object.assign(t, payload); toast(msg || '✓ Guardado'); cargarCatalogos(); } return ok; };
     tr.querySelector('.cfg-tipo-nm').addEventListener('change', async (e)=>{
       const nombre = e.target.value.trim();
       if(!nombre){ e.target.value = t.nombre; toast('El nombre no puede quedar vacío.'); return; }
@@ -8489,6 +8783,13 @@ async function cargarCatalogoTipos(){
     });
   });
 }
+document.getElementById('cfg-tipos-buscar').addEventListener('input', renderCatalogoTipos);
+document.getElementById('app-screen-personal').addEventListener('click', e => {
+  const b = e.target.closest('[data-tf]'); if(!b) return;
+  CFG_TIPOS_FILTRO = b.dataset.tf;
+  document.querySelectorAll('.nh-tipos-top [data-tf]').forEach(x => x.classList.toggle('act', x.dataset.tf === CFG_TIPOS_FILTRO));
+  renderCatalogoTipos();
+});
 document.getElementById('cfg-btn-agregar-tipo').addEventListener('click', async ()=>{
   const nombre = document.getElementById('cfg-tipo-nombre').value.trim();
   if(!nombre){ alertaCampo('cfg-tipo-nombre', 'Escribe el nombre del servicio.'); return; }
@@ -8505,12 +8806,14 @@ document.getElementById('cfg-btn-agregar-tipo').addEventListener('click', async 
     nombre, doctor_id, precio, referencia_precio: precio === null ? null : fmtMoney0(precio),
     pct_doctor: pct === null ? null : Math.round(pct * 100) / 10000,
     es_consulta: document.getElementById('cfg-tipo-consulta').checked,
+    categoria: document.getElementById('cfg-tipo-cat').value,
+    grupo: document.getElementById('cfg-tipo-grupo').value.trim() || null,
     es_primera_vez: document.getElementById('cfg-tipo-primera').checked,
     activo: true, orden: maxOrden + 1,
   });
   btn.disabled = false;
   if(ok){
-    ['cfg-tipo-nombre','cfg-tipo-precio','cfg-tipo-pct'].forEach(x => document.getElementById(x).value = '');
+    ['cfg-tipo-nombre','cfg-tipo-precio','cfg-tipo-pct','cfg-tipo-grupo'].forEach(x => document.getElementById(x).value = '');
     document.getElementById('cfg-tipo-primera').checked = false;
     toast('✓ Servicio agregado.');
     cargarCatalogoTipos();
@@ -8547,16 +8850,26 @@ function renderCfgFarmacia(){
     if(q && !(farmNorm(p.nombre).includes(q) || farmNorm((p.clave||'') + ' ' + (p.claves_alt||'')).includes(q))) return false;
     if(CFG_FARM_FILTRO === 'editados') return p.precio_excel != null && Number(p.precio) !== Number(p.precio_excel);
     if(CFG_FARM_FILTRO === 'inactivos') return !p.activo;
+    if(CFG_FARM_FILTRO === 'revisar') return p.por_revisar;
     return true;
   });
+  const revF = CFG_FARM.filter(p => p.por_revisar);
+  const alF = document.getElementById('cfg-farm-alerta');
+  if(alF){
+    if(revF.length){
+      alF.innerHTML = `⚠ <span><b>${revF.length} producto${revF.length === 1 ? '' : 's'} por revisar</b>: venían con precio de $1 / $0 en Odoo (cargados desactivados) o con precio menor al costo.</span><button class="btn-sm" type="button" id="cfg-farm-ver-rev">Ver cuáles</button>`;
+      alF.style.display = '';
+      alF.querySelector('#cfg-farm-ver-rev').onclick = () => document.querySelector('[data-fpf="revisar"]').click();
+    } else alF.style.display = 'none';
+  }
   document.getElementById('cfg-farm-count').textContent = lista.length + ' de ' + CFG_FARM.length + ' productos';
   if(!lista.length){ tbody.innerHTML = '<tr><td colspan="5" class="empty-note">' + (CFG_FARM.length ? 'Sin resultados.' : 'Todavía no hay productos. Importa tu Excel o agrega uno abajo.') + '</td></tr>'; return; }
   const puedeNom = MI_PERFIL?.rol === 'admin' || MI_PERFIL?.permisos?.puede_editar_productos === true;
   tbody.innerHTML = lista.map(p => {
     const editado = p.precio_excel != null && Number(p.precio) !== Number(p.precio_excel);
-    return `<tr data-id="${esc2(p.id)}">
+    return `<tr data-id="${esc2(p.id)}" class="${p.por_revisar ? 'porrev' : ''}">
       <td class="fp-clave" title="${esc2(p.claves_alt ? 'También: ' + p.claves_alt : '')}">${esc2(p.clave || '—')}${p.claves_alt ? ' +' + p.claves_alt.split(',').length : ''}</td>
-      <td class="fp-nom">${puedeNom ? `<input type="text" class="cfg-farm-nom-inp" maxlength="160" value="${esc2(p.nombre)}" title="Editar nombre"/>` : esc2(p.nombre)}${p.piezas > 1 ? `<span class="tagf">${p.piezas} pzas</span>` : ''}${p.promo_grupo ? `<span class="tagf">promo ${p.promo_cada}×${fmtMoney0(p.promo_precio)}</span>` : ''}</td>
+      <td class="fp-nom">${puedeNom ? `<input type="text" class="cfg-farm-nom-inp" maxlength="160" value="${esc2(p.nombre)}" title="Editar nombre"/>` : esc2(p.nombre)}${p.piezas > 1 ? `<span class="tagf">${p.piezas} pzas</span>` : ''}${p.promo_grupo ? `<span class="tagf">promo ${p.promo_cada}×${fmtMoney0(p.promo_precio)}</span>` : ''}${p.grupo ? `<span class="tagf">${esc2(p.grupo)}</span>` : ''}${p.por_revisar ? `<div class="nh-rev-tag">⚠ ${esc2(p.nota_revision || 'Por revisar')}</div><button class="nh-rev-ok cfg-farm-revok" type="button">✓ Revisado</button>` : ''}</td>
       <td><span class="fp-precio"><span>$</span><input type="number" min="0" step="0.01" class="cfg-farm-precio" value="${esc2(p.precio)}"/></span>${editado ? `<span class="fp-ed" title="Precio original del Excel">editado · Excel ${fmtMoney0(p.precio_excel)}</span>` : ''}</td>
       <td><input type="checkbox" class="cfg-farm-activo" ${p.activo ? 'checked' : ''}/></td>
       <td>${MI_PERFIL?.rol === 'admin' ? '<button class="btn-sm btn-del" type="button">Eliminar</button>' : ''}</td>
@@ -8573,6 +8886,10 @@ function renderCfgFarmacia(){
       const ok = await catalogoActualizar('farmacia_productos', id, { nombre });
       if(ok){ prod().nombre = nombre; toast('✓ Nombre guardado'); renderCfgFarmacia(); cargarCatalogoFarmaciaReg(); }
       else renderCfgFarmacia();
+    });
+    tr.querySelector('.cfg-farm-revok')?.addEventListener('click', async () => {
+      const ok = await catalogoActualizar('farmacia_productos', id, { por_revisar: false, nota_revision: null });
+      if(ok){ prod().por_revisar = false; prod().nota_revision = null; toast('✓ Marcado como revisado'); renderCfgFarmacia(); }
     });
     tr.querySelector('.cfg-farm-precio').addEventListener('change', async e => {
       const v = Number(e.target.value);

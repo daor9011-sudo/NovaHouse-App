@@ -463,7 +463,7 @@ main.appmain{padding:22px 26px 40px;max-width:1250px;margin:0 auto}
   #hist-tbody td:nth-child(1)::before{content:"Fecha"}
   #hist-tbody td:nth-child(2)::before{content:"Paciente"}
   #hist-tbody td:nth-child(3)::before{content:"Procedencia"}
-  #hist-tbody td:nth-child(4)::before{content:"Dueño del paciente"}
+  #hist-tbody td:nth-child(4)::before{content:"Doctora del paciente"}
   #hist-tbody td:nth-child(5)::before{content:"Doctor (consulta)"}
   #hist-tbody td:nth-child(6)::before{content:"Atendió"}
   #hist-tbody td:nth-child(7)::before{content:"Servicio"}
@@ -1377,7 +1377,7 @@ table.cpd-tx tr.sin td{color:var(--g4)} table.cpd-tx tr.sin td.pac{color:var(--g
   .doc-name{max-width:none;white-space:normal;overflow:visible;font-size:11px}
   .prod-title{font-size:13px}
   /* Comisiones: etiquetas en las tarjetas del detalle */
-  #com-detalle-wrap td:nth-child(1)::before{content:'Fecha'}#com-detalle-wrap td:nth-child(2)::before{content:'Paciente'}#com-detalle-wrap td:nth-child(3)::before{content:'Dueño del paciente'}#com-detalle-wrap td:nth-child(4)::before{content:'Servicio'}#com-detalle-wrap td:nth-child(5)::before{content:'Atendió'}#com-detalle-wrap td:nth-child(6)::before{content:'Regla aplicada'}
+  #com-detalle-wrap td:nth-child(1)::before{content:'Fecha'}#com-detalle-wrap td:nth-child(2)::before{content:'Paciente'}#com-detalle-wrap td:nth-child(3)::before{content:'Doctora del paciente'}#com-detalle-wrap td:nth-child(4)::before{content:'Servicio'}#com-detalle-wrap td:nth-child(5)::before{content:'Atendió'}#com-detalle-wrap td:nth-child(6)::before{content:'Regla aplicada'}
   #com-detalle-wrap td[data-l]::before{content:attr(data-l)}
   #com-detalle-wrap .tx-table td.num{text-align:left}
   #com-detalle-wrap .tx-table td.pc{max-width:none;white-space:normal}
@@ -1395,7 +1395,8 @@ table.cpd-tx tr.sin td{color:var(--g4)} table.cpd-tx tr.sin td.pac{color:var(--g
 .reg-h .n{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:11.5px;display:grid;place-items:center;flex:none}
 .reg-h .r{margin-left:auto;font-family:var(--font-b);font-weight:600;font-size:12px;color:var(--g6)}
 .reg-h .r input[type=date]{border:1.5px solid var(--g2);border-radius:8px;padding:5px 8px;font:600 12.5px var(--font-b);color:var(--navy)}
-.reg-pac-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:12px}
+.reg-pac-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:12px 16px}
+.reg-pac-grid select,.reg-pac-grid input{width:100%}
 .reg-pac-grid .form-group{gap:5px}
 .reg-tabs{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
 .reg-tab{display:flex;align-items:center;gap:8px;border:1.5px solid var(--g2);background:#fff;border-radius:12px;padding:9px 14px;font:700 13px var(--font-b);color:var(--g6);cursor:pointer}
@@ -1655,8 +1656,9 @@ tr.porrev td{background:#FFFBF2}
                 <div id="reg-paciente-selected" style="display:none;margin-top:6px"></div>
               </div>
               <div class="form-group"><label>Teléfono</label><input type="text" id="reg-telefono" placeholder="10 dígitos"/></div>
+              <div class="form-group" id="reg-grp-dueno"><label>Doctora <span class="req-badge">obligatorio</span></label><select id="reg-dueno"><option value="">Seleccionar...</option></select></div>
+
               <div class="form-group" id="reg-grp-procedencia"><label>¿Cómo nos conoció?</label><select id="reg-procedencia"><option value="">Seleccionar...</option></select></div>
-              <div class="form-group" id="reg-grp-dueno"><label>Dueño del paciente <span class="req-badge">obligatorio</span></label><select id="reg-dueno"><option value="">Seleccionar...</option></select></div>
             </div>
           </div>
           <div class="reg-card">
@@ -1760,7 +1762,7 @@ tr.porrev td{background:#FFFBF2}
 
       <div class="tx-table-wrap">
         <table class="tx-table tx-cards">
-          <thead><tr><th><span class="hi">📅</span>Fecha</th><th><span class="hi">👤</span>Paciente</th><th><span class="hi">📍</span>Procedencia</th><th><span class="hi">🧑‍⚕️</span>Dueño del<br>paciente</th><th title="Doctor registrado en la consulta"><span class="hi">🩺</span>Doctor</th><th title="Quién atendió este servicio en particular"><span class="hi">✅</span>Atendió</th><th><span class="hi">🏷️</span>Servicio</th><th><span class="hi">💲</span>Monto</th><th><span class="hi">💳</span>Pago</th><th><span class="hi">🧾</span>N° Factura</th><th></th></tr></thead>
+          <thead><tr><th><span class="hi">📅</span>Fecha</th><th><span class="hi">👤</span>Paciente</th><th><span class="hi">📍</span>Procedencia</th><th><span class="hi">🧑‍⚕️</span>Doctora del<br>paciente</th><th title="Doctor registrado en la consulta"><span class="hi">🩺</span>Doctor</th><th title="Quién atendió este servicio en particular"><span class="hi">✅</span>Atendió</th><th><span class="hi">🏷️</span>Servicio</th><th><span class="hi">💲</span>Monto</th><th><span class="hi">💳</span>Pago</th><th><span class="hi">🧾</span>N° Factura</th><th></th></tr></thead>
           <tbody id="hist-tbody"></tbody>
         </table>
         <div class="empty-note" id="hist-empty" style="display:none">No hay consultas para los filtros seleccionados.</div>
@@ -1938,7 +1940,7 @@ tr.porrev td{background:#FFFBF2}
         <div class="sec-title">Detalle de servicios <span style="font-weight:600;text-transform:none;letter-spacing:0;font-size:10.5px" id="com-detalle-count"></span></div>
         <div class="com-filtros">
           <label>Atendió<select id="com-f-atiende"><option value="">Todos</option></select></label>
-          <label>Dueño del paciente<select id="com-f-dueno"><option value="">Todos</option></select></label>
+          <label>Doctora del paciente<select id="com-f-dueno"><option value="">Todos</option></select></label>
           <label>Paciente o servicio<input type="search" id="com-f-q" placeholder="Buscar..." autocomplete="off"/></label>
           <button class="btn-sm btn-outline" id="com-f-limpiar" type="button">Limpiar</button>
         </div>
@@ -2253,7 +2255,7 @@ tr.porrev td{background:#FFFBF2}
       <div class="form-grid" style="grid-template-columns:1fr 1fr">
         <div class="form-group full"><label>Paciente</label><input type="text" id="edit-paciente-nombre" style="font-weight:700"/></div>
         <div class="form-group"><label>Fecha</label><input type="date" id="edit-fecha"/></div>
-        <div class="form-group"><label>Dueño del paciente</label><select id="edit-dueno"></select></div>
+        <div class="form-group"><label>Doctora</label><select id="edit-dueno"></select></div>
         <div class="form-group"><label>Procedencia</label><select id="edit-procedencia"></select></div>
         <div class="form-group full">
           <label>Servicios <span class="req-badge">al menos uno</span></label>
@@ -2466,7 +2468,7 @@ tr.porrev td{background:#FFFBF2}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.20-3';
+const APP_VERSION = 'v2026.10.20-4';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 
@@ -4840,7 +4842,7 @@ async function guardarRegistro(){
   // seleccionarPaciente). Si ya tiene dueño, el campo está oculto y no se vuelve a pedir.
   const grpDuenoVisible = document.getElementById('reg-grp-dueno').style.display !== 'none';
   if(grpDuenoVisible && !document.getElementById('reg-dueno').value){
-    alertaCampo('reg-dueno', 'Selecciona el dueño del paciente.');
+    alertaCampo('reg-dueno', 'Selecciona la doctora del paciente.');
     return;
   }
   if(REG_SERV_SEL.size === 0){ alertaCampo('reg-serv-buscar', 'Selecciona al menos un servicio o producto.'); return; }
@@ -5996,7 +5998,7 @@ function exportarExcel(filas){
         'Fecha': r.fecha,
         'Paciente': nomProp(r.pacientes?.nombre) || '',
         'Procedencia': r.pacientes?.catalogo_procedencia?.nombre || '',
-        'Dueño del paciente': r.pacientes?.dueno?.nombre || '',
+        'Doctora del paciente': r.pacientes?.dueno?.nombre || '',
         'Teléfono': r.pacientes?.telefono || '',
         'Servicio': cs?.catalogo_tipos_servicio?.nombre || '',
         'Regla de comisión': info.regla || '',

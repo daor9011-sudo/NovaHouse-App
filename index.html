@@ -1719,7 +1719,7 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
                 <div id="reg-paciente-selected" style="display:none;margin-top:6px"></div>
               </div>
               <div class="form-group"><label>Teléfono</label><input type="text" id="reg-telefono" placeholder="10 dígitos"/></div>
-              <div class="form-group" id="reg-grp-dueno"><label>Doctora <span class="req-badge">obligatorio</span></label><select id="reg-dueno"><option value="">Seleccionar...</option></select></div>
+              <div class="form-group" id="reg-grp-dueno"><label title="Doctora de esta visita: Consultas muestra solo las suyas">Doctora <span class="req-badge">obligatorio</span></label><select id="reg-dueno"><option value="">Seleccionar...</option></select></div>
               <div class="form-group" id="reg-grp-procedencia"><label>¿Cómo nos conoció?</label><select id="reg-procedencia"><option value="">Seleccionar...</option></select></div>
               <div class="form-group"><label>Fecha</label><input type="date" id="reg-fecha" title="Fecha de la visita"/></div>
             </div>
@@ -2535,7 +2535,7 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.20-5';
+const APP_VERSION = 'v2026.10.20-6';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 
@@ -4116,6 +4116,35 @@ function nombresServicios(consultaServicios, doctorPrincipalNombre){
 // "igual que el doctor/atendido principal de arriba" (así una consulta de un doctor puede derivar
 // un servicio de cabina hecho por otra persona, ej. una cosmetóloga).
 const esFarmKey = k => String(k).startsWith('f:');
+// ── Consulta ↔ Doctora de la visita: siempre amarradas ──
+// Una consulta del catálogo pertenece a una doctora (doctor_id). Esa consulta solo puede quedar en el ticket
+// si la Doctora de la visita es ella; su "Atendió" queda fijo. Si se elige primero la consulta, la Doctora se llena sola.
+function regDoctoraFijaDe(id){
+  if(esFarmKey(id)) return null;
+  const t = tipoServicioPorId(id);
+  return (t && t.categoria !== 'procedimiento' && t.doctor_id) ? t.doctor_id : null;
+}
+function regDoctoraActual(){ return document.getElementById('reg-dueno').value || ''; }
+let REG_DOCTORA_PREV = '';
+async function regDoctoraCambio(silencioso){
+  const sel = document.getElementById('reg-dueno');
+  const nueva = sel.value || '';
+  const ajenas = [...REG_SERV_SEL.keys()].filter(id => { const d = regDoctoraFijaDe(id); return d && nueva && d !== nueva; });
+  if(ajenas.length && !silencioso){
+    const nom = CATALOGOS.personal.find(p => p.id === nueva)?.nombre || 'la nueva doctora';
+    const ok = await confirmarAsync({ icono:'🩺', titulo:'¿Cambiar la doctora de la visita?', textoConfirmar:'Sí, cambiar',
+      mensaje:`El ticket tiene ${ajenas.length === 1 ? 'una consulta' : ajenas.length + ' consultas'} de otra doctora. Si cambias a <b>${esc2(nom)}</b> se ${ajenas.length === 1 ? 'quitará' : 'quitarán'} del ticket.` });
+    if(!ok){ sel.value = REG_DOCTORA_PREV; return; }
+    ajenas.forEach(id => REG_SERV_SEL.delete(id));
+  }
+  // Lo que no es consulta fija y no tenía quién atendió, toma a la doctora de la visita
+  if(nueva) REG_SERV_SEL.forEach((v, id) => { if(!regDoctoraFijaDe(id) && !v?.atendidoPor){ const p = CATALOGOS.personal.find(x => x.id === nueva); if(p) REG_SERV_SEL.set(id, { ...v, atendidoPor: nueva }); } });
+  REG_DOCTORA_PREV = nueva;
+  if(REG_CAT_FILTRO === 'cons') REG_GRUPO = '';
+  regServRefrescar();
+}
+document.getElementById('reg-dueno').addEventListener('change', () => regDoctoraCambio(false));
+
 // Registro: tarjetas por pestaña (Consultas / Procedimientos / Farmacia) con sub-filtro por grupo.
 // Con texto en el buscador se busca en TODO el catálogo, sin importar la pestaña.
 const REG_TAB_DE = s => (s.categoria === 'procedimiento' ? 'proc' : 'cons');
@@ -4144,11 +4173,13 @@ function regContarTabs(items){
   ['cons','proc','farm'].forEach(t => { const el = document.getElementById('reg-n-' + t); if(el) el.textContent = items.filter(i => i.t === t).length; });
 }
 function renderTarjetasRegistro(grid, filtro, selMap){
-  const items = regItemsCatalogo();
+  const doc = regDoctoraActual();
+  const todos = regItemsCatalogo();
+  const items = doc ? todos.filter(i => i.t !== 'cons' || !i.doctor_id || i.doctor_id === doc) : todos;
   regContarTabs(items);
   regPintarChips(items);
   const f = normalizar(filtro || '').trim();
-  const lista = f ? items.filter(i => normalizar(i.nombre).includes(f))
+  const lista = f ? todos.filter(i => normalizar(i.nombre).includes(f))
                   : items.filter(i => i.t === REG_CAT_FILTRO && (!REG_GRUPO || regGrupoDe(i) === REG_GRUPO));
   lista.sort((a, b) => a.t !== b.t ? ['cons','proc','farm'].indexOf(a.t) - ['cons','proc','farm'].indexOf(b.t) : (f || a.t !== 'cons' ? a.nombre.localeCompare(b.nombre, 'es') : 0));
   if(!lista.length){
@@ -4156,7 +4187,9 @@ function renderTarjetasRegistro(grid, filtro, selMap){
     return;
   }
   const TABN = { cons:'🩺 Consulta', proc:'✨ Procedimiento', farm:'💊 Farmacia' };
-  grid.innerHTML = lista.slice(0, 400).map(i => {
+  const docNom = doc ? (CATALOGOS.personal.find(p => p.id === doc)?.nombre || '') : '';
+  const notaDoc = (!f && REG_CAT_FILTRO === 'cons' && docNom) ? `<div class="reg-vacio" style="grid-column:1/-1;padding:4px 2px 8px;text-align:left">🩺 Consultas de <b>${esc2(docNom)}</b> · para registrar la consulta de otra doctora, cambia la <b>Doctora</b> arriba.</div>` : '';
+  grid.innerHTML = notaDoc + lista.slice(0, 400).map(i => {
     const v = selMap.get(i.id);
     const n = v ? (i.t === 'farm' ? (parseInt(v.cantidad, 10) || 1) : 1) : 0;
     let sb = '';
@@ -4167,7 +4200,8 @@ function renderTarjetasRegistro(grid, filtro, selMap){
     const stk = (i.t === 'farm' && i.existencia != null) ? `<span class="stk ${i.existencia > 0 ? '' : 'no'}" title="Existencia según Odoo">${i.existencia > 0 ? i.existencia + ' pzas' : 'sin stock'}</span>` : '';
     const precio = i.precio != null ? fmtMoney0(i.precio) : (i.ref || '—');
     const titulo = (i.t === 'cons' && i.doctor_id) ? i.nombre.replace(/\s*·\s*Dra?\..*$/, '') : i.nombre;
-    return `<button type="button" class="rg-it ${n ? 'in' : ''}" data-id="${esc2(i.id)}" data-t="${i.t}" title="${esc2(i.nombre)}"><span class="qb">${n}</span><span class="tx"><span class="nm">${esc2(titulo)}</span>${sb}</span><span class="ft"><span class="pr">${esc2(precio)}</span>${stk}</span></button>`;
+    const ajena = doc && i.t === 'cons' && i.doctor_id && i.doctor_id !== doc;
+    return `<button type="button" class="rg-it ${n ? 'in' : ''}" data-id="${esc2(i.id)}" data-t="${i.t}" title="${esc2(i.nombre)}"${ajena ? ' style="opacity:.55"' : ''}><span class="qb">${n}</span><span class="tx"><span class="nm">${esc2(titulo)}</span>${sb}</span><span class="ft"><span class="pr">${esc2(precio)}</span>${stk}</span></button>`;
   }).join('') + (lista.length > 400 ? `<div class="reg-vacio">Mostrando 400 de ${lista.length}. Escribe en el buscador para encontrar el resto.</div>` : '');
 }
 function renderServiciosGrid(gridId, filtro, selMap, opts){
@@ -4359,7 +4393,7 @@ function renderServiciosSel(selId, selMap, debeMostrarSplitPago){
     }
     return `<div class="a-row" data-id="${esc2(id)}" data-t="${s && s.categoria === 'procedimiento' ? 'proc' : 'cons'}">
       <div class="nom">${nombre}${ref}</div>
-      <select class="atendido-select ${atendidoPor ? '' : 'req'}" title="¿Quién atendió este servicio?">
+      <select class="atendido-select ${atendidoPor ? '' : 'req'}" title="${selId === 'reg-serv-sel' && regDoctoraFijaDe(id) ? 'Fijo: esta consulta es de esta doctora' : '¿Quién atendió este servicio?'}" ${selId === 'reg-serv-sel' && regDoctoraFijaDe(id) ? 'disabled' : ''}>
         <option value="">Seleccionar...</option>
         ${opcionesPersonalAgrupadoHtml(atendidoPor, soloDoctor, fechaFormServ)}
       </select>
@@ -4378,6 +4412,20 @@ function crearSelectorServicios(ids, selMap, onChange, valorAtendidoPorDefecto, 
       document.getElementById(ids.grid).querySelectorAll('.rg-it').forEach(card=>{
         card.addEventListener('click', ()=>{
           const id = card.dataset.id;
+          const fija = regDoctoraFijaDe(id);
+          if(fija && !selMap.has(id)){
+            const actual = regDoctoraActual();
+            if(!actual){
+              const sd = document.getElementById('reg-dueno');
+              if(![...sd.options].some(o => o.value === fija)) poblarSelectDueno();
+              sd.value = fija; REG_DOCTORA_PREV = fija;
+              toast('Doctora de la visita: ' + (CATALOGOS.personal.find(p => p.id === fija)?.nombre || ''));
+            } else if(actual !== fija){
+              const n1 = CATALOGOS.personal.find(p => p.id === fija)?.nombre || 'otra doctora';
+              toast('Esa consulta es de ' + n1 + '. Cambia la Doctora arriba para registrarla.');
+              return;
+            }
+          }
           if(selMap.has(id)){
             if(esFarmKey(id)){
               const prev = selMap.get(id); const cant = (parseInt(prev.cantidad, 10) || 1) + 1;
@@ -4393,7 +4441,7 @@ function crearSelectorServicios(ids, selMap, onChange, valorAtendidoPorDefecto, 
             } else {
               const tsv = tipoServicioPorId(id);
               const precioLista = (tsv && tsv.precio != null) ? String(Number(tsv.precio)) : '';
-              selMap.set(id, { monto: precioLista, atendidoPor: atendidoPor || tsv?.doctor_id || '' });
+              selMap.set(id, { monto: precioLista, atendidoPor: fija || atendidoPor || tsv?.doctor_id || '' });
             }
             toast('＋ ' + card.querySelector('.nm').textContent.slice(0, 48));
           }
@@ -4561,6 +4609,10 @@ function regRepartirSplitAuto(){
 // es doctor/a (ej. una cosmetóloga), no hay a quién precargar: queda en blanco para que se elija
 // explícitamente a un doctor/a.
 function obtenerAtendidoPorDefectoReg(tipoServicioId){
+  const fija = regDoctoraFijaDe(tipoServicioId);
+  if(fija) return fija;
+  const docVisita = document.getElementById('reg-dueno')?.value;
+  if(docVisita) return docVisita;
   if(!MI_PERFIL || (MI_PERFIL.rol !== 'doctor' && MI_PERFIL.rol !== 'cosmetologo')) return '';
   if(esFarmKey(tipoServicioId)) return MI_PERFIL.id; // la venta de farmacia la puede generar un doctor/a o una cosmetóloga
   if(esTipoServicioConsulta(tipoServicioId) && MI_PERFIL.rol !== 'doctor') return '';
@@ -4655,12 +4707,13 @@ function seleccionarPaciente(p){
   // Paciente ya existente: si YA tiene dueño asignado, no hay nada que pedir — se oculta el campo.
   // Si todavía no tiene (quedó "sin dueño" de antes), se deja visible y obligatorio para asignarlo
   // ahora, en vez de dejarlo pasar de nuevo.
+  // La Doctora es la de ESTA visita (una paciente puede ver a varias doctoras). Se sugiere su doctora
+  // habitual solo si todavía no se eligió una y no hay consultas de otra doctora en el ticket.
   const grpDueno = document.getElementById('reg-grp-dueno');
-  if(p.dueno_id){
-    grpDueno.style.display = 'none';
-  } else {
-    grpDueno.style.display = '';
-    document.getElementById('reg-dueno').value = '';
+  grpDueno.style.display = '';
+  const selDoc = document.getElementById('reg-dueno');
+  if(!selDoc.value && p.dueno_id && ![...REG_SERV_SEL.keys()].some(id => { const d = regDoctoraFijaDe(id); return d && d !== p.dueno_id; })){
+    selDoc.value = p.dueno_id; regDoctoraCambio(true);
   }
   const chipBox = document.getElementById('reg-paciente-selected');
   chipBox.innerHTML = `<span class="selected-pac-chip">✓ paciente existente <button type="button" id="reg-btn-cambiar-pac">✕ cambiar</button></span>`;
@@ -4708,6 +4761,8 @@ function regFaltaTexto(){
   if(!REG_SERV_SEL.size) return 'Agrega al menos un servicio o producto';
   if(noVino && [...REG_SERV_SEL.keys()].some(esFarmKey)) return '"No vino" no puede llevar productos de farmacia';
   if([...REG_SERV_SEL.values()].some(v => !v?.atendidoPor)) return 'Elige quién atendió / vendió en los renglones en naranja';
+  if(!document.getElementById('reg-dueno').value) return 'Elige la Doctora de la visita';
+  if([...REG_SERV_SEL.keys()].some(id => { const d = regDoctoraFijaDe(id); return d && d !== document.getElementById('reg-dueno').value; })) return 'Hay una consulta de otra doctora en el ticket';
   if(!noVino && !document.getElementById('reg-medio').value) return 'Elige la forma de pago';
   return '';
 }
@@ -4912,8 +4967,18 @@ async function guardarRegistro(){
   // seleccionarPaciente). Si ya tiene dueño, el campo está oculto y no se vuelve a pedir.
   const grpDuenoVisible = document.getElementById('reg-grp-dueno').style.display !== 'none';
   if(grpDuenoVisible && !document.getElementById('reg-dueno').value){
-    alertaCampo('reg-dueno', 'Selecciona la doctora del paciente.');
+    alertaCampo('reg-dueno', 'Selecciona la doctora de la visita.');
     return;
+  }
+  {
+    const docV = document.getElementById('reg-dueno').value;
+    const choque = [...REG_SERV_SEL.entries()].find(([id, v]) => { const d = regDoctoraFijaDe(id); return d && (d !== docV || (v?.atendidoPor && v.atendidoPor !== d)); });
+    if(choque){
+      const t = tipoServicioPorId(choque[0]);
+      const nomC = CATALOGOS.personal.find(p => p.id === t?.doctor_id)?.nombre || 'otra doctora';
+      alertaCampo('reg-dueno', `La consulta "${t?.nombre || ''}" es de ${nomC}, pero la Doctora de la visita es otra. Corrige la Doctora o quita esa consulta del ticket.`);
+      return;
+    }
   }
   if(REG_SERV_SEL.size === 0){ alertaCampo('reg-serv-buscar', 'Selecciona al menos un servicio o producto.'); return; }
   const hayFarm = [...REG_SERV_SEL.keys()].some(esFarmKey);
@@ -5197,6 +5262,7 @@ function limpiarRegistroCompleto(){
   document.getElementById('reg-grp-dueno').style.display = '';
   REG_SPLIT_MANUAL = false;
   REG_SERV_SEL.clear();
+  REG_DOCTORA_PREV = '';
   regServRender('');
   limpiarSeleccionPaciente();
   document.getElementById('reg-fecha').value = isoLocal(new Date());

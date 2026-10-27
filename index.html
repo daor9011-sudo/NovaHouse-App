@@ -972,6 +972,7 @@ table.fm-pv{width:100%;border-collapse:collapse;font-size:12px}
 .cat-farmacia{background:#FDF0D2;color:#9A6010}
 .cat-papeleria{background:#D9F3F1;color:#0E7C74}
 .cat-leasing_equipos{background:#F1E4D5;color:#8B5E34}
+.cat-marketing{background:#FCE3DF;color:#C0392B}
 .cat-otros{background:#FBDDEA;color:#A3376B}
 .badge-fact{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:99px;font-size:10.5px;font-weight:700;white-space:nowrap}
 .fact-facturado_clinica{background:#E3F7EE;color:#12805C}
@@ -2052,7 +2053,7 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
       <div class="com-hero gasto-hero">
         <div class="com-hero-top">
           <div class="com-hero-ico">💸</div>
-          <div><h1>Gastos</h1><p>Egresos de la clínica · <b id="gasto-hero-per">—</b></p></div>
+          <div><h1>Gastos</h1><p>Egresos de NovaHouse · <b id="gasto-hero-per">—</b></p></div>
           <div class="com-per" id="gasto-per" data-modo="mes">
             <div class="com-seg" role="tablist" aria-label="Periodo"><button type="button" data-m="mes" class="on">Mes</button><button type="button" data-m="rango">Rango</button><button type="button" data-m="todo">Todo</button></div>
             <span class="cl-m">Mes</span><button type="button" class="com-arr" id="gasto-prev" aria-label="Mes anterior">‹</button><input type="month" id="gasto-mes" aria-label="Mes"/><button type="button" class="com-arr" id="gasto-next" aria-label="Mes siguiente">›</button>
@@ -2065,11 +2066,9 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
       </div>
       <div class="filter-bar">
         <input type="text" id="gasto-buscar-top" placeholder="Buscar en descripciones..." style="flex:2;min-width:140px"/>
-        <select id="gasto-doctor-filtro-top"><option value="">Todos los doctores</option></select>
         <select id="gasto-facturacion-filtro-top">
           <option value="">Facturado y no facturado</option>
           <option value="facturado_clinica">Facturado a NovaHouse</option>
-          <option value="facturado_doctor">Facturado a Dr/Dra</option>
           <option value="no_facturado">No facturado</option>
         </select>
       </div>
@@ -2077,7 +2076,6 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
       <div class="split2" id="gasto-split">
         <div class="form-panel" id="gasto-form-panel">
           <h4>➕ Registrar gasto</h4>
-          <div class="fg" id="gasto-grp-doctor" style="display:none"><label>Asociar a</label><select id="gasto-doctor-asociado"><option value="">Seleccionar doctor/a...</option></select></div>
           <div class="fg"><label>Fecha del gasto</label><input type="date" id="gasto-fecha"/></div>
           <div class="fg">
             <label>Categoría</label>
@@ -2091,7 +2089,6 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
             <div class="fact-group" id="gasto-fact-group">
               <label class="fact-chip on"><input type="radio" name="gasto-facturacion" value="no_facturado" checked/><span class="rdot"></span><span>No Facturado</span></label>
               <label class="fact-chip"><input type="radio" name="gasto-facturacion" value="facturado_clinica"/><span class="rdot"></span><span>Facturado a NovaHouse</span></label>
-              <label class="fact-chip"><input type="radio" name="gasto-facturacion" value="facturado_doctor"/><span class="rdot"></span><span>Facturado a Dr/Dra</span></label>
             </div>
           </div>
           <button class="btn-sm" id="gasto-btn-guardar" type="button" style="width:100%;justify-content:center">✓ Guardar gasto</button>
@@ -2100,7 +2097,7 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
           <div class="kpi-grid" id="gasto-kpis"></div>
           <div class="chart-row">
             <div class="chart-box"><div class="chart-title">🍩 Por categoría</div><div class="chart-donut-body"><div class="chart-canvas-wrap donut"><canvas id="chartGastoCat"></canvas></div><div class="chart-legend-custom" id="gasto-legend-cat"></div></div></div>
-            <div class="chart-box"><div class="chart-title">🩺 Por doctor</div><div class="chart-canvas-wrap"><canvas id="chartGastoDoc"></canvas></div></div>
+            <div class="chart-box"><div class="chart-title">📅 Por mes</div><div class="chart-canvas-wrap"><canvas id="chartGastoDoc"></canvas></div></div>
           </div>
           <div class="sec-title">¿Qué incluye cada categoría?</div>
           <div class="cat-info-grid" id="gasto-cat-info"></div>
@@ -2109,18 +2106,16 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
       <div class="sec-title">Todos los gastos<button class="btn-sm btn-outline" id="gasto-btn-exportar">↓ Exportar</button></div>
       <div class="filter-bar">
         <input type="text" id="gasto-buscar" placeholder="Buscar en descripciones..." style="flex:2;min-width:140px"/>
-        <select id="gasto-doctor-filtro"><option value="">Todos los doctores</option></select>
         <select id="gasto-facturacion-filtro">
           <option value="">Facturado y no facturado</option>
           <option value="facturado_clinica">Facturado a NovaHouse</option>
-          <option value="facturado_doctor">Facturado a Dr/Dra</option>
           <option value="no_facturado">No facturado</option>
         </select>
       </div>
       <div class="excl-filters" id="gasto-pills"></div>
       <div class="tx-table-wrap">
         <table class="tx-table">
-          <thead><tr><th>Fecha</th><th>Categoría</th><th>Monto</th><th>Facturación</th><th>Agregado por</th><th>Registrado el</th><th>Descripción</th><th style="width:78px"></th></tr></thead>
+          <thead><tr><th>Fecha</th><th>Categoría</th><th>Monto</th><th>Facturación</th><th>Registró</th><th>Registrado el</th><th>Descripción</th><th style="width:78px"></th></tr></thead>
           <tbody id="gasto-tbody"></tbody>
         </table>
         <div class="empty-note" id="gasto-empty" style="display:none">Sin gastos para este filtro.</div>
@@ -2421,7 +2416,6 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
           <div class="fact-group" id="editg-fact-group">
             <label class="fact-chip on"><input type="radio" name="editg-facturacion" value="no_facturado" checked/><span class="rdot"></span><span>No Facturado</span></label>
             <label class="fact-chip"><input type="radio" name="editg-facturacion" value="facturado_clinica"/><span class="rdot"></span><span>Facturado a NovaHouse</span></label>
-            <label class="fact-chip"><input type="radio" name="editg-facturacion" value="facturado_doctor"/><span class="rdot"></span><span>Facturado a Dr/Dra</span></label>
           </div>
         </div>
       </div>
@@ -2535,7 +2529,7 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.20-6';
+const APP_VERSION = 'v2026.10.27-2';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 
@@ -3054,7 +3048,8 @@ const GASTO_CATEGORIAS = [
   { id:'farmacia', label:'💊 Farmacia', color:'#9A6010', desc:'Medicamentos y productos recetados o entregados al paciente.' },
   { id:'papeleria', label:'📎 Papelería', color:'#0E7C74', desc:'Papel, tóner, insumos de oficina y material impreso.' },
   { id:'leasing_equipos', label:'🩻 Leasing equipos médicos', color:'#8B5E34', desc:'Arrendamiento o financiamiento de equipos médicos y tecnología de la clínica.' },
-  { id:'otros', label:'📦 Otros', color:'#A3376B', desc:'Marketing, mensajería y gastos imprevistos.' },
+  { id:'marketing', label:'📣 Marketing', color:'#C0392B', desc:'Publicidad, redes sociales, diseño, fotografía y material promocional.' },
+  { id:'otros', label:'📦 Otros', color:'#A3376B', desc:'Mensajería, comisiones bancarias y gastos imprevistos.' },
 ];
 function gastoCategoriaInfo(id){ return GASTO_CATEGORIAS.find(c => c.id === id) || { id, label: id, color:'#64748b', desc:'' }; }
 
@@ -3075,7 +3070,6 @@ document.querySelectorAll('.fact-group').forEach(grupo=>{
   });
 });
 
-let GASTO_PERSONAL = []; // personal con permiso puede_ver_gastos
 let GASTO_ROWS = [];
 let chartGastoCat = null, chartGastoDoc = null;
 
@@ -3092,21 +3086,13 @@ document.getElementById('gasto-categoria')?.addEventListener('change', function(
 });
 
 function aplicarVisibilidadFormGasto(){
-  // Los doctores registran sus propios gastos, pero también pueden asociarlos a otro doctor/a
-  // (ej. uno le carga un gasto al otro). El admin no tiene gastos "propios", así que para él
-  // ese campo es obligatorio; para el doctor viene precargado con su propio nombre pero puede
-  // cambiarlo.
-  const esAdmin = MI_PERFIL?.rol === 'admin';
-  const esDoctor = MI_PERFIL?.rol === 'doctor';
-  const puedeRegistrar = esDoctor || esAdmin;
+  // Los gastos son de NovaHouse como sociedad: no se asocian a ninguna doctora.
+  // Quien tiene acceso al módulo los registra; en "Registró" queda su nombre.
+  const puede = MI_PERFIL?.permisos?.puede_ver_gastos === true;
   const panel = document.getElementById('gasto-form-panel');
   const split = document.getElementById('gasto-split');
-  const grpDoctor = document.getElementById('gasto-grp-doctor');
-  if(panel) panel.style.display = puedeRegistrar ? '' : 'none';
-  if(split) split.style.gridTemplateColumns = puedeRegistrar ? '' : '1fr';
-  if(grpDoctor) grpDoctor.style.display = puedeRegistrar ? '' : 'none';
-  const selDoctor = document.getElementById('gasto-doctor-asociado');
-  if(esDoctor && selDoctor && !selDoctor.value) selDoctor.value = MI_PERFIL.id;
+  if(panel) panel.style.display = puede ? '' : 'none';
+  if(split) split.style.gridTemplateColumns = puede ? '' : '1fr';
 }
 
 async function cargarGastos(){
@@ -3114,23 +3100,9 @@ async function cargarGastos(){
   const tbody = document.getElementById('gasto-tbody');
   tbody.innerHTML = '<tr><td colspan="8" class="empty-note">Cargando...</td></tr>';
 
-  const [personalRes, gastosRes] = await Promise.all([
-    sb.from('personal').select('id,nombre').eq('activo', true).eq('rol', 'doctor').contains('permisos', { puede_ver_gastos:true }).order('nombre'),
-    sb.from('gastos').select('id,fecha,categoria,monto,descripcion,facturacion,creado_por,created_at,personal(nombre)').order('fecha', { ascending:false }).order('created_at', { ascending:false }),
-  ]);
-  if(personalRes.error) console.error('[NovaHouse] Error cargando personal de gastos:', personalRes.error);
+  const gastosRes = await sb.from('gastos').select('id,fecha,categoria,monto,descripcion,facturacion,creado_por,created_at,personal(nombre)').order('fecha', { ascending:false }).order('created_at', { ascending:false });
   if(gastosRes.error){ console.error('[NovaHouse] Error cargando gastos:', gastosRes.error); tbody.innerHTML = '<tr><td colspan="8" class="empty-note">No se pudo cargar.</td></tr>'; return; }
-
-  GASTO_PERSONAL = personalRes.data || [];
   GASTO_ROWS = gastosRes.data || [];
-
-  poblarSelect('gasto-doctor-filtro', GASTO_PERSONAL.map(p=>({ value:p.id, label:p.nombre })), 'Todos los doctores');
-  poblarSelect('gasto-doctor-filtro-top', GASTO_PERSONAL.map(p=>({ value:p.id, label:p.nombre })), 'Todos los doctores');
-  poblarSelect('gasto-doctor-asociado', GASTO_PERSONAL.map(p=>({ value:p.id, label:p.nombre })), 'Seleccionar doctor/a...');
-  if(MI_PERFIL?.rol === 'doctor'){
-    const selDoctor = document.getElementById('gasto-doctor-asociado');
-    if(selDoctor && !selDoctor.value) selDoctor.value = MI_PERFIL.id;
-  }
   renderGastoPills();
   refrescarGastoVista();
 }
@@ -3203,13 +3175,11 @@ document.getElementById('gasto-next').addEventListener('click', ()=>gastoMoverMe
 function gastoFilasFiltradas(){
   const catActiva = GASTO_PILL_ACTIVA;
   const texto = document.getElementById('gasto-buscar').value.trim().toLowerCase();
-  const doctorId = document.getElementById('gasto-doctor-filtro').value;
   const facturacion = document.getElementById('gasto-facturacion-filtro').value;
   const { desde, hasta } = gastoPeriodo();
 
   return GASTO_ROWS.filter(g=>{
     if(catActiva !== 'todos' && g.categoria !== catActiva) return false;
-    if(doctorId && g.creado_por !== doctorId) return false;
     if(facturacion && g.facturacion !== facturacion) return false;
     if(desde && g.fecha < desde) return false;
     if(hasta && g.fecha > hasta) return false;
@@ -3226,18 +3196,15 @@ function refrescarGastoVista(){
   renderGastoTabla(filas);
 }
 
-const DOC_COLORS_GASTO = ['#1B3A6B','#7D3C98','#2E7D4F','#9A6010','#A3376B'];
 function renderGastoKpis(filas){
   const cont = document.getElementById('gasto-kpis');
-  const total = filas.reduce((a,g)=> a + Number(g.monto||0), 0);
-  const porPersona = {};
-  filas.forEach(g=>{ const nombre = g.personal?.nombre || '—'; porPersona[nombre] = (porPersona[nombre]||0) + Number(g.monto||0); });
-  let html = `<div class="kpi-card"><div class="ico">💸</div><div class="kpi-label">Gasto total</div><div class="kpi-val">${fmtMoney(total)}</div></div>`;
-  GASTO_PERSONAL.forEach((p, i)=>{
-    const val = porPersona[p.nombre] || 0;
-    html += `<div class="kpi-card" style="border-left:4px solid ${DOC_COLORS_GASTO[i % DOC_COLORS_GASTO.length]}"><div class="ico">🩺</div><div class="kpi-label">${esc2(p.nombre)}</div><div class="kpi-val">${fmtMoney(val)}</div></div>`;
-  });
-  cont.innerHTML = html;
+  const suma = arr => arr.reduce((a,g)=> a + Number(g.monto||0), 0);
+  const total = suma(filas);
+  const fact = suma(filas.filter(g => g.facturacion === 'facturado_clinica'));
+  const pct = v => total > 0 ? ` <small style="font-size:12px;opacity:.6">${(v / total * 100).toFixed(0)}%</small>` : '';
+  cont.innerHTML = `<div class="kpi-card"><div class="ico">💸</div><div class="kpi-label">Gasto total · ${filas.length} ${filas.length === 1 ? 'gasto' : 'gastos'}</div><div class="kpi-val">${fmtMoney(total)}</div></div>`
+    + `<div class="kpi-card" style="border-left:4px solid #12805C"><div class="ico">🧾</div><div class="kpi-label">Facturado a NovaHouse</div><div class="kpi-val">${fmtMoney(fact)}${pct(fact)}</div></div>`
+    + `<div class="kpi-card" style="border-left:4px solid #B23B3B"><div class="ico">⚠️</div><div class="kpi-label">No facturado</div><div class="kpi-val">${fmtMoney(total - fact)}${pct(total - fact)}</div></div>`;
 }
 
 function renderGastoCharts(filas){
@@ -3274,13 +3241,14 @@ function renderGastoCharts(filas){
     legendCat.innerHTML = GASTO_CATEGORIAS.map(c=> `<div class="leg-item"><span class="leg-dot" style="background:${c.color}"></span>${c.label}</div>`).join('');
   }
 
-  const porPersona = {};
-  filas.forEach(g=>{ const nombre = g.personal?.nombre || '—'; porPersona[nombre] = (porPersona[nombre]||0) + Number(g.monto||0); });
-  const nombres = GASTO_PERSONAL.map(p=>p.nombre);
+  const porMes = {};
+  filas.forEach(g=>{ const k = String(g.fecha).slice(0, 7); porMes[k] = (porMes[k]||0) + Number(g.monto||0); });
+  const meses = Object.keys(porMes).sort().slice(-12);
+  const MES_CORTO = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
   if(chartGastoDoc) chartGastoDoc.destroy();
   chartGastoDoc = new Chart(canvasDoc.getContext('2d'), {
     type:'bar',
-    data:{ labels: nombres, datasets:[{ data: nombres.map(n=> porPersona[n]||0), backgroundColor: nombres.map((n,i)=>DOC_COLORS_GASTO[i % DOC_COLORS_GASTO.length]), borderRadius:6, maxBarThickness:38 }] },
+    data:{ labels: meses.map(k => MES_CORTO[Number(k.slice(5)) - 1] + ' ' + k.slice(2, 4)), datasets:[{ data: meses.map(k => porMes[k]), backgroundColor:'#1B3A6B', borderRadius:6, maxBarThickness:38 }] },
     options:{
       maintainAspectRatio:false,
       plugins:{
@@ -3323,7 +3291,7 @@ function renderGastoTabla(filas){
     return;
   }
   empty.style.display = 'none';
-  const puedeEditarGasto = MI_PERFIL?.rol === 'doctor';
+  const puedeEditarGasto = MI_PERFIL?.permisos?.puede_ver_gastos === true;
   tbody.innerHTML = filas.map(g=>{
     const cat = gastoCategoriaInfo(g.categoria);
     const fact = gastoFacturacionInfo(g.facturacion);
@@ -3407,7 +3375,6 @@ document.getElementById('editg-btn-guardar')?.addEventListener('click', async ()
 // así que cada input se mantiene sincronizado con su pareja en ambas direcciones.
 [
   ['gasto-buscar', 'gasto-buscar-top'],
-  ['gasto-doctor-filtro', 'gasto-doctor-filtro-top'],
   ['gasto-facturacion-filtro', 'gasto-facturacion-filtro-top'],
 ].forEach(([idA, idB])=>{
   const elA = document.getElementById(idA);
@@ -3430,11 +3397,9 @@ document.getElementById('gasto-btn-guardar')?.addEventListener('click', async ()
   const categoria = document.getElementById('gasto-categoria').value;
   const monto = Number(document.getElementById('gasto-monto').value || 0);
   const descripcion = document.getElementById('gasto-descripcion').value.trim();
-  const doctorAsociado = document.getElementById('gasto-doctor-asociado').value;
-  const creadoPor = doctorAsociado;
+  const creadoPor = MI_PERFIL?.id || null;
   const facturacion = document.querySelector('#gasto-fact-group input:checked')?.value || 'no_facturado';
 
-  if(!doctorAsociado){ alertaCampo('gasto-doctor-asociado', 'Selecciona a qué doctor/a se asocia este gasto.'); return; }
   if(!fecha){ alertaCampo('gasto-fecha', 'Selecciona la fecha del gasto.'); return; }
   if(!categoria){ alertaCampo('gasto-categoria', 'Selecciona la categoría.'); return; }
   if(!(monto > 0)){ alertaCampo('gasto-monto', 'El monto debe ser mayor a $0.'); return; }
@@ -3451,7 +3416,6 @@ document.getElementById('gasto-btn-guardar')?.addEventListener('click', async ()
   document.getElementById('gasto-descripcion').value = '';
   // Al admin se le limpia (no tiene un "propio" al cual volver); al doctor se le deja tal cual
   // quedó, por si va a registrar varios gastos seguidos asociados a la misma persona.
-  if(MI_PERFIL?.rol === 'admin') document.getElementById('gasto-doctor-asociado').value = '';
   document.getElementById('gasto-categoria').value = '';
   document.querySelectorAll('#gasto-hints .cat-hint').forEach(h=> h.classList.remove('show'));
   const radioNoFacturado = document.querySelector('#gasto-fact-group input[value="no_facturado"]');
@@ -3472,7 +3436,7 @@ document.getElementById('gasto-btn-exportar')?.addEventListener('click', ()=>{
       'Categoría': cat.label.replace(/^\S+\s/, ''),
       'Monto': Number(g.monto||0),
       'Facturación': fact.label,
-      'Agregado por': g.personal?.nombre || '',
+      'Registró': g.personal?.nombre || '',
       'Registrado el': fmtFechaHora(g.created_at),
       'Descripción': g.descripcion || '',
     };
@@ -7465,7 +7429,9 @@ const DASH_COLS_DOC = ['#2ABFBF','#2F6FD0','#7D3C98','#C8820A','#2E7D4F','#B8481
 const dashEsDoctor = id => !!id && (CATALOGOS.personal || []).some(p => p.id === id && p.rol === 'doctor');
 function dashFinActivo(){ return dashVerGasto() && DASH_FIN_OK && !document.getElementById('dash-tipo').value; }
 function dashGastoDe(doctorId){
-  return DASH_GASTOS.filter(g => !doctorId || g.creado_por === doctorId).reduce((a,g)=> a + Number(g.monto || 0), 0);
+  // Gastos de NovaHouse (sociedad): solo existen en global, nunca por doctora
+  if(doctorId) return 0;
+  return DASH_GASTOS.reduce((a,g)=> a + Number(g.monto || 0), 0);
 }
 function dashProdDe(doc){
   if(!doc) return 0;
@@ -7476,7 +7442,7 @@ function dashFinDatos(ingresoLegacy){
   const doctorId = document.getElementById('dash-doctor').value;
   const porFecha = {};
   const add = (f, i, g) => { const m = porFecha[f] || (porFecha[f] = [0,0]); m[0] += i; m[1] += g; };
-  DASH_GASTOS.forEach(g => { if(!doctorId || g.creado_por === doctorId) add(g.fecha, 0, Number(g.monto || 0)); });
+  if(!doctorId) DASH_GASTOS.forEach(g => add(g.fecha, 0, Number(g.monto || 0)));
   DASH_FARM.forEach(f => { if(!doctorId || f.doctor_id === doctorId) add(f.fecha, Number(f.monto || 0), 0); });
   const farmTot = dashFarmDe(doctorId || null);
   let ing, label, sub;
@@ -7523,7 +7489,8 @@ function dashFarmDe(doctorId){
   return DASH_FARM.filter(f => !doctorId || f.doctor_id === doctorId).reduce((a,f)=> a + Number(f.monto || 0), 0);
 }
 function dashFarmGastoDe(doctorId){
-  return DASH_GASTOS.filter(g => g.categoria === 'farmacia' && (!doctorId || g.creado_por === doctorId)).reduce((a,g)=> a + Number(g.monto || 0), 0);
+  if(doctorId) return 0;
+  return DASH_GASTOS.filter(g => g.categoria === 'farmacia').reduce((a,g)=> a + Number(g.monto || 0), 0);
 }
 // Venta de farmacia agrupada por día o mes (para las gráficas de tendencia)
 function dashFarmPorClave(modo){
@@ -7573,7 +7540,7 @@ function renderDashRubros(){
     });
   });
   farm.forEach(f => { sFV[f.fecha] = (sFV[f.fecha] || 0) + Number(f.monto || 0); });
-  DASH_GASTOS.forEach(g => { if(g.categoria === 'farmacia' && (!doctorId || g.creado_por === doctorId)) sFG[g.fecha] = (sFG[g.fecha] || 0) + Number(g.monto || 0); });
+  if(!doctorId) DASH_GASTOS.forEach(g => { if(g.categoria === 'farmacia') sFG[g.fecha] = (sFG[g.fecha] || 0) + Number(g.monto || 0); });
   const fechas = [...new Set([...Object.keys(DASH_FIN_SERIE || {}), ...Object.keys(sFV), ...Object.keys(sFG)])].sort();
   const ser = m => fechas.map(f => m[f] || 0);
   let acc = 0; const sMF = fechas.map(f => (acc += (sFV[f] || 0) - (sFG[f] || 0)));
@@ -7862,8 +7829,8 @@ document.addEventListener('drop', e => { const d = e.target.closest && e.target.
 
 let DASH_FIN_SERIE = null;
 function renderDashFin(ingresoLegacy){
-  const on = dashFinActivo();
   const doctorId = document.getElementById('dash-doctor').value;
+  const on = dashFinActivo() && !doctorId;
   const $ = id => document.getElementById(id);
   $('dash-fin').style.display = on ? '' : 'none';
   $('dash-kpi-ing-card').style.display = on ? 'none' : '';
@@ -7906,7 +7873,7 @@ function renderDashFin(ingresoLegacy){
     .map(d => ({ d, prod: dashProdDe(d), gas: dashGastoDe(d.id) }))
     .filter(x => x.prod > 0.004 || x.gas > 0.004)
     .sort((a, b) => b.prod - a.prod);
-  if(!doctorId && docsRes.length){
+  if(false && !doctorId && docsRes.length){
     const tarjeta = (doc, color) => {
       const prod = dashProdDe(doc), gas = dashGastoDe(doc.id), mar = prod - gas;
       const g = prod > 0 ? gas / prod * 100 : 0, neg = mar < 0;
@@ -7926,6 +7893,7 @@ function renderDashFin(ingresoLegacy){
 
 // Filas "Con gasto y margen" del cara a cara (A y B en el orden en que ya se dibuja el marcador)
 function dashFinCaraACara(dA, dB, cA, cB){
+  return ''; // los gastos son de NovaHouse, no de cada doctora
   if(!dashFinActivo()) return '';
   const prodA = dashProdDe(dA), prodB = dashProdDe(dB);
   const gasA = dashGastoDe(dA.id), gasB = dashGastoDe(dB.id);
@@ -7948,7 +7916,7 @@ function renderDashGasto(rangoTxt){
   const mx = Math.max(...cats.map(c => porCat[c]), 1);
   const docNom = doctorId ? ((CATALOGOS.personal || []).find(p => p.id === doctorId)?.nombre || '') : '';
   document.getElementById('dash-gasto-periodo').textContent = rangoTxt;
-  document.getElementById('dash-gasto-sub').textContent = doctorId ? ('Gasto registrado a nombre de ' + docNom) : 'Global y por doctor';
+  document.getElementById('dash-gasto-sub').textContent = 'Gastos de NovaHouse por categoría';
   document.getElementById('dash-gasto-t1').textContent = (doctorId ? 'Del doctor' : 'Global') + ' · ' + fmtMoney0(total);
   document.getElementById('dash-gasto-bars').innerHTML = cats.length
     ? cats.map(c => `<div class="gx-row"><span>${esc2(nombreCat(c))}</span><div class="tr"><i style="width:${porCat[c] / mx * 100}%"></i></div><b>${fmtMoney0(porCat[c])}</b><small>${(porCat[c] / total * 100).toFixed(2)}%</small></div>`).join('')
@@ -7959,7 +7927,7 @@ function renderDashGasto(rangoTxt){
   const porPersona = {};
   lista.forEach(g => { porPersona[g.creado_por || ''] = (porPersona[g.creado_por || ''] || 0) + Number(g.monto || 0); });
   const ids = Object.keys(porPersona).filter(k => porPersona[k] > 0).sort((a, b) => porPersona[b] - porPersona[a]);
-  if(doctorId || !ids.length){ colTbl.style.display = 'none'; return; }
+  if(true){ colTbl.style.display = 'none'; return; }
   colTbl.style.display = '';
   const nomDe = id => (CATALOGOS.personal || []).find(p => p.id === id)?.nombre || 'Otro';
   const filas = ids.map(id => `<tr><td>${esc2(nomDe(id))}</td><td>${fmtMoney0(porPersona[id])}</td><td>${(porPersona[id] / total * 100).toFixed(1)}%</td></tr>`).join('');

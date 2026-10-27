@@ -1577,6 +1577,9 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
 .hist-seg button.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(11,22,40,.12)}
 .hist-seg button.on em{background:var(--navy);color:#fff}
 @media (max-width:640px){ .hist-seg{width:100%} .hist-seg button{padding:7px 10px;font-size:12px} }
+
+/* Ya dentro de la app la versión va en el pie (la marca flotante tapaba el botón Registrar) */
+body:has(#app-view.act) #app-version-tag{display:none}
 </style>
 </head>
 <body>
@@ -2269,7 +2272,7 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
   </main>
 
   <div class="app-footer">
-    <span class="app-footer-text">© 2026 Mediconsulting. Uso exclusivo para NovaHouse. <span class="app-footer-link" id="link-aviso-legal-2">Aviso legal completo</span></span>
+    <span class="app-footer-text">© 2026 Mediconsulting. Uso exclusivo para NovaHouse. <span class="app-footer-link" id="link-aviso-legal-2">Aviso legal completo</span></span><span class="app-footer-text" id="app-version-foot" style="opacity:.75">·</span>
   </div>
 </div>
 
@@ -2539,9 +2542,10 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.27-3';
+const APP_VERSION = 'v2026.10.27-4';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
+document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
 
 // ── Auto-actualización: detecta una versión nueva publicada y recarga sola ──
 (function(){

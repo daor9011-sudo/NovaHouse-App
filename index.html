@@ -1568,6 +1568,15 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
   .reg-ticket{height:auto}
   .reg-ticket .tk-medios{grid-template-columns:repeat(3,1fr)}
 }
+
+/* Historial: segmentos Todo / Consultas / Procedimientos / Farmacia */
+.hist-seg{display:flex;gap:6px;margin:0 0 14px;background:var(--g1);padding:5px;border-radius:13px;width:max-content;max-width:100%;overflow-x:auto}
+.hist-seg button{display:flex;align-items:center;gap:7px;border:0;background:none;border-radius:9px;padding:8px 14px;font:700 13px var(--font-b);color:var(--g6);cursor:pointer;white-space:nowrap}
+.hist-seg button em{font-style:normal;font-size:11px;font-weight:700;background:rgba(11,42,77,.08);border-radius:999px;padding:1px 8px}
+.hist-seg button:hover{color:var(--navy)}
+.hist-seg button.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(11,22,40,.12)}
+.hist-seg button.on em{background:var(--navy);color:#fff}
+@media (max-width:640px){ .hist-seg{width:100%} .hist-seg button{padding:7px 10px;font-size:12px} }
 </style>
 </head>
 <body>
@@ -1781,12 +1790,13 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
     </div>
     <div class="card screen2" id="app-screen-historial">
       <div class="tab-title">
-        <span>🗂️ Historial de consultas</span>
+        <span>🗂️ Historial</span>
         <div class="actions" style="display:flex;gap:8px">
           <button class="btn-sm btn-outline" id="hist-btn-exportar" type="button" style="display:none">↓ Exportar</button>
           <button class="btn-sm btn-outline" id="hist-btn-papelera" type="button">🗑 Papelera</button>
         </div>
       </div>
+      <div class="hist-seg" id="hist-seg" role="tablist" aria-label="Qué mostrar"><button type="button" data-s="todo" class="on">Todo<em id="hist-seg-n-todo">—</em></button><button type="button" data-s="cons">🩺 Consultas<em id="hist-seg-n-cons">—</em></button><button type="button" data-s="proc">✨ Procedimientos<em id="hist-seg-n-proc">—</em></button><button type="button" data-s="farm">💊 Farmacia<em id="hist-seg-n-farm">—</em></button></div>
       <div class="hist-kpi-chips" id="hist-kpi-chips"></div>
       <div class="filter-bar">
         <input type="text" id="hist-buscar" placeholder="Buscar paciente..." style="flex:2;min-width:160px"/>
@@ -1805,7 +1815,7 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
         <input type="date" id="hist-desde" style="display:none"/>
         <span class="sep" id="hist-rango-sep-2" style="display:none">a</span>
         <input type="date" id="hist-hasta" style="display:none"/>
-        <select id="hist-linea" title="Qué mostrar"><option value="serv">🩺 Servicios</option><option value="farm">💊 Farmacia</option><option value="todo">Servicios + Farmacia</option></select>
+        <select id="hist-linea" title="Qué mostrar" style="display:none"><option value="serv">🩺 Servicios</option><option value="farm">💊 Farmacia</option><option value="todo" selected>Servicios + Farmacia</option></select>
         <select id="hist-tipo"><option value="">Todos los servicios</option></select>
         <select id="hist-medio"><option value="">Todos los medios</option></select>
       </div>
@@ -2529,7 +2539,7 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.27-2';
+const APP_VERSION = 'v2026.10.27-3';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 
@@ -4010,7 +4020,7 @@ async function cargarCatalogos(){
   const fechaEl = document.getElementById('reg-fecha');
   if(fechaEl && !fechaEl.value) fechaEl.value = isoLocal(new Date());
 
-  poblarSelect('hist-tipo', CATALOGOS.tiposServicio.map(t=>({value:t.id, label:t.nombre})), 'Todos los servicios');
+  histPoblarTipos();
   poblarSelect('hist-medio', CATALOGOS.mediosPago.map(m=>({value:m.nombre, label:m.nombre})), 'Todos los medios');
   // "Tarjeta" (sin distinguir crédito/débito) ya no es un medio seleccionable para consultas nuevas,
   // pero sigue existiendo en consultas registradas antes de este cambio: se deja como opción de
@@ -5246,6 +5256,40 @@ document.getElementById('reg-btn-limpiar').addEventListener('click', limpiarRegi
 // Módulo: Historial + Papelera + Exportar
 // ============================================================
 let HIST_ROWS = [];
+// Segmento del Historial: 'todo' | 'cons' | 'proc' | 'farm'. Consultas y Procedimientos se separan por renglón
+// (servicio), no por visita: una visita con consulta + procedimiento aparece en ambos segmentos con su monto.
+let HIST_SEG = 'todo';
+let HIST_FARM_N = 0;
+const histCatDe = id => (tipoServicioPorId(id)?.categoria === 'procedimiento') ? 'proc' : 'cons';
+function histServiciosDe(r, seg){
+  if(seg === 'farm') return [];
+  const ss = (r.consulta_servicios && r.consulta_servicios.length) ? r.consulta_servicios : [null];
+  if(seg !== 'cons' && seg !== 'proc') return ss;
+  return ss.filter(cs => (cs ? histCatDe(cs.tipo_servicio_id) : 'cons') === seg);
+}
+function histPintarSeg(){
+  document.querySelectorAll('#hist-seg button').forEach(b => b.classList.toggle('on', b.dataset.s === HIST_SEG));
+}
+function histContarSeg(){
+  // Conteo de renglones por segmento con los filtros actuales (fecha, búsqueda, medio, facturado)
+  const n = { cons:0, proc:0 };
+  HIST_ROWS.forEach(r => histServiciosDe(r, 'todo').forEach(cs => { n[cs ? histCatDe(cs.tipo_servicio_id) : 'cons']++; }));
+  const put = (k, v) => { const el = document.getElementById('hist-seg-n-' + k); if(el) el.textContent = v; };
+  put('cons', n.cons); put('proc', n.proc); put('farm', HIST_FARM_N); put('todo', n.cons + n.proc + HIST_FARM_N);
+}
+function histPoblarTipos(){
+  const tipos = CATALOGOS.tiposServicio.filter(t => HIST_SEG === 'cons' ? t.categoria !== 'procedimiento' : HIST_SEG === 'proc' ? t.categoria === 'procedimiento' : true);
+  const sel = document.getElementById('hist-tipo'); const prev = sel.value;
+  poblarSelect('hist-tipo', tipos.map(t=>({value:t.id, label:t.nombre})), HIST_SEG === 'proc' ? 'Todos los procedimientos' : HIST_SEG === 'cons' ? 'Todas las consultas' : 'Todos los servicios');
+  if(HIST_SEG !== 'farm' && [...sel.options].some(o => o.value === prev)) sel.value = prev;
+}
+document.getElementById('hist-seg').addEventListener('click', e => {
+  const b = e.target.closest('button[data-s]'); if(!b || b.dataset.s === HIST_SEG) return;
+  HIST_SEG = b.dataset.s;
+  document.getElementById('hist-linea').value = HIST_SEG === 'farm' ? 'farm' : HIST_SEG === 'todo' ? 'todo' : 'serv';
+  histPintarSeg(); histPoblarTipos();
+  cargarHistorial();
+});
 let HIST_FARM_KPI = []; // farmacia solo para la tarjeta de la vista Servicios (no se lista en la tabla)
 let HIST_FARM = []; // ventas de farmacia que se muestran en el Historial (filtro 💊 Farmacia / Servicios + Farmacia)
 let HIST_EXCL_FILTRO = null; // 'facturado' | 'nofacturado' | 'novino' | null
@@ -5320,10 +5364,10 @@ async function cargarHistorial(){
 
   const linea = document.getElementById('hist-linea').value; // 'serv' | 'farm' | 'todo'
   document.getElementById('hist-tipo').disabled = linea === 'farm';
-  const quiereServ = linea !== 'farm';
+  const quiereServ = true; // siempre: alimenta los contadores de los segmentos
   // Farmacia: no aplica con el filtro de tipo de servicio ni con "No vino"; las cosmetólogas no tienen acceso a esa tabla.
   const puedeFarm = !tipoId && HIST_EXCL_FILTRO !== 'novino' && MI_PERFIL?.rol !== 'cosmetologo';
-  const quiereFarm = puedeFarm; // en la vista Servicios se consulta solo para la tarjeta de Farmacia
+  const quiereFarm = puedeFarm;
 
   // OJO: el límite de filas debe ser generoso. Como el resultado viene ordenado por fecha
   // descendente, un límite bajo no recorta "lo más viejo que sobre" de forma inofensiva — recorta
@@ -5376,8 +5420,9 @@ async function cargarHistorial(){
   }
   if(tipoId) rows = rows.filter(r => (r.consulta_servicios||[]).some(cs => cs.tipo_servicio_id === tipoId));
   HIST_ROWS = rows;
-  HIST_FARM = linea === 'serv' ? [] : (resF.data || []);
-  HIST_FARM_KPI = linea === 'serv' ? (resF.data || []) : [];
+  HIST_FARM_N = (resF.data || []).length;
+  HIST_FARM = (HIST_SEG === 'todo' || HIST_SEG === 'farm') ? (resF.data || []) : [];
+  HIST_FARM_KPI = [];
   renderHistorial();
 }
 
@@ -5385,11 +5430,34 @@ function renderHistKpis(){
   const cont = document.getElementById('hist-kpi-chips');
   const linea = document.getElementById('hist-linea').value;
   const fmt0 = n => '$' + Math.round(n).toLocaleString('es-MX');
+  histContarSeg();
+  if(HIST_SEG === 'cons' || HIST_SEG === 'proc'){
+    const vis = HIST_ROWS.filter(r => !r.no_vino).map(r => ({ r, ss: histServiciosDe(r, HIST_SEG).filter(Boolean) })).filter(x => x.ss.length);
+    const tot = vis.reduce((a, x) => a + x.ss.reduce((b, cs) => b + Number(cs.monto || 0), 0), 0);
+    const nServ = vis.reduce((a, x) => a + x.ss.length, 0);
+    const pac = new Set(vis.map(x => x.r.paciente_id)).size;
+    let extra = '';
+    if(HIST_SEG === 'cons'){
+      const nPri = vis.reduce((a, x) => a + x.ss.filter(cs => esTipoServicioPrimeraVez(cs.tipo_servicio_id)).length, 0);
+      extra = `<div class="hist-chip c-primera"><span class="ico">🆕</span><div><div class="v">${nPri}</div><div class="l">Primera vez</div></div></div>
+        <div class="hist-chip c-subsecuente"><span class="ico">🔁</span><div><div class="v">${nServ - nPri}</div><div class="l">Subsecuentes</div></div></div>`;
+    } else {
+      const porG = {}; vis.forEach(x => x.ss.forEach(cs => { const g = tipoServicioPorId(cs.tipo_servicio_id)?.grupo || 'Otros'; porG[g] = (porG[g] || 0) + Number(cs.monto || 0); }));
+      const top = Object.keys(porG).sort((a, b) => porG[b] - porG[a])[0];
+      if(top) extra = `<div class="hist-chip c-procedimiento"><span class="ico">🏆</span><div><div class="v">${esc2(top)}</div><div class="l">Grupo top · ${fmt0(porG[top])}</div></div></div>`;
+    }
+    cont.innerHTML = `
+      <div class="hist-chip c-total"><span class="ico">💰</span><div><div class="v">${fmt0(tot)}</div><div class="l">${HIST_SEG === 'cons' ? 'Consultas' : 'Procedimientos'}</div></div></div>
+      <div class="hist-chip c-pac"><span class="ico">👥</span><div><div class="v">${pac}</div><div class="l">Pacientes</div></div></div>
+      <div class="hist-chip c-ticket"><span class="ico">🎟️</span><div><div class="v">${fmt0(nServ ? tot / nServ : 0)}</div><div class="l">Promedio · ${nServ} ${HIST_SEG === 'cons' ? 'consultas' : 'procedimientos'}</div></div></div>
+      ${extra}`;
+    return;
+  }
   if(linea !== 'serv' && HIST_FARM.length){
     const totF = HIST_FARM.reduce((a,f)=> a + Number(f.monto||0), 0);
     const pzas = HIST_FARM.reduce((a,f)=> a + Math.max(1, parseInt(f.cantidad,10) || 1), 0);
     const ventas = new Set(HIST_FARM.map(f => f.fecha + '|' + (normalizar(f.paciente||'').replace(/\s+/g,' ').trim() || f.id))).size;
-    if(linea === 'farm'){
+    if(HIST_SEG === 'farm'){
       cont.innerHTML = `
         <div class="hist-chip c-total"><span class="ico">💊</span><div><div class="v">${fmt0(totF)}</div><div class="l">Farmacia</div></div></div>
         <div class="hist-chip c-pac"><span class="ico">🧾</span><div><div class="v">${ventas}</div><div class="l">Ventas</div></div></div>
@@ -5437,6 +5505,7 @@ function histFarmCardHtml(){
 document.getElementById('hist-kpi-chips').addEventListener('click', e => {
   if(!e.target.closest('#hist-farm-go')) return;
   document.getElementById('hist-linea').value = 'farm';
+  HIST_SEG = 'farm'; histPintarSeg(); histPoblarTipos();
   cargarHistorial();
 });
 
@@ -5462,10 +5531,11 @@ function renderHistorial(){
   const tbody = document.getElementById('hist-tbody');
   const empty = document.getElementById('hist-empty');
   renderHistKpis();
-  if(!HIST_ROWS.length && !HIST_FARM.length){
+  const haySeg = HIST_ROWS.some(r => histServiciosDe(r, HIST_SEG).length);
+  if(!haySeg && !HIST_FARM.length){
     tbody.innerHTML = '';
     empty.style.display = '';
-    empty.textContent = document.getElementById('hist-linea').value === 'farm' ? 'No hay ventas de farmacia para los filtros seleccionados.' : 'No hay consultas para los filtros seleccionados.';
+    empty.textContent = HIST_SEG === 'farm' ? 'No hay ventas de farmacia para los filtros seleccionados.' : HIST_SEG === 'proc' ? 'No hay procedimientos para los filtros seleccionados.' : HIST_SEG === 'cons' ? 'No hay consultas para los filtros seleccionados.' : 'No hay registros para los filtros seleccionados.';
     return;
   }
   empty.style.display = 'none';
@@ -5476,8 +5546,7 @@ function renderHistorial(){
   // servicio — en vez de agruparlos bajo un solo "doctor responsable" de toda la consulta.
   const filas = [];
   HIST_ROWS.forEach(r=>{
-    const servicios = (r.consulta_servicios && r.consulta_servicios.length) ? r.consulta_servicios : [null];
-    servicios.forEach(cs => filas.push({ consulta: r, cs }));
+    histServiciosDe(r, HIST_SEG).forEach(cs => filas.push({ consulta: r, cs }));
   });
   // Con Farmacia visible, sus ventas se mezclan por fecha (más reciente primero) con las consultas.
   if(HIST_FARM.length){

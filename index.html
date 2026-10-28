@@ -2542,7 +2542,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.27-4';
+const APP_VERSION = 'v2026.10.28-1';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -2801,12 +2801,15 @@ function entrarAlShell(perfil){
     document.getElementById('user-pill-rol').textContent = '★ ' + (ROLE_LABELS[perfil.rol] || perfil.rol);
   })();
 
-  const showDash = perfil.permisos?.puede_ver_dashboard === true;
-  const showGastos = perfil.permisos?.puede_ver_gastos === true;
-  const showComisiones = perfil.permisos?.puede_ver_comisiones === true;
+  // Recepción nunca ve Dashboard, Comisiones ni Gastos, aunque tenga el permiso marcado (la base también lo impide)
+  const esRecepcion = perfil.rol === 'recepcion';
+  const showDash = !esRecepcion && perfil.permisos?.puede_ver_dashboard === true;
+  const showGastos = !esRecepcion && perfil.permisos?.puede_ver_gastos === true;
+  const showComisiones = !esRecepcion && perfil.permisos?.puede_ver_comisiones === true;
   const soloProductos = perfil.rol !== 'admin' && (perfil.permisos?.puede_alta_productos === true || perfil.permisos?.puede_editar_productos === true); // alta y/o edición del catálogo de farmacia
   const showConfig = perfil.rol === 'admin' || soloProductos;
   document.querySelector('[data-screen2="dash"]').classList.toggle('locked', !showDash);
+  document.querySelector('[data-screen2="dash"]').style.display = esRecepcion ? 'none' : '';
   document.getElementById('nav-btn-gastos').style.display = showGastos ? '' : 'none';
   document.getElementById('nav-btn-comisiones').style.display = showComisiones ? '' : 'none';
   document.getElementById('btn-config-header').style.display = showConfig ? 'inline-flex' : 'none';
@@ -8616,9 +8619,9 @@ async function renderConfigPersonal(){
       </div>
       <div class="cardC-permgrid">
         <label class="perm-chip cfg-p-exportar-wrap ${p.permisos?.puede_exportar !== false ? 'on' : ''}"><input type="checkbox" class="cfg-p-exportar" ${p.permisos?.puede_exportar !== false ? 'checked':''}/><span class="ico">⬇️</span>Exportar</label>
-        <label class="perm-chip cfg-p-dashboard-wrap ${p.permisos?.puede_ver_dashboard ? 'on' : ''}"><input type="checkbox" class="cfg-p-dashboard" ${p.permisos?.puede_ver_dashboard ? 'checked':''}/><span class="ico">📊</span>Dashboard</label>
-        <label class="perm-chip cfg-p-gastos-wrap ${p.permisos?.puede_ver_gastos ? 'on' : ''}"><input type="checkbox" class="cfg-p-gastos" ${p.permisos?.puede_ver_gastos ? 'checked':''}/><span class="ico">💸</span>Gastos</label>
-        <label class="perm-chip cfg-p-comisiones-wrap ${p.permisos?.puede_ver_comisiones ? 'on' : ''}"><input type="checkbox" class="cfg-p-comisiones" ${p.permisos?.puede_ver_comisiones ? 'checked':''}/><span class="ico">💰</span>Comisiones</label>
+        ${p.rol === 'recepcion' ? `<label class="perm-chip" style="opacity:.4;cursor:not-allowed" title="Recepción no tiene acceso a esta pestaña"><input type="checkbox" class="cfg-p-dashboard" disabled/><span class="ico">📊</span>Dashboard 🔒</label>` : `<label class="perm-chip cfg-p-dashboard-wrap ${p.permisos?.puede_ver_dashboard ? 'on' : ''}"><input type="checkbox" class="cfg-p-dashboard" ${p.permisos?.puede_ver_dashboard ? 'checked':''}/><span class="ico">📊</span>Dashboard</label>`}
+        ${p.rol === 'recepcion' ? `<label class="perm-chip" style="opacity:.4;cursor:not-allowed" title="Recepción no tiene acceso a esta pestaña"><input type="checkbox" class="cfg-p-gastos" disabled/><span class="ico">💸</span>Gastos 🔒</label>` : `<label class="perm-chip cfg-p-gastos-wrap ${p.permisos?.puede_ver_gastos ? 'on' : ''}"><input type="checkbox" class="cfg-p-gastos" ${p.permisos?.puede_ver_gastos ? 'checked':''}/><span class="ico">💸</span>Gastos</label>`}
+        ${p.rol === 'recepcion' ? `<label class="perm-chip" style="opacity:.4;cursor:not-allowed" title="Recepción no tiene acceso a esta pestaña"><input type="checkbox" class="cfg-p-comisiones" disabled/><span class="ico">💰</span>Comisiones 🔒</label>` : `<label class="perm-chip cfg-p-comisiones-wrap ${p.permisos?.puede_ver_comisiones ? 'on' : ''}"><input type="checkbox" class="cfg-p-comisiones" ${p.permisos?.puede_ver_comisiones ? 'checked':''}/><span class="ico">💰</span>Comisiones</label>`}
         <label class="perm-chip cfg-p-productos-wrap ${p.permisos?.puede_alta_productos ? 'on' : ''}" title="Puede dar de alta productos de farmacia (solo eso en Configuración, sin editar)"><input type="checkbox" class="cfg-p-productos" ${p.permisos?.puede_alta_productos ? 'checked':''}/><span class="ico">🛒</span>Productos</label>
         <label class="perm-chip cfg-p-editprod-wrap ${p.permisos?.puede_editar_productos ? 'on' : ''}" title="Puede editar el catálogo de farmacia: cambiar precios y activar/desactivar productos (no eliminar)"><input type="checkbox" class="cfg-p-editprod" ${p.permisos?.puede_editar_productos ? 'checked':''}/><span class="ico">✏️</span>Editar productos</label>
         <label class="perm-chip cfg-p-papelera-wrap ${p.permisos?.puede_eliminar_papelera !== false ? 'on' : ''}"><input type="checkbox" class="cfg-p-papelera" ${p.permisos?.puede_eliminar_papelera !== false ? 'checked':''}/><span class="ico">🗑️</span>Papelera</label>

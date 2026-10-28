@@ -2542,7 +2542,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.28-1';
+const APP_VERSION = 'v2026.10.28-2';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -4647,6 +4647,7 @@ let regBuscarPacienteTimeout = null;
 ['reg-paciente-nombre','edit-paciente-nombre'].forEach(id => document.getElementById(id).addEventListener('blur', e => { const v = nomProp(e.target.value); if(v !== e.target.value) e.target.value = v; }));
 document.getElementById('reg-paciente-nombre').addEventListener('input', (e)=>{
   REG_PACIENTE_SELECCIONADO = null;
+  updateResumen(); // el aviso "Falta el paciente" se actualiza al teclear
   const term = e.target.value.trim();
   clearTimeout(regBuscarPacienteTimeout);
   if(term.length < 2){ ocultarSugerenciasPaciente(); return; }
@@ -4747,6 +4748,8 @@ function regFaltaTexto(){
   if(!noVino && !document.getElementById('reg-medio').value) return 'Elige la forma de pago';
   return '';
 }
+// Cualquier cambio en estos campos actualiza el aviso de lo que falta y el botón Guardar
+['reg-dueno','reg-novino','reg-medio','reg-paciente-nombre'].forEach(id => document.getElementById(id)?.addEventListener('change', () => updateResumen()));
 function updateResumen(){
   regRepartirSplitAuto();
   const nombre = document.getElementById('reg-paciente-nombre').value.trim();

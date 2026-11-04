@@ -2542,7 +2542,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.10.28-2';
+const APP_VERSION = 'v2026.11.04-1';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -3499,7 +3499,9 @@ function comCalcularFila(row){
   const pct = (pctRaw === null || pctRaw === undefined || pctRaw === '' || isNaN(Number(pctRaw))) ? null : Number(pctRaw);
   let comDoctor = 0, comClinica = monto, regla = '';
   const esRenta = row.atiendeEsquema === 'renta';
-  if(esRenta){
+  if(row.atiendeEsquema === 'clinica'){
+    regla = 'Nova House · 100% NovaHouse';
+  } else if(esRenta){
     comDoctor = monto; comClinica = 0; regla = 'Renta fija · cobra en su terminal';
   } else if(row.atiendeRol !== 'doctor'){
     regla = 'Sin doctora · 100% NovaHouse';
@@ -3783,6 +3785,16 @@ function renderComisionesResumen(){
     const panelId = `com-det-${d.id}`;
     const nombreCorto = d.nombre.split(' ').slice(0,2).join(' ');
     const esp = d.especialidad ? ` · ${esc2(d.especialidad)}` : '';
+    if(d.esquema_pago === 'clinica'){
+      panelesHtml += panelDetalleHtml(panelId, `${d.nombre} — servicios (100% NovaHouse)`, nombreCorto, lista, r => r.comClinica, 'NovaHouse');
+      personaHtml += `<div class="persona cosm">
+        <div class="nombre">${esc2(d.nombre)}</div>
+        <div class="rol">Servicios de la clínica · ${lista.length} servicio${lista.length===1?'':'s'}</div>
+        <div class="fila acordeon" data-panel="${panelId}" title="Ver el detalle"><span>Producción <span class="chev">▾</span></span><b>${fmtMoney0(prod)}</b></div>
+        <div class="spacer"></div><div class="total-block"><div class="total-label">Para NovaHouse</div><div class="total-value">${fmtMoney0(prod)}</div></div>
+      </div>`;
+      return;
+    }
     if(d.esquema_pago === 'renta'){
       const renta = rentaDe(d);
       panelesHtml += panelDetalleHtml(panelId, `${d.nombre} — servicios (cobra en su terminal)`, nombreCorto, lista, r => r.monto, 'Cobrado por ella');
@@ -4367,6 +4379,7 @@ function renderServiciosSel(selId, selMap, debeMostrarSplitPago){
       const at = CATALOGOS.personal.find(p => p.id === atendidoPor);
       const montoN = Number(monto) || 0;
       if(at && at.esquema_pago === 'renta') repHtml = `<div class="rg-rep">🏠 Renta fija · ${esc2(at.nombre)} cobra en su terminal</div>`;
+      else if(at && at.esquema_pago === 'clinica') repHtml = `<div class="rg-rep">🏠 100% NovaHouse</div>`;
       else if(at && at.rol === 'doctor' && s.pct_doctor != null && montoN > 0){
         const pc = Number(s.pct_doctor), dra = montoN * pc;
         repHtml = `<div class="rg-rep"><i style="width:${Math.round(pc * 56)}px"></i><i class="nh" style="width:${Math.round((1 - pc) * 56)}px"></i>Dra. ${fmtMoney0(dra)} · NovaHouse ${fmtMoney0(montoN - dra)} (${Math.round(pc * 1000) / 10}%)</div>`;
@@ -8613,8 +8626,9 @@ async function renderConfigPersonal(){
           ${p.rol === 'doctor' ? `<div class="nh-doc">
             <input type="text" class="esp cfg-p-esp" placeholder="Especialidad" value="${esc2(p.especialidad || '')}" title="Especialidad"/>
             <select class="cfg-p-esquema" title="Cómo se le paga">
-              <option value="porcentaje" ${p.esquema_pago !== 'renta' ? 'selected' : ''}>% por servicio</option>
+              <option value="porcentaje" ${!['renta','clinica'].includes(p.esquema_pago) ? 'selected' : ''}>% por servicio</option>
               <option value="renta" ${p.esquema_pago === 'renta' ? 'selected' : ''}>Renta fija</option>
+              <option value="clinica" ${p.esquema_pago === 'clinica' ? 'selected' : ''}>100% NovaHouse</option>
             </select>
             <span class="cfg-p-renta-wrap" style="${p.esquema_pago === 'renta' ? '' : 'display:none'}"><small>Renta $</small> <input type="number" class="renta cfg-p-renta" min="0" step="0.01" value="${p.renta_mensual ?? ''}" placeholder="0.00"/></span>
           </div>` : ''}
@@ -8866,6 +8880,7 @@ function cfgDoctorasOpciones(selId){
 function cfgRepartoHtml(precio, pct, doctorId){
   const doc = (CATALOGOS.personal || []).find(p => p.id === doctorId);
   if(doc?.esquema_pago === 'renta') return 'Renta fija';
+  if(doc?.esquema_pago === 'clinica') return '100% NovaHouse';
   if(pct === null || pct === undefined || pct === '' || isNaN(Number(pct))) return '⚠ Falta %';
   const p = Number(precio) || 0, d = p * Number(pct);
   return `Dra. <b>${fmtMoney(d)}</b> · NH <b>${fmtMoney(p - d)}</b>`;
@@ -8886,7 +8901,7 @@ async function cargarCatalogoTipos(){
   CFG_TIPOS = data || [];
   renderCatalogoTipos();
 }
-function cfgTipoSinPct(t){ return (t.pct_doctor === null || t.pct_doctor === undefined) && (CATALOGOS.personal || []).find(p => p.id === t.doctor_id)?.esquema_pago !== 'renta'; }
+function cfgTipoSinPct(t){ return (t.pct_doctor === null || t.pct_doctor === undefined) && !['renta','clinica'].includes((CATALOGOS.personal || []).find(p => p.id === t.doctor_id)?.esquema_pago); }
 function renderCatalogoTipos(){
   const tbody = document.getElementById('cfg-tipos-tbody');
   const rev = CFG_TIPOS.filter(t => t.por_revisar);
@@ -8935,7 +8950,7 @@ function renderCatalogoTipos(){
       const precio = tr.querySelector('.cfg-tipo-pr').value, pcv = tr.querySelector('.cfg-tipo-pc').value;
       const pct = pcv === '' ? null : Number(pcv) / 100;
       tr.querySelector('.mon').innerHTML = cfgRepartoHtml(precio, pct, tr.querySelector('.cfg-tipo-doc').value);
-      tr.classList.toggle('sinpct', pct === null && (CATALOGOS.personal || []).find(p => p.id === tr.querySelector('.cfg-tipo-doc').value)?.esquema_pago !== 'renta');
+      tr.classList.toggle('sinpct', pct === null && !['renta','clinica'].includes((CATALOGOS.personal || []).find(p => p.id === tr.querySelector('.cfg-tipo-doc').value)?.esquema_pago));
     };
     const guardar = async (payload, msg) => { const ok = await catalogoActualizar('catalogo_tipos_servicio', id, payload); if(ok){ Object.assign(t, payload); toast(msg || '✓ Guardado'); cargarCatalogos(); } return ok; };
     tr.querySelector('.cfg-tipo-nm').addEventListener('change', async (e)=>{

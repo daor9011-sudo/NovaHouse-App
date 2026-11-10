@@ -1631,6 +1631,79 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .bell-it.cxp:hover{filter:brightness(.97)}
 @media (max-width:1100px){.cxp-split{grid-template-columns:1fr}.cxp-kpis{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.cxp-alerta .x{margin-left:0;width:100%}.cxp-alerta .x .btn-sm{flex:1}.cxp-fil input{margin-left:0;width:100%}.cxp-tblwrap{overflow-x:auto}.cxp-tbl{min-width:760px}}
+
+/* ===== Móvil (≤900px): Registro en una columna; el ticket es una hoja que sube desde abajo ===== */
+@media (max-width:900px){
+  main.appmain:has(#app-screen-registro.act){padding-left:10px;padding-right:10px}
+  .reg-pos{grid-template-columns:minmax(0,1fr)!important;height:auto!important;min-height:0!important;gap:12px}
+  .reg-col{gap:12px}
+  .reg-card.reg-pac{padding:14px}
+  .reg-pac-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;grid-auto-flow:row dense;gap:10px 10px}
+  .reg-pac-row .reg-tt{display:flex!important;grid-column:1/-1;font-size:15px}
+  .reg-pac-row > .form-group:nth-of-type(1),#reg-grp-dueno,#reg-grp-procedencia{grid-column:1/-1}
+  .reg-pac-row input[type=date]{min-width:0}
+  .reg-pac-row input,.reg-pac-row select{font-size:16px;padding:11px 12px}
+  .reg-cat-h{flex-direction:column;align-items:stretch;gap:10px;padding:14px}
+  .reg-cat-h .reg-h{margin:0}
+  .reg-cat-h>*{min-width:0;max-width:100%}
+  .reg-cat-h .reg-tabs{overflow-x:auto;gap:6px;padding-bottom:2px;scrollbar-width:none}
+  .reg-cat-h .reg-tab{flex:1 0 auto;justify-content:center;padding:8px 10px;font-size:12.5px;gap:5px}
+  .reg-cat-h .reg-tab em{padding:1px 6px}
+  .reg-cat-h .reg-search{min-width:0;width:100%;font-size:16px}
+  .reg-chips{padding:8px 10px!important;scrollbar-width:none}
+  .reg-chips button{padding:7px 12px!important;border:1.5px solid var(--g2)!important;border-radius:999px!important;font-size:12.5px!important}
+  .reg-chips button.on{border-color:var(--navy)!important}
+  .reg-grid{grid-template-columns:minmax(0,1fr)!important;padding:10px;gap:8px}
+  .rg-it{padding:11px 12px}
+  .rg-it .nm{font-size:13.5px}
+  .reg-ticket{top:auto!important;bottom:0!important;height:auto!important;max-height:88vh!important;transform:translateY(calc(100% + 24px))}
+  .reg-ticket.open{transform:none}
+  .reg-ticket .tk-medios{grid-template-columns:repeat(3,1fr)!important}
+  .reg-ticket .tk-medios button{padding:9px 4px;font-size:11.5px}
+  .reg-ticket .tk-extra{grid-template-columns:1fr!important}
+  #reg-serv-sel .a-row{padding:10px 14px}
+  #reg-serv-sel .a-row .atendido-select,#reg-serv-sel .a-row .monto-wrap{grid-column:auto;grid-row:auto}
+}
+
+/* ===== Móvil: Historial en tarjetas compactas, Cuentas por pagar y Configuración sin desbordes ===== */
+@media (max-width:700px){
+  #hist-tbody tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:14px;padding:8px 14px}
+  #hist-tbody td{min-width:0;padding:6px 0}
+  #hist-tbody td:nth-child(2),#hist-tbody td:nth-child(7){grid-column:1/-1}
+  #hist-tbody td:nth-child(3),#hist-tbody td:nth-child(4){display:none}
+  #hist-tbody td:nth-child(10){border-bottom:none}
+  #hist-tbody td:last-child{grid-column:2;grid-row:auto;align-self:end;padding-top:6px}
+  #hist-tbody td:nth-child(2){font-size:14.5px;font-weight:700}
+  #hist-tbody td:nth-child(8) b{font-size:15px}
+  .cxp-split{grid-template-columns:minmax(0,1fr)!important}
+  .cxp-split>*{min-width:0}
+  .cxp-tbl{min-width:0!important}
+  .cxp-tblwrap{overflow-x:visible!important}
+  #cxp-tbody tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;padding:10px 14px}
+  #cxp-tbody tr.r-ven{border-left-color:#C53030}#cxp-tbody tr.r-pro{border-left-color:#B7791F}#cxp-tbody tr.r-cor{border-left-color:#2B4C9E}#cxp-tbody tr.r-pag{border-left-color:#2F855A}
+  #cxp-tbody td{min-width:0;padding:5px 0;border-bottom:none;box-shadow:none!important}
+  #cxp-tbody td:nth-child(1)::before{content:"Vence"}
+  #cxp-tbody td:nth-child(2){grid-column:1/-1;grid-row:1}
+  #cxp-tbody td:nth-child(1){grid-row:2}
+  #cxp-tbody td:nth-child(4){grid-row:2;text-align:right;font-size:15px}
+  #cxp-tbody td:nth-child(3){grid-row:3}
+  #cxp-tbody td:nth-child(5){grid-row:3;text-align:right}
+  #cxp-tbody td:nth-child(6){grid-column:1/-1;grid-row:4;border-top:1px solid var(--g1);padding-top:8px}
+  #cxp-tbody td[colspan]{grid-column:1/-1!important;grid-row:auto!important;text-align:left}
+  #cxp-tbody .cxp-acc{justify-content:stretch}
+  #cxp-tbody .cxp-acc .cxp-pagar{flex:1;justify-content:center;padding:9px}
+  #cxp-tbody tr:not([class]){display:flex;justify-content:space-between;align-items:center;border-left-color:var(--navy2)}
+  #cxp-tbody tr:not([class]) td{background:none!important;padding:4px 0}
+  #cxp-tbody tr:not([class]) td:empty{display:none}
+  .cxp-kpi .v{font-size:19px}
+  .cxp-kpis{gap:8px}
+  .cxp-form .fg input,.cxp-form .fg select{font-size:16px}
+  .cardC{grid-template-columns:minmax(0,1fr)!important;padding:14px}
+  .cardC>*{min-width:0}
+  .cardC-right{flex-wrap:wrap;gap:10px;justify-content:flex-start!important}
+  .nh-doc .esp{width:100%;flex:1 1 140px}
+  .nh-doc select{flex:1 1 120px}
+}
 </style>
 </head>
 <body>
@@ -2668,7 +2741,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.10-1';
+const APP_VERSION = 'v2026.11.10-2';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;

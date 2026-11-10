@@ -1580,6 +1580,57 @@ main.appmain:has(#app-screen-registro.act){max-width:1760px;padding-left:20px;pa
 
 /* Ya dentro de la app la versión va en el pie (la marca flotante tapaba el botón Registrar) */
 body:has(#app-view.act) #app-version-tag{display:none}
+
+/* ===== Gastos › Cuentas por pagar ===== */
+.gx-subtabs{display:flex;gap:6px;margin:-4px 0 16px;border-bottom:1px solid var(--g2)}
+.gx-subtabs button{border:0;background:none;padding:10px 14px 12px;font:700 14px var(--font-b);color:var(--g6);border-bottom:3px solid transparent;display:flex;gap:8px;align-items:center;cursor:pointer}
+.gx-subtabs button.on{color:var(--navy);border-bottom-color:var(--teal)}
+.gx-subtabs em{font-style:normal;font-size:11px;background:#E53E3E;color:#fff;border-radius:999px;padding:1px 7px}
+#app-screen-gastos.cxp-on #gasto-per{display:none!important}
+.cxp-alerta{display:flex;gap:12px;align-items:center;background:#FDE8E8;border:1px solid #F5C2C2;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;flex-wrap:wrap}
+.cxp-alerta .x{margin-left:auto;display:flex;gap:8px}
+.cxp-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.cxp-kpi{border:1px solid var(--g2);border-radius:14px;padding:14px 16px;border-left:4px solid var(--navy2);cursor:pointer;background:#fff}
+.cxp-kpi:hover{box-shadow:0 4px 12px rgba(11,22,40,.08)}
+.cxp-kpi .l{font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--g6);font-weight:700}
+.cxp-kpi .v{font-family:var(--font-d);font-weight:800;font-size:23px;margin-top:4px;color:var(--navy)}
+.cxp-kpi .s{font-size:11.5px;color:var(--g6);margin-top:2px}
+.cxp-kpi.ven{border-left-color:#C53030}.cxp-kpi.ven .v{color:#C53030}
+.cxp-kpi.pro{border-left-color:#B7791F}.cxp-kpi.pro .v{color:#B7791F}
+.cxp-kpi.pag{border-left-color:#2F855A}
+.cxp-split{display:grid;grid-template-columns:320px minmax(0,1fr);gap:18px;align-items:start}
+.cxp-form{background:var(--g1);border-radius:14px;padding:16px}
+.cxp-form h4{font-family:var(--font-d);font-size:15px;margin-bottom:12px}
+.cxp-form .fg{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;min-width:0}
+.cxp-form .fg label{font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--g6)}
+.cxp-form .fg input,.cxp-form .fg select{width:100%;min-width:0}
+.cxp-row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cxp-chk{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;margin-bottom:4px;cursor:pointer}
+.cxp-hint{font-size:11px;color:var(--g6);margin-bottom:12px}
+.cxp-fil{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.cxp-fil .pill{border:1.5px solid var(--g2);background:#fff;border-radius:999px;padding:6px 12px;font:600 12px var(--font-b);color:var(--g6);cursor:pointer}
+.cxp-fil .pill.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.cxp-fil input{margin-left:auto;min-width:200px;border:1.5px solid var(--g2);border-radius:9px;padding:7px 10px;font:500 12.5px var(--font-b);background:#fff}
+.cxp-tblwrap{overflow-x:auto}.cxp-tbl{font-size:12px}.cxp-tbl td,.cxp-tbl th{padding-left:8px;padding-right:8px}
+.cxp-tbl .badge-cat{white-space:normal}
+#cxp-btn-guardar{background:var(--teal);border-color:var(--teal);color:#fff;padding:10px}
+.cxp-pagar{background:var(--teal)!important;border-color:var(--teal)!important;color:#fff!important;white-space:nowrap}
+.cxp-tbl td{vertical-align:middle}
+.cxp-tbl tr.r-ven td:first-child{box-shadow:inset 4px 0 0 #C53030}
+.cxp-tbl tr.r-pro td:first-child{box-shadow:inset 4px 0 0 #B7791F}
+.cxp-tbl tr.r-pag{opacity:.62}
+.cxp-prov{font-weight:700}.cxp-prov small{display:block;font-weight:500;color:var(--g6);font-size:11px}
+.cxp-rec{font-size:10.5px;color:var(--g6);display:block;margin-top:2px}
+.cxp-st{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap}
+.cxp-st.ven{background:#FDE8E8;color:#C53030}.cxp-st.pro{background:#FEF3D7;color:#B7791F}.cxp-st.cor{background:#E6ECFB;color:#2B4C9E}.cxp-st.pag{background:#E3F5EA;color:#2F855A}
+.cxp-acc{display:flex;gap:6px;justify-content:flex-end;flex-wrap:nowrap}
+.cxp-info{background:var(--teal-soft);border-radius:10px;padding:10px 12px;font-size:12px;margin:6px 0 4px;color:#0B6E6E}
+.bell-sec{padding:8px 14px 6px;font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--g6);background:var(--g1);border-bottom:1px solid var(--g2)}
+.bell-it.cxp{cursor:pointer;background:#fff8f0;box-shadow:inset 3px 0 0 #B7791F}
+.bell-it.cxp.v{background:#fff3f3;box-shadow:inset 3px 0 0 #C53030}
+.bell-it.cxp:hover{filter:brightness(.97)}
+@media (max-width:1100px){.cxp-split{grid-template-columns:1fr}.cxp-kpis{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.cxp-alerta .x{margin-left:0;width:100%}.cxp-alerta .x .btn-sm{flex:1}.cxp-fil input{margin-left:0;width:100%}.cxp-tblwrap{overflow-x:auto}.cxp-tbl{min-width:760px}}
 </style>
 </head>
 <body>
@@ -1685,7 +1736,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
       <div class="bell-wrap" id="bell-wrap" style="display:none">
         <button class="s3-config bell-btn" id="btn-bell" type="button" title="Registros tardíos" aria-label="Registros tardíos" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="bell-badge" id="bell-badge" hidden>0</span></button>
         <div class="bell-panel" id="bell-panel" role="dialog" aria-label="Registros tardíos">
-          <div class="bell-head"><b>Registros tardíos</b><button type="button" id="bell-marcar">Marcar vistas</button></div>
+          <div class="bell-head"><b>Avisos</b><button type="button" id="bell-marcar">Marcar vistas</button></div>
           <div class="bell-list" id="bell-list"></div>
           <button type="button" class="bell-foot" id="bell-ver-todo">Ver actividad completa</button>
         </div>
@@ -2077,6 +2128,61 @@ body:has(#app-view.act) #app-version-tag{display:none}
           </div>
         </div>
       </div>
+      <div class="gx-subtabs" id="gx-subtabs" style="display:none">
+        <button type="button" data-v="gastos" class="on">💸 Gastos</button>
+        <button type="button" data-v="cxp">📅 Cuentas por pagar <em id="cxp-tab-n" style="display:none">0</em></button>
+      </div>
+      <div id="gasto-v-cxp" style="display:none">
+        <div class="cxp-alerta" id="cxp-alerta" style="display:none"></div>
+        <div class="cxp-kpis">
+          <div class="cxp-kpi" data-f="pend"><div class="l">Total por pagar</div><div class="v" id="cxp-k-tot">—</div><div class="s" id="cxp-k-tot-s"></div></div>
+          <div class="cxp-kpi ven" data-f="ven"><div class="l">Vencidas</div><div class="v" id="cxp-k-ven">—</div><div class="s" id="cxp-k-ven-s"></div></div>
+          <div class="cxp-kpi pro" data-f="pro"><div class="l">Vencen en 7 días</div><div class="v" id="cxp-k-pro">—</div><div class="s" id="cxp-k-pro-s"></div></div>
+          <div class="cxp-kpi pag" data-f="pag"><div class="l">Pagado este mes</div><div class="v" id="cxp-k-pag">—</div><div class="s" id="cxp-k-pag-s"></div></div>
+        </div>
+        <div class="cxp-split">
+          <div class="cxp-form">
+            <h4 id="cxp-form-t">➕ Nueva cuenta por pagar</h4>
+            <div class="fg"><label>Proveedor / a quién se le debe</label><input type="text" id="cxp-prov" placeholder="Ej. Inmobiliaria Polanco"/></div>
+            <div class="fg"><label>Concepto</label><input type="text" id="cxp-con" placeholder="Ej. Renta del local"/></div>
+            <div class="cxp-row2">
+              <div class="fg"><label>Categoría</label><select id="cxp-cat"></select></div>
+              <div class="fg"><label>Monto ($)</label><input type="number" id="cxp-monto" min="0.01" step="0.01" placeholder="0.00"/></div>
+            </div>
+            <div class="cxp-row2">
+              <div class="fg"><label>Fecha factura</label><input type="date" id="cxp-ffac"/></div>
+              <div class="fg"><label>Vence el</label><input type="date" id="cxp-vence"/></div>
+            </div>
+            <div class="cxp-row2">
+              <div class="fg"><label>Avisar antes</label><select id="cxp-av"><option value="3">3 días</option><option value="5" selected>5 días</option><option value="7">7 días</option><option value="15">15 días</option></select></div>
+              <div class="fg"><label>N° factura</label><input type="text" id="cxp-nfac" placeholder="Opcional"/></div>
+            </div>
+            <label class="cxp-chk"><input type="checkbox" id="cxp-rec"/> 🔁 Se repite cada mes</label>
+            <div class="cxp-hint">Al pagarla, se crea sola la del mes siguiente (renta, leasing, luz…).</div>
+            <button class="btn-sm" id="cxp-btn-guardar" type="button" style="width:100%;justify-content:center">✓ Guardar cuenta por pagar</button>
+            <div id="cxp-edit-acc" style="display:none;gap:8px;margin-top:8px"><button class="btn-sm btn-outline" id="cxp-btn-cancelar" type="button" style="flex:1;justify-content:center">Cancelar</button><button class="btn-sm btn-del" id="cxp-btn-eliminar" type="button" style="flex:1;justify-content:center">🗑 Eliminar</button></div>
+          </div>
+          <div>
+            <div class="cxp-fil" id="cxp-fil">
+              <button type="button" class="pill on" data-f="pend">Pendientes</button>
+              <button type="button" class="pill" data-f="ven">🔴 Vencidas</button>
+              <button type="button" class="pill" data-f="pro">🟠 Por vencer</button>
+              <button type="button" class="pill" data-f="cor">🔵 Al corriente</button>
+              <button type="button" class="pill" data-f="pag">✅ Pagadas</button>
+              <button type="button" class="pill" data-f="todo">Todas</button>
+              <input type="text" id="cxp-q" placeholder="🔎 Buscar proveedor o concepto…"/>
+            </div>
+            <div class="tx-table-wrap cxp-tblwrap">
+              <table class="tx-table cxp-tbl">
+                <thead><tr><th>Vence</th><th>Proveedor · concepto</th><th>Categoría</th><th style="text-align:right">Monto</th><th>Estado</th><th style="text-align:right">Acciones</th></tr></thead>
+                <tbody id="cxp-tbody"></tbody>
+              </table>
+              <div class="empty-note" id="cxp-empty" style="display:none">Nada por aquí 🎉</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="gasto-v-gastos">
       <div class="filter-bar">
         <input type="text" id="gasto-buscar-top" placeholder="Buscar en descripciones..." style="flex:2;min-width:140px"/>
         <select id="gasto-facturacion-filtro-top">
@@ -2133,7 +2239,9 @@ body:has(#app-view.act) #app-version-tag{display:none}
         </table>
         <div class="empty-note" id="gasto-empty" style="display:none">Sin gastos para este filtro.</div>
       </div>
+      </div>
     </div>
+
     <div class="card screen2" id="app-screen-personal">
       <div class="tab-title"><span>⚙️ Configuración</span></div>
 
@@ -2415,6 +2523,24 @@ body:has(#app-view.act) #app-version-tag{display:none}
   </div>
 </div>
 
+    <div class="modal-overlay" id="modal-cxp-pago">
+      <div class="modal-box" style="max-width:460px">
+        <div class="modal-head"><h3>💳 Registrar pago</h3><button class="modal-close" id="cxp-m-cerrar" type="button">✕</button></div>
+        <div class="modal-body">
+          <div style="font-size:12.5px;color:var(--g6);margin-bottom:14px" id="cxp-m-sub"></div>
+          <div class="form-grid" style="grid-template-columns:1fr 1fr">
+            <div class="form-group"><label>Fecha en que se pagó</label><input type="date" id="cxp-m-fecha"/></div>
+            <div class="form-group"><label>Monto pagado ($)</label><input type="number" id="cxp-m-monto" min="0.01" step="0.01"/></div>
+            <div class="form-group full"><label>Facturación</label><select id="cxp-m-fact"><option value="facturado_clinica">Facturado a NovaHouse</option><option value="no_facturado">No facturado</option></select></div>
+          </div>
+          <div class="cxp-info" id="cxp-m-info"></div>
+        </div>
+        <div class="modal-foot">
+          <button class="appbtn appbtn-s" id="cxp-m-cancelar" type="button" style="background:var(--g1);color:var(--g6);box-shadow:none">Cancelar</button>
+          <button class="appbtn appbtn-p" id="cxp-m-ok" type="button">✓ Confirmar pago</button>
+        </div>
+      </div>
+    </div>
 <div class="modal-overlay" id="modal-editar-gasto">
   <div class="modal-box">
     <div class="modal-head"><h3>Editar gasto</h3><button class="modal-close" id="editg-btn-cerrar" type="button">✕</button></div>
@@ -2542,7 +2668,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.04-1';
+const APP_VERSION = 'v2026.11.10-1';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -3114,6 +3240,9 @@ function aplicarVisibilidadFormGasto(){
 
 async function cargarGastos(){
   aplicarVisibilidadFormGasto();
+  { const st = document.getElementById('gx-subtabs'); if(st) st.style.display = cxpEsAdmin() ? '' : 'none';
+    if(!cxpEsAdmin() && CXP_VISTA !== 'gastos') cxpVista('gastos');
+    if(cxpEsAdmin()) cxpCargar().then(() => { cxpPintarTabN(); if(CXP_VISTA === 'cxp') cxpRender(); }); }
   const tbody = document.getElementById('gasto-tbody');
   tbody.innerHTML = '<tr><td colspan="8" class="empty-note">Cargando...</td></tr>';
 
@@ -9378,6 +9507,188 @@ async function cargarActividad(){
   }).join('');
 }
 
+
+// ============================================================
+// Gastos › Cuentas por pagar (solo admin). Una cuenta por pagar NO es gasto todavía: se contabiliza
+// hasta que se registra el pago (la función pagar_cuenta_por_pagar crea el gasto con la fecha real).
+// ============================================================
+let CXP_ROWS = [], CXP_FIL = 'pend', CXP_EDIT_ID = null, CXP_PAGO_ID = null, CXP_VISTA = 'gastos';
+const cxpHoyISO = () => isoLocal(new Date());
+const cxpDias = iso => Math.round((new Date(iso + 'T12:00:00') - new Date(cxpHoyISO() + 'T12:00:00')) / 864e5);
+const cxpEsAdmin = () => MI_PERFIL?.rol === 'admin';
+function cxpEstado(r){
+  if(r.pagado_en) return 'pag';
+  const d = cxpDias(r.vence);
+  if(d < 0) return 'ven';
+  if(d <= Math.max(Number(r.avisar_dias) || 0, 7)) return 'pro';
+  return 'cor';
+}
+// Alerta = vencida, o dentro de los días de aviso que se eligieron para esa cuenta
+const cxpEnAlerta = r => !r.pagado_en && cxpDias(r.vence) <= (Number(r.avisar_dias) || 0);
+function cxpChip(r){
+  const e = cxpEstado(r), d = cxpDias(r.vence);
+  if(e === 'pag') return `<span class="cxp-st pag">✅ Pagada ${fmtFechaCorta(r.pagado_en)}</span>`;
+  if(e === 'ven') return `<span class="cxp-st ven">🔴 Vencida hace ${-d} día${-d === 1 ? '' : 's'}</span>`;
+  if(e === 'pro') return `<span class="cxp-st pro">🟠 ${d === 0 ? 'Vence hoy' : 'Vence en ' + d + ' día' + (d === 1 ? '' : 's')}</span>`;
+  return `<span class="cxp-st cor">🔵 En ${d} días</span>`;
+}
+async function cxpCargar(){
+  if(!cxpEsAdmin()) return [];
+  const { data, error } = await sb.from('cuentas_por_pagar').select('*').order('vence', { ascending:true }).limit(2000);
+  if(error){ console.error('[NovaHouse] Error cargando cuentas por pagar:', error); return CXP_ROWS; }
+  CXP_ROWS = data || [];
+  return CXP_ROWS;
+}
+function cxpPintarTabN(){
+  const n = CXP_ROWS.filter(cxpEnAlerta).length;
+  const em = document.getElementById('cxp-tab-n');
+  if(em){ em.textContent = n; em.style.display = n ? '' : 'none'; }
+}
+function cxpRender(){
+  cxpPintarTabN();
+  const pend = CXP_ROWS.filter(r => !r.pagado_en);
+  const ven = pend.filter(r => cxpEstado(r) === 'ven'), pro = pend.filter(r => cxpEstado(r) === 'pro');
+  const mes = cxpHoyISO().slice(0, 7);
+  const pagMes = CXP_ROWS.filter(r => r.pagado_en && r.pagado_en.slice(0, 7) === mes);
+  const suma = (a, k = 'monto') => a.reduce((x, r) => x + Number(r[k] || r.monto || 0), 0);
+  const plural = (n, s) => n + ' ' + s + (n === 1 ? '' : 's');
+  const k = (id, v, sub) => { document.getElementById('cxp-k-' + id).textContent = fmtMoney0(v); document.getElementById('cxp-k-' + id + '-s').textContent = sub; };
+  k('tot', suma(pend), plural(pend.length, 'cuenta') + ' pendiente' + (pend.length === 1 ? '' : 's'));
+  k('ven', suma(ven), plural(ven.length, 'cuenta')); k('pro', suma(pro), plural(pro.length, 'cuenta'));
+  k('pag', suma(pagMes, 'monto_pagado'), plural(pagMes.length, 'pago') + ' · ya están en Gastos');
+  const al = document.getElementById('cxp-alerta');
+  if(ven.length || pro.length){
+    al.style.display = '';
+    al.innerHTML = `<span style="font-size:20px">⏰</span><div>${ven.length ? `<b style="color:#C53030">${plural(ven.length, 'vencida')} (${fmtMoney0(suma(ven))})</b>` : ''}${ven.length && pro.length ? ' y ' : ''}${pro.length ? `<b style="color:#B7791F">${pro.length} por vencer en 7 días (${fmtMoney0(suma(pro))})</b>` : ''}.<br/><span style="color:var(--g6)">También te avisa la campanita según los días de aviso de cada cuenta.</span></div><div class="x">${ven.length ? '<button type="button" class="btn-sm btn-outline" data-f="ven">Ver vencidas</button>' : ''}${pro.length ? '<button type="button" class="btn-sm btn-outline" data-f="pro">Ver por vencer</button>' : ''}</div>`;
+  } else al.style.display = 'none';
+  const q = normalizar(document.getElementById('cxp-q').value || '');
+  const filas = CXP_ROWS
+    .filter(r => CXP_FIL === 'todo' || (CXP_FIL === 'pend' ? !r.pagado_en : cxpEstado(r) === CXP_FIL))
+    .filter(r => !q || normalizar(r.proveedor + ' ' + r.concepto + ' ' + (r.num_factura || '')).includes(q))
+    .sort((a, b) => (!!a.pagado_en - !!b.pagado_en) || (a.pagado_en ? b.pagado_en.localeCompare(a.pagado_en) : a.vence.localeCompare(b.vence)));
+  const tb = document.getElementById('cxp-tbody');
+  document.getElementById('cxp-empty').style.display = filas.length ? 'none' : '';
+  tb.innerHTML = filas.map(r => {
+    const cat = gastoCategoriaInfo(r.categoria), e = cxpEstado(r);
+    const acc = r.pagado_en
+      ? `<span style="font-size:11px;color:var(--g6)">${fmtMoney0(r.monto_pagado ?? r.monto)} en Gastos</span>`
+      : `<button type="button" class="btn-sm cxp-pagar" data-id="${esc2(r.id)}" title="Registrar pago">💳 Pagar</button><button type="button" class="btn-sm btn-edit cxp-editar" data-id="${esc2(r.id)}" title="Editar">✏️</button>`;
+    return `<tr class="r-${e}"><td><b>${fmtFechaCorta(r.vence)}</b></td>
+      <td><div class="cxp-prov">${esc2(r.proveedor)}<small>${esc2(r.concepto)}${r.num_factura ? ' · Fact. ' + esc2(r.num_factura) : ''}</small></div>${r.recurrente ? '<span class="cxp-rec">🔁 Mensual</span>' : ''}</td>
+      <td><span class="badge-cat cat-${esc2(cat.id)}">${cat.label}</span></td>
+      <td style="text-align:right"><b>${fmtMoney(r.monto)}</b></td>
+      <td>${cxpChip(r)}</td>
+      <td><div class="cxp-acc">${acc}</div></td></tr>`;
+  }).join('') + (filas.length ? `<tr><td colspan="3" style="font-weight:700;background:var(--g1)">${plural(filas.length, 'cuenta')}</td><td style="text-align:right;font-weight:700;background:var(--g1)">${fmtMoney(suma(filas))}</td><td colspan="2" style="background:var(--g1)"></td></tr>` : '');
+  document.querySelectorAll('#cxp-fil .pill').forEach(p => p.classList.toggle('on', p.dataset.f === CXP_FIL));
+}
+function cxpSetFil(f){ CXP_FIL = f; cxpRender(); }
+function cxpLimpiarForm(){
+  CXP_EDIT_ID = null;
+  ['cxp-prov','cxp-con','cxp-monto','cxp-nfac'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('cxp-cat').value = 'locativos';
+  document.getElementById('cxp-ffac').value = cxpHoyISO();
+  document.getElementById('cxp-vence').value = '';
+  document.getElementById('cxp-av').value = '5';
+  document.getElementById('cxp-rec').checked = false;
+  document.getElementById('cxp-form-t').textContent = '➕ Nueva cuenta por pagar';
+  document.getElementById('cxp-btn-guardar').textContent = '✓ Guardar cuenta por pagar';
+  document.getElementById('cxp-edit-acc').style.display = 'none';
+}
+function cxpEditar(id){
+  const r = CXP_ROWS.find(x => x.id === id); if(!r) return;
+  CXP_EDIT_ID = id;
+  document.getElementById('cxp-prov').value = r.proveedor; document.getElementById('cxp-con').value = r.concepto;
+  document.getElementById('cxp-cat').value = r.categoria; document.getElementById('cxp-monto').value = r.monto;
+  document.getElementById('cxp-ffac').value = r.fecha_factura || ''; document.getElementById('cxp-vence').value = r.vence;
+  const av = document.getElementById('cxp-av'); if(![...av.options].some(o => o.value === String(r.avisar_dias))) av.insertAdjacentHTML('beforeend', `<option value="${r.avisar_dias}">${r.avisar_dias} días</option>`); av.value = String(r.avisar_dias);
+  document.getElementById('cxp-nfac').value = r.num_factura || ''; document.getElementById('cxp-rec').checked = !!r.recurrente;
+  document.getElementById('cxp-form-t').textContent = '✏️ Editar cuenta por pagar';
+  document.getElementById('cxp-btn-guardar').textContent = '✓ Guardar cambios';
+  document.getElementById('cxp-edit-acc').style.display = 'flex';
+  document.getElementById('cxp-prov').focus();
+}
+async function cxpGuardar(){
+  const v = id => document.getElementById(id).value;
+  const fila = { proveedor: v('cxp-prov').trim(), concepto: v('cxp-con').trim(), categoria: v('cxp-cat'), monto: Number(v('cxp-monto') || 0),
+    fecha_factura: v('cxp-ffac') || null, vence: v('cxp-vence'), avisar_dias: parseInt(v('cxp-av'), 10) || 5,
+    num_factura: v('cxp-nfac').trim() || null, recurrente: document.getElementById('cxp-rec').checked };
+  if(!fila.proveedor){ alertaCampo('cxp-prov', 'Escribe a quién se le debe.'); return; }
+  if(!fila.concepto){ alertaCampo('cxp-con', 'Escribe el concepto.'); return; }
+  if(!(fila.monto > 0)){ alertaCampo('cxp-monto', 'El monto debe ser mayor a $0.'); return; }
+  if(!fila.vence){ alertaCampo('cxp-vence', 'Pon la fecha de vencimiento.'); return; }
+  const btn = document.getElementById('cxp-btn-guardar'); btn.disabled = true;
+  const { error } = CXP_EDIT_ID ? await sb.from('cuentas_por_pagar').update(fila).eq('id', CXP_EDIT_ID) : await sb.from('cuentas_por_pagar').insert(fila);
+  btn.disabled = false;
+  if(error){ console.error('[NovaHouse] Error guardando cuenta por pagar:', error); toast('No se pudo guardar.'); return; }
+  toast(CXP_EDIT_ID ? '✓ Cuenta actualizada.' : '✓ Cuenta por pagar guardada.');
+  cxpLimpiarForm(); CXP_FIL = 'pend';
+  await cxpCargar(); cxpRender(); bellRender();
+}
+async function cxpEliminar(){
+  if(!CXP_EDIT_ID) return;
+  const r = CXP_ROWS.find(x => x.id === CXP_EDIT_ID);
+  const ok = await confirmarAsync({ titulo:'¿Eliminar cuenta por pagar?', mensaje:`Se eliminará "${esc2(r?.concepto || '')}" de ${esc2(r?.proveedor || '')} (${fmtMoney(r?.monto)}). No afecta Gastos.`, textoConfirmar:'Eliminar', danger:true, icono:'🗑️' });
+  if(!ok) return;
+  const { error } = await sb.from('cuentas_por_pagar').delete().eq('id', CXP_EDIT_ID);
+  if(error){ console.error('[NovaHouse] Error eliminando cuenta por pagar:', error); toast('No se pudo eliminar.'); return; }
+  toast('✓ Eliminada.'); cxpLimpiarForm(); await cxpCargar(); cxpRender(); bellRender();
+}
+function cxpAbrirPago(id){
+  const r = CXP_ROWS.find(x => x.id === id); if(!r) return;
+  CXP_PAGO_ID = id;
+  document.getElementById('cxp-m-sub').textContent = `${r.proveedor} · ${r.concepto} · vence ${fmtFechaCorta(r.vence)}`;
+  document.getElementById('cxp-m-fecha').value = cxpHoyISO();
+  document.getElementById('cxp-m-monto').value = r.monto;
+  document.getElementById('cxp-m-fact').value = r.num_factura ? 'facturado_clinica' : 'no_facturado';
+  document.getElementById('cxp-m-info').innerHTML = `Al confirmar se crea un <b>gasto</b> en ${gastoCategoriaInfo(r.categoria).label} con la fecha del pago: ahí es cuando se contabiliza.${r.recurrente ? '<br/>🔁 Es mensual: se programa sola la del próximo mes.' : ''}`;
+  document.getElementById('modal-cxp-pago').classList.add('show');
+}
+function cxpCerrarPago(){ document.getElementById('modal-cxp-pago').classList.remove('show'); CXP_PAGO_ID = null; }
+async function cxpConfirmarPago(){
+  if(!CXP_PAGO_ID) return;
+  const fecha = document.getElementById('cxp-m-fecha').value, monto = Number(document.getElementById('cxp-m-monto').value || 0);
+  if(!fecha){ alertaCampo('cxp-m-fecha', 'Pon la fecha del pago.'); return; }
+  if(!(monto > 0)){ alertaCampo('cxp-m-monto', 'El monto debe ser mayor a $0.'); return; }
+  const btn = document.getElementById('cxp-m-ok'); btn.disabled = true;
+  const { error } = await sb.rpc('pagar_cuenta_por_pagar', { p_id: CXP_PAGO_ID, p_fecha: fecha, p_monto: monto, p_facturacion: document.getElementById('cxp-m-fact').value });
+  btn.disabled = false;
+  if(error){ console.error('[NovaHouse] Error pagando cuenta:', error); toast(error.message?.includes('ya estaba pagada') ? 'Esa cuenta ya estaba pagada.' : 'No se pudo registrar el pago.'); return; }
+  toast('✓ Pago registrado · ya está en Gastos.');
+  cxpCerrarPago(); await cxpCargar(); cxpRender(); bellRender();
+  cargarGastos();
+}
+function cxpVista(v){
+  CXP_VISTA = v;
+  document.querySelectorAll('#gx-subtabs button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  document.getElementById('gasto-v-gastos').style.display = v === 'gastos' ? '' : 'none';
+  document.getElementById('gasto-v-cxp').style.display = v === 'cxp' ? '' : 'none';
+  document.getElementById('app-screen-gastos').classList.toggle('cxp-on', v === 'cxp');
+  if(v === 'cxp') cxpCargar().then(cxpRender);
+}
+function cxpIr(filtro){
+  const nav = document.getElementById('nav-btn-gastos'); if(nav) nav.click();
+  cxpVista('cxp'); if(filtro) CXP_FIL = filtro;
+}
+(function(){
+  document.getElementById('cxp-cat').innerHTML = GASTO_CATEGORIAS.map(c => `<option value="${c.id}">${c.label}</option>`).join('');
+  document.getElementById('gx-subtabs').addEventListener('click', e => { const b = e.target.closest('button[data-v]'); if(b) cxpVista(b.dataset.v); });
+  document.getElementById('cxp-fil').addEventListener('click', e => { const b = e.target.closest('.pill'); if(b) cxpSetFil(b.dataset.f); });
+  document.getElementById('cxp-alerta').addEventListener('click', e => { const b = e.target.closest('button[data-f]'); if(b) cxpSetFil(b.dataset.f); });
+  document.querySelectorAll('.cxp-kpi').forEach(x => x.addEventListener('click', () => cxpSetFil(x.dataset.f)));
+  document.getElementById('cxp-q').addEventListener('input', cxpRender);
+  document.getElementById('cxp-tbody').addEventListener('click', e => {
+    const p = e.target.closest('.cxp-pagar'); if(p) return cxpAbrirPago(p.dataset.id);
+    const ed = e.target.closest('.cxp-editar'); if(ed) return cxpEditar(ed.dataset.id);
+  });
+  document.getElementById('cxp-btn-guardar').addEventListener('click', cxpGuardar);
+  document.getElementById('cxp-btn-cancelar').addEventListener('click', cxpLimpiarForm);
+  document.getElementById('cxp-btn-eliminar').addEventListener('click', cxpEliminar);
+  ['cxp-m-cerrar','cxp-m-cancelar'].forEach(id => document.getElementById(id).addEventListener('click', cxpCerrarPago));
+  document.getElementById('cxp-m-ok').addEventListener('click', cxpConfirmarPago);
+  cxpLimpiarForm();
+})();
+
 // ── Campanita: registros tardíos (solo admin) ──
 const BELL_ACCIONES = ['registro_tardio','fecha_retroactiva'];
 let BELL_ITEMS = [];
@@ -9386,20 +9697,23 @@ function bellVisto(){ try{ return localStorage.getItem(bellKey()) || ''; }catch(
 function bellGuardarVisto(ts){ try{ localStorage.setItem(bellKey(), ts); }catch(e){} }
 function bellNuevos(){ const v = bellVisto(); return BELL_ITEMS.filter(a => !v || a.created_at > v); }
 function bellRender(){
-  const n = bellNuevos().length;
+  const cxpAl = (typeof CXP_ROWS !== 'undefined' && cxpEsAdmin()) ? CXP_ROWS.filter(cxpEnAlerta).sort((a, b) => a.vence.localeCompare(b.vence)) : [];
+  const n = bellNuevos().length + cxpAl.length;
   const badge = document.getElementById('bell-badge'), btn = document.getElementById('btn-bell');
   if(!badge || !btn) return;
   badge.hidden = n === 0;
   badge.textContent = n > 9 ? '9+' : String(n);
   btn.classList.toggle('on', n > 0);
-  btn.setAttribute('aria-label', n ? `Registros tardíos: ${n} sin revisar` : 'Registros tardíos');
+  btn.setAttribute('aria-label', n ? `Avisos: ${n} pendientes` : 'Avisos');
   const v = bellVisto();
   const list = document.getElementById('bell-list');
+  const cxpHtml = cxpAl.length ? `<div class="bell-sec">📅 Cuentas por pagar</div>` + cxpAl.map(r => { const d = cxpDias(r.vence);
+      return `<div class="bell-it cxp${d < 0 ? ' v' : ''}" data-cxp="${d < 0 ? 'ven' : 'pro'}"><b>${esc2(r.proveedor)}</b> · ${fmtMoney0(r.monto)}<br/>${esc2(r.concepto)} · <span class="dd" style="color:${d < 0 ? '#C53030' : '#B7791F'}">${d < 0 ? 'vencida hace ' + (-d) + ' día' + (d === -1 ? '' : 's') : d === 0 ? 'vence hoy' : 'vence en ' + d + ' día' + (d === 1 ? '' : 's')}</span><span class="ts">Vence el ${fmtFechaCorta(r.vence)}</span></div>`; }).join('') + (BELL_ITEMS.length ? `<div class="bell-sec">🕒 Registros tardíos</div>` : '') : '';
   if(!BELL_ITEMS.length){
-    list.innerHTML = '<div class="bell-vacio">Sin registros tardíos. Aquí te avisaremos cuando alguien capture una consulta de un día anterior.</div>';
+    list.innerHTML = cxpHtml || '<div class="bell-vacio">Sin avisos. Aquí te avisaremos de cuentas por pagar próximas a vencer y de consultas capturadas tarde.</div>';
     return;
   }
-  list.innerHTML = BELL_ITEMS.map(a => {
+  list.innerHTML = cxpHtml + BELL_ITEMS.map(a => {
     const d = a.detalle || {};
     const dias = Number(d.dias) || 0;
     const que = a.accion === 'registro_tardio' ? 'registró consulta del' : `cambió una consulta (antes ${fmtFechaCorta(d.fecha_anterior)}) al`;
@@ -9410,6 +9724,7 @@ function bellRender(){
 }
 async function cargarCampana(){
   if(!MI_PERFIL || MI_PERFIL.rol !== 'admin') return;
+  await cxpCargar(); cxpPintarTabN();
   const { data, error } = await sb.from('audit_log').select('*, personal(nombre)').in('accion', BELL_ACCIONES).order('created_at', { ascending:false }).limit(30);
   if(error){ console.error('[NovaHouse] Error cargando campanita:', error); return; }
   BELL_ITEMS = data || [];
@@ -9448,6 +9763,7 @@ async function campanaNuevaFila(row){
   document.addEventListener('keydown', e => { if(e.key === 'Escape') abrir(false); });
   window.addEventListener('resize', () => abrir(false));
   document.getElementById('bell-marcar').addEventListener('click', marcar);
+  document.getElementById('bell-list').addEventListener('click', e => { const it = e.target.closest('.bell-it.cxp'); if(!it) return; abrir(false); cxpIr(it.dataset.cxp); });
   document.getElementById('bell-ver-todo').addEventListener('click', () => {
     abrir(false);
     document.getElementById('btn-config-header').click();

@@ -1860,7 +1860,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
               </div>
               <div class="form-group"><label>Teléfono</label><input type="text" id="reg-telefono" placeholder="10 dígitos"/></div>
               <div class="form-group" id="reg-grp-dueno"><label title="Doctora de esta visita: Consultas muestra solo las suyas">Doctora <span class="req-badge">obligatorio</span></label><select id="reg-dueno"><option value="">Seleccionar...</option></select></div>
-              <div class="form-group" id="reg-grp-procedencia"><label>¿Cómo nos conoció?</label><select id="reg-procedencia"><option value="">Seleccionar...</option></select></div>
+              <div class="form-group" id="reg-grp-procedencia"><label>Procedencia del paciente</label><select id="reg-procedencia"><option value="">Seleccionar...</option></select></div>
               <div class="form-group"><label>Fecha</label><input type="date" id="reg-fecha" title="Fecha de la visita"/></div>
             </div>
           </div>
@@ -2744,7 +2744,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.10-3';
+const APP_VERSION = 'v2026.11.11-1';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;

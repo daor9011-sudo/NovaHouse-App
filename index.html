@@ -1808,6 +1808,54 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .fr-row .t{grid-column:1/-1;height:6px;background:var(--g1);border-radius:9px;overflow:hidden}.fr-row .t i{display:block;height:100%;border-radius:9px;background:var(--navy2)}
 .fr-ins{background:linear-gradient(135deg,#F0FBFA,#EAF2FF);border:1px solid #CDEDEA;border-radius:16px;padding:14px 18px;margin-top:12px;font-size:13px;line-height:1.6}
 .fr-ins ul{margin:4px 0 0 18px;padding:0}
+
+/* Flash report v2 (formato ejecutivo) */
+.fx{background:#fff;border:1px solid var(--g2);border-radius:18px;overflow:hidden;box-shadow:0 8px 30px rgba(11,22,40,.07)}
+.fx-hd{background:linear-gradient(120deg,#0B1628 0%,#1B3A6B 70%,#1F6F78 140%);color:#fff;padding:22px 28px;display:flex;align-items:center;gap:16px;position:relative}
+.fx-hd:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--teal),#7DD3C8,var(--teal))}
+.fx-logo{width:48px;height:48px;border-radius:13px;background:var(--teal);display:grid;place-items:center;font:800 18px var(--font-d);flex:none}
+.fx-hd h2{margin:0;font:800 22px var(--font-d);color:#fff}.fx-hd p{margin:3px 0 0;color:#B9C7DD;font-size:12.5px}
+.fx-est{margin-left:auto;text-align:right}.fx-est small{display:block;color:#B9C7DD;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+.fx-badge{display:inline-flex;align-items:center;gap:8px;margin-top:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12.5px}
+.fx-badge i{width:10px;height:10px;border-radius:50%;flex:none}.fx-badge.g i{background:#34D399}.fx-badge.a i{background:#FBBF24}.fx-badge.r i{background:#F87171}
+.fx-bd{padding:24px 28px 28px}.fx-sec{margin-top:26px}.fx-sec:first-child{margin-top:0}
+.fx-st{display:flex;align-items:baseline;gap:10px;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--g2)}
+.fx-st b{font-size:11px;color:var(--teal);letter-spacing:.14em;font-weight:800}.fx-st h3{margin:0;font:800 15.5px var(--font-d);color:var(--navy)}.fx-st span{margin-left:auto;color:var(--g6);font-size:11.5px;text-align:right}
+.fx-kpis{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:12px}
+.fx-k{border:1px solid var(--g2);border-radius:14px;padding:14px 16px;min-width:0}
+.fx-k small{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--g6);font-weight:700}
+.fx-k .v{font:800 28px var(--font-d);letter-spacing:-.4px;margin:4px 0 2px;color:var(--navy)}.fx-k .s{font-size:12px;color:var(--g6);margin-top:2px}.fx-k .s b{color:var(--navy)}
+.fx-k.hero{background:#0B1628;border-color:#0B1628}.fx-k.hero small,.fx-k.hero .s{color:#B9C7DD}.fx-k.hero .v{color:#fff}
+.fx-d{display:inline-block;font-weight:700;font-size:12px;padding:2px 8px;border-radius:6px}.fx-d.dn{background:rgba(248,113,113,.18);color:#FCA5A5}.fx-d.up{background:rgba(52,211,153,.18);color:#6EE7B7}
+.fx-k.ring{display:flex;align-items:center;gap:12px}.fx-ring{width:78px;flex:none}.fx-ring text{font:800 14px var(--font-b);fill:var(--navy)}.fx-k .big{font:800 18px var(--font-d);color:var(--navy)}
+.fx-sem{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--g2);border-radius:12px;margin-top:12px;background:#FAFBFD}
+.fx-sem>div{display:flex;gap:10px;padding:11px 14px;border-left:1px solid var(--g2)}.fx-sem>div:first-child{border-left:0}
+.fx-sem span{display:block;font-size:11.5px;color:var(--g6)}.fx-sem b{font-size:15.5px;color:var(--navy)}.fx-sem small{display:block;font-size:11px;color:var(--g6)}
+.fx-dot{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}.fx-dot.g{background:#059669}.fx-dot.a{background:#F59E0B}.fx-dot.r{background:#DC2626}.fx-dot.x{background:#CBD5E1}
+.fx-flow{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;align-items:center}
+.fx-wf{width:100%;height:auto}.fx-wf .v{font:800 13px var(--font-b);fill:var(--navy)}.fx-wf .l{font-size:11.5px;fill:var(--g6)}
+.fx-t{width:100%;border-collapse:collapse;font-size:12.5px}
+.fx-t th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--g6);font-weight:700;padding:7px 8px;border-bottom:1.5px solid var(--navy);background:none}
+.fx-t td{padding:7px 8px;border-bottom:1px solid var(--g2);vertical-align:middle}.fx-t td small{display:block;color:var(--g6);font-size:10.5px;font-weight:400}
+.fx-t .num{text-align:right;font-variant-numeric:tabular-nums}.fx-t th.num{text-align:right}
+.fx-rec tr.t td{font-weight:800;border-top:1.5px solid var(--navy);border-bottom:0;background:#F2FBFA}.fx-rec .sg{width:16px;color:var(--g6);font-weight:700}
+.fx-t .rk{width:24px;color:var(--teal);font-weight:800}.fx-t .act{font-size:11.5px;color:var(--g6)}.fx-t tbody.tot td{font-weight:800;border-top:1.5px solid var(--navy);border-bottom:0}
+.fx-vb{width:32%;white-space:nowrap}.fx-vb div{height:8px;background:var(--g1);border-radius:4px;overflow:hidden;display:inline-block;width:calc(100% - 82px);vertical-align:middle}.fx-vb i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),#14857B);border-radius:4px}
+.fx-vb span{display:inline-block;width:78px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.fx-c{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}.fx-c.r{background:#FEE2E2;color:#B91C1C}.fx-c.a{background:#FEF3C7;color:#92400E}.fx-c.g{background:#DCFCE7;color:#166534}
+.fx-q{color:#2563EB}.fx-t td.num small{white-space:nowrap}.fx-empty{color:var(--g6);font-size:12.5px;text-align:center;padding:14px 8px!important}
+.fx-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.fx-mb{display:grid;grid-template-columns:1.1fr 1.3fr 78px;gap:10px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--g2);font-size:12.5px}
+.fx-mb .n{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis}.fx-mb .n span{display:block;font-weight:400;color:var(--g6);font-size:10.5px}.fx-mb .t{height:10px;background:var(--g1);border-radius:5px;overflow:hidden}.fx-mb .t div{height:100%;background:#0B1628;border-radius:5px}.fx-mb .v{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.fx-cbar{display:flex;height:22px;border-radius:7px;overflow:hidden;margin:6px 0 12px;background:var(--g1)}.fx-cbar div{height:100%}
+.fx-cl{display:grid;grid-template-columns:14px 1fr 50px 84px;gap:8px;align-items:center;padding:5px 0;border-bottom:1px dashed var(--g2);font-size:12.5px}
+.fx-cl i{width:12px;height:12px;border-radius:3px}.fx-cl b{text-align:right}.fx-cl em{font-style:normal;text-align:right;color:var(--g6);font-variant-numeric:tabular-nums}
+.fx-read{background:linear-gradient(135deg,#F0FBF9,#EEF4FF);border:1px solid #CDEEE9;border-radius:14px;padding:14px 18px 14px 14px;font-size:12.5px;line-height:1.5}
+.fx-read ol{margin:0;padding-left:22px}.fx-read li{margin:5px 0}.fx-read b.n{color:#0F8F86}
+.fx-ft{display:flex;justify-content:space-between;gap:10px;padding:12px 28px;border-top:1px solid var(--g2);color:var(--g6);font-size:11px;background:#FAFBFD}
+@media screen and (max-width:1100px){.fx-kpis{grid-template-columns:1fr 1fr}.fx-sem{grid-template-columns:1fr 1fr}.fx-sem>div:nth-child(3){border-left:0}.fx-sem>div:nth-child(n+3){border-top:1px solid var(--g2)}.fx-flow,.fx-two{grid-template-columns:minmax(0,1fr)}}
+@media screen and (max-width:640px){.fx-hd{flex-wrap:wrap;padding:18px}.fx-est{margin-left:0;text-align:left}.fx-bd{padding:16px}.fx-kpis,.fx-sem{grid-template-columns:1fr}.fx-sem>div{border-left:0!important;border-top:1px solid var(--g2)}.fx-sem>div:first-child{border-top:0}
+ .fx-hm{display:none}.fx-vb{width:auto}.fx-vb div{display:none}.fx-vb span{width:auto}.fx-ft{flex-direction:column;padding:12px 16px}.fx-k .v{font-size:24px}.fx-st{flex-wrap:wrap}.fx-st span{margin-left:0;width:100%;text-align:left}.fx-t{font-size:12px}.fx-t td,.fx-t th{padding:6px 5px}.fx-mb{grid-template-columns:1fr 1fr 70px}}
 @media (max-width:1100px){.iv-al,.iv-kpis,.fr-hero{grid-template-columns:1fr 1fr}.iv-split{grid-template-columns:minmax(0,1fr)}.fr-grid{grid-template-columns:1fr 1fr}.fr-flow{grid-template-columns:1fr 1fr}.fr-flow .op{display:none}.fr-flow>div{border-bottom:1px solid var(--g2)}}
 @media (max-width:700px){
   .iv-hero{margin:-14px -13px 0;padding:16px 14px}.iv-hero h1{font-size:23px}.iv-hero .acts{margin-left:0;width:100%}.iv-hero .acts .iv-hbtn{flex:1;padding:9px 6px;font-size:12px}
@@ -1826,6 +1874,12 @@ body:has(#app-view.act) #app-version-tag{display:none}
   body.iv-print #iv-v-exist,body.iv-print #iv-v-ent,body.iv-print #iv-v-conteo,body.iv-print #iv-v-movs{display:none!important}
   body.iv-print #iv-v-flash{display:block!important}
   body.iv-print .fr-box,body.iv-print .fr-k,body.iv-print .fr-flow{break-inside:avoid}
+  @page{size:letter;margin:9mm}
+  body.iv-print .fr-top{display:none!important}
+  body.iv-print .iv-card,body.iv-print main.appmain,body.iv-print #app-screen-inv{padding:0!important;margin:0!important;box-shadow:none!important;border:0!important;background:#fff!important}
+  body.iv-print .fx{zoom:.74;box-shadow:none;border:0;border-radius:0}
+  body.iv-print .fx-sec{break-inside:avoid}body.iv-print .fx-pb{break-before:page}
+  body.iv-print .fx-ft{break-before:avoid;break-inside:avoid}body.iv-print .fx *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 </style>
 </head>
@@ -2502,14 +2556,10 @@ body:has(#app-view.act) #app-version-tag{display:none}
 
       <div id="iv-v-flash" style="display:none">
         <div class="fr-top">
-          <div><h2>⚡ Flash report de inventario</h2><div class="iv-hint" id="fr-sub"></div></div>
-          <div class="fr-per" id="fr-per"><button type="button" data-p="sem">Semana</button><button type="button" data-p="mes" class="on">Mes</button><button type="button" data-p="tri">Trimestre</button></div>
+          <div class="fr-per" id="fr-per" style="margin-right:auto"><button type="button" data-p="sem">Semana</button><button type="button" data-p="mes" class="on">Mes</button><button type="button" data-p="tri">Trimestre</button></div>
           <div class="r"><button type="button" class="btn-sm btn-outline" id="fr-wa">💬 Copiar para WhatsApp</button><button type="button" class="btn-sm" id="fr-pdf" style="background:var(--navy);border-color:var(--navy);color:#fff">⬇ Descargar PDF</button></div>
         </div>
-        <div class="fr-hero" id="fr-hero"></div>
-        <div class="fr-flow" id="fr-flow"></div>
-        <div class="fr-grid" id="fr-grid"></div>
-        <div class="fr-ins" id="fr-ins"></div>
+        <div class="fx" id="fx"></div>
       </div>
     </div>
     <div class="iv-ov" id="iv-ov"></div>
@@ -2940,7 +2990,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.17-1';
+const APP_VERSION = 'v2026.11.17-2';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -4107,7 +4157,7 @@ function invFlashDatos(per){
   const S = (arr, f) => arr.reduce((a, x) => a + f(x), 0);
   const costoMov = m => Number(m.costo_unitario) > 0 ? Number(m.costo_unitario) : invCostoDe(INV_P.find(p => p.id === m.producto_id) || {});
   const fin = S(INV_P, p => Math.max(0, p.existencia || 0)), finV = S(INV_P, invValor);
-  const ent = movs.filter(m => m.tipo === 'entrada' || m.tipo === 'inicial'), vend = movs.filter(m => m.tipo === 'venta' || m.tipo === 'devolucion');
+  const ent = movs.filter(m => m.tipo === 'entrada'), vend = movs.filter(m => m.tipo === 'venta' || m.tipo === 'devolucion');
   const otros = movs.filter(m => m.tipo === 'ajuste' || m.tipo === 'merma');
   const pzEnt = S(ent, m => m.cantidad), pzVend = -S(vend, m => m.cantidad), pzOtros = -S(otros, m => m.cantidad);
   const ini = fin - pzEnt + pzVend + pzOtros;
@@ -4122,64 +4172,162 @@ function invFlashDatos(per){
 function invRenderFlash(){
   const D = invFlashDatos(INV_FR), varPz = D.fin - D.ini, pct = D.ini ? varPz / D.ini * 100 : 0;
   const MES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-  const per = INV_FR === 'mes' ? `${MES[new Date().getMonth()][0].toUpperCase() + MES[new Date().getMonth()].slice(1)} ${new Date().getFullYear()} (al día ${new Date().getDate()})` : `${invFC(D.desde)} – ${invFC(D.hasta)}`;
-  document.getElementById('fr-sub').textContent = per + ' · generado ' + new Date().toLocaleString('es-MX', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' });
-  const conEx = INV_P.filter(p => p.existencia > 0);
+  const hoy = new Date(), mesN = MES[hoy.getMonth()];
+  const per = INV_FR === 'mes' ? `${mesN[0].toUpperCase() + mesN.slice(1)} ${hoy.getFullYear()} (del 1 al ${hoy.getDate()})` : `${invFC(D.desde)} – ${invFC(D.hasta)}`;
+  const gen = hoy.toLocaleString('es-MX', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+  const $ = v => fmtMoney0(v || 0), C = D.hayCosto;
+  const conEx = INV_P.filter(p => p.existencia > 0), nMarcas = new Set(conEx.map(p => p.grupo || 'Otras marcas')).size;
+  const pid = id => INV_P.find(p => p.id === id);
+  const nom = id => pid(id)?.nombre || '';
+  // Ventas por producto (piezas desde movimientos, pesos desde farmacia_ventas)
+  const vendPz = {}; D.movs.filter(m => m.tipo === 'venta' || m.tipo === 'devolucion').forEach(m => vendPz[m.producto_id] = (vendPz[m.producto_id] || 0) - m.cantidad);
+  const porProd = {}; D.ventas.forEach(v => { const k = v.producto_id || 'm:' + v.medicamento; const x = porProd[k] || (porProd[k] = { id: v.producto_id, n: nom(v.producto_id) || v.medicamento || '—', m:0, q:0 }); x.m += Number(v.monto) || 0; x.q += Number(v.cantidad) || 1; });
+  const top = Object.values(porProd).sort((a, b) => b.m - a.m).slice(0, 8), mxT = top[0]?.m || 1;
+  const ritmo = id => (vendPz[id] || 0) / D.diasPer;
+  const cob = p => { const ex = Math.max(0, p?.existencia || 0), r = p ? ritmo(p.id) : 0; return r > 0 ? ex / r : null; };
+  const cobChip = p => { if(!p) return '<span class="iv-mut">—</span>'; const ex = p.existencia || 0, d = cob(p);
+    if(ex <= 0) return '<span class="fx-c r">Agotado</span>'; if(d == null) return '<span class="fx-c g">sin venta</span>';
+    return `<span class="fx-c ${d < 15 ? 'r' : d < 45 ? 'a' : 'g'}">${d > 365 ? '+365' : Math.round(d)} d</span>`; };
+  // Margen
+  const margen = C && D.vVend ? D.ventaPesos - D.vVend : null;
+  // Caducidad
+  const B = [['Vencido',-1e9,-1,'#DC2626'],['0–30 d',0,30,'#EA580C'],['31–90 d',31,90,'#D97706'],['91–180 d',91,180,'#CA8A04'],['6–12 m',181,365,'#0D9488'],['+12 m',366,1e9,'#0F766E'],['Sin fecha',null,null,'#CBD5E1']];
+  const bq = B.map(() => [0, 0]);
+  INV_L.filter(l => l.cantidad > 0).forEach(l => { const c = Number(l.costo_unitario) || invCostoDe(pid(l.producto_id) || {});
+    let i = 6; if(l.caducidad){ const d = invDias(l.caducidad); i = B.findIndex(b => b[1] != null && d >= b[1] && d <= b[2]); }
+    bq[i][0] += l.cantidad; bq[i][1] += l.cantidad * c; });
+  const totL = bq.reduce((a, x) => a + x[0], 0) || 1;
   const lotesR = INV_L.filter(l => l.cantidad > 0 && l.caducidad && invDias(l.caducidad) <= 90).sort((a, b) => a.caducidad.localeCompare(b.caducidad));
-  const pzR = lotesR.reduce((a, l) => a + l.cantidad, 0);
-  const dorm = conEx.filter(p => !D.prodConVenta.has(p.id)).sort((a, b) => (invValor(b) - invValor(a)) || (b.existencia - a.existencia));
-  const pzDorm = dorm.reduce((a, p) => a + p.existencia, 0);
-  const servicio = D.prodConVenta.size ? Math.round((1 - D.quiebres.length / D.prodConVenta.size) * 100) : 100;
-  const val = (pz, v) => D.hayCosto && v ? `${pz} pzas · ${fmtMoney0(v)}` : `${pz} pzas`;
-  document.getElementById('fr-hero').innerHTML = `
-    <div class="fr-big"><div class="l">Inventario en mostrador</div><div class="v">${D.fin} pzas</div>
-      <div class="d">vs. inicio del periodo ${D.ini} · <b class="${varPz < 0 ? 'neg' : ''}">${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} (${Math.abs(pct).toFixed(1)}%)</b></div>
-      <div class="d" style="opacity:.85;margin-top:6px">${conEx.length} productos${D.finV ? ' · a costo ' + fmtMoney0(D.finV) : ''}</div></div>
-    <div class="fr-k"><div class="l">Venta de farmacia</div><div class="v">${fmtMoney0(D.ventaPesos)}</div><div class="s">${D.pzVend} piezas vendidas en ${D.ventas.length} ventas</div></div>
-    <div class="fr-k"><div class="l">Rotación</div><div class="v">${D.rot.toFixed(2)}×</div><div class="s">${D.diasInv ? '≈ <b>' + Math.round(D.diasInv) + ' días</b> de inventario al ritmo actual' : 'sin ventas en el periodo'}</div></div>
-    <div class="fr-k"><div class="l">Nivel de servicio</div><div class="v">${servicio}%</div><div class="s">${D.quiebres.length} producto${D.quiebres.length === 1 ? '' : 's'} vendidos sin existencia · ${INV_P.filter(p => p.activo && p.existencia <= 0).length} agotados</div><div class="bar"><i style="width:${servicio}%"></i></div></div>`;
-  document.getElementById('fr-flow').innerHTML = `
-    <div><div class="l">Inventario inicial</div><div class="v">${D.ini} pzas</div><div class="s">${D.hayCosto ? fmtMoney0(D.iniV) + ' a costo' : 'al ' + invFC(D.desde)}</div><span class="op">+</span></div>
-    <div><div class="l">🚚 Entradas</div><div class="v" style="color:#2F855A">${D.pzEnt} pzas</div><div class="s">${D.hayCosto && D.vEnt ? fmtMoney0(D.vEnt) : 'compras y carga inicial'}</div><span class="op">−</span></div>
-    <div><div class="l">🛒 Vendido</div><div class="v" style="color:#2B4C9E">${D.pzVend} pzas</div><div class="s">${D.vVend ? fmtMoney0(D.vVend) + ' a costo' : 'desde Registro'}</div><span class="op">−</span></div>
-    <div><div class="l">🗑 Mermas y ajustes</div><div class="v" style="color:#C53030">${D.pzOtros < 0 ? '+' : ''}${Math.abs(D.pzOtros)} pzas</div><div class="s">caducados + conteos físicos</div><span class="op">=</span></div>
-    <div><div class="l">Inventario final</div><div class="v">${D.fin} pzas</div><div class="s">${D.finV ? fmtMoney0(D.finV) + ' a costo' : (varPz < 0 ? 'bajó ' : 'subió ') + Math.abs(pct).toFixed(1) + '%'}</div></div>`;
-  const porProd = {}; D.ventas.forEach(v => { const k = v.producto_id || 'm:' + v.medicamento; const x = porProd[k] || (porProd[k] = { n: INV_P.find(p => p.id === v.producto_id)?.nombre || v.medicamento || '—', m:0, q:0 }); x.m += Number(v.monto) || 0; x.q += Number(v.cantidad) || 1; });
-  const top = Object.values(porProd).sort((a, b) => b.m - a.m).slice(0, 6), mxT = top[0]?.m || 1;
+  const pzR = lotesR.reduce((a, l) => a + l.cantidad, 0), vR = lotesR.reduce((a, l) => a + l.cantidad * (Number(l.costo_unitario) || invCostoDe(pid(l.producto_id) || {})), 0);
+  // Dormido
+  const dorm = conEx.filter(p => !(vendPz[p.id] > 0)).sort((a, b) => (invValor(b) - invValor(a)) || (b.existencia - a.existencia));
+  const pzDorm = dorm.reduce((a, p) => a + p.existencia, 0), vDorm = dorm.reduce((a, p) => a + invValor(p), 0);
+  const fracDorm = C && D.finV ? vDorm / D.finV : (D.fin ? pzDorm / D.fin : 0);
+  // Sugerido: bajo mínimo, agotado con venta o cobertura < 30 días → cubrir 45 días
+  const pedir = INV_P.filter(p => p.activo).map(p => { const ex = Math.max(0, p.existencia || 0), r = ritmo(p.id), d = cob(p);
+      const bajo = p.stock_minimo != null && ex <= p.stock_minimo, corto = r > 0 && d != null && d < 30;
+      if(!bajo && !corto) return null;
+      return { p, ex, sug: Math.max(1, (p.stock_minimo || 0) * 2 - ex, Math.ceil(r * 45 - ex)), d }; })
+    .filter(Boolean).sort((a, b) => (a.d ?? 999) - (b.d ?? 999) || (vendPz[b.p.id] || 0) - (vendPz[a.p.id] || 0));
+  const pedirTot = pedir.reduce((a, x) => a + x.sug * invCostoDe(x.p), 0);
+  // Marcas
   const marcas = {}; conEx.forEach(p => { const g = p.grupo || 'Otras marcas'; const x = marcas[g] || (marcas[g] = { q:0, v:0 }); x.q += p.existencia; x.v += invValor(p); });
-  const mk = Object.entries(marcas).sort((a, b) => (D.hayCosto ? b[1].v - a[1].v : 0) || b[1].q - a[1].q).slice(0, 6), mxM = mk.length ? (D.hayCosto ? mk[0][1].v : mk[0][1].q) || 1 : 1;
-  const vendPorProd = {}; D.movs.filter(m => m.tipo === 'venta').forEach(m => vendPorProd[m.producto_id] = (vendPorProd[m.producto_id] || 0) - m.cantidad);
-  const pedir = INV_P.filter(p => (p.stock_minimo != null && (p.existencia || 0) <= p.stock_minimo) || ((p.existencia || 0) <= 0 && vendPorProd[p.id] > 0))
-    .map(p => ({ p, sug: Math.max(1, (p.stock_minimo || 0) * 2 - (p.existencia || 0), (vendPorProd[p.id] || 0) - (p.existencia || 0)) }))
-    .sort((a, b) => (vendPorProd[b.p.id] || 0) - (vendPorProd[a.p.id] || 0)).slice(0, 7);
-  const nom = id => INV_P.find(p => p.id === id)?.nombre || '';
+  let mk = Object.entries(marcas).sort((a, b) => (C ? b[1].v - a[1].v : 0) || b[1].q - a[1].q);
+  if(mk.length > 8){ const resto = mk.slice(7); mk = mk.slice(0, 7).concat([[`Resto (${resto.length} marcas)`, { q: resto.reduce((a, x) => a + x[1].q, 0), v: resto.reduce((a, x) => a + x[1].v, 0) }]]); }
+  const mxM = Math.max(1, ...mk.map(([, x]) => C ? x.v : x.q));
+  // Indicadores y semáforo
+  const servicio = D.prodConVenta.size ? (1 - D.quiebres.length / D.prodConVenta.size) : 1;
   const sinCosto = conEx.filter(p => !invCostoDe(p)).length, venc = INV_L.filter(l => l.cantidad > 0 && l.caducidad && invDias(l.caducidad) < 0);
-  const inact = conEx.filter(p => !p.activo).length, neg = INV_P.filter(p => (p.existencia || 0) < 0).length;
-  document.getElementById('fr-grid').innerHTML = `
-    <div class="fr-box"><h4>🏆 Más vendidos <small>por venta</small></h4>${top.map(x => `<div class="fr-row"><span class="n">${esc2(x.n)}</span><b>${fmtMoney0(x.m)}</b><span class="t"><i style="width:${x.m / mxT * 100}%;background:var(--teal)"></i></span></div>`).join('') || '<p class="iv-hint">Sin ventas de farmacia en el periodo.</p>'}</div>
-    <div class="fr-box"><h4>🏷 Inventario por marca <small>${D.hayCosto ? 'a costo' : 'piezas'}</small></h4>${mk.map(([m, x]) => `<div class="fr-row"><span class="n">${esc2(m)}</span><b>${D.hayCosto ? fmtMoney0(x.v) : x.q + ' pzas'}</b><span class="t"><i style="width:${(D.hayCosto ? x.v : x.q) / mxM * 100}%"></i></span></div>`).join('')}</div>
-    <div class="fr-box"><h4>🛒 Sugerido para pedir <small>mínimo o agotado con venta</small></h4>${pedir.map(x => `<div class="fr-row"><span class="n">${esc2(x.p.nombre)}</span><span><span class="iv-ch ${x.p.existencia > 0 ? 'a' : 'r'}">${x.p.existencia || 0}${x.p.stock_minimo != null ? ' / mín ' + x.p.stock_minimo : ''}</span> <b>+${x.sug}</b></span></div>`).join('') || '<p class="iv-hint">Nada urgente. Pon mínimos por producto para que aquí te diga qué pedir.</p>'}</div>
-    <div class="fr-box"><h4>⏳ Caducidad en riesgo <small>${pzR} pzas</small></h4>${lotesR.slice(0, 6).map(l => `<div class="fr-row"><span class="n">${esc2(nom(l.producto_id))} · ${l.cantidad} pzas</span>${invCadChip(l.caducidad)}</div>`).join('') || '<p class="iv-hint">Sin productos por caducar en 90 días.</p>'}</div>
-    <div class="fr-box"><h4>💤 Inventario dormido <small>${val(pzDorm, dorm.reduce((a, p) => a + invValor(p), 0))} sin venta</small></h4>${dorm.slice(0, 6).map(p => `<div class="fr-row"><span class="n">${esc2(p.nombre)}</span><b>${invValor(p) ? fmtMoney0(invValor(p)) : p.existencia + ' pzas'}</b></div>`).join('') || '<p class="iv-hint">Todo lo que hay se movió.</p>'}</div>
-    <div class="fr-box"><h4>🧮 Pendientes <small>calidad del dato</small></h4>
-      <div class="fr-row"><span class="n">Lotes caducados en anaquel</span><b style="color:${venc.length ? '#C53030' : 'inherit'}">${venc.length}</b></div>
-      <div class="fr-row"><span class="n">Vendidos sin existencia</span><b>${neg}</b></div>
-      <div class="fr-row"><span class="n">Con piezas pero sin activar para venta</span><b>${inact}</b></div>
-      <div class="fr-row"><span class="n">Productos con piezas sin costo</span><b>${sinCosto}</b></div></div>`;
+  const inact = conEx.filter(p => !p.activo).length;
+  const sem = (ok, warn) => ok ? 'g' : warn ? 'a' : 'r';
+  const S = [
+    ['Nivel de servicio', Math.round(servicio * 100) + '%', sem(servicio >= .95, servicio >= .85), 'lo vendido que sí había en anaquel'],
+    ['Días de inventario', D.diasInv ? Math.round(D.diasInv) + ' d' : '—', D.diasInv ? sem(D.diasInv <= 120, D.diasInv <= 200) : 'x', D.diasInv ? 'meta ≤ 120 días' : 'sin ventas en el periodo'],
+    ['Caducidad ≤ 90 d', pzR + ' pzas', sem(pzR <= 3 && !venc.length, pzR <= 10), venc.length ? `${venc.length} lote${venc.length === 1 ? '' : 's'} ya caducado${venc.length === 1 ? '' : 's'}` : (C && vR ? $(vR) + ' a costo' : 'piezas por vender primero')],
+    ['Inventario dormido', C && vDorm ? $(vDorm) : pzDorm + ' pzas', sem(fracDorm <= .25, fracDorm <= .5), Math.round(fracDorm * 100) + '% del inventario sin venta'],
+  ];
+  const nR = S.filter(s => s[2] === 'r').length, nA = S.filter(s => s[2] === 'a').length;
+  const estado = nR ? ['r', 'Atención: ' + S.filter(s => s[2] === 'r').map(s => s[0].toLowerCase()).join(' y ')] : nA ? ['a', 'Vigilar: ' + S.filter(s => s[2] === 'a').map(s => s[0].toLowerCase()).join(' y ')] : ['g', 'En orden'];
+  // Gráficas SVG
+  const ring = (p, col, lab) => { const r = 34, c = 2 * Math.PI * r, q = Math.max(0, Math.min(1, p));
+    return `<svg viewBox="0 0 84 84" class="fx-ring"><circle cx="42" cy="42" r="${r}" fill="none" stroke="#E8EDF3" stroke-width="9"/><circle cx="42" cy="42" r="${r}" fill="none" stroke="${col}" stroke-width="9" stroke-linecap="round" stroke-dasharray="${(c * q).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 42 42)"/><text x="42" y="47" text-anchor="middle">${lab}</text></svg>`; };
+  const cascada = (() => { const W = 560, H = 210, pad = 34, bw = 64, gap = (W - pad * 2 - bw * 5) / 4;
+    const st = [['Inicial', D.ini, 'b'], ['Entradas', D.pzEnt, 'u'], ['Vendido', -D.pzVend, 'v'], ['Mermas y ajustes', -D.pzOtros, 'm'], ['Final', D.fin, 'b']];
+    let run = 0, x = pad, hi = 0, lo = 0; st.forEach(([, v, t]) => { run = t === 'b' ? v : run + v; hi = Math.max(hi, run); lo = Math.min(lo, run); });
+    const mx = (hi - lo) * 1.15 || 1, y = v => H - 26 - ((v - lo) / mx) * (H - 52); run = 0; let o = '';
+    st.forEach(([lab, v, t], i) => { let a, b, col;
+      if(t === 'b'){ a = 0; b = v; run = v; col = i ? '#2BB3A8' : '#0B1628'; } else { a = run; b = run + v; run = b; col = t === 'u' ? '#2563EB' : t === 'v' ? '#F59E0B' : '#DC2626'; }
+      const y1 = y(Math.max(a, b)), y2 = y(Math.min(a, b));
+      o += `<rect x="${x.toFixed(1)}" y="${y1.toFixed(1)}" width="${bw}" height="${Math.max(2, y2 - y1).toFixed(1)}" rx="5" fill="${col}"/>`;
+      o += `<text x="${(x + bw / 2).toFixed(1)}" y="${(y1 - 7).toFixed(1)}" text-anchor="middle" class="v">${t === 'b' ? '' : v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v)}</text>`;
+      o += `<text x="${(x + bw / 2).toFixed(1)}" y="${H - 8}" text-anchor="middle" class="l">${lab.split(' ')[0]}</text>`;
+      if(i < 4) o += `<line x1="${(x + bw).toFixed(1)}" x2="${(x + bw + gap).toFixed(1)}" y1="${y(run).toFixed(1)}" y2="${y(run).toFixed(1)}" stroke="#94A3B8" stroke-dasharray="3 3"/>`;
+      x += bw + gap; });
+    return `<svg viewBox="0 0 ${W} ${H}" class="fx-wf">${o}<line x1="${pad - 10}" x2="${W - pad + 10}" y1="${y(0).toFixed(1)}" y2="${y(0).toFixed(1)}" stroke="#E2E8F0"/></svg>`; })();
+  const sec = (n, t, s) => `<div class="fx-st"><b>${n}</b><h3>${t}</h3>${s ? `<span>${s}</span>` : ''}</div>`;
+  const prodTd = p => `<td><b>${esc2(p?.nombre || '—')}</b><small>${esc2(p?.grupo || 'Otras marcas')}</small></td>`;
+  const vacio = (cols, t) => `<tr><td colspan="${cols}" class="fx-empty">${t}</td></tr>`;
+  const cadChip = iso => { const d = invDias(iso); return d < 0 ? `<span class="fx-c r">Caducó ${invFC(iso)}</span>` : `<span class="fx-c ${d <= 30 ? 'r' : 'a'}">${d} d · ${invFC(iso)}</span>`; };
   const tm = top[0], mm = mk[0];
-  document.getElementById('fr-ins').innerHTML = `<b>💡 Lectura rápida</b><ul>
-    <li>El inventario ${varPz < 0 ? 'bajó' : 'subió'} <b>${Math.abs(varPz)} piezas</b> en el periodo; se vendieron <b>${D.pzVend}</b> por <b>${fmtMoney0(D.ventaPesos)}</b>.</li>
-    ${tm ? `<li><b>${esc2(tm.n)}</b> es lo que más vende (${fmtMoney0(tm.m)}).${mm ? ` <b>${esc2(mm[0])}</b> es la marca con más ${D.hayCosto ? 'dinero' : 'piezas'} en anaquel.` : ''}</li>` : ''}
-    <li><b>${pzDorm} piezas</b> no se movieron y <b>${pzR}</b> caducan en 90 días o menos: conviene empujarlas en recepción o pedir cambio al proveedor.</li>
-    ${venc.length ? `<li>Hay <b>${venc.length} lote${venc.length === 1 ? '' : 's'} caducado${venc.length === 1 ? '' : 's'}</b> en anaquel: dales baja como merma.</li>` : ''}
-    ${D.quiebres.length ? `<li><b>${D.quiebres.length} producto${D.quiebres.length === 1 ? '' : 's'}</b> se vendieron sin existencia: registra la entrada o corrige con un conteo.</li>` : ''}</ul>`;
+  const lect = [
+    `El inventario cerró en <b>${D.fin} pzas</b>${C && D.finV ? ` (${$(D.finV)} a costo)` : ''}, <b>${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} pzas</b> contra el inicio del periodo.`,
+    tm ? `<b>${esc2(tm.n)}</b> es lo que más vende (${$(tm.m)})${mm ? `; <b>${esc2(mm[0])}</b> es la marca con más ${C ? 'dinero' : 'piezas'} en anaquel${C ? ` (${$(mm[1].v)})` : ''}` : ''}.` : 'No hubo ventas de farmacia en el periodo.',
+    pedir.length ? `<b class="n">Pedir:</b> ${pedir.length} producto${pedir.length === 1 ? '' : 's'} bajo mínimo o con menos de 30 días de cobertura${pedirTot ? `, ~${$(pedirTot)}` : ''}.` : '',
+    pzR ? `<b class="n">Empujar en recepción:</b> ${pzR} piezas caducan en 90 días o menos${C && vR ? ` (${$(vR)})` : ''}.` : '',
+    venc.length ? `<b class="n">Dar de baja:</b> ${venc.length} lote${venc.length === 1 ? '' : 's'} caducado${venc.length === 1 ? '' : 's'} en anaquel; regístralo como merma.` : '',
+    pzDorm ? `<b class="n">Revisar dormido:</b> ${C && vDorm ? $(vDorm) : pzDorm + ' piezas'} sin movimiento; valorar promoción o devolución al proveedor.` : '',
+    D.quiebres.length ? `<b class="n">Corregir:</b> ${D.quiebres.length} producto${D.quiebres.length === 1 ? '' : 's'} se vendieron sin existencia; registra la entrada o haz un conteo.` : '',
+    sinCosto || inact ? `<b class="n">Datos:</b> ${[sinCosto ? `${sinCosto} productos con piezas no tienen costo (se llena al registrar su próxima entrada)` : '', inact ? `${inact} con piezas sin activar para venta` : ''].filter(Boolean).join('; ')}.` : '',
+  ].filter(Boolean);
+
+  document.getElementById('fx').innerHTML = `
+  <div class="fx-hd"><div class="fx-logo">NH</div><div><h2>Flash report de inventario</h2><p>Farmacia y mostrador · ${per} · generado ${gen}</p></div>
+    <div class="fx-est"><small>Estado general</small><span class="fx-badge ${estado[0]}"><i></i>${estado[1]}</span></div></div>
+  <div class="fx-bd">
+   <div class="fx-sec">${sec('01', 'Resumen', 'vs. inicio del periodo')}
+    <div class="fx-kpis">
+     <div class="fx-k hero"><small>Inventario en mostrador</small><div class="v">${D.fin} pzas</div><div class="s"><span class="fx-d ${varPz < 0 ? 'dn' : 'up'}">${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} pzas (${Math.abs(pct).toFixed(1)}%)</span></div><div class="s">${conEx.length} productos · ${nMarcas} marcas${C && D.finV ? ' · ' + $(D.finV) + ' a costo' : ''}</div></div>
+     <div class="fx-k"><small>Venta de farmacia</small><div class="v">${$(D.ventaPesos)}</div><div class="s">${margen != null ? `Margen <b>${$(margen)}</b>${D.ventaPesos ? ` (${Math.round(margen / D.ventaPesos * 100)}%)` : ''}` : 'Margen: falta costo de lo vendido'}</div><div class="s">${D.pzVend} piezas · ${D.ventas.length} ventas</div></div>
+     <div class="fx-k ring">${ring(D.rot, '#2BB3A8', D.rot.toFixed(2) + '×')}<div><small>Rotación</small><div class="s"><b class="big">${D.diasInv ? Math.round(D.diasInv) + ' días' : '—'}</b><br>${D.diasInv ? 'de inventario al ritmo actual' : 'sin ventas en el periodo'}</div></div></div>
+     <div class="fx-k ring">${ring(servicio, '#059669', Math.round(servicio * 100) + '%')}<div><small>Nivel de servicio</small><div class="s">${D.quiebres.length} producto${D.quiebres.length === 1 ? '' : 's'} vendido${D.quiebres.length === 1 ? '' : 's'} sin existencia</div></div></div>
+    </div>
+    <div class="fx-sem">${S.map(([a, b, c, d]) => `<div><i class="fx-dot ${c}"></i><div><span>${a}</span><b>${b}</b><small>${d}</small></div></div>`).join('')}</div>
+   </div>
+   <div class="fx-sec">${sec('02', 'Flujo del periodo', C ? 'piezas y valor a costo' : 'piezas')}
+    <div class="fx-flow">${cascada}
+     <table class="fx-t fx-rec"><thead><tr><th></th><th>Concepto</th><th class="num">Pzas</th>${C ? '<th class="num">A costo</th>' : ''}</tr></thead><tbody>
+      <tr><td class="sg"></td><td>Inventario inicial <small>incluye carga inicial</small></td><td class="num">${D.ini}</td>${C ? `<td class="num">${$(D.iniV)}</td>` : ''}</tr>
+      <tr><td class="sg">+</td><td>Entradas <small>compras registradas</small></td><td class="num">${D.pzEnt}</td>${C ? `<td class="num">${$(D.vEnt)}</td>` : ''}</tr>
+      <tr><td class="sg">−</td><td>Vendido</td><td class="num">${D.pzVend}</td>${C ? `<td class="num">${$(D.vVend)}</td>` : ''}</tr>
+      <tr><td class="sg">−</td><td>Mermas y ajustes <small>caducados y conteos físicos</small></td><td class="num">${D.pzOtros}</td>${C ? `<td class="num">${$(D.vOtros)}</td>` : ''}</tr>
+      <tr class="t"><td class="sg">=</td><td>Inventario final</td><td class="num">${D.fin}</td>${C ? `<td class="num">${$(D.finV)}</td>` : ''}</tr>
+     </tbody></table></div>
+   </div>
+   <div class="fx-sec">${sec('03', 'Más vendidos', 'cobertura = días que alcanza la existencia')}
+    <table class="fx-t"><thead><tr><th></th><th>Producto</th><th class="num">Pzas</th><th>Venta</th><th class="num fx-hm">Existencia</th><th>Cobertura</th></tr></thead><tbody>
+    ${top.map((x, i) => { const p = pid(x.id); return `<tr><td class="rk">${i + 1}</td><td><b>${esc2(x.n)}</b><small>${esc2(p?.grupo || 'Otras marcas')}</small></td><td class="num">${x.q}</td><td class="fx-vb"><div><i style="width:${(x.m / mxT * 100).toFixed(0)}%"></i></div><span>${$(x.m)}</span></td><td class="num fx-hm">${p ? Math.max(0, p.existencia || 0) : '—'}</td><td>${cobChip(p)}</td></tr>`; }).join('') || vacio(6, 'Sin ventas de farmacia en el periodo.')}
+    </tbody></table>
+   </div>
+   <div class="fx-sec fx-pb"><div class="fx-two">
+    <div>${sec('04', 'Inventario por marca', C ? 'a costo' : 'piezas')}
+     ${mk.map(([m, x]) => `<div class="fx-mb"><div class="n">${esc2(m)}<span>${x.q} pzas</span></div><div class="t"><div style="width:${((C ? x.v : x.q) / mxM * 100).toFixed(1)}%"></div></div><div class="v">${C ? $(x.v) : x.q + ' pzas'}</div></div>`).join('') || '<p class="fx-empty">Sin existencias.</p>'}</div>
+    <div>${sec('05', 'Perfil de caducidad', C ? 'piezas · a costo' : 'piezas')}
+     <div class="fx-cbar">${B.map((b, i) => bq[i][0] ? `<div style="width:${(bq[i][0] / totL * 100).toFixed(2)}%;background:${b[3]}" title="${b[0]}: ${bq[i][0]} pzas"></div>` : '').join('')}</div>
+     ${B.map((b, i) => `<div class="fx-cl"><i style="background:${b[3]}"></i><span>${b[0]}</span><b>${bq[i][0]}</b><em>${C ? $(bq[i][1]) : ''}</em></div>`).join('')}</div>
+   </div></div>
+   <div class="fx-sec"><div class="fx-two">
+    <div>${sec('06', 'Sugerido para pedir', pedir.length ? `${pedir.length} producto${pedir.length === 1 ? '' : 's'} · cubre 45 días` : '')}
+     <table class="fx-t"><thead><tr><th>Producto</th><th class="num">Hay</th><th class="num">Vendió</th><th class="num">Pedir</th>${C ? '<th class="num">Costo est.</th>' : ''}</tr></thead><tbody>
+     ${pedir.slice(0, 7).map(x => `<tr>${prodTd(x.p)}<td class="num">${x.ex}${x.p.stock_minimo != null ? `<small>mín ${x.p.stock_minimo}</small>` : ''}</td><td class="num">${vendPz[x.p.id] || 0}</td><td class="num"><b class="fx-q">+${x.sug}</b></td>${C ? `<td class="num">${invCostoDe(x.p) ? $(x.sug * invCostoDe(x.p)) : '—'}</td>` : ''}</tr>`).join('') || vacio(C ? 5 : 4, 'Nada urgente. Pon mínimos por producto para afinar esta lista.')}
+     </tbody>${pedir.length && C && pedirTot ? `<tbody class="tot"><tr><td colspan="4">Total estimado${pedir.length > 7 ? ` (${pedir.length} productos)` : ''}</td><td class="num">${$(pedirTot)}</td></tr></tbody>` : ''}</table></div>
+    <div>${sec('07', 'Caducidad en riesgo', pzR ? `${pzR} pzas${C && vR ? ' · ' + $(vR) : ''}` : '')}
+     <table class="fx-t"><thead><tr><th>Producto</th><th class="num">Pzas</th><th>Caduca</th><th class="fx-hm">Acción</th></tr></thead><tbody>
+     ${lotesR.slice(0, 7).map(l => { const d = invDias(l.caducidad); return `<tr>${prodTd(pid(l.producto_id))}<td class="num">${l.cantidad}</td><td>${cadChip(l.caducidad)}</td><td class="act fx-hm">${d < 0 ? 'Dar baja como merma' : d <= 30 ? 'Promover en recepción' : 'Vender primero / pedir cambio'}</td></tr>`; }).join('') || vacio(4, 'Sin productos por caducar en 90 días.')}
+     </tbody></table></div>
+   </div></div>
+   <div class="fx-sec"><div class="fx-two">
+    <div>${sec('08', 'Inventario dormido', `sin venta en el periodo${pzDorm ? ' · ' + (C && vDorm ? $(vDorm) : pzDorm + ' pzas') : ''}`)}
+     <table class="fx-t"><thead><tr><th>Producto</th><th class="num">Pzas</th>${C ? '<th class="num">A costo</th>' : ''}</tr></thead><tbody>
+     ${dorm.slice(0, 6).map(p => `<tr>${prodTd(p)}<td class="num">${p.existencia}</td>${C ? `<td class="num">${invValor(p) ? $(invValor(p)) : '—'}</td>` : ''}</tr>`).join('') || vacio(3, 'Todo lo que hay se movió.')}
+     </tbody></table></div>
+    <div>${sec('09', 'Lectura rápida y acciones')}<div class="fx-read"><ol>${lect.map(t => `<li>${t}</li>`).join('')}</ol></div></div>
+   </div></div>
+  </div>
+  <div class="fx-ft"><span>Consultas NovaHouse · Mediconsulting S.C.</span><span>Uso interno · cifras a costo sin IVA</span></div>`;
   document.querySelectorAll('#fr-per button').forEach(b => b.classList.toggle('on', b.dataset.p === INV_FR));
-  window._INV_FR = { D, per, varPz, pzR, pzDorm, top };
+  window._INV_FR = { D, per, varPz, pzR, vR, pzDorm, top, margen, pedir, pedirTot, C };
 }
 function invCopiarWA(){
   const x = window._INV_FR; if(!x) return;
-  const { D, per, varPz, pzR, pzDorm, top } = x;
-  const t = `⚡ *Flash inventario NovaHouse* — ${per}\n\n📦 En mostrador: *${D.fin} pzas*${D.finV ? ' (' + fmtMoney0(D.finV) + ' a costo)' : ''} · ${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} vs. inicio\n🛒 Venta farmacia: *${fmtMoney0(D.ventaPesos)}* · ${D.pzVend} pzas\n🔁 Rotación ${D.rot.toFixed(2)}×${D.diasInv ? ' · ' + Math.round(D.diasInv) + ' días de inventario' : ''}\n🏆 Top: ${top.slice(0, 3).map(y => y.n).join(', ') || '—'}\n⏳ Por caducar (≤90 días): ${pzR} pzas\n💤 Sin movimiento: ${pzDorm} pzas\n⚠ Vendidos sin existencia: ${D.quiebres.length}`;
+  const { D, per, varPz, pzR, vR, top, margen, pedir, pedirTot, C } = x, $ = v => fmtMoney0(v || 0);
+  const t = [`📦 *Flash report de inventario · NovaHouse*`, per, '',
+    `• Inventario: *${D.fin} pzas*${C && D.finV ? ' · ' + $(D.finV) + ' a costo' : ''} (${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} vs. inicio)`,
+    `• Venta farmacia: *${$(D.ventaPesos)}*${margen != null ? ` · margen ${$(margen)}${D.ventaPesos ? ` (${Math.round(margen / D.ventaPesos * 100)}%)` : ''}` : ''}`,
+    `• Rotación ${D.rot.toFixed(2)}×${D.diasInv ? ' · ' + Math.round(D.diasInv) + ' días de inventario' : ''}`,
+    `• Por caducar ≤90 días: *${pzR} pzas*${C && vR ? ' (' + $(vR) + ')' : ''}`,
+    `• Pedir ya: ${pedir.length} producto${pedir.length === 1 ? '' : 's'}${C && pedirTot ? ' (~' + $(pedirTot) + ')' : ''}`,
+    D.quiebres.length ? `• ⚠ Vendidos sin existencia: ${D.quiebres.length}` : '',
+    top[0] ? `\n🏆 Más vendido: ${top[0].n}` : ''].filter(Boolean).join('\n');
   const fin = () => toast('✓ Copiado. Pégalo en WhatsApp.');
   if(navigator.clipboard?.writeText) navigator.clipboard.writeText(t).then(fin).catch(() => mostrarPrompt({ icono:'💬', titulo:'Copia el resumen', valorInicial:t, mensaje:'Copia el texto:' }, () => {}));
   else mostrarPrompt({ icono:'💬', titulo:'Copia el resumen', valorInicial:t, mensaje:'Copia el texto:' }, () => {});

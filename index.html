@@ -3061,7 +3061,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.17-6';
+const APP_VERSION = 'v2026.11.18-1';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -4031,7 +4031,14 @@ function invEstado(p){
   if(!p.activo) return '<span class="iv-ch p">Sin activar</span>';
   return '<span class="iv-ch g">OK</span>';
 }
+// Recepción solo consulta; entradas, conteo, mermas, lotes y mínimos son de administración (la base también lo valida).
+const invEdita = () => MI_PERFIL?.rol === 'admin';
+function invAplicarPermisos(){
+  document.querySelectorAll('#app-screen-inv [data-ivt="ent"], #app-screen-inv [data-ivt="conteo"]').forEach(b => b.style.display = invEdita() ? '' : 'none');
+}
 async function invCargar(){
+  invAplicarPermisos();
+  if(!invEdita() && (INV_TAB === 'ent' || INV_TAB === 'conteo')) INV_TAB = 'exist';
   const desde = new Date(); desde.setDate(desde.getDate() - 120);
   const d0 = isoLocal(desde);
   const [rp, rl, rm, rv] = await Promise.all([
@@ -4060,6 +4067,7 @@ function invRender(){
   if(INV_TAB === 'flash') invRenderFlash();
 }
 function invTab(t){
+  if(!invEdita() && (t === 'ent' || t === 'conteo')) t = 'exist';
   INV_TAB = t;
   document.querySelectorAll('#iv-tabs button').forEach(b => b.classList.toggle('on', b.dataset.ivt === t));
   ['exist','ent','conteo','movs','flash'].forEach(v => document.getElementById('iv-v-' + v).style.display = v === t ? '' : 'none');
@@ -4178,20 +4186,20 @@ function invAbrir(id){
   const movs = INV_M.filter(m => m.producto_id === id).slice(0, 25), c = invCostoDe(p);
   document.getElementById('iv-d-b').innerHTML = `
     <div class="iv-mini"><div><span>Existencia</span><b>${p.existencia || 0}</b></div><div><span>Costo</span><b>${c ? fmtMoney0(c) : '—'}</b></div><div><span>Valor</span><b>${c ? fmtMoney0(invValor(p)) : '—'}</b></div></div>
-    <div class="iv-fg" style="margin-top:12px"><label>Stock mínimo (avisa cuando llegue aquí)</label><input type="number" min="0" step="1" id="iv-d-min" value="${p.stock_minimo ?? ''}" placeholder="Sin mínimo"/></div>
+    ${invEdita() ? `<div class="iv-fg" style="margin-top:12px"><label>Stock mínimo (avisa cuando llegue aquí)</label><input type="number" min="0" step="1" id="iv-d-min" value="${p.stock_minimo ?? ''}" placeholder="Sin mínimo"/></div>` : `<p class="iv-hint" style="margin-top:12px">Stock mínimo: <b>${p.stock_minimo ?? 'sin mínimo'}</b> · solo administración puede modificar inventario.</p>`}
     <div class="iv-sec">Lotes y caducidad</div>
     ${lotes.map(l => `<div class="iv-lote"><span><b>${l.cantidad}</b> pzas${l.lote ? ' · <span class="iv-mut">' + esc2(l.lote) + '</span>' : ''}</span>${l.lote === 'Sin existencia' ? '<span class="iv-ch r">Vendido sin existencia</span>' : invCadChip(l.caducidad)}
-      ${l.lote === 'Sin existencia' ? '' : `<span class="acc"><button type="button" class="btn-sm btn-outline iv-l-cad" data-l="${esc2(l.id)}" title="Corregir caducidad">📅</button>${l.cantidad > 0 ? `<button type="button" class="btn-sm btn-del iv-l-merma" data-l="${esc2(l.id)}" title="Dar de baja (merma o caducado)">🗑</button>` : ''}</span>`}</div>`).join('') || '<p class="iv-hint">Sin piezas en inventario.</p>'}
+      ${l.lote === 'Sin existencia' || !invEdita() ? '' : `<span class="acc"><button type="button" class="btn-sm btn-outline iv-l-cad" data-l="${esc2(l.id)}" title="Corregir caducidad">📅</button>${l.cantidad > 0 ? `<button type="button" class="btn-sm btn-del iv-l-merma" data-l="${esc2(l.id)}" title="Dar de baja (merma o caducado)">🗑</button>` : ''}</span>`}</div>`).join('') || '<p class="iv-hint">Sin piezas en inventario.</p>'}
     <div class="iv-sec">Movimientos recientes</div>
     ${movs.map(m => `<div class="iv-mov"><span class="iv-mut">${invFC(m.fecha).slice(0, 6)}</span><span>${invTipo[m.tipo] || esc2(m.tipo)}<br/><small class="iv-mut">${esc2([m.nota, m.proveedor, m.quien?.nombre].filter(Boolean).join(' · '))}</small></span><span class="q ${m.cantidad > 0 ? 'in' : 'out'}">${m.cantidad > 0 ? '+' : ''}${m.cantidad}</span></div>`).join('') || '<p class="iv-hint">Sin movimientos en los últimos 120 días.</p>'}
-    <div style="display:flex;gap:8px;margin-top:16px"><button type="button" class="btn-sm" id="iv-d-ent" style="flex:1;justify-content:center;background:var(--teal);border-color:var(--teal);color:#fff">➕ Registrar entrada</button></div>`;
-  document.getElementById('iv-d-min').addEventListener('change', async e => {
+    ${!invEdita() ? '' : `<div style="display:flex;gap:8px;margin-top:16px"><button type="button" class="btn-sm" id="iv-d-ent" style="flex:1;justify-content:center;background:var(--teal);border-color:var(--teal);color:#fff">➕ Registrar entrada</button></div>`}`;
+  document.getElementById('iv-d-min')?.addEventListener('change', async e => {
     const v = e.target.value === '' ? null : Math.max(0, parseInt(e.target.value, 10) || 0);
     const { error } = await sb.rpc('inv_set_minimo', { p_producto: id, p_minimo: v });
     if(error){ toast('No se pudo guardar el mínimo.'); return; }
     p.stock_minimo = v; toast('✓ Mínimo guardado'); invRender();
   });
-  document.getElementById('iv-d-ent').addEventListener('click', () => { invCerrar(); invTab('ent'); document.getElementById('iv-e-prod').value = p.nombre; document.getElementById('iv-e-q').focus(); });
+  document.getElementById('iv-d-ent')?.addEventListener('click', () => { invCerrar(); invTab('ent'); document.getElementById('iv-e-prod').value = p.nombre; document.getElementById('iv-e-q').focus(); });
   document.querySelectorAll('#iv-d-b .iv-l-merma').forEach(b => b.addEventListener('click', () => invMerma(b.dataset.l)));
   document.querySelectorAll('#iv-d-b .iv-l-cad').forEach(b => b.addEventListener('click', () => invEditarCad(b.dataset.l)));
   document.getElementById('iv-dr').classList.add('open'); document.getElementById('iv-ov').classList.add('show');

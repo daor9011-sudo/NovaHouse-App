@@ -1856,6 +1856,36 @@ body:has(#app-view.act) #app-version-tag{display:none}
 @media screen and (max-width:1100px){.fx-kpis{grid-template-columns:1fr 1fr}.fx-sem{grid-template-columns:1fr 1fr}.fx-sem>div:nth-child(3){border-left:0}.fx-sem>div:nth-child(n+3){border-top:1px solid var(--g2)}.fx-flow,.fx-two{grid-template-columns:minmax(0,1fr)}}
 @media screen and (max-width:640px){.fx-hd{flex-wrap:wrap;padding:18px}.fx-est{margin-left:0;text-align:left}.fx-bd{padding:16px}.fx-kpis,.fx-sem{grid-template-columns:1fr}.fx-sem>div{border-left:0!important;border-top:1px solid var(--g2)}.fx-sem>div:first-child{border-top:0}
  .fx-hm{display:none}.fx-vb{width:auto}.fx-vb div{display:none}.fx-vb span{width:auto}.fx-ft{flex-direction:column;padding:12px 16px}.fx-k .v{font-size:24px}.fx-st{flex-wrap:wrap}.fx-st span{margin-left:0;width:100%;text-align:left}.fx-t{font-size:12px}.fx-t td,.fx-t th{padding:6px 5px}.fx-mb{grid-template-columns:1fr 1fr 70px}}
+
+/* Flash report opción B (visual) */
+.fb-bd{padding:18px 24px 6px;display:flex;flex-direction:column;gap:12px}
+.fb-hero{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:12px}
+.fb-big{background:#0B1628;color:#fff;border-radius:14px;padding:16px 18px}
+.fb-big small,.fb-c small,.fb-ac small{display:block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#9FB0CC}
+.fb-big b{display:block;font:800 36px var(--font-d);letter-spacing:-.6px;line-height:1.1;margin:4px 0 6px}
+.fb-big p{margin:7px 0 0;color:#B9C7DD;font-size:11.5px}
+.fb-mini{display:grid;grid-template-rows:1fr 1fr;gap:12px}
+.fb-c{border:1px solid var(--g2);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:12px;min-width:0}
+.fb-c small{color:var(--g6)}.fb-c b{display:block;font:800 20px var(--font-d);color:var(--navy);letter-spacing:-.3px}.fb-c em{font-style:normal;color:var(--g6);font-size:11px}
+.fb-c .fx-ring{width:58px}
+.fb-bd .fx-sem{margin-top:0}.fb-bd .fx-sem>div{align-items:center}
+.fb-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px}
+.fb-card{border:1px solid var(--g2);border-radius:14px;padding:12px 16px;min-width:0}
+.fb-card h4,.fb-ac h4{margin:0 0 8px;font:800 13.5px var(--font-d);color:var(--navy);display:flex;align-items:baseline;gap:6px}.fb-card h4 span{margin-left:auto;font:500 10.5px var(--font-b);color:var(--g6)}
+.fb-card .fx-wf{max-height:190px}
+.fb-dn{display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px;align-items:center}.fb-donut{width:130px}.fb-donut .t{font:800 15px var(--font-b);fill:var(--navy)}.fb-donut .s{font-size:10px;fill:var(--g6)}
+.fb-dl{display:grid;grid-template-columns:10px minmax(0,1fr) 34px 64px;gap:6px;align-items:center;padding:2px 0;font-size:11.5px}.fb-dl i{width:10px;height:10px;border-radius:3px}.fb-dl span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fb-dl b{text-align:right}.fb-dl em{font-style:normal;text-align:right;color:var(--g6);font-variant-numeric:tabular-nums}
+.fb-tb{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) 70px;gap:10px;align-items:center;padding:4px 0;font-size:12px}.fb-tb .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.fb-tb .t{height:10px;background:var(--g1);border-radius:5px;overflow:hidden}.fb-tb .t i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),#14857B);border-radius:5px}.fb-tb b{text-align:right;font-variant-numeric:tabular-nums}
+.fb-cad{width:100%;height:auto;max-height:200px}.fb-cad .v{font:800 11px var(--font-b);fill:var(--navy)}.fb-cad .l{font-size:9.5px;fill:var(--g6)}
+.fb-acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fb-ac{border:1px solid var(--g2);border-top:4px solid;border-radius:14px;padding:11px 14px;min-width:0}.fb-ac.p{border-top-color:#2563EB}.fb-ac.e{border-top-color:#F59E0B}.fb-ac.d{border-top-color:#7C3AED}
+.fb-ac small{color:var(--g6);font-weight:800}.fb-ac .k{font:800 21px var(--font-d);color:var(--navy);letter-spacing:-.3px;margin:2px 0 6px}.fb-ac .k em{font:500 11px var(--font-b);color:var(--g6)}
+.fb-r{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:3.5px 0;border-top:1px solid var(--g2);font-size:11.5px}
+.fb-r .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}.fb-r .q{color:var(--g6)}.fb-r>b{text-align:right;font-variant-numeric:tabular-nums}
+.fb-empty{color:var(--g6);font-size:12px;margin:6px 0}
+@media screen and (max-width:1100px){.fb-hero{grid-template-columns:1fr 1fr}.fb-big{grid-column:1/-1}.fb-grid{grid-template-columns:minmax(0,1fr)}.fb-acts{grid-template-columns:minmax(0,1fr)}}
+@media screen and (max-width:640px){.fb-bd{padding:14px}.fb-hero{grid-template-columns:minmax(0,1fr)}.fb-big b{font-size:30px}.fb-dn{grid-template-columns:100px minmax(0,1fr)}.fb-donut{width:100px}.fb-dl{grid-template-columns:10px minmax(0,1fr) 30px 58px;font-size:11px}.fb-tb{grid-template-columns:minmax(0,1fr) 60px 64px}}
 @media (max-width:1100px){.iv-al,.iv-kpis,.fr-hero{grid-template-columns:1fr 1fr}.iv-split{grid-template-columns:minmax(0,1fr)}.fr-grid{grid-template-columns:1fr 1fr}.fr-flow{grid-template-columns:1fr 1fr}.fr-flow .op{display:none}.fr-flow>div{border-bottom:1px solid var(--g2)}}
 @media (max-width:700px){
   .iv-hero{margin:-14px -13px 0;padding:16px 14px}.iv-hero h1{font-size:23px}.iv-hero .acts{margin-left:0;width:100%}.iv-hero .acts .iv-hbtn{flex:1;padding:9px 6px;font-size:12px}
@@ -1877,8 +1907,8 @@ body:has(#app-view.act) #app-version-tag{display:none}
   @page{size:letter;margin:9mm}
   body.iv-print .fr-top{display:none!important}
   body.iv-print .iv-card,body.iv-print main.appmain,body.iv-print #app-screen-inv{padding:0!important;margin:0!important;box-shadow:none!important;border:0!important;background:#fff!important}
-  body.iv-print .fx{zoom:.74;box-shadow:none;border:0;border-radius:0}
-  body.iv-print .fx-sec{break-inside:avoid}body.iv-print .fx-pb{break-before:page}
+  body.iv-print .fx{zoom:.86;width:860px;box-shadow:none;border:0;border-radius:0}
+  body.iv-print .fb-card,body.iv-print .fb-ac,body.iv-print .fb-hero{break-inside:avoid}
   body.iv-print .fx-ft{break-before:avoid;break-inside:avoid}body.iv-print .fx *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 </style>
@@ -2990,7 +3020,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.17-2';
+const APP_VERSION = 'v2026.11.17-4';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -4204,7 +4234,7 @@ function invRenderFlash(){
   const pzDorm = dorm.reduce((a, p) => a + p.existencia, 0), vDorm = dorm.reduce((a, p) => a + invValor(p), 0);
   const fracDorm = C && D.finV ? vDorm / D.finV : (D.fin ? pzDorm / D.fin : 0);
   // Sugerido: bajo mínimo, agotado con venta o cobertura < 30 días → cubrir 45 días
-  const pedir = INV_P.filter(p => p.activo).map(p => { const ex = Math.max(0, p.existencia || 0), r = ritmo(p.id), d = cob(p);
+  const pedir = INV_P.map(p => { const ex = Math.max(0, p.existencia || 0), r = ritmo(p.id), d = cob(p);
       const bajo = p.stock_minimo != null && ex <= p.stock_minimo, corto = r > 0 && d != null && d < 30;
       if(!bajo && !corto) return null;
       return { p, ex, sug: Math.max(1, (p.stock_minimo || 0) * 2 - ex, Math.ceil(r * 45 - ex)), d }; })
@@ -4224,7 +4254,7 @@ function invRenderFlash(){
     ['Nivel de servicio', Math.round(servicio * 100) + '%', sem(servicio >= .95, servicio >= .85), 'lo vendido que sí había en anaquel'],
     ['Días de inventario', D.diasInv ? Math.round(D.diasInv) + ' d' : '—', D.diasInv ? sem(D.diasInv <= 120, D.diasInv <= 200) : 'x', D.diasInv ? 'meta ≤ 120 días' : 'sin ventas en el periodo'],
     ['Caducidad ≤ 90 d', pzR + ' pzas', sem(pzR <= 3 && !venc.length, pzR <= 10), venc.length ? `${venc.length} lote${venc.length === 1 ? '' : 's'} ya caducado${venc.length === 1 ? '' : 's'}` : (C && vR ? $(vR) + ' a costo' : 'piezas por vender primero')],
-    ['Inventario dormido', C && vDorm ? $(vDorm) : pzDorm + ' pzas', sem(fracDorm <= .25, fracDorm <= .5), Math.round(fracDorm * 100) + '% del inventario sin venta'],
+    ['Producto sin venta', C && vDorm ? $(vDorm) : pzDorm + ' pzas', sem(fracDorm <= .25, fracDorm <= .5), Math.round(fracDorm * 100) + '% del inventario sin venta'],
   ];
   const nR = S.filter(s => s[2] === 'r').length, nA = S.filter(s => s[2] === 'a').length;
   const estado = nR ? ['r', 'Atención: ' + S.filter(s => s[2] === 'r').map(s => s[0].toLowerCase()).join(' y ')] : nA ? ['a', 'Vigilar: ' + S.filter(s => s[2] === 'a').map(s => s[0].toLowerCase()).join(' y ')] : ['g', 'En orden'];
@@ -4249,69 +4279,50 @@ function invRenderFlash(){
   const vacio = (cols, t) => `<tr><td colspan="${cols}" class="fx-empty">${t}</td></tr>`;
   const cadChip = iso => { const d = invDias(iso); return d < 0 ? `<span class="fx-c r">Caducó ${invFC(iso)}</span>` : `<span class="fx-c ${d <= 30 ? 'r' : 'a'}">${d} d · ${invFC(iso)}</span>`; };
   const tm = top[0], mm = mk[0];
-  const lect = [
-    `El inventario cerró en <b>${D.fin} pzas</b>${C && D.finV ? ` (${$(D.finV)} a costo)` : ''}, <b>${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} pzas</b> contra el inicio del periodo.`,
-    tm ? `<b>${esc2(tm.n)}</b> es lo que más vende (${$(tm.m)})${mm ? `; <b>${esc2(mm[0])}</b> es la marca con más ${C ? 'dinero' : 'piezas'} en anaquel${C ? ` (${$(mm[1].v)})` : ''}` : ''}.` : 'No hubo ventas de farmacia en el periodo.',
-    pedir.length ? `<b class="n">Pedir:</b> ${pedir.length} producto${pedir.length === 1 ? '' : 's'} bajo mínimo o con menos de 30 días de cobertura${pedirTot ? `, ~${$(pedirTot)}` : ''}.` : '',
-    pzR ? `<b class="n">Empujar en recepción:</b> ${pzR} piezas caducan en 90 días o menos${C && vR ? ` (${$(vR)})` : ''}.` : '',
-    venc.length ? `<b class="n">Dar de baja:</b> ${venc.length} lote${venc.length === 1 ? '' : 's'} caducado${venc.length === 1 ? '' : 's'} en anaquel; regístralo como merma.` : '',
-    pzDorm ? `<b class="n">Revisar dormido:</b> ${C && vDorm ? $(vDorm) : pzDorm + ' piezas'} sin movimiento; valorar promoción o devolución al proveedor.` : '',
-    D.quiebres.length ? `<b class="n">Corregir:</b> ${D.quiebres.length} producto${D.quiebres.length === 1 ? '' : 's'} se vendieron sin existencia; registra la entrada o haz un conteo.` : '',
-    sinCosto || inact ? `<b class="n">Datos:</b> ${[sinCosto ? `${sinCosto} productos con piezas no tienen costo (se llena al registrar su próxima entrada)` : '', inact ? `${inact} con piezas sin activar para venta` : ''].filter(Boolean).join('; ')}.` : '',
-  ].filter(Boolean);
-
+  const PAL = ['#0B1628','#2BB3A8','#2563EB','#7C3AED','#D97706','#0D9488','#94A3B8','#CBD5E1'];
+  const totM = mk.reduce((a, [, x]) => a + (C ? x.v : x.q), 0) || 1;
+  const dona = (() => { const R = 52, CIR = 2 * Math.PI * R; let acc = 0, o = '';
+    mk.forEach(([, x], i) => { const f = (C ? x.v : x.q) / totM; o += `<circle cx="70" cy="70" r="${R}" fill="none" stroke="${PAL[i % 8]}" stroke-width="22" stroke-dasharray="${(CIR * f).toFixed(2)} ${CIR.toFixed(2)}" stroke-dashoffset="${(-CIR * acc).toFixed(2)}" transform="rotate(-90 70 70)"/>`; acc += f; });
+    return `<svg viewBox="0 0 140 140" class="fb-donut">${o || `<circle cx="70" cy="70" r="${R}" fill="none" stroke="#E8EDF3" stroke-width="22"/>`}<text x="70" y="68" text-anchor="middle" class="t">${C ? $(D.finV) : D.fin}</text><text x="70" y="84" text-anchor="middle" class="s">${C ? 'a costo' : 'piezas'}</text></svg>`; })();
+  const cadCols = (() => { const mx = Math.max(1, ...bq.map(x => x[0])), Wc = 46; let o = '';
+    B.forEach((b, i) => { const q = bq[i][0], h = q / mx * 92, x = 8 + i * Wc;
+      o += `<rect x="${x}" y="${(108 - h).toFixed(1)}" width="32" height="${Math.max(1.5, h).toFixed(1)}" rx="3" fill="${b[3]}"/><text x="${x + 16}" y="${(104 - h).toFixed(1)}" text-anchor="middle" class="v">${q}</text><text x="${x + 16}" y="122" text-anchor="middle" class="l">${b[0]}</text>`; });
+    return `<svg viewBox="0 0 330 128" class="fb-cad">${o}<line x1="2" x2="328" y1="108" y2="108" stroke="#E2E8F0"/></svg>`; })();
+  const fila = (n, mid, r) => `<div class="fb-r"><span class="n">${esc2(n)}</span>${mid}<b>${r}</b></div>`;
+  const nada = t => `<p class="fb-empty">${t}</p>`;
   document.getElementById('fx').innerHTML = `
-  <div class="fx-hd"><div class="fx-logo">NH</div><div><h2>Flash report de inventario</h2><p>Farmacia y mostrador · ${per} · generado ${gen}</p></div>
+  <div class="fx-hd"><div class="fx-logo">NH</div><div><h2>Flash report de inventario</h2><p>NovaHouse · Farmacia y mostrador · ${per} · generado ${gen}</p></div>
     <div class="fx-est"><small>Estado general</small><span class="fx-badge ${estado[0]}"><i></i>${estado[1]}</span></div></div>
-  <div class="fx-bd">
-   <div class="fx-sec">${sec('01', 'Resumen', 'vs. inicio del periodo')}
-    <div class="fx-kpis">
-     <div class="fx-k hero"><small>Inventario en mostrador</small><div class="v">${D.fin} pzas</div><div class="s"><span class="fx-d ${varPz < 0 ? 'dn' : 'up'}">${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} pzas (${Math.abs(pct).toFixed(1)}%)</span></div><div class="s">${conEx.length} productos · ${nMarcas} marcas${C && D.finV ? ' · ' + $(D.finV) + ' a costo' : ''}</div></div>
-     <div class="fx-k"><small>Venta de farmacia</small><div class="v">${$(D.ventaPesos)}</div><div class="s">${margen != null ? `Margen <b>${$(margen)}</b>${D.ventaPesos ? ` (${Math.round(margen / D.ventaPesos * 100)}%)` : ''}` : 'Margen: falta costo de lo vendido'}</div><div class="s">${D.pzVend} piezas · ${D.ventas.length} ventas</div></div>
-     <div class="fx-k ring">${ring(D.rot, '#2BB3A8', D.rot.toFixed(2) + '×')}<div><small>Rotación</small><div class="s"><b class="big">${D.diasInv ? Math.round(D.diasInv) + ' días' : '—'}</b><br>${D.diasInv ? 'de inventario al ritmo actual' : 'sin ventas en el periodo'}</div></div></div>
-     <div class="fx-k ring">${ring(servicio, '#059669', Math.round(servicio * 100) + '%')}<div><small>Nivel de servicio</small><div class="s">${D.quiebres.length} producto${D.quiebres.length === 1 ? '' : 's'} vendido${D.quiebres.length === 1 ? '' : 's'} sin existencia</div></div></div>
+  <div class="fb-bd">
+   <div class="fb-hero">
+    <div class="fb-big"><small>Inventario en mostrador</small><b>${D.fin} pzas</b><span class="fx-d ${varPz < 0 ? 'dn' : 'up'}">${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} pzas (${Math.abs(pct).toFixed(1)}%)</span><p>${C && D.finV ? $(D.finV) + ' a costo · ' : ''}${conEx.length} productos · ${nMarcas} marcas</p></div>
+    <div class="fb-mini">
+     <div class="fb-c"><div><small>Venta farmacia</small><b>${$(D.ventaPesos)}</b><em>${D.pzVend} pzas · ${D.ventas.length} ventas</em></div></div>
+     <div class="fb-c"><div><small>Margen bruto</small><b>${margen != null ? $(margen) : '—'}</b><em>${margen != null ? (D.ventaPesos ? Math.round(margen / D.ventaPesos * 100) + '% sobre venta' : '') : 'falta costo de lo vendido'}</em></div></div>
     </div>
-    <div class="fx-sem">${S.map(([a, b, c, d]) => `<div><i class="fx-dot ${c}"></i><div><span>${a}</span><b>${b}</b><small>${d}</small></div></div>`).join('')}</div>
+    <div class="fb-mini">
+     <div class="fb-c">${ring(D.rot, '#2BB3A8', D.rot.toFixed(2) + '×')}<div><small>Rotación</small><b>${D.diasInv ? Math.round(D.diasInv) + ' días' : '—'}</b><em>${D.diasInv ? 'de inventario' : 'sin ventas en el periodo'}</em></div></div>
+     <div class="fb-c">${ring(servicio, '#059669', Math.round(servicio * 100) + '%')}<div><small>Nivel de servicio</small><b>${Math.round(servicio * 100)}%</b><em>${D.quiebres.length} vendido${D.quiebres.length === 1 ? '' : 's'} sin existencia</em></div></div>
+    </div>
    </div>
-   <div class="fx-sec">${sec('02', 'Flujo del periodo', C ? 'piezas y valor a costo' : 'piezas')}
-    <div class="fx-flow">${cascada}
-     <table class="fx-t fx-rec"><thead><tr><th></th><th>Concepto</th><th class="num">Pzas</th>${C ? '<th class="num">A costo</th>' : ''}</tr></thead><tbody>
-      <tr><td class="sg"></td><td>Inventario inicial <small>incluye carga inicial</small></td><td class="num">${D.ini}</td>${C ? `<td class="num">${$(D.iniV)}</td>` : ''}</tr>
-      <tr><td class="sg">+</td><td>Entradas <small>compras registradas</small></td><td class="num">${D.pzEnt}</td>${C ? `<td class="num">${$(D.vEnt)}</td>` : ''}</tr>
-      <tr><td class="sg">−</td><td>Vendido</td><td class="num">${D.pzVend}</td>${C ? `<td class="num">${$(D.vVend)}</td>` : ''}</tr>
-      <tr><td class="sg">−</td><td>Mermas y ajustes <small>caducados y conteos físicos</small></td><td class="num">${D.pzOtros}</td>${C ? `<td class="num">${$(D.vOtros)}</td>` : ''}</tr>
-      <tr class="t"><td class="sg">=</td><td>Inventario final</td><td class="num">${D.fin}</td>${C ? `<td class="num">${$(D.finV)}</td>` : ''}</tr>
-     </tbody></table></div>
+   <div class="fx-sem">${S.map(([a, b, c]) => `<div><i class="fx-dot ${c}"></i><div><span>${a}</span><b>${b}</b></div></div>`).join('')}</div>
+   <div class="fb-grid">
+    <div class="fb-card"><h4>Flujo del periodo<span>piezas</span></h4>${cascada}</div>
+    <div class="fb-card"><h4>${C ? 'Dinero en anaquel' : 'Piezas'} por marca<span>${C ? 'a costo' : 'piezas'}</span></h4>
+     <div class="fb-dn">${dona}<div>${mk.map(([m, x], i) => `<div class="fb-dl"><i style="background:${PAL[i % 8]}"></i><span>${esc2(m)}</span><b>${Math.round((C ? x.v : x.q) / totM * 100)}%</b><em>${C ? $(x.v) : x.q + ' pzas'}</em></div>`).join('') || nada('Sin existencias.')}</div></div></div>
    </div>
-   <div class="fx-sec">${sec('03', 'Más vendidos', 'cobertura = días que alcanza la existencia')}
-    <table class="fx-t"><thead><tr><th></th><th>Producto</th><th class="num">Pzas</th><th>Venta</th><th class="num fx-hm">Existencia</th><th>Cobertura</th></tr></thead><tbody>
-    ${top.map((x, i) => { const p = pid(x.id); return `<tr><td class="rk">${i + 1}</td><td><b>${esc2(x.n)}</b><small>${esc2(p?.grupo || 'Otras marcas')}</small></td><td class="num">${x.q}</td><td class="fx-vb"><div><i style="width:${(x.m / mxT * 100).toFixed(0)}%"></i></div><span>${$(x.m)}</span></td><td class="num fx-hm">${p ? Math.max(0, p.existencia || 0) : '—'}</td><td>${cobChip(p)}</td></tr>`; }).join('') || vacio(6, 'Sin ventas de farmacia en el periodo.')}
-    </tbody></table>
+   <div class="fb-grid">
+    <div class="fb-card"><h4>Más vendidos<span>venta del periodo</span></h4>${top.map(x => `<div class="fb-tb"><span class="n">${esc2(x.n)}</span><div class="t"><i style="width:${(x.m / mxT * 100).toFixed(0)}%"></i></div><b>${$(x.m)}</b></div>`).join('') || nada('Sin ventas de farmacia en el periodo.')}</div>
+    <div class="fb-card"><h4>Perfil de caducidad<span>piezas por rango</span></h4>${cadCols}</div>
    </div>
-   <div class="fx-sec fx-pb"><div class="fx-two">
-    <div>${sec('04', 'Inventario por marca', C ? 'a costo' : 'piezas')}
-     ${mk.map(([m, x]) => `<div class="fx-mb"><div class="n">${esc2(m)}<span>${x.q} pzas</span></div><div class="t"><div style="width:${((C ? x.v : x.q) / mxM * 100).toFixed(1)}%"></div></div><div class="v">${C ? $(x.v) : x.q + ' pzas'}</div></div>`).join('') || '<p class="fx-empty">Sin existencias.</p>'}</div>
-    <div>${sec('05', 'Perfil de caducidad', C ? 'piezas · a costo' : 'piezas')}
-     <div class="fx-cbar">${B.map((b, i) => bq[i][0] ? `<div style="width:${(bq[i][0] / totL * 100).toFixed(2)}%;background:${b[3]}" title="${b[0]}: ${bq[i][0]} pzas"></div>` : '').join('')}</div>
-     ${B.map((b, i) => `<div class="fx-cl"><i style="background:${b[3]}"></i><span>${b[0]}</span><b>${bq[i][0]}</b><em>${C ? $(bq[i][1]) : ''}</em></div>`).join('')}</div>
-   </div></div>
-   <div class="fx-sec"><div class="fx-two">
-    <div>${sec('06', 'Sugerido para pedir', pedir.length ? `${pedir.length} producto${pedir.length === 1 ? '' : 's'} · cubre 45 días` : '')}
-     <table class="fx-t"><thead><tr><th>Producto</th><th class="num">Hay</th><th class="num">Vendió</th><th class="num">Pedir</th>${C ? '<th class="num">Costo est.</th>' : ''}</tr></thead><tbody>
-     ${pedir.slice(0, 7).map(x => `<tr>${prodTd(x.p)}<td class="num">${x.ex}${x.p.stock_minimo != null ? `<small>mín ${x.p.stock_minimo}</small>` : ''}</td><td class="num">${vendPz[x.p.id] || 0}</td><td class="num"><b class="fx-q">+${x.sug}</b></td>${C ? `<td class="num">${invCostoDe(x.p) ? $(x.sug * invCostoDe(x.p)) : '—'}</td>` : ''}</tr>`).join('') || vacio(C ? 5 : 4, 'Nada urgente. Pon mínimos por producto para afinar esta lista.')}
-     </tbody>${pedir.length && C && pedirTot ? `<tbody class="tot"><tr><td colspan="4">Total estimado${pedir.length > 7 ? ` (${pedir.length} productos)` : ''}</td><td class="num">${$(pedirTot)}</td></tr></tbody>` : ''}</table></div>
-    <div>${sec('07', 'Caducidad en riesgo', pzR ? `${pzR} pzas${C && vR ? ' · ' + $(vR) : ''}` : '')}
-     <table class="fx-t"><thead><tr><th>Producto</th><th class="num">Pzas</th><th>Caduca</th><th class="fx-hm">Acción</th></tr></thead><tbody>
-     ${lotesR.slice(0, 7).map(l => { const d = invDias(l.caducidad); return `<tr>${prodTd(pid(l.producto_id))}<td class="num">${l.cantidad}</td><td>${cadChip(l.caducidad)}</td><td class="act fx-hm">${d < 0 ? 'Dar baja como merma' : d <= 30 ? 'Promover en recepción' : 'Vender primero / pedir cambio'}</td></tr>`; }).join('') || vacio(4, 'Sin productos por caducar en 90 días.')}
-     </tbody></table></div>
-   </div></div>
-   <div class="fx-sec"><div class="fx-two">
-    <div>${sec('08', 'Inventario dormido', `sin venta en el periodo${pzDorm ? ' · ' + (C && vDorm ? $(vDorm) : pzDorm + ' pzas') : ''}`)}
-     <table class="fx-t"><thead><tr><th>Producto</th><th class="num">Pzas</th>${C ? '<th class="num">A costo</th>' : ''}</tr></thead><tbody>
-     ${dorm.slice(0, 6).map(p => `<tr>${prodTd(p)}<td class="num">${p.existencia}</td>${C ? `<td class="num">${invValor(p) ? $(invValor(p)) : '—'}</td>` : ''}</tr>`).join('') || vacio(3, 'Todo lo que hay se movió.')}
-     </tbody></table></div>
-    <div>${sec('09', 'Lectura rápida y acciones')}<div class="fx-read"><ol>${lect.map(t => `<li>${t}</li>`).join('')}</ol></div></div>
-   </div></div>
+   <div class="fb-acts">
+    <div class="fb-ac p"><small>🛒 Pedir</small><div class="k">${pedir.length} producto${pedir.length === 1 ? '' : 's'}${C && pedirTot ? ` <em>~${$(pedirTot)}</em>` : ''}</div>
+     ${pedir.slice(0, 6).map(x => fila(x.p.nombre, `<span class="fx-q">+${x.sug}</span>`, C && invCostoDe(x.p) ? $(x.sug * invCostoDe(x.p)) : `hay ${x.ex}`)).join('') || nada('Nada urgente. Pon mínimos por producto para afinar esta lista.')}</div>
+    <div class="fb-ac e"><small>⏳ Empujar en recepción</small><div class="k">${pzR} pzas <em>${C && vR ? $(vR) + ' · ' : ''}≤ 90 días</em></div>
+     ${lotesR.slice(0, 6).map(l => fila(nom(l.producto_id), `<span class="q">${l.cantidad}</span>`, cadChip(l.caducidad))).join('') || nada('Sin productos por caducar en 90 días.')}</div>
+    <div class="fb-ac d"><small>💤 Sin venta en el periodo</small><div class="k">${C && vDorm ? $(vDorm) : pzDorm + ' pzas'} <em>en anaquel</em></div>
+     ${dorm.slice(0, 6).map(p => fila(p.nombre, `<span class="q">${p.existencia}</span>`, invValor(p) ? $(invValor(p)) : '—')).join('') || nada('Todo lo que hay se movió.')}</div>
+   </div>
   </div>
   <div class="fx-ft"><span>Consultas NovaHouse · Mediconsulting S.C.</span><span>Uso interno · cifras a costo sin IVA</span></div>`;
   document.querySelectorAll('#fr-per button').forEach(b => b.classList.toggle('on', b.dataset.p === INV_FR));

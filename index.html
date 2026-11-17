@@ -1707,6 +1707,126 @@ body:has(#app-view.act) #app-version-tag{display:none}
   .nh-doc .esp{width:100%;flex:1 1 140px}
   .nh-doc select{flex:1 1 120px}
 }
+
+/* ===== Inventario (admin y recepción) ===== */
+.iv-hero{margin:-20px -22px 0;padding:20px 22px;color:#fff;display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:radial-gradient(120% 160% at 100% 0%,#2a5fb0 0%,rgba(42,95,176,0) 55%),linear-gradient(135deg,#0B1628 0%,#1B3A6B 100%)}
+.iv-hero .ico{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--teal),#1d9a9a);display:grid;place-items:center;font-size:24px;flex:none}
+.iv-hero h1{font-family:var(--font-d);font-size:28px;line-height:1;margin:0}.iv-hero p{font-size:13px;opacity:.8;margin-top:4px}
+.iv-hero .acts{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.iv-hbtn{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;border-radius:10px;padding:9px 14px;font:700 13px var(--font-b);cursor:pointer}
+.iv-hbtn.solid{background:var(--teal);border-color:var(--teal)}
+.iv-tabs{display:flex;gap:6px;margin:0 -22px 18px;padding:12px 22px 0;border-bottom:1px solid var(--g2);overflow-x:auto;scrollbar-width:none}
+.iv-tabs button{border:0;background:none;padding:10px 12px 12px;font:700 14px var(--font-b);color:var(--g6);border-bottom:3px solid transparent;display:flex;gap:7px;align-items:center;white-space:nowrap;cursor:pointer}
+.iv-tabs button.on{color:var(--navy);border-bottom-color:var(--teal)}
+.iv-tabs em{font-style:normal;font-size:11px;background:var(--g1);color:var(--g6);border-radius:999px;padding:1px 7px}
+.iv-tabs button.on em{background:var(--navy);color:#fff}
+.iv-al{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.iv-al>div{border-radius:12px;padding:11px 14px;font-size:12.5px;display:flex;gap:10px;align-items:flex-start;cursor:pointer;border:1px solid transparent;line-height:1.35}
+.iv-al b{display:block;font-size:13.5px}.iv-al span.i{font-size:19px;line-height:1}
+.iv-al .r{background:#FDE8E8;border-color:#F5C2C2;color:#7a1f1f}.iv-al .a{background:#FEF3D7;border-color:#F2D9A0;color:#6b4a0d}.iv-al .b{background:#E6ECFB;border-color:#C9D6F5;color:#20386f}.iv-al .p{background:#EFE6F8;border-color:#DCC8EE;color:#4b2468}
+.iv-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.iv-kpi{border:1px solid var(--g2);border-radius:14px;padding:13px 16px;border-left:4px solid var(--navy2);background:#fff}
+.iv-kpi .l{font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--g6);font-weight:700}
+.iv-kpi .v{font-family:var(--font-d);font-weight:800;font-size:23px;margin-top:4px;color:var(--navy)}
+.iv-kpi .s{font-size:11.5px;color:var(--g6);margin-top:2px}
+.iv-kpi.k2{border-left-color:var(--teal)}.iv-kpi.k3{border-left-color:#B7791F}.iv-kpi.k4{border-left-color:#2F855A}
+.iv-fil{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.iv-fil .pill{border:1.5px solid var(--g2);background:#fff;border-radius:999px;padding:6px 12px;font:600 12px var(--font-b);color:var(--g6);cursor:pointer}
+.iv-fil .pill.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.iv-fil select,.iv-fil input{border:1.5px solid var(--g2);border-radius:9px;padding:8px 10px;font:500 12.5px var(--font-b);background:#fff;color:var(--navy)}
+.iv-fil input[type=text]{min-width:220px;margin-left:auto}
+.iv-tw{overflow-x:auto}
+.iv-t{width:100%;border-collapse:collapse;font-size:12.5px}
+.iv-t thead tr{background:linear-gradient(135deg,var(--navy),#132a4d)}
+.iv-t th{color:#fff;text-align:left;padding:11px 10px;font-size:10px;letter-spacing:.6px;text-transform:uppercase;border-bottom:3px solid var(--teal);white-space:nowrap}
+.iv-t th.n,.iv-t td.n{text-align:right}
+.iv-t td{padding:10px;border-bottom:1px solid var(--g2);vertical-align:middle}
+.iv-t tbody tr.clk{cursor:pointer}.iv-t tbody tr.clk:hover td{background:#f8fafd}
+.iv-pn{font-weight:700;color:var(--navy)}.iv-pn small{display:block;font-weight:600;color:var(--g6);font-size:11px;margin-top:1px}
+.iv-q{font-family:var(--font-d);font-weight:800;font-size:16px;color:var(--navy)}.iv-q.z{color:var(--g4)}.iv-q.neg{color:#C53030}
+.iv-ch{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap}
+.iv-ch.r{background:#FDE8E8;color:#C53030}.iv-ch.a{background:#FEF3D7;color:#B7791F}.iv-ch.g{background:#E3F5EA;color:#2F855A}.iv-ch.b{background:#E6ECFB;color:#2B4C9E}.iv-ch.x{background:var(--g1);color:var(--g6)}.iv-ch.p{background:#EFE6F8;color:#6A3691}
+.iv-mut{color:var(--g4)}
+.iv-split{display:grid;grid-template-columns:340px minmax(0,1fr);gap:18px;align-items:start}
+.iv-form{background:var(--g1);border-radius:14px;padding:16px}
+.iv-form h4{font-family:var(--font-d);font-size:15px;margin:0 0 12px}
+.iv-fg{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;min-width:0}
+.iv-fg label{font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--g6)}
+.iv-fg input,.iv-fg select{width:100%;min-width:0}
+.iv-row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.iv-chk{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;margin:4px 0 8px;cursor:pointer}
+.iv-hint{font-size:11.5px;color:var(--g6);line-height:1.45}
+.iv-sec{font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--g6);font-weight:800;margin:14px 0 8px}
+.iv-dif{font-weight:800}.iv-dif.pos{color:#2F855A}.iv-dif.neg{color:#C53030}
+.iv-t td input.cnt{width:84px;text-align:right;padding:6px 8px}
+.iv-t tr.cambio td{background:#FFFBEA}
+.iv-dr{position:fixed;top:0;right:0;bottom:0;width:460px;max-width:100%;background:#fff;box-shadow:-20px 0 50px rgba(11,22,40,.25);transform:translateX(105%);transition:transform .25s;z-index:9970;display:flex;flex-direction:column}
+.iv-dr.open{transform:none}
+.iv-dh{padding:18px 20px;border-bottom:1px solid var(--g2);display:flex;gap:10px;align-items:flex-start}
+.iv-dh h3{font-family:var(--font-d);font-size:18px;line-height:1.2;margin:0}.iv-dh small{color:var(--g6);font-size:12px}
+.iv-dh button{margin-left:auto;border:0;background:var(--g1);border-radius:8px;padding:5px 10px;cursor:pointer}
+.iv-db{padding:16px 20px;overflow-y:auto;flex:1}
+.iv-mini{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.iv-mini div{background:var(--g1);border-radius:10px;padding:9px 10px}.iv-mini b{display:block;font-family:var(--font-d);font-size:17px}.iv-mini span{font-size:10.5px;color:var(--g6);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.iv-lote{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--g2);border-radius:10px;margin-bottom:6px;font-size:12.5px;flex-wrap:wrap}
+.iv-lote .acc{display:flex;gap:6px}
+.iv-mov{display:grid;grid-template-columns:62px 1fr auto;gap:8px;padding:9px 0;border-bottom:1px solid var(--g1);font-size:12.5px;align-items:center}
+.iv-mov .q{font-weight:800}.iv-mov .q.in{color:#2F855A}.iv-mov .q.out{color:#C53030}
+.iv-ov{position:fixed;inset:0;background:rgba(11,22,40,.35);z-index:9960;display:none}.iv-ov.show{display:block}
+.iv-empty{text-align:center;color:var(--g6);padding:30px}
+/* Flash report */
+.fr-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.fr-top h2{font-family:var(--font-d);font-size:21px;margin:0}
+.fr-per{display:flex;background:var(--g1);border-radius:10px;padding:3px;gap:3px}
+.fr-per button{border:0;background:none;border-radius:8px;padding:6px 12px;font:700 12px var(--font-b);color:var(--g6);cursor:pointer}
+.fr-per button.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(11,22,40,.12)}
+.fr-top .r{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.fr-hero{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+.fr-big{background:linear-gradient(135deg,#0B1628,#1B3A6B);color:#fff;border-radius:16px;padding:18px}
+.fr-big .l{font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;opacity:.75;font-weight:700}
+.fr-big .v{font-family:var(--font-d);font-size:32px;font-weight:800;margin:4px 0}
+.fr-big .d{font-size:12.5px}.fr-big .d b{color:#7ee0c8}.fr-big .d b.neg{color:#ff9d9d}
+.fr-k{border:1px solid var(--g2);border-radius:16px;padding:14px 16px;background:#fff}
+.fr-k .l{font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--g6);font-weight:700}
+.fr-k .v{font-family:var(--font-d);font-size:25px;font-weight:800;margin-top:4px;color:var(--navy)}
+.fr-k .s{font-size:11.5px;color:var(--g6);margin-top:2px;line-height:1.4}
+.fr-k .bar{height:6px;background:var(--g1);border-radius:9px;margin-top:8px;overflow:hidden}.fr-k .bar i{display:block;height:100%;background:var(--teal);border-radius:9px}
+.fr-flow{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--g2);border-radius:16px;overflow:hidden;margin-bottom:14px}
+.fr-flow>div{padding:14px 16px;border-right:1px solid var(--g2);position:relative}
+.fr-flow>div:last-child{border-right:0;background:var(--g1)}
+.fr-flow .l{font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--g6);font-weight:700}
+.fr-flow .v{font-family:var(--font-d);font-size:20px;font-weight:800;margin-top:3px;color:var(--navy)}
+.fr-flow .s{font-size:11.5px;color:var(--g6)}
+.fr-flow .op{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;background:#fff;border:1px solid var(--g2);display:grid;place-items:center;font-weight:800;font-size:12px;z-index:2;color:var(--g6)}
+.fr-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.fr-box{border:1px solid var(--g2);border-radius:16px;padding:14px 16px;background:#fff}
+.fr-box h4{font-family:var(--font-d);font-size:14.5px;margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.fr-box h4 small{font-family:var(--font-b);font-size:11px;color:var(--g6);font-weight:600}
+.fr-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;padding:6px 0;border-bottom:1px solid var(--g1);font-size:12.5px;align-items:center}
+.fr-row:last-child{border-bottom:0}
+.fr-row .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fr-row .t{grid-column:1/-1;height:6px;background:var(--g1);border-radius:9px;overflow:hidden}.fr-row .t i{display:block;height:100%;border-radius:9px;background:var(--navy2)}
+.fr-ins{background:linear-gradient(135deg,#F0FBFA,#EAF2FF);border:1px solid #CDEDEA;border-radius:16px;padding:14px 18px;margin-top:12px;font-size:13px;line-height:1.6}
+.fr-ins ul{margin:4px 0 0 18px;padding:0}
+@media (max-width:1100px){.iv-al,.iv-kpis,.fr-hero{grid-template-columns:1fr 1fr}.iv-split{grid-template-columns:minmax(0,1fr)}.fr-grid{grid-template-columns:1fr 1fr}.fr-flow{grid-template-columns:1fr 1fr}.fr-flow .op{display:none}.fr-flow>div{border-bottom:1px solid var(--g2)}}
+@media (max-width:700px){
+  .iv-hero{margin:-14px -13px 0;padding:16px 14px}.iv-hero h1{font-size:23px}.iv-hero .acts{margin-left:0;width:100%}.iv-hero .acts .iv-hbtn{flex:1;padding:9px 6px;font-size:12px}
+  .iv-tabs{margin:0 -13px 14px;padding:10px 13px 0}.iv-tabs button{font-size:13px;padding:9px 8px 11px}
+  .iv-al>div{font-size:11.5px;padding:9px 10px}.iv-kpi .v{font-size:19px}
+  .iv-fil input[type=text]{margin-left:0;min-width:0;width:100%}
+  .iv-t.cards thead{display:none}.iv-t.cards,.iv-t.cards tbody{display:block}
+  .iv-t.cards tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;border:1px solid var(--g2);border-left:4px solid var(--teal);border-radius:12px;padding:10px 12px;margin-bottom:8px;background:#fff}
+  .iv-t.cards td{border:0;padding:2px 0;min-width:0}.iv-t.cards td.hm{display:none}.iv-t.cards td.c1{grid-column:1/-1}
+  .iv-t.cards td.n{text-align:right}
+  .fr-hero,.fr-grid{grid-template-columns:1fr}.fr-big .v{font-size:27px}.fr-top .r{margin-left:0;width:100%}.fr-top .r .btn-sm{flex:1;justify-content:center}
+}
+@media print{
+  body.iv-print .s3-strip,body.iv-print .s3-segment,body.iv-print .reg-mbar,body.iv-print .app-footer,body.iv-print .iv-hero,body.iv-print .iv-tabs,body.iv-print .fr-top .r,body.iv-print .fr-per,body.iv-print #app-version-tag{display:none!important}
+  body.iv-print .screen2:not(#app-screen-inv){display:none!important}
+  body.iv-print #iv-v-exist,body.iv-print #iv-v-ent,body.iv-print #iv-v-conteo,body.iv-print #iv-v-movs{display:none!important}
+  body.iv-print #iv-v-flash{display:block!important}
+  body.iv-print .fr-box,body.iv-print .fr-k,body.iv-print .fr-flow{break-inside:avoid}
+}
 </style>
 </head>
 <body>
@@ -1841,6 +1961,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
       <button type="button" data-screen2="dash">📊 Dashboard</button>
       <button type="button" data-screen2="comisiones" id="nav-btn-comisiones" style="display:none">💰 Comisiones</button>
       <button type="button" data-screen2="gastos" id="nav-btn-gastos" style="display:none">💸 Gastos</button>
+      <button type="button" data-screen2="inv" id="nav-btn-inv" style="display:none">📦 Inventario</button>
       <button type="button" data-screen2="prm">💬 PRM/CRM</button>
     </div>
   </div>
@@ -2318,6 +2439,81 @@ body:has(#app-view.act) #app-version-tag{display:none}
       </div>
     </div>
 
+    <div class="card screen2" id="app-screen-inv">
+      <div class="iv-hero"><div class="ico">📦</div><div><h1>Inventario</h1><p>Farmacia y mostrador · existencias por lote y caducidad</p></div>
+        <div class="acts"><button type="button" class="iv-hbtn" data-ivt="flash">⚡ Flash report</button><button type="button" class="iv-hbtn" data-ivt="conteo">🧮 Conteo físico</button><button type="button" class="iv-hbtn solid" data-ivt="ent">➕ Registrar entrada</button></div></div>
+      <div class="iv-tabs" id="iv-tabs">
+        <button type="button" data-ivt="exist" class="on">📦 Existencias <em id="iv-n-exist">—</em></button>
+        <button type="button" data-ivt="ent">🚚 Entradas</button>
+        <button type="button" data-ivt="conteo">🧮 Conteo físico</button>
+        <button type="button" data-ivt="movs">🔄 Movimientos</button>
+        <button type="button" data-ivt="flash">⚡ Flash report</button>
+      </div>
+
+      <div id="iv-v-exist">
+        <div class="iv-al" id="iv-alertas"></div>
+        <div class="iv-kpis" id="iv-kpis"></div>
+        <div class="iv-fil" id="iv-fil">
+          <button type="button" class="pill on" data-f="todos">Todos</button>
+          <button type="button" class="pill" data-f="con">Con existencia</button>
+          <button type="button" class="pill" data-f="agot">Agotados</button>
+          <button type="button" class="pill" data-f="cad">⏳ Caducan ≤ 90 días</button>
+          <button type="button" class="pill" data-f="min">⚠ Bajo mínimo</button>
+          <button type="button" class="pill" data-f="inact">🚫 Sin activar para venta</button>
+          <select id="iv-grupo"><option value="">Todas las marcas</option></select>
+          <input type="text" id="iv-q" placeholder="🔎 Buscar producto…" autocomplete="off"/>
+        </div>
+        <div class="iv-tw"><table class="iv-t cards"><thead><tr><th>Producto</th><th class="n">Existencia</th><th class="n">Mínimo</th><th>Caducidad próxima</th><th class="n">Costo</th><th class="n">Valor a costo</th><th>Estado</th></tr></thead><tbody id="iv-tb"></tbody></table></div>
+      </div>
+
+      <div id="iv-v-ent" style="display:none">
+        <div class="iv-split">
+          <div class="iv-form">
+            <h4>🚚 Registrar entrada de mercancía</h4>
+            <div class="iv-fg"><label>Producto</label><input type="text" id="iv-e-prod" list="iv-dl-prod" placeholder="Busca el producto…" autocomplete="off"/><datalist id="iv-dl-prod"></datalist></div>
+            <div class="iv-row2"><div class="iv-fg"><label>Piezas</label><input type="number" id="iv-e-q" min="1" step="1" placeholder="0"/></div><div class="iv-fg"><label>Costo unitario $</label><input type="number" id="iv-e-c" min="0" step="0.01" placeholder="Opcional"/></div></div>
+            <div class="iv-row2"><div class="iv-fg"><label>Caducidad</label><input type="date" id="iv-e-cad"/></div><div class="iv-fg"><label>Lote</label><input type="text" id="iv-e-lote" placeholder="Opcional"/></div></div>
+            <div class="iv-row2"><div class="iv-fg"><label>Proveedor</label><input type="text" id="iv-e-prov" placeholder="Opcional"/></div><div class="iv-fg"><label>N° factura</label><input type="text" id="iv-e-fact" placeholder="Opcional"/></div></div>
+            <div class="iv-fg"><label>Fecha de entrada</label><input type="date" id="iv-e-fecha"/></div>
+            <label class="iv-chk"><input type="checkbox" id="iv-e-cxp"/> 📅 Crear cuenta por pagar con esta compra</label>
+            <div class="iv-fg" id="iv-e-vence-g" style="display:none"><label>La factura vence el</label><input type="date" id="iv-e-vence"/></div>
+            <button type="button" class="btn-sm" id="iv-e-guardar" style="width:100%;justify-content:center;background:var(--teal);border-color:var(--teal);color:#fff;padding:10px">✓ Guardar entrada</button>
+            <p class="iv-hint" style="margin-top:10px">Suma las piezas al lote con su caducidad. Si pones costo, se actualiza el costo del producto. La cuenta por pagar (necesita costo) la ve admin en <b>Gastos › Cuentas por pagar</b>.</p>
+          </div>
+          <div>
+            <div class="iv-sec" style="margin-top:0">Últimas entradas</div>
+            <div class="iv-tw"><table class="iv-t cards"><thead><tr><th>Fecha</th><th>Producto</th><th class="n">Piezas</th><th>Caducidad</th><th class="n">Costo total</th><th>Proveedor · factura</th><th>Registró</th></tr></thead><tbody id="iv-tb-ent"></tbody></table></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="iv-v-conteo" style="display:none">
+        <div class="iv-al" style="grid-template-columns:1fr"><div class="b" style="cursor:default"><span class="i">🧮</span><div><b>Conteo físico</b>Captura lo que hay en el mostrador. Solo se ajustan los renglones que cambies (se marcan en amarillo); el ajuste queda en Movimientos con quién lo hizo.</div></div></div>
+        <div class="iv-fil" id="iv-c-fil"><button type="button" class="pill on" data-c="con">Con existencia</button><button type="button" class="pill" data-c="todos">Todos</button><select id="iv-c-grupo"><option value="">Todas las marcas</option></select><input type="text" id="iv-c-q" placeholder="🔎 Buscar…" autocomplete="off"/></div>
+        <div class="iv-tw"><table class="iv-t cards"><thead><tr><th>Producto</th><th class="n">En sistema</th><th class="n">Físico</th><th class="n">Diferencia</th></tr></thead><tbody id="iv-tb-c"></tbody></table></div>
+        <div style="display:flex;gap:10px;justify-content:flex-end;align-items:center;margin-top:14px;flex-wrap:wrap"><span class="iv-hint" id="iv-c-res"></span><button type="button" class="btn-sm" id="iv-c-aplicar" style="background:var(--navy);border-color:var(--navy);color:#fff">✓ Aplicar ajustes</button></div>
+      </div>
+
+      <div id="iv-v-movs" style="display:none">
+        <div class="iv-fil" id="iv-m-fil"><button type="button" class="pill on" data-m="">Todos</button><button type="button" class="pill" data-m="venta">🛒 Ventas</button><button type="button" class="pill" data-m="entrada">🚚 Entradas</button><button type="button" class="pill" data-m="ajuste">🧮 Ajustes</button><button type="button" class="pill" data-m="merma">🗑 Mermas</button><button type="button" class="pill" data-m="inicial">📥 Carga inicial</button><input type="text" id="iv-m-q" placeholder="🔎 Buscar producto…" autocomplete="off"/></div>
+        <div class="iv-tw"><table class="iv-t cards"><thead><tr><th>Fecha</th><th>Tipo</th><th>Producto</th><th class="n">Piezas</th><th>Caducidad</th><th>Detalle</th><th>Quién</th></tr></thead><tbody id="iv-tb-m"></tbody></table></div>
+        <p class="iv-hint" style="margin-top:10px">🛒 Las ventas de farmacia en <b>Registro</b> descuentan solas, del lote que caduca primero. Si se borra o edita la venta, las piezas regresan. Últimos 120 días.</p>
+      </div>
+
+      <div id="iv-v-flash" style="display:none">
+        <div class="fr-top">
+          <div><h2>⚡ Flash report de inventario</h2><div class="iv-hint" id="fr-sub"></div></div>
+          <div class="fr-per" id="fr-per"><button type="button" data-p="sem">Semana</button><button type="button" data-p="mes" class="on">Mes</button><button type="button" data-p="tri">Trimestre</button></div>
+          <div class="r"><button type="button" class="btn-sm btn-outline" id="fr-wa">💬 Copiar para WhatsApp</button><button type="button" class="btn-sm" id="fr-pdf" style="background:var(--navy);border-color:var(--navy);color:#fff">⬇ Descargar PDF</button></div>
+        </div>
+        <div class="fr-hero" id="fr-hero"></div>
+        <div class="fr-flow" id="fr-flow"></div>
+        <div class="fr-grid" id="fr-grid"></div>
+        <div class="fr-ins" id="fr-ins"></div>
+      </div>
+    </div>
+    <div class="iv-ov" id="iv-ov"></div>
+    <div class="iv-dr" id="iv-dr"><div class="iv-dh"><div><h3 id="iv-d-n"></h3><small id="iv-d-m"></small></div><button type="button" id="iv-d-x">✕</button></div><div class="iv-db" id="iv-d-b"></div></div>
     <div class="card screen2" id="app-screen-personal">
       <div class="tab-title"><span>⚙️ Configuración</span></div>
 
@@ -2744,7 +2940,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.11-1';
+const APP_VERSION = 'v2026.11.17-1';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -3014,6 +3210,7 @@ function entrarAlShell(perfil){
   document.querySelector('[data-screen2="dash"]').style.display = esRecepcion ? 'none' : '';
   document.getElementById('nav-btn-gastos').style.display = showGastos ? '' : 'none';
   document.getElementById('nav-btn-comisiones').style.display = showComisiones ? '' : 'none';
+  document.getElementById('nav-btn-inv').style.display = (perfil.rol === 'admin' || perfil.rol === 'recepcion') ? '' : 'none';
   document.getElementById('btn-config-header').style.display = showConfig ? 'inline-flex' : 'none';
   document.getElementById('um-config').style.display = showConfig ? 'flex' : 'none';
   window.MI_ROL_ADMIN = perfil.rol === 'admin';
@@ -3078,6 +3275,7 @@ function refrescarPantallaActivaPorRealtime(){
     case 'app-screen-prm': cargarInactivos(); cargarNoVinieron(); break;
     case 'app-screen-gastos': cargarGastos(); break;
     case 'app-screen-comisiones': cargarComisiones(); break;
+    case 'app-screen-inv': invCargar(); break;
   }
 }
 
@@ -3675,6 +3873,352 @@ document.querySelector('[data-screen2="gastos"]').addEventListener('click', ()=>
   cargarGastos();
 });
 poblarSelectGastoCategoria();
+
+// ============================================================
+// Módulo: Inventario (admin y recepción)
+//  · Existencia = suma de lotes (inventario_lotes). Cada lote trae su caducidad.
+//  · Las ventas de farmacia (farmacia_ventas) descuentan solas en la base: primero del lote que caduca antes.
+//  · Entradas, conteo físico, mermas y edición de lotes van por funciones de la base (inv_*), que validan el rol.
+//  · No guarda precio de venta: ese vive en el catálogo de Farmacia.
+// ============================================================
+let INV_P = [], INV_L = [], INV_M = [], INV_V = [], INV_TAB = 'exist', INV_F = 'todos', INV_MF = '', INV_CF = 'con', INV_FR = 'mes';
+const INV_CONTEO = new Map(); // producto_id → piezas capturadas en el conteo físico
+const invHoy = () => isoLocal(new Date());
+const invDias = iso => Math.round((new Date(iso + 'T12:00:00') - new Date(invHoy() + 'T12:00:00')) / 864e5);
+const invFC = iso => iso ? fmtFechaCorta(iso) : '—';
+const invTipo = { inicial:'📥 Carga inicial', entrada:'🚚 Entrada', venta:'🛒 Venta', ajuste:'🧮 Ajuste', merma:'🗑 Merma', devolucion:'↩️ Devolución' };
+function invCadChip(iso){
+  if(!iso) return '<span class="iv-mut">—</span>';
+  const d = invDias(iso);
+  if(d < 0) return `<span class="iv-ch r">⛔ Caducó ${invFC(iso)}</span>`;
+  if(d <= 90) return `<span class="iv-ch a">⏳ ${invFC(iso)} · ${d} d</span>`;
+  return `<span class="iv-ch x">${invFC(iso)}</span>`;
+}
+function invLotesDe(id){ return INV_L.filter(l => l.producto_id === id); }
+function invProxCad(p){ const c = invLotesDe(p.id).filter(l => l.cantidad > 0 && l.caducidad).map(l => l.caducidad).sort(); return c[0] || null; }
+function invCostoDe(p){ if(Number(p.costo) > 0) return Number(p.costo); const l = invLotesDe(p.id).find(x => Number(x.costo_unitario) > 0); return l ? Number(l.costo_unitario) : 0; }
+function invValor(p){ return Math.max(0, p.existencia || 0) * invCostoDe(p); }
+const invEsCad = p => { const c = invProxCad(p); return !!c && invDias(c) <= 90; };
+const invEsMin = p => p.stock_minimo != null && (p.existencia || 0) > 0 && p.existencia <= p.stock_minimo;
+const invEsAgot = p => (p.existencia || 0) <= 0;
+function invEstado(p){
+  const c = invProxCad(p);
+  if((p.existencia || 0) < 0) return '<span class="iv-ch r">Vendido sin existencia</span>';
+  if(c && invDias(c) < 0) return '<span class="iv-ch r">Lote caducado</span>';
+  if(invEsAgot(p)) return '<span class="iv-ch x">Agotado</span>';
+  if(invEsMin(p)) return '<span class="iv-ch a">Bajo mínimo</span>';
+  if(!p.activo) return '<span class="iv-ch p">Sin activar</span>';
+  return '<span class="iv-ch g">OK</span>';
+}
+async function invCargar(){
+  const desde = new Date(); desde.setDate(desde.getDate() - 120);
+  const d0 = isoLocal(desde);
+  const [rp, rl, rm, rv] = await Promise.all([
+    sb.from('farmacia_productos').select('id,nombre,grupo,activo,por_revisar,existencia,stock_minimo,costo,piezas').order('nombre').limit(3000),
+    sb.from('inventario_lotes').select('id,producto_id,lote,caducidad,cantidad,costo_unitario,created_at').limit(5000),
+    sb.from('inventario_movimientos').select('id,fecha,tipo,producto_id,lote_id,cantidad,costo_unitario,caducidad,venta_id,proveedor,num_factura,nota,created_at,quien:personal!creado_por(nombre)').gte('fecha', d0).order('fecha', { ascending:false }).order('created_at', { ascending:false }).limit(5000),
+    sb.from('farmacia_ventas').select('id,fecha,producto_id,medicamento,cantidad,monto').gte('fecha', d0).limit(5000),
+  ]);
+  const err = rp.error || rl.error || rm.error || rv.error;
+  if(err){ console.error('[NovaHouse] Error cargando inventario:', err); toast('No se pudo cargar el inventario.'); return; }
+  INV_L = rl.data || [];
+  const conLote = new Set(INV_L.map(l => l.producto_id));
+  INV_P = (rp.data || []).filter(p => p.activo || conLote.has(p.id) || (p.existencia || 0) !== 0);
+  INV_M = rm.data || []; INV_V = rv.data || [];
+  const grupos = [...new Set(INV_P.map(p => p.grupo || 'Otras marcas'))].sort((a, b) => a.localeCompare(b, 'es'));
+  ['iv-grupo','iv-c-grupo'].forEach(id => { const sel = document.getElementById(id); const v = sel.value; sel.innerHTML = '<option value="">Todas las marcas</option>' + grupos.map(g => `<option>${esc2(g)}</option>`).join(''); sel.value = grupos.includes(v) ? v : ''; });
+  document.getElementById('iv-dl-prod').innerHTML = INV_P.map(p => `<option value="${esc2(p.nombre)}">`).join('');
+  invRender();
+}
+function invRender(){
+  document.getElementById('iv-n-exist').textContent = INV_P.length;
+  if(INV_TAB === 'exist') invRenderExist();
+  if(INV_TAB === 'ent') invRenderEnt();
+  if(INV_TAB === 'conteo') invRenderConteo();
+  if(INV_TAB === 'movs') invRenderMovs();
+  if(INV_TAB === 'flash') invRenderFlash();
+}
+function invTab(t){
+  INV_TAB = t;
+  document.querySelectorAll('#iv-tabs button').forEach(b => b.classList.toggle('on', b.dataset.ivt === t));
+  ['exist','ent','conteo','movs','flash'].forEach(v => document.getElementById('iv-v-' + v).style.display = v === t ? '' : 'none');
+  invRender();
+}
+function invRenderExist(){
+  const conEx = INV_P.filter(p => (p.existencia || 0) > 0);
+  const pzas = conEx.reduce((a, p) => a + p.existencia, 0);
+  const lotesCad = INV_L.filter(l => l.cantidad > 0 && l.caducidad && invDias(l.caducidad) <= 90);
+  const venc = lotesCad.filter(l => invDias(l.caducidad) < 0);
+  const vc = conEx.reduce((a, p) => a + invValor(p), 0), sinCosto = conEx.filter(p => !invCostoDe(p)).length;
+  const agot = INV_P.filter(p => p.activo && invEsAgot(p)), min = INV_P.filter(invEsMin), neg = INV_P.filter(p => (p.existencia || 0) < 0);
+  const inact = conEx.filter(p => !p.activo);
+  const nom = id => INV_P.find(p => p.id === id)?.nombre || '';
+  document.getElementById('iv-alertas').innerHTML = `
+    <div class="r" data-f="cad"><span class="i">⛔</span><div><b>${venc.length} lote${venc.length === 1 ? '' : 's'} caducado${venc.length === 1 ? '' : 's'}</b>${venc.length ? esc2(venc.slice(0, 2).map(l => nom(l.producto_id)).join(', ')) + ' · dales baja como merma' : 'Nada caducado en anaquel'}</div></div>
+    <div class="a" data-f="cad"><span class="i">⏳</span><div><b>${lotesCad.length - venc.length} lote${lotesCad.length - venc.length === 1 ? '' : 's'} caducan en ≤ 90 días</b>${lotesCad.reduce((a, l) => a + (invDias(l.caducidad) >= 0 ? l.cantidad : 0), 0)} piezas · véndelos primero</div></div>
+    <div class="b" data-f="${min.length ? 'min' : 'agot'}"><span class="i">📉</span><div><b>${min.length} bajo mínimo · ${agot.length} agotados</b>${neg.length ? neg.length + ' vendidos sin existencia' : 'Revisa qué pedir'}</div></div>
+    <div class="p" data-f="inact"><span class="i">🚫</span><div><b>${inact.length} con piezas pero sin activar</b>No salen en Registro: ponles precio en Configuración</div></div>`;
+  document.getElementById('iv-kpis').innerHTML = `
+    <div class="iv-kpi"><div class="l">Productos con existencia</div><div class="v">${conEx.length}</div><div class="s">de ${INV_P.length} en inventario</div></div>
+    <div class="iv-kpi k2"><div class="l">Piezas en mostrador</div><div class="v">${pzas}</div><div class="s">${new Set(conEx.map(p => p.grupo)).size} marcas</div></div>
+    <div class="iv-kpi k3"><div class="l">Por caducar (≤ 90 días)</div><div class="v">${lotesCad.reduce((a, l) => a + l.cantidad, 0)} pzas</div><div class="s">${lotesCad.length} lotes</div></div>
+    <div class="iv-kpi k4"><div class="l">Valor a costo</div><div class="v">${vc ? fmtMoney0(vc) : '—'}</div><div class="s">${sinCosto ? sinCosto + ' productos sin costo · se llena con Entradas' : 'todos con costo'}</div></div>`;
+  const q = normalizar(document.getElementById('iv-q').value || ''), g = document.getElementById('iv-grupo').value;
+  const rows = INV_P.filter(p => INV_F === 'todos' || (INV_F === 'con' && p.existencia > 0) || (INV_F === 'agot' && p.activo && invEsAgot(p)) || (INV_F === 'cad' && p.existencia > 0 && invEsCad(p)) || (INV_F === 'min' && invEsMin(p)) || (INV_F === 'inact' && !p.activo && p.existencia > 0))
+    .filter(p => !g || (p.grupo || 'Otras marcas') === g).filter(p => !q || normalizar(p.nombre).includes(q))
+    .sort((a, b) => (INV_F === 'cad' ? (invProxCad(a) || '9').localeCompare(invProxCad(b) || '9') : 0) || ((b.existencia > 0) - (a.existencia > 0)) || (a.grupo || '').localeCompare(b.grupo || '') || a.nombre.localeCompare(b.nombre));
+  document.getElementById('iv-tb').innerHTML = rows.map(p => {
+    const nl = invLotesDe(p.id).filter(l => l.cantidad > 0).length, c = invCostoDe(p);
+    return `<tr class="clk" data-id="${esc2(p.id)}"><td class="c1"><div class="iv-pn">${esc2(p.nombre)}<small>${esc2(p.grupo || 'Otras marcas')}${nl > 1 ? ' · ' + nl + ' lotes' : ''}</small></div></td>
+      <td class="n"><span class="iv-q ${p.existencia > 0 ? '' : p.existencia < 0 ? 'neg' : 'z'}">${p.existencia || 0}</span> <span class="iv-mut" style="font-size:11px">pzas</span></td>
+      <td class="n hm">${p.stock_minimo != null ? p.stock_minimo : '<span class="iv-mut">—</span>'}</td>
+      <td>${p.existencia > 0 ? invCadChip(invProxCad(p)) : '<span class="iv-mut">—</span>'}</td>
+      <td class="n hm">${c ? fmtMoney0(c) : '<span class="iv-mut">—</span>'}</td>
+      <td class="n hm"><b>${p.existencia > 0 && c ? fmtMoney0(invValor(p)) : '—'}</b></td>
+      <td>${invEstado(p)}</td></tr>`;
+  }).join('') || '<tr><td colspan="7" class="iv-empty">Nada por aquí 🎉</td></tr>';
+  document.querySelectorAll('#iv-fil .pill').forEach(b => b.classList.toggle('on', b.dataset.f === INV_F));
+}
+function invRenderEnt(){
+  if(!document.getElementById('iv-e-fecha').value) document.getElementById('iv-e-fecha').value = invHoy();
+  const ents = INV_M.filter(m => m.tipo === 'entrada').slice(0, 60);
+  const nom = id => INV_P.find(p => p.id === id)?.nombre || '—';
+  document.getElementById('iv-tb-ent').innerHTML = ents.map(m => `<tr><td>${invFC(m.fecha)}</td><td class="c1"><div class="iv-pn">${esc2(nom(m.producto_id))}</div></td><td class="n"><b style="color:#2F855A">+${m.cantidad}</b></td><td>${invCadChip(m.caducidad)}</td>
+    <td class="n hm">${Number(m.costo_unitario) > 0 ? fmtMoney0(m.cantidad * m.costo_unitario) : '—'}</td><td class="iv-mut">${esc2([m.proveedor, m.num_factura ? 'Fact. ' + m.num_factura : ''].filter(Boolean).join(' · ') || '—')}</td><td class="hm">${esc2(m.quien?.nombre || '—')}</td></tr>`).join('') || '<tr><td colspan="7" class="iv-empty">Aún no hay entradas registradas.</td></tr>';
+}
+async function invGuardarEntrada(){
+  const nombre = document.getElementById('iv-e-prod').value.trim();
+  const p = INV_P.find(x => x.nombre === nombre) || INV_P.find(x => normalizar(x.nombre) === normalizar(nombre));
+  const q = parseInt(document.getElementById('iv-e-q').value, 10);
+  const costo = Number(document.getElementById('iv-e-c').value || 0);
+  const cxp = document.getElementById('iv-e-cxp').checked;
+  if(!p){ alertaCampo('iv-e-prod', 'Elige un producto de la lista.'); return; }
+  if(!(q > 0)){ alertaCampo('iv-e-q', 'Pon cuántas piezas llegaron.'); return; }
+  if(cxp && !(costo > 0)){ alertaCampo('iv-e-c', 'Para crear la cuenta por pagar necesito el costo unitario.'); return; }
+  const btn = document.getElementById('iv-e-guardar'); btn.disabled = true;
+  const { error } = await sb.rpc('inv_entrada', { p_producto: p.id, p_cantidad: q, p_costo: costo > 0 ? costo : null, p_caducidad: document.getElementById('iv-e-cad').value || null,
+    p_lote: document.getElementById('iv-e-lote').value.trim() || null, p_proveedor: document.getElementById('iv-e-prov').value.trim() || null, p_factura: document.getElementById('iv-e-fact').value.trim() || null,
+    p_fecha: document.getElementById('iv-e-fecha').value || invHoy(), p_crear_cxp: cxp, p_vence: cxp ? (document.getElementById('iv-e-vence').value || null) : null });
+  btn.disabled = false;
+  if(error){ console.error('[NovaHouse] Error registrando entrada:', error); toast('No se pudo registrar la entrada.'); return; }
+  toast(`✓ +${q} ${p.nombre}${cxp ? ' · cuenta por pagar creada' : ''}`);
+  ['iv-e-prod','iv-e-q','iv-e-c','iv-e-cad','iv-e-lote','iv-e-fact'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('iv-e-cxp').checked = false; document.getElementById('iv-e-vence-g').style.display = 'none';
+  await invCargar(); cargarCatalogoFarmaciaReg();
+}
+function invRenderConteo(){
+  const q = normalizar(document.getElementById('iv-c-q').value || ''), g = document.getElementById('iv-c-grupo').value;
+  const rows = INV_P.filter(p => INV_CF === 'todos' || (p.existencia || 0) !== 0 || INV_CONTEO.has(p.id))
+    .filter(p => !g || (p.grupo || 'Otras marcas') === g).filter(p => !q || normalizar(p.nombre).includes(q));
+  document.getElementById('iv-tb-c').innerHTML = rows.map(p => {
+    const sis = p.existencia || 0, fis = INV_CONTEO.has(p.id) ? INV_CONTEO.get(p.id) : sis, d = fis - sis;
+    return `<tr class="${d ? 'cambio' : ''}"><td class="c1"><div class="iv-pn">${esc2(p.nombre)}<small>${esc2(p.grupo || 'Otras marcas')}</small></div></td><td class="n">${sis}</td>
+      <td class="n"><input type="number" class="cnt" min="0" step="1" value="${fis}" data-id="${esc2(p.id)}"/></td>
+      <td class="n"><span class="iv-dif ${d > 0 ? 'pos' : d < 0 ? 'neg' : ''}">${d > 0 ? '+' : ''}${d}</span></td></tr>`;
+  }).join('') || '<tr><td colspan="4" class="iv-empty">Sin productos.</td></tr>';
+  invConteoResumen();
+  document.querySelectorAll('#iv-c-fil .pill').forEach(b => b.classList.toggle('on', b.dataset.c === INV_CF));
+}
+function invConteoResumen(){
+  const cambios = [...INV_CONTEO.entries()].filter(([id, v]) => v !== (INV_P.find(p => p.id === id)?.existencia || 0));
+  const neto = cambios.reduce((a, [id, v]) => a + v - (INV_P.find(p => p.id === id)?.existencia || 0), 0);
+  document.getElementById('iv-c-res').innerHTML = cambios.length ? `<b>${cambios.length}</b> producto${cambios.length === 1 ? '' : 's'} con diferencia · neto <b>${neto > 0 ? '+' : ''}${neto} pzas</b>` : 'Sin diferencias capturadas';
+  document.getElementById('iv-c-aplicar').disabled = !cambios.length;
+}
+async function invAplicarConteo(){
+  const cambios = [...INV_CONTEO.entries()].filter(([id, v]) => v !== (INV_P.find(p => p.id === id)?.existencia || 0));
+  if(!cambios.length) return;
+  const ok = await confirmarAsync({ icono:'🧮', titulo:'¿Aplicar el conteo?', textoConfirmar:'Sí, ajustar', mensaje:`Se ajustarán <b>${cambios.length}</b> productos a lo que contaste. Queda registrado en Movimientos.` });
+  if(!ok) return;
+  const btn = document.getElementById('iv-c-aplicar'); btn.disabled = true;
+  let fallos = 0;
+  for(const [id, v] of cambios){
+    const { error } = await sb.rpc('inv_ajustar', { p_producto: id, p_fisico: v, p_nota: 'Conteo físico' });
+    if(error){ fallos++; console.error('[NovaHouse] Error ajustando inventario:', error); } else INV_CONTEO.delete(id);
+  }
+  toast(fallos ? `Se ajustaron ${cambios.length - fallos}; ${fallos} no se pudieron.` : `✓ Conteo aplicado (${cambios.length} productos).`);
+  await invCargar(); cargarCatalogoFarmaciaReg();
+}
+function invRenderMovs(){
+  const q = normalizar(document.getElementById('iv-m-q').value || '');
+  const nom = id => INV_P.find(p => p.id === id)?.nombre || '—';
+  const rows = INV_M.filter(m => !INV_MF || m.tipo === INV_MF).filter(m => !q || normalizar(nom(m.producto_id)).includes(q)).slice(0, 400);
+  document.getElementById('iv-tb-m').innerHTML = rows.map(m => `<tr><td>${invFC(m.fecha)}</td><td>${invTipo[m.tipo] || esc2(m.tipo)}</td><td class="c1"><div class="iv-pn">${esc2(nom(m.producto_id))}</div></td>
+    <td class="n"><b style="color:${m.cantidad > 0 ? '#2F855A' : '#C53030'}">${m.cantidad > 0 ? '+' : ''}${m.cantidad}</b></td><td class="hm">${m.caducidad ? invFC(m.caducidad) : '<span class="iv-mut">—</span>'}</td>
+    <td class="iv-mut">${esc2([m.nota, m.proveedor, m.num_factura ? 'Fact. ' + m.num_factura : ''].filter(Boolean).join(' · ') || '—')}</td><td class="hm">${esc2(m.quien?.nombre || (m.tipo === 'venta' ? 'Registro' : '—'))}</td></tr>`).join('') || '<tr><td colspan="7" class="iv-empty">Sin movimientos.</td></tr>';
+  document.querySelectorAll('#iv-m-fil .pill').forEach(b => b.classList.toggle('on', b.dataset.m === INV_MF));
+}
+// ── Detalle de producto ──
+function invAbrir(id){
+  const p = INV_P.find(x => x.id === id); if(!p) return;
+  document.getElementById('iv-d-n').textContent = p.nombre;
+  document.getElementById('iv-d-m').textContent = (p.grupo || 'Otras marcas') + (p.activo ? '' : ' · sin activar para venta');
+  const lotes = invLotesDe(id).filter(l => l.cantidad !== 0).sort((a, b) => (a.caducidad || '9').localeCompare(b.caducidad || '9'));
+  const movs = INV_M.filter(m => m.producto_id === id).slice(0, 25), c = invCostoDe(p);
+  document.getElementById('iv-d-b').innerHTML = `
+    <div class="iv-mini"><div><span>Existencia</span><b>${p.existencia || 0}</b></div><div><span>Costo</span><b>${c ? fmtMoney0(c) : '—'}</b></div><div><span>Valor</span><b>${c ? fmtMoney0(invValor(p)) : '—'}</b></div></div>
+    <div class="iv-fg" style="margin-top:12px"><label>Stock mínimo (avisa cuando llegue aquí)</label><input type="number" min="0" step="1" id="iv-d-min" value="${p.stock_minimo ?? ''}" placeholder="Sin mínimo"/></div>
+    <div class="iv-sec">Lotes y caducidad</div>
+    ${lotes.map(l => `<div class="iv-lote"><span><b>${l.cantidad}</b> pzas${l.lote ? ' · <span class="iv-mut">' + esc2(l.lote) + '</span>' : ''}</span>${l.lote === 'Sin existencia' ? '<span class="iv-ch r">Vendido sin existencia</span>' : invCadChip(l.caducidad)}
+      ${l.lote === 'Sin existencia' ? '' : `<span class="acc"><button type="button" class="btn-sm btn-outline iv-l-cad" data-l="${esc2(l.id)}" title="Corregir caducidad">📅</button>${l.cantidad > 0 ? `<button type="button" class="btn-sm btn-del iv-l-merma" data-l="${esc2(l.id)}" title="Dar de baja (merma o caducado)">🗑</button>` : ''}</span>`}</div>`).join('') || '<p class="iv-hint">Sin piezas en inventario.</p>'}
+    <div class="iv-sec">Movimientos recientes</div>
+    ${movs.map(m => `<div class="iv-mov"><span class="iv-mut">${invFC(m.fecha).slice(0, 6)}</span><span>${invTipo[m.tipo] || esc2(m.tipo)}<br/><small class="iv-mut">${esc2([m.nota, m.proveedor, m.quien?.nombre].filter(Boolean).join(' · '))}</small></span><span class="q ${m.cantidad > 0 ? 'in' : 'out'}">${m.cantidad > 0 ? '+' : ''}${m.cantidad}</span></div>`).join('') || '<p class="iv-hint">Sin movimientos en los últimos 120 días.</p>'}
+    <div style="display:flex;gap:8px;margin-top:16px"><button type="button" class="btn-sm" id="iv-d-ent" style="flex:1;justify-content:center;background:var(--teal);border-color:var(--teal);color:#fff">➕ Registrar entrada</button></div>`;
+  document.getElementById('iv-d-min').addEventListener('change', async e => {
+    const v = e.target.value === '' ? null : Math.max(0, parseInt(e.target.value, 10) || 0);
+    const { error } = await sb.rpc('inv_set_minimo', { p_producto: id, p_minimo: v });
+    if(error){ toast('No se pudo guardar el mínimo.'); return; }
+    p.stock_minimo = v; toast('✓ Mínimo guardado'); invRender();
+  });
+  document.getElementById('iv-d-ent').addEventListener('click', () => { invCerrar(); invTab('ent'); document.getElementById('iv-e-prod').value = p.nombre; document.getElementById('iv-e-q').focus(); });
+  document.querySelectorAll('#iv-d-b .iv-l-merma').forEach(b => b.addEventListener('click', () => invMerma(b.dataset.l)));
+  document.querySelectorAll('#iv-d-b .iv-l-cad').forEach(b => b.addEventListener('click', () => invEditarCad(b.dataset.l)));
+  document.getElementById('iv-dr').classList.add('open'); document.getElementById('iv-ov').classList.add('show');
+}
+function invCerrar(){ document.getElementById('iv-dr').classList.remove('open'); document.getElementById('iv-ov').classList.remove('show'); }
+const invPedir = o => new Promise(r => mostrarPrompt(o, v => r(v)));
+async function invMerma(loteId){
+  const l = INV_L.find(x => x.id === loteId); if(!l) return;
+  const p = INV_P.find(x => x.id === l.producto_id);
+  const v = await invPedir({ icono:'🗑', titulo:'Dar de baja piezas', tipo:'number', valorInicial: String(l.cantidad), mensaje:`${esc2(p?.nombre || '')} · lote ${l.caducidad ? 'que caduca ' + invFC(l.caducidad) : 'sin caducidad'} (${l.cantidad} pzas).<br>¿Cuántas piezas salen por merma o caducidad?` });
+  const n = parseInt(v, 10); if(!(n > 0)) return;
+  if(n > l.cantidad){ toast('Ese lote solo tiene ' + l.cantidad + ' piezas.'); return; }
+  const caducado = l.caducidad && invDias(l.caducidad) < 0;
+  const { error } = await sb.rpc('inv_merma', { p_lote: loteId, p_cantidad: n, p_nota: caducado ? 'Caducado' : 'Merma' });
+  if(error){ console.error('[NovaHouse] Error en merma:', error); toast('No se pudo dar de baja.'); return; }
+  toast(`✓ ${n} pzas dadas de baja`); await invCargar(); cargarCatalogoFarmaciaReg(); invAbrir(l.producto_id);
+}
+async function invEditarCad(loteId){
+  const l = INV_L.find(x => x.id === loteId); if(!l) return;
+  const v = await invPedir({ icono:'📅', titulo:'Corregir caducidad', tipo:'date', valorInicial: l.caducidad || '', mensaje:'Fecha de caducidad de este lote (déjala vacía si no tiene):' });
+  if(v === null || v === undefined) return;
+  const { error } = await sb.rpc('inv_editar_lote', { p_lote: loteId, p_caducidad: v || null, p_lote_txt: l.lote || null });
+  if(error){ toast('No se pudo guardar la caducidad.'); return; }
+  toast('✓ Caducidad actualizada'); await invCargar(); invAbrir(l.producto_id);
+}
+// ── Flash report ──
+function invFlashDatos(per){
+  const dias = per === 'sem' ? 7 : per === 'tri' ? 91 : null;
+  const hoy = new Date(); let d0;
+  if(dias){ d0 = new Date(hoy); d0.setDate(d0.getDate() - (dias - 1)); } else { d0 = new Date(hoy.getFullYear(), hoy.getMonth(), 1); }
+  const desde = isoLocal(d0), hasta = invHoy(), diasPer = Math.round((hoy - d0) / 864e5) + 1;
+  const movs = INV_M.filter(m => m.fecha >= desde && m.fecha <= hasta);
+  const ventas = INV_V.filter(v => v.fecha >= desde && v.fecha <= hasta);
+  const S = (arr, f) => arr.reduce((a, x) => a + f(x), 0);
+  const costoMov = m => Number(m.costo_unitario) > 0 ? Number(m.costo_unitario) : invCostoDe(INV_P.find(p => p.id === m.producto_id) || {});
+  const fin = S(INV_P, p => Math.max(0, p.existencia || 0)), finV = S(INV_P, invValor);
+  const ent = movs.filter(m => m.tipo === 'entrada' || m.tipo === 'inicial'), vend = movs.filter(m => m.tipo === 'venta' || m.tipo === 'devolucion');
+  const otros = movs.filter(m => m.tipo === 'ajuste' || m.tipo === 'merma');
+  const pzEnt = S(ent, m => m.cantidad), pzVend = -S(vend, m => m.cantidad), pzOtros = -S(otros, m => m.cantidad);
+  const ini = fin - pzEnt + pzVend + pzOtros;
+  const vEnt = S(ent, m => m.cantidad * costoMov(m)), vVend = -S(vend, m => m.cantidad * costoMov(m)), vOtros = -S(otros, m => m.cantidad * costoMov(m));
+  const iniV = finV - vEnt + vVend + vOtros;
+  const ventaPesos = S(ventas, v => Number(v.monto) || 0);
+  const prom = (ini + fin) / 2, rot = prom > 0 ? pzVend / prom : 0, diasInv = pzVend > 0 ? prom / (pzVend / diasPer) : null;
+  const quiebres = [...new Set(movs.filter(m => m.tipo === 'venta' && /sin existencia/.test(m.nota || '')).map(m => m.producto_id))];
+  const prodConVenta = new Set(vend.map(m => m.producto_id));
+  return { desde, hasta, diasPer, movs, ventas, fin, finV, ini, iniV, pzEnt, pzVend, pzOtros, vEnt, vVend, vOtros, ventaPesos, rot, diasInv, quiebres, prodConVenta, hayCosto: finV > 0 || vEnt > 0 };
+}
+function invRenderFlash(){
+  const D = invFlashDatos(INV_FR), varPz = D.fin - D.ini, pct = D.ini ? varPz / D.ini * 100 : 0;
+  const MES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const per = INV_FR === 'mes' ? `${MES[new Date().getMonth()][0].toUpperCase() + MES[new Date().getMonth()].slice(1)} ${new Date().getFullYear()} (al día ${new Date().getDate()})` : `${invFC(D.desde)} – ${invFC(D.hasta)}`;
+  document.getElementById('fr-sub').textContent = per + ' · generado ' + new Date().toLocaleString('es-MX', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' });
+  const conEx = INV_P.filter(p => p.existencia > 0);
+  const lotesR = INV_L.filter(l => l.cantidad > 0 && l.caducidad && invDias(l.caducidad) <= 90).sort((a, b) => a.caducidad.localeCompare(b.caducidad));
+  const pzR = lotesR.reduce((a, l) => a + l.cantidad, 0);
+  const dorm = conEx.filter(p => !D.prodConVenta.has(p.id)).sort((a, b) => (invValor(b) - invValor(a)) || (b.existencia - a.existencia));
+  const pzDorm = dorm.reduce((a, p) => a + p.existencia, 0);
+  const servicio = D.prodConVenta.size ? Math.round((1 - D.quiebres.length / D.prodConVenta.size) * 100) : 100;
+  const val = (pz, v) => D.hayCosto && v ? `${pz} pzas · ${fmtMoney0(v)}` : `${pz} pzas`;
+  document.getElementById('fr-hero').innerHTML = `
+    <div class="fr-big"><div class="l">Inventario en mostrador</div><div class="v">${D.fin} pzas</div>
+      <div class="d">vs. inicio del periodo ${D.ini} · <b class="${varPz < 0 ? 'neg' : ''}">${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} (${Math.abs(pct).toFixed(1)}%)</b></div>
+      <div class="d" style="opacity:.85;margin-top:6px">${conEx.length} productos${D.finV ? ' · a costo ' + fmtMoney0(D.finV) : ''}</div></div>
+    <div class="fr-k"><div class="l">Venta de farmacia</div><div class="v">${fmtMoney0(D.ventaPesos)}</div><div class="s">${D.pzVend} piezas vendidas en ${D.ventas.length} ventas</div></div>
+    <div class="fr-k"><div class="l">Rotación</div><div class="v">${D.rot.toFixed(2)}×</div><div class="s">${D.diasInv ? '≈ <b>' + Math.round(D.diasInv) + ' días</b> de inventario al ritmo actual' : 'sin ventas en el periodo'}</div></div>
+    <div class="fr-k"><div class="l">Nivel de servicio</div><div class="v">${servicio}%</div><div class="s">${D.quiebres.length} producto${D.quiebres.length === 1 ? '' : 's'} vendidos sin existencia · ${INV_P.filter(p => p.activo && p.existencia <= 0).length} agotados</div><div class="bar"><i style="width:${servicio}%"></i></div></div>`;
+  document.getElementById('fr-flow').innerHTML = `
+    <div><div class="l">Inventario inicial</div><div class="v">${D.ini} pzas</div><div class="s">${D.hayCosto ? fmtMoney0(D.iniV) + ' a costo' : 'al ' + invFC(D.desde)}</div><span class="op">+</span></div>
+    <div><div class="l">🚚 Entradas</div><div class="v" style="color:#2F855A">${D.pzEnt} pzas</div><div class="s">${D.hayCosto && D.vEnt ? fmtMoney0(D.vEnt) : 'compras y carga inicial'}</div><span class="op">−</span></div>
+    <div><div class="l">🛒 Vendido</div><div class="v" style="color:#2B4C9E">${D.pzVend} pzas</div><div class="s">${D.vVend ? fmtMoney0(D.vVend) + ' a costo' : 'desde Registro'}</div><span class="op">−</span></div>
+    <div><div class="l">🗑 Mermas y ajustes</div><div class="v" style="color:#C53030">${D.pzOtros < 0 ? '+' : ''}${Math.abs(D.pzOtros)} pzas</div><div class="s">caducados + conteos físicos</div><span class="op">=</span></div>
+    <div><div class="l">Inventario final</div><div class="v">${D.fin} pzas</div><div class="s">${D.finV ? fmtMoney0(D.finV) + ' a costo' : (varPz < 0 ? 'bajó ' : 'subió ') + Math.abs(pct).toFixed(1) + '%'}</div></div>`;
+  const porProd = {}; D.ventas.forEach(v => { const k = v.producto_id || 'm:' + v.medicamento; const x = porProd[k] || (porProd[k] = { n: INV_P.find(p => p.id === v.producto_id)?.nombre || v.medicamento || '—', m:0, q:0 }); x.m += Number(v.monto) || 0; x.q += Number(v.cantidad) || 1; });
+  const top = Object.values(porProd).sort((a, b) => b.m - a.m).slice(0, 6), mxT = top[0]?.m || 1;
+  const marcas = {}; conEx.forEach(p => { const g = p.grupo || 'Otras marcas'; const x = marcas[g] || (marcas[g] = { q:0, v:0 }); x.q += p.existencia; x.v += invValor(p); });
+  const mk = Object.entries(marcas).sort((a, b) => (D.hayCosto ? b[1].v - a[1].v : 0) || b[1].q - a[1].q).slice(0, 6), mxM = mk.length ? (D.hayCosto ? mk[0][1].v : mk[0][1].q) || 1 : 1;
+  const vendPorProd = {}; D.movs.filter(m => m.tipo === 'venta').forEach(m => vendPorProd[m.producto_id] = (vendPorProd[m.producto_id] || 0) - m.cantidad);
+  const pedir = INV_P.filter(p => (p.stock_minimo != null && (p.existencia || 0) <= p.stock_minimo) || ((p.existencia || 0) <= 0 && vendPorProd[p.id] > 0))
+    .map(p => ({ p, sug: Math.max(1, (p.stock_minimo || 0) * 2 - (p.existencia || 0), (vendPorProd[p.id] || 0) - (p.existencia || 0)) }))
+    .sort((a, b) => (vendPorProd[b.p.id] || 0) - (vendPorProd[a.p.id] || 0)).slice(0, 7);
+  const nom = id => INV_P.find(p => p.id === id)?.nombre || '';
+  const sinCosto = conEx.filter(p => !invCostoDe(p)).length, venc = INV_L.filter(l => l.cantidad > 0 && l.caducidad && invDias(l.caducidad) < 0);
+  const inact = conEx.filter(p => !p.activo).length, neg = INV_P.filter(p => (p.existencia || 0) < 0).length;
+  document.getElementById('fr-grid').innerHTML = `
+    <div class="fr-box"><h4>🏆 Más vendidos <small>por venta</small></h4>${top.map(x => `<div class="fr-row"><span class="n">${esc2(x.n)}</span><b>${fmtMoney0(x.m)}</b><span class="t"><i style="width:${x.m / mxT * 100}%;background:var(--teal)"></i></span></div>`).join('') || '<p class="iv-hint">Sin ventas de farmacia en el periodo.</p>'}</div>
+    <div class="fr-box"><h4>🏷 Inventario por marca <small>${D.hayCosto ? 'a costo' : 'piezas'}</small></h4>${mk.map(([m, x]) => `<div class="fr-row"><span class="n">${esc2(m)}</span><b>${D.hayCosto ? fmtMoney0(x.v) : x.q + ' pzas'}</b><span class="t"><i style="width:${(D.hayCosto ? x.v : x.q) / mxM * 100}%"></i></span></div>`).join('')}</div>
+    <div class="fr-box"><h4>🛒 Sugerido para pedir <small>mínimo o agotado con venta</small></h4>${pedir.map(x => `<div class="fr-row"><span class="n">${esc2(x.p.nombre)}</span><span><span class="iv-ch ${x.p.existencia > 0 ? 'a' : 'r'}">${x.p.existencia || 0}${x.p.stock_minimo != null ? ' / mín ' + x.p.stock_minimo : ''}</span> <b>+${x.sug}</b></span></div>`).join('') || '<p class="iv-hint">Nada urgente. Pon mínimos por producto para que aquí te diga qué pedir.</p>'}</div>
+    <div class="fr-box"><h4>⏳ Caducidad en riesgo <small>${pzR} pzas</small></h4>${lotesR.slice(0, 6).map(l => `<div class="fr-row"><span class="n">${esc2(nom(l.producto_id))} · ${l.cantidad} pzas</span>${invCadChip(l.caducidad)}</div>`).join('') || '<p class="iv-hint">Sin productos por caducar en 90 días.</p>'}</div>
+    <div class="fr-box"><h4>💤 Inventario dormido <small>${val(pzDorm, dorm.reduce((a, p) => a + invValor(p), 0))} sin venta</small></h4>${dorm.slice(0, 6).map(p => `<div class="fr-row"><span class="n">${esc2(p.nombre)}</span><b>${invValor(p) ? fmtMoney0(invValor(p)) : p.existencia + ' pzas'}</b></div>`).join('') || '<p class="iv-hint">Todo lo que hay se movió.</p>'}</div>
+    <div class="fr-box"><h4>🧮 Pendientes <small>calidad del dato</small></h4>
+      <div class="fr-row"><span class="n">Lotes caducados en anaquel</span><b style="color:${venc.length ? '#C53030' : 'inherit'}">${venc.length}</b></div>
+      <div class="fr-row"><span class="n">Vendidos sin existencia</span><b>${neg}</b></div>
+      <div class="fr-row"><span class="n">Con piezas pero sin activar para venta</span><b>${inact}</b></div>
+      <div class="fr-row"><span class="n">Productos con piezas sin costo</span><b>${sinCosto}</b></div></div>`;
+  const tm = top[0], mm = mk[0];
+  document.getElementById('fr-ins').innerHTML = `<b>💡 Lectura rápida</b><ul>
+    <li>El inventario ${varPz < 0 ? 'bajó' : 'subió'} <b>${Math.abs(varPz)} piezas</b> en el periodo; se vendieron <b>${D.pzVend}</b> por <b>${fmtMoney0(D.ventaPesos)}</b>.</li>
+    ${tm ? `<li><b>${esc2(tm.n)}</b> es lo que más vende (${fmtMoney0(tm.m)}).${mm ? ` <b>${esc2(mm[0])}</b> es la marca con más ${D.hayCosto ? 'dinero' : 'piezas'} en anaquel.` : ''}</li>` : ''}
+    <li><b>${pzDorm} piezas</b> no se movieron y <b>${pzR}</b> caducan en 90 días o menos: conviene empujarlas en recepción o pedir cambio al proveedor.</li>
+    ${venc.length ? `<li>Hay <b>${venc.length} lote${venc.length === 1 ? '' : 's'} caducado${venc.length === 1 ? '' : 's'}</b> en anaquel: dales baja como merma.</li>` : ''}
+    ${D.quiebres.length ? `<li><b>${D.quiebres.length} producto${D.quiebres.length === 1 ? '' : 's'}</b> se vendieron sin existencia: registra la entrada o corrige con un conteo.</li>` : ''}</ul>`;
+  document.querySelectorAll('#fr-per button').forEach(b => b.classList.toggle('on', b.dataset.p === INV_FR));
+  window._INV_FR = { D, per, varPz, pzR, pzDorm, top };
+}
+function invCopiarWA(){
+  const x = window._INV_FR; if(!x) return;
+  const { D, per, varPz, pzR, pzDorm, top } = x;
+  const t = `⚡ *Flash inventario NovaHouse* — ${per}\n\n📦 En mostrador: *${D.fin} pzas*${D.finV ? ' (' + fmtMoney0(D.finV) + ' a costo)' : ''} · ${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} vs. inicio\n🛒 Venta farmacia: *${fmtMoney0(D.ventaPesos)}* · ${D.pzVend} pzas\n🔁 Rotación ${D.rot.toFixed(2)}×${D.diasInv ? ' · ' + Math.round(D.diasInv) + ' días de inventario' : ''}\n🏆 Top: ${top.slice(0, 3).map(y => y.n).join(', ') || '—'}\n⏳ Por caducar (≤90 días): ${pzR} pzas\n💤 Sin movimiento: ${pzDorm} pzas\n⚠ Vendidos sin existencia: ${D.quiebres.length}`;
+  const fin = () => toast('✓ Copiado. Pégalo en WhatsApp.');
+  if(navigator.clipboard?.writeText) navigator.clipboard.writeText(t).then(fin).catch(() => mostrarPrompt({ icono:'💬', titulo:'Copia el resumen', valorInicial:t, mensaje:'Copia el texto:' }, () => {}));
+  else mostrarPrompt({ icono:'💬', titulo:'Copia el resumen', valorInicial:t, mensaje:'Copia el texto:' }, () => {});
+}
+// ── Eventos ──
+(function(){
+  document.querySelector('[data-screen2="inv"]').addEventListener('click', () => invCargar());
+  document.getElementById('app-screen-inv').addEventListener('click', e => { const b = e.target.closest('[data-ivt]'); if(b) invTab(b.dataset.ivt); });
+  document.getElementById('iv-fil').addEventListener('click', e => { const b = e.target.closest('.pill'); if(b){ INV_F = b.dataset.f; invRenderExist(); } });
+  document.getElementById('iv-alertas').addEventListener('click', e => { const b = e.target.closest('[data-f]'); if(b){ INV_F = b.dataset.f; invRenderExist(); } });
+  ['iv-grupo','iv-q'].forEach(id => document.getElementById(id).addEventListener(id === 'iv-q' ? 'input' : 'change', invRenderExist));
+  document.getElementById('iv-tb').addEventListener('click', e => { const tr = e.target.closest('tr[data-id]'); if(tr) invAbrir(tr.dataset.id); });
+  document.getElementById('iv-ov').addEventListener('click', invCerrar);
+  document.getElementById('iv-d-x').addEventListener('click', invCerrar);
+  document.getElementById('iv-e-guardar').addEventListener('click', invGuardarEntrada);
+  document.getElementById('iv-e-cxp').addEventListener('change', e => {
+    document.getElementById('iv-e-vence-g').style.display = e.target.checked ? '' : 'none';
+    if(e.target.checked && !document.getElementById('iv-e-vence').value){ const d = new Date(); d.setDate(d.getDate() + 30); document.getElementById('iv-e-vence').value = isoLocal(d); }
+  });
+  document.getElementById('iv-c-fil').addEventListener('click', e => { const b = e.target.closest('.pill'); if(b){ INV_CF = b.dataset.c; invRenderConteo(); } });
+  ['iv-c-grupo','iv-c-q'].forEach(id => document.getElementById(id).addEventListener(id === 'iv-c-q' ? 'input' : 'change', invRenderConteo));
+  document.getElementById('iv-tb-c').addEventListener('input', e => {
+    const inp = e.target.closest('input.cnt'); if(!inp) return;
+    const p = INV_P.find(x => x.id === inp.dataset.id); if(!p) return;
+    const v = inp.value === '' ? (p.existencia || 0) : Math.max(0, parseInt(inp.value, 10) || 0);
+    if(v === (p.existencia || 0)) INV_CONTEO.delete(p.id); else INV_CONTEO.set(p.id, v);
+    const tr = inp.closest('tr'), d = v - (p.existencia || 0);
+    tr.classList.toggle('cambio', !!d);
+    tr.querySelector('.iv-dif').className = 'iv-dif ' + (d > 0 ? 'pos' : d < 0 ? 'neg' : ''); tr.querySelector('.iv-dif').textContent = (d > 0 ? '+' : '') + d;
+    invConteoResumen();
+  });
+  document.getElementById('iv-c-aplicar').addEventListener('click', invAplicarConteo);
+  document.getElementById('iv-m-fil').addEventListener('click', e => { const b = e.target.closest('.pill'); if(b){ INV_MF = b.dataset.m; invRenderMovs(); } });
+  document.getElementById('iv-m-q').addEventListener('input', invRenderMovs);
+  document.getElementById('fr-per').addEventListener('click', e => { const b = e.target.closest('button[data-p]'); if(b){ INV_FR = b.dataset.p; invRenderFlash(); } });
+  document.getElementById('fr-wa').addEventListener('click', invCopiarWA);
+  document.getElementById('fr-pdf').addEventListener('click', () => { document.body.classList.add('iv-print'); setTimeout(() => { window.print(); setTimeout(() => document.body.classList.remove('iv-print'), 400); }, 50); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') invCerrar(); });
+})();
 
 // ============================================================
 // Módulo: Comisiones (NovaHouse)
@@ -4395,7 +4939,7 @@ function renderTarjetasRegistro(grid, filtro, selMap){
       const d = CATALOGOS.personal.find(p => p.id === i.doctor_id);
       sb = d ? `<span class="sb"><span class="rg-av">${esc2(inicialesPersona(d.nombre))}</span>${esc2(d.nombre)}</span>` : '<span class="sb">Sin doctora asignada</span>';
     } else sb = `<span class="sb">${f ? TABN[i.t] + ' · ' : ''}${esc2(regGrupoDe(i))}</span>`;
-    const stk = (i.t === 'farm' && i.existencia != null) ? `<span class="stk ${i.existencia > 0 ? '' : 'no'}" title="Existencia según Odoo">${i.existencia > 0 ? i.existencia + ' pzas' : 'sin stock'}</span>` : '';
+    const stk = (i.t === 'farm' && i.existencia != null) ? `<span class="stk ${i.existencia > 0 ? '' : 'no'}" title="Existencia en inventario">${i.existencia > 0 ? i.existencia + ' pzas' : 'sin stock'}</span>` : '';
     const precio = i.precio != null ? fmtMoney0(i.precio) : (i.ref || '—');
     const titulo = (i.t === 'cons' && i.doctor_id) ? i.nombre.replace(/\s*·\s*Dra?\..*$/, '') : i.nombre;
     const ajena = doc && i.t === 'cons' && i.doctor_id && i.doctor_id !== doc;
@@ -5350,6 +5894,21 @@ async function guardarRegistro(){
     };
   });
 
+  // Inventario: avisar si alguna pieza de farmacia no tiene existencia suficiente (se puede registrar igual)
+  if(!noVino){
+    const faltan = [...REG_SERV_SEL.entries()].filter(([id]) => esFarmKey(id)).map(([id, v]) => {
+      const prod = (CATALOGOS.farmacia || []).find(x => 'f:' + x.id === id);
+      if(!prod || prod.existencia == null) return null;
+      const pz = Math.max(1, parseInt(v?.cantidad, 10) || 1) * (parseInt(v?.piezas ?? prod.piezas, 10) || 1);
+      const hay = Math.max(0, Number(prod.existencia) || 0);
+      return pz > hay ? `${prod.nombre} — pides ${pz}, hay ${hay}` : null;
+    }).filter(Boolean);
+    if(faltan.length){
+      const ok = await confirmarAsync({ icono:'📦', titulo:'No alcanza la existencia', textoConfirmar:'Registrar de todos modos',
+        mensaje:'Según el inventario:<br><b>' + faltan.map(esc2).join('<br>') + '</b><br><br>Si lo registras, queda como vendido sin existencia para que lo revisen en Inventario.' });
+      if(!ok) return;
+    }
+  }
   const btn = document.getElementById('reg-btn-guardar');
   btn.disabled = true; btn.textContent = 'Guardando...';
   try{
@@ -5435,6 +5994,7 @@ async function guardarRegistro(){
     }
 
     toast(hayServ && hayFarm ? '✓ Registro y venta de farmacia guardados.' : (hayFarm ? '✓ Venta de farmacia guardada.' : '✓ Registro guardado correctamente.'));
+    if(hayFarm) cargarCatalogoFarmaciaReg(); // el inventario ya descontó: refresca las piezas que se ven en el catálogo
     limpiarRegistroParcial();
   }catch(err){
     console.error('[NovaHouse] Error guardando registro:', err);

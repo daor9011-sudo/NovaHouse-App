@@ -1886,6 +1886,47 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .fb-empty{color:var(--g6);font-size:12px;margin:6px 0}
 @media screen and (max-width:1100px){.fb-hero{grid-template-columns:1fr 1fr}.fb-big{grid-column:1/-1}.fb-grid{grid-template-columns:minmax(0,1fr)}.fb-acts{grid-template-columns:minmax(0,1fr)}}
 @media screen and (max-width:640px){.fb-bd{padding:14px}.fb-hero{grid-template-columns:minmax(0,1fr)}.fb-big b{font-size:30px}.fb-dn{grid-template-columns:100px minmax(0,1fr)}.fb-donut{width:100px}.fb-dl{grid-template-columns:10px minmax(0,1fr) 30px 58px;font-size:11px}.fb-tb{grid-template-columns:minmax(0,1fr) 60px 64px}}
+
+/* Flash report narrativo (estilo cierre de mes) — hojas carta 816×1056 */
+.fx-doc{--nrz:1;padding:4px 0 10px}
+.nr-sheet{zoom:var(--nrz,1);width:816px;height:1056px;margin:0 auto 18px;background:#fff;box-shadow:0 6px 24px rgba(15,23,42,.14);display:flex;flex-direction:column;overflow:hidden;color:#0B1628;font:10.3px/1.4 var(--font-b);text-align:left}
+.nr-hd{background:linear-gradient(135deg,#0B1628,#173363);color:#fff;padding:24px 30px 18px;border-bottom:4px solid #2ABFBF;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.nr-hd .br{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:700}
+.nr-hd h1{font:800 26px/1.05 var(--font-d);margin:5px 0 0;letter-spacing:.2px;color:#fff}.nr-hd h1 b{color:#2ABFBF}
+.nr-hd .dt{text-align:right;font-size:11px;color:rgba(255,255,255,.85);line-height:1.5}.nr-hd .dt strong{display:block;font-size:15px;color:#fff;font-weight:700}
+.nr-hd.s{padding:14px 30px 12px}.nr-hd.s h1{font-size:18px;margin-top:3px}.nr-hd.s .br{font-size:9px}.nr-hd.s .dt{font-size:10px;line-height:1.45}.nr-hd.s .dt strong{font-size:12px}
+.nr-bd{flex:1;padding:16px 30px 8px;display:flex;flex-direction:column;gap:14px;min-height:0}.nr-bd.ax{gap:6px;padding-top:14px}
+.nr-ft{display:flex;justify-content:space-between;padding:8px 30px 12px;color:#8794A8;font-size:8.5px;border-top:1px solid #E3E8F0}
+.nr-h2{font:800 12.5px var(--font-d);margin:0 0 7px;display:flex;align-items:center;gap:8px;color:#0B1628}.nr-h2::after{content:'';flex:1;height:1px;background:#E3E8F0}
+.nr-h2 small{font:600 9.5px var(--font-b);color:#8794A8}
+.nr-g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+.nr-lead{font-size:11px;line-height:1.55;margin:0}.nr-lead b{color:#1B3A6B}
+.nr-bul{margin:4px 0 0;padding-left:16px;font-size:10.5px;line-height:1.55}.nr-bul li{margin:2px 0}.nr-bul b{color:#1B3A6B}
+.nr-t{width:100%;border-collapse:separate;border-spacing:0;font-size:9.8px}
+.nr-t th{text-align:left;background:#1B3A6B;color:#fff;font-size:8.3px;text-transform:uppercase;letter-spacing:.07em;font-weight:800;padding:5px 6px;border:0}
+.nr-t th:first-child{border-radius:6px 0 0 6px}.nr-t th:last-child{border-radius:0 6px 6px 0}
+.nr-t td{padding:2.7px 6px;border-bottom:1px solid #E3E8F0;background:#fff}
+.nr-t .num{text-align:right;font-variant-numeric:tabular-nums}
+.nr-t tr.gh td{background:#E9F8F8;color:#0B6B6B;font-weight:800;border-bottom:1px solid #BFE9E9;padding-top:4px}
+.nr-sheet .neg{color:#B91C1C!important}.nr-sheet .warn{color:#B45309!important}
+.nr-al{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.nr-a{border-radius:10px;padding:9px 12px;display:flex;gap:10px;align-items:center;font-size:9.8px;line-height:1.4}
+.nr-a>b{font:800 22px/1 var(--font-d)}.nr-a u{text-decoration:none;font-weight:800}
+.nr-a.w{background:#FDF1DC;border:1px solid #F0C36D;color:#7A4D00}.nr-a.o{background:#E3F6EE;border:1px solid #A9DFC5;color:#14764f}.nr-a.r{background:#FDECEC;border:1px solid #F3B4B4;color:#9B1C1C}
+.nr-ch{width:100%;height:auto;display:block}.nr-ch .cv{font:700 11px var(--font-b);fill:#0B1628}.nr-ch .cx{font-size:9.5px;fill:#5B6B84}.nr-ch .cl2{font:700 10px var(--font-b);fill:#1B3A6B}
+.nr-dv{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;align-items:center}.nr-dv svg{width:120px}
+.nr-dv .dt{font:800 13px var(--font-d);fill:#0B1628}.nr-dv .ds{font-size:9px;fill:#8794A8}
+.nr-dl{display:grid;grid-template-columns:10px minmax(0,1fr) 30px 56px;gap:6px;align-items:center;padding:2.2px 0;font-size:10px}.nr-dl i{width:10px;height:10px;border-radius:3px}.nr-dl span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}.nr-dl b{text-align:right}.nr-dl em{font-style:normal;text-align:right;color:#5B6B84}
+.nr-tp{display:grid;grid-template-columns:14px minmax(0,1fr) 84px 30px 54px;gap:6px;align-items:center;padding:2.2px 0;font-size:10px}
+.nr-tp .r{color:#2ABFBF;font-weight:800;text-align:right}.nr-tp .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.nr-tp .t{height:10px;background:#F1F4F9;border-radius:4px;overflow:hidden}.nr-tp .t i{display:block;height:100%;background:#7D3C98;border-radius:4px}.nr-tp .q{text-align:right;color:#5B6B84}.nr-tp b{text-align:right}
+.nr-hb{display:grid;grid-template-columns:118px minmax(0,1fr) 62px 30px;gap:8px;align-items:center;padding:3px 0;font-size:10px}.nr-hb span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nr-hb div{height:11px;background:#F1F4F9;border-radius:4px;overflow:hidden}.nr-hb i{display:block;height:100%;background:#2ABFBF;border-radius:4px}.nr-hb b{text-align:right;font-variant-numeric:tabular-nums}.nr-hb em{font-style:normal;text-align:right;color:#5B6B84}
+.nr-ai{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:6px}
+.nr-ai div{border:1px solid #E3E8F0;border-radius:10px;padding:8px 12px}.nr-ai div:first-child{background:#E9F8F8;border-color:#BFE9E9}
+.nr-ai small{display:block;font-size:8.3px;text-transform:uppercase;letter-spacing:.08em;color:#8794A8;font-weight:700}.nr-ai b{font:800 15px var(--font-d);color:#0B1628}
+.nr-note{font-size:9.5px;color:#5B6B84;margin:0 0 6px}.nr-cont{color:#8794A8;font-size:9px;font-style:italic;margin:4px 0 0}.nr-vacio{color:#8794A8;font-size:10.5px;margin:6px 0}
+.nr-tot{display:flex;justify-content:space-between;align-items:center;background:#0B1628;color:#fff;border-radius:10px;padding:10px 16px;margin-top:8px;font-size:10px}.nr-tot b{font:800 17px var(--font-d)}
 @media (max-width:1100px){.iv-al,.iv-kpis,.fr-hero{grid-template-columns:1fr 1fr}.iv-split{grid-template-columns:minmax(0,1fr)}.fr-grid{grid-template-columns:1fr 1fr}.fr-flow{grid-template-columns:1fr 1fr}.fr-flow .op{display:none}.fr-flow>div{border-bottom:1px solid var(--g2)}}
 @media (max-width:700px){
   .iv-hero{margin:-14px -13px 0;padding:16px 14px}.iv-hero h1{font-size:23px}.iv-hero .acts{margin-left:0;width:100%}.iv-hero .acts .iv-hbtn{flex:1;padding:9px 6px;font-size:12px}
@@ -2589,7 +2630,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
           <div class="fr-per" id="fr-per" style="margin-right:auto"><button type="button" data-p="sem">Semana</button><button type="button" data-p="mes" class="on">Mes</button><button type="button" data-p="tri">Trimestre</button></div>
           <div class="r"><button type="button" class="btn-sm btn-outline" id="fr-wa">💬 Copiar para WhatsApp</button><button type="button" class="btn-sm" id="fr-pdf" style="background:var(--navy);border-color:var(--navy);color:#fff">⬇ Descargar PDF</button></div>
         </div>
-        <div class="fx" id="fx"></div>
+        <div class="fx-doc" id="fx"></div>
       </div>
     </div>
     <div class="iv-ov" id="iv-ov"></div>
@@ -3020,7 +3061,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.17-4';
+const APP_VERSION = 'v2026.11.17-6';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -4199,149 +4240,249 @@ function invFlashDatos(per){
   const prodConVenta = new Set(vend.map(m => m.producto_id));
   return { desde, hasta, diasPer, movs, ventas, fin, finV, ini, iniV, pzEnt, pzVend, pzOtros, vEnt, vVend, vOtros, ventaPesos, rot, diasInv, quiebres, prodConVenta, hayCosto: finV > 0 || vEnt > 0 };
 }
+// ── Flash report de inventario · formato narrativo (estilo cierre de mes) ──
+//  Hoja 1: resumen, indicadores, pendientes y gráficas. Anexos: A sin movimiento, B por caducar, C sugerido de compra.
+//  La pantalla muestra las mismas hojas carta que salen en el PDF.
 function invRenderFlash(){
   const D = invFlashDatos(INV_FR), varPz = D.fin - D.ini, pct = D.ini ? varPz / D.ini * 100 : 0;
   const MES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-  const hoy = new Date(), mesN = MES[hoy.getMonth()];
-  const per = INV_FR === 'mes' ? `${mesN[0].toUpperCase() + mesN.slice(1)} ${hoy.getFullYear()} (del 1 al ${hoy.getDate()})` : `${invFC(D.desde)} – ${invFC(D.hasta)}`;
-  const gen = hoy.toLocaleString('es-MX', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
-  const $ = v => fmtMoney0(v || 0), C = D.hayCosto;
-  const conEx = INV_P.filter(p => p.existencia > 0), nMarcas = new Set(conEx.map(p => p.grupo || 'Otras marcas')).size;
-  const pid = id => INV_P.find(p => p.id === id);
-  const nom = id => pid(id)?.nombre || '';
-  // Ventas por producto (piezas desde movimientos, pesos desde farmacia_ventas)
+  const hoy = new Date(), cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+  const f0 = new Date(D.desde + 'T12:00:00'), f1 = new Date(D.hasta + 'T12:00:00');
+  const titPer = INV_FR === 'mes' ? `${cap(MES[f1.getMonth()])} ${f1.getFullYear()}` : INV_FR === 'sem' ? 'Últimos 7 días' : 'Último trimestre';
+  const rango = INV_FR === 'mes' ? `del 1 al ${f1.getDate()}` : `${f0.getDate()} ${MES[f0.getMonth()].slice(0, 3)} – ${f1.getDate()} ${MES[f1.getMonth()].slice(0, 3)} ${f1.getFullYear()}`;
+  const per = `${titPer} (${rango})`;
+  const gen = hoy.toLocaleString('es-MX', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit', hour12:true }).replace(',', ' ·');
+  const $ = v => fmtMoney0(v || 0), C = D.hayCosto, E = esc2;
+  const pl = (n, s, p) => n === 1 ? s : (p || s + 's');
+  const pid = id => INV_P.find(p => p.id === id), nom = id => pid(id)?.nombre || '';
+  const grupo = p => (p && p.grupo) || 'Otras marcas';
+  const costoL = l => Number(l.costo_unitario) || invCostoDe(pid(l.producto_id) || {});
+  const conEx = INV_P.filter(p => p.existencia > 0), nMarcas = new Set(conEx.map(grupo)).size;
+  // Ventas del periodo
   const vendPz = {}; D.movs.filter(m => m.tipo === 'venta' || m.tipo === 'devolucion').forEach(m => vendPz[m.producto_id] = (vendPz[m.producto_id] || 0) - m.cantidad);
   const porProd = {}; D.ventas.forEach(v => { const k = v.producto_id || 'm:' + v.medicamento; const x = porProd[k] || (porProd[k] = { id: v.producto_id, n: nom(v.producto_id) || v.medicamento || '—', m:0, q:0 }); x.m += Number(v.monto) || 0; x.q += Number(v.cantidad) || 1; });
-  const top = Object.values(porProd).sort((a, b) => b.m - a.m).slice(0, 8), mxT = top[0]?.m || 1;
+  const top = Object.values(porProd).sort((a, b) => b.m - a.m).slice(0, 10), mxT = top[0]?.m || 1;
   const ritmo = id => (vendPz[id] || 0) / D.diasPer;
   const cob = p => { const ex = Math.max(0, p?.existencia || 0), r = p ? ritmo(p.id) : 0; return r > 0 ? ex / r : null; };
-  const cobChip = p => { if(!p) return '<span class="iv-mut">—</span>'; const ex = p.existencia || 0, d = cob(p);
-    if(ex <= 0) return '<span class="fx-c r">Agotado</span>'; if(d == null) return '<span class="fx-c g">sin venta</span>';
-    return `<span class="fx-c ${d < 15 ? 'r' : d < 45 ? 'a' : 'g'}">${d > 365 ? '+365' : Math.round(d)} d</span>`; };
-  // Margen
   const margen = C && D.vVend ? D.ventaPesos - D.vVend : null;
+  const servicio = D.prodConVenta.size ? (1 - D.quiebres.length / D.prodConVenta.size) : 1;
+  // Marcas más vendidas (por venta)
+  const mvMap = {}; D.ventas.forEach(v => { const g = grupo(pid(v.producto_id)); mvMap[g] = (mvMap[g] || 0) + (Number(v.monto) || 0); });
+  let mv = Object.entries(mvMap).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+  if(mv.length > 7){ const r = mv.slice(6); mv = mv.slice(0, 6).concat([[`Resto (${r.length} marcas)`, r.reduce((a, x) => a + x[1], 0)]]); }
+  const totV = mv.reduce((a, x) => a + x[1], 0) || 1;
+  const PALV = ['#7D3C98','#2ABFBF','#1B3A6B','#A56CC1','#0F8F8F','#5B7DB1','#D5DCE6'];
+  // Valor en anaquel por marca
+  const vm = {}; conEx.forEach(p => { const g = grupo(p); const x = vm[g] || (vm[g] = { q:0, v:0 }); x.q += p.existencia; x.v += invValor(p); });
+  let mk = Object.entries(vm).sort((a, b) => (C ? b[1].v - a[1].v : 0) || b[1].q - a[1].q);
+  if(mk.length > 9){ const r = mk.slice(8); mk = mk.slice(0, 8).concat([[`Resto (${r.length} marcas)`, { q: r.reduce((a, x) => a + x[1].q, 0), v: r.reduce((a, x) => a + x[1].v, 0) }]]); }
+  const mkVal = x => C ? x.v : x.q, mxM = Math.max(1, ...mk.map(([, x]) => mkVal(x))), totM = mk.reduce((a, [, x]) => a + mkVal(x), 0) || 1;
   // Caducidad
-  const B = [['Vencido',-1e9,-1,'#DC2626'],['0–30 d',0,30,'#EA580C'],['31–90 d',31,90,'#D97706'],['91–180 d',91,180,'#CA8A04'],['6–12 m',181,365,'#0D9488'],['+12 m',366,1e9,'#0F766E'],['Sin fecha',null,null,'#CBD5E1']];
+  const B = [['Vencido',-1e9,-1,'#B91C1C'],['0–30 d',0,30,'#D97706'],['31–90 d',31,90,'#F2B35E'],['91–180 d',91,180,'#1B3A6B'],['6–12 m',181,365,'#1B3A6B'],['+12 m',366,1e9,'#1B3A6B'],['Sin fecha',null,null,'#D5DCE6']];
   const bq = B.map(() => [0, 0]);
-  INV_L.filter(l => l.cantidad > 0).forEach(l => { const c = Number(l.costo_unitario) || invCostoDe(pid(l.producto_id) || {});
-    let i = 6; if(l.caducidad){ const d = invDias(l.caducidad); i = B.findIndex(b => b[1] != null && d >= b[1] && d <= b[2]); }
-    bq[i][0] += l.cantidad; bq[i][1] += l.cantidad * c; });
-  const totL = bq.reduce((a, x) => a + x[0], 0) || 1;
+  INV_L.filter(l => l.cantidad > 0).forEach(l => { let i = 6; if(l.caducidad){ const d = invDias(l.caducidad); i = B.findIndex(b => b[1] != null && d >= b[1] && d <= b[2]); } bq[i][0] += l.cantidad; bq[i][1] += l.cantidad * costoL(l); });
   const lotesR = INV_L.filter(l => l.cantidad > 0 && l.caducidad && invDias(l.caducidad) <= 90).sort((a, b) => a.caducidad.localeCompare(b.caducidad));
-  const pzR = lotesR.reduce((a, l) => a + l.cantidad, 0), vR = lotesR.reduce((a, l) => a + l.cantidad * (Number(l.costo_unitario) || invCostoDe(pid(l.producto_id) || {})), 0);
-  // Dormido
-  const dorm = conEx.filter(p => !(vendPz[p.id] > 0)).sort((a, b) => (invValor(b) - invValor(a)) || (b.existencia - a.existencia));
+  const pzR = lotesR.reduce((a, l) => a + l.cantidad, 0), vR = lotesR.reduce((a, l) => a + l.cantidad * costoL(l), 0);
+  // Sin movimiento
+  const dorm = conEx.filter(p => !(vendPz[p.id] > 0));
   const pzDorm = dorm.reduce((a, p) => a + p.existencia, 0), vDorm = dorm.reduce((a, p) => a + invValor(p), 0);
-  const fracDorm = C && D.finV ? vDorm / D.finV : (D.fin ? pzDorm / D.fin : 0);
-  // Sugerido: bajo mínimo, agotado con venta o cobertura < 30 días → cubrir 45 días
-  const pedir = INV_P.map(p => { const ex = Math.max(0, p.existencia || 0), r = ritmo(p.id), d = cob(p);
+  // Sugerido de compra: bajo mínimo o cobertura < 30 días → cubrir 45 días
+  const pedir = INV_P.filter(p => p.activo).map(p => { const ex = Math.max(0, p.existencia || 0), r = ritmo(p.id), d = cob(p);
       const bajo = p.stock_minimo != null && ex <= p.stock_minimo, corto = r > 0 && d != null && d < 30;
       if(!bajo && !corto) return null;
       return { p, ex, sug: Math.max(1, (p.stock_minimo || 0) * 2 - ex, Math.ceil(r * 45 - ex)), d }; })
     .filter(Boolean).sort((a, b) => (a.d ?? 999) - (b.d ?? 999) || (vendPz[b.p.id] || 0) - (vendPz[a.p.id] || 0));
-  const pedirTot = pedir.reduce((a, x) => a + x.sug * invCostoDe(x.p), 0);
-  // Marcas
-  const marcas = {}; conEx.forEach(p => { const g = p.grupo || 'Otras marcas'; const x = marcas[g] || (marcas[g] = { q:0, v:0 }); x.q += p.existencia; x.v += invValor(p); });
-  let mk = Object.entries(marcas).sort((a, b) => (C ? b[1].v - a[1].v : 0) || b[1].q - a[1].q);
-  if(mk.length > 8){ const resto = mk.slice(7); mk = mk.slice(0, 7).concat([[`Resto (${resto.length} marcas)`, { q: resto.reduce((a, x) => a + x[1].q, 0), v: resto.reduce((a, x) => a + x[1].v, 0) }]]); }
-  const mxM = Math.max(1, ...mk.map(([, x]) => C ? x.v : x.q));
-  // Indicadores y semáforo
-  const servicio = D.prodConVenta.size ? (1 - D.quiebres.length / D.prodConVenta.size) : 1;
-  const sinCosto = conEx.filter(p => !invCostoDe(p)).length, venc = INV_L.filter(l => l.cantidad > 0 && l.caducidad && invDias(l.caducidad) < 0);
-  const inact = conEx.filter(p => !p.activo).length;
-  const sem = (ok, warn) => ok ? 'g' : warn ? 'a' : 'r';
-  const S = [
-    ['Nivel de servicio', Math.round(servicio * 100) + '%', sem(servicio >= .95, servicio >= .85), 'lo vendido que sí había en anaquel'],
-    ['Días de inventario', D.diasInv ? Math.round(D.diasInv) + ' d' : '—', D.diasInv ? sem(D.diasInv <= 120, D.diasInv <= 200) : 'x', D.diasInv ? 'meta ≤ 120 días' : 'sin ventas en el periodo'],
-    ['Caducidad ≤ 90 d', pzR + ' pzas', sem(pzR <= 3 && !venc.length, pzR <= 10), venc.length ? `${venc.length} lote${venc.length === 1 ? '' : 's'} ya caducado${venc.length === 1 ? '' : 's'}` : (C && vR ? $(vR) + ' a costo' : 'piezas por vender primero')],
-    ['Producto sin venta', C && vDorm ? $(vDorm) : pzDorm + ' pzas', sem(fracDorm <= .25, fracDorm <= .5), Math.round(fracDorm * 100) + '% del inventario sin venta'],
-  ];
-  const nR = S.filter(s => s[2] === 'r').length, nA = S.filter(s => s[2] === 'a').length;
-  const estado = nR ? ['r', 'Atención: ' + S.filter(s => s[2] === 'r').map(s => s[0].toLowerCase()).join(' y ')] : nA ? ['a', 'Vigilar: ' + S.filter(s => s[2] === 'a').map(s => s[0].toLowerCase()).join(' y ')] : ['g', 'En orden'];
-  // Gráficas SVG
-  const ring = (p, col, lab) => { const r = 34, c = 2 * Math.PI * r, q = Math.max(0, Math.min(1, p));
-    return `<svg viewBox="0 0 84 84" class="fx-ring"><circle cx="42" cy="42" r="${r}" fill="none" stroke="#E8EDF3" stroke-width="9"/><circle cx="42" cy="42" r="${r}" fill="none" stroke="${col}" stroke-width="9" stroke-linecap="round" stroke-dasharray="${(c * q).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 42 42)"/><text x="42" y="47" text-anchor="middle">${lab}</text></svg>`; };
-  const cascada = (() => { const W = 560, H = 210, pad = 34, bw = 64, gap = (W - pad * 2 - bw * 5) / 4;
-    const st = [['Inicial', D.ini, 'b'], ['Entradas', D.pzEnt, 'u'], ['Vendido', -D.pzVend, 'v'], ['Mermas y ajustes', -D.pzOtros, 'm'], ['Final', D.fin, 'b']];
-    let run = 0, x = pad, hi = 0, lo = 0; st.forEach(([, v, t]) => { run = t === 'b' ? v : run + v; hi = Math.max(hi, run); lo = Math.min(lo, run); });
-    const mx = (hi - lo) * 1.15 || 1, y = v => H - 26 - ((v - lo) / mx) * (H - 52); run = 0; let o = '';
-    st.forEach(([lab, v, t], i) => { let a, b, col;
-      if(t === 'b'){ a = 0; b = v; run = v; col = i ? '#2BB3A8' : '#0B1628'; } else { a = run; b = run + v; run = b; col = t === 'u' ? '#2563EB' : t === 'v' ? '#F59E0B' : '#DC2626'; }
+  const pedirPz = pedir.reduce((a, x) => a + x.sug, 0), pedirTot = pedir.reduce((a, x) => a + x.sug * invCostoDe(x.p), 0);
+
+  // ── Gráficas ──
+  const NAVY = '#1B3A6B', TEAL = '#2ABFBF', PUR = '#7D3C98', SL = '#A9B4C4';
+  const cascada = (() => { const W = 560, H = 200, pad = 30, bw = 62, gap = (W - pad * 2 - bw * 5) / 4;
+    const st = [['Inicial', D.ini, 'b', SL], ['Entradas', D.pzEnt, 'u', TEAL], ['Vendido', -D.pzVend, 'd', NAVY], ['Mermas', -D.pzOtros, 'd', '#B91C1C'], ['Final', D.fin, 'b', NAVY]];
+    let run = 0, hi = 0, lo = 0; st.forEach(([, v, t]) => { run = t === 'b' ? v : run + v; hi = Math.max(hi, run); lo = Math.min(lo, run); });
+    const mx = (hi - lo) * 1.12 || 1, y = v => H - 24 - ((v - lo) / mx) * (H - 48); run = 0; let o = '', x = pad;
+    st.forEach(([lab, v, t, col], i) => { let a, b; if(t === 'b'){ a = 0; b = v; run = v; } else { a = run; b = run + v; run = b; }
       const y1 = y(Math.max(a, b)), y2 = y(Math.min(a, b));
-      o += `<rect x="${x.toFixed(1)}" y="${y1.toFixed(1)}" width="${bw}" height="${Math.max(2, y2 - y1).toFixed(1)}" rx="5" fill="${col}"/>`;
-      o += `<text x="${(x + bw / 2).toFixed(1)}" y="${(y1 - 7).toFixed(1)}" text-anchor="middle" class="v">${t === 'b' ? '' : v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v)}</text>`;
-      o += `<text x="${(x + bw / 2).toFixed(1)}" y="${H - 8}" text-anchor="middle" class="l">${lab.split(' ')[0]}</text>`;
-      if(i < 4) o += `<line x1="${(x + bw).toFixed(1)}" x2="${(x + bw + gap).toFixed(1)}" y1="${y(run).toFixed(1)}" y2="${y(run).toFixed(1)}" stroke="#94A3B8" stroke-dasharray="3 3"/>`;
+      o += `<rect x="${x.toFixed(1)}" y="${y1.toFixed(1)}" width="${bw}" height="${Math.max(2, y2 - y1).toFixed(1)}" fill="${col}"/>`;
+      o += `<text x="${(x + bw / 2).toFixed(1)}" y="${(y1 - 6).toFixed(1)}" text-anchor="middle" class="cv">${t === 'b' ? '' : v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v)}</text><text x="${(x + bw / 2).toFixed(1)}" y="${H - 7}" text-anchor="middle" class="cx">${lab}</text>`;
+      if(i < 4) o += `<line x1="${(x + bw).toFixed(1)}" x2="${(x + bw + gap).toFixed(1)}" y1="${y(run).toFixed(1)}" y2="${y(run).toFixed(1)}" stroke="${SL}" stroke-dasharray="3 3"/>`;
       x += bw + gap; });
-    return `<svg viewBox="0 0 ${W} ${H}" class="fx-wf">${o}<line x1="${pad - 10}" x2="${W - pad + 10}" y1="${y(0).toFixed(1)}" y2="${y(0).toFixed(1)}" stroke="#E2E8F0"/></svg>`; })();
-  const sec = (n, t, s) => `<div class="fx-st"><b>${n}</b><h3>${t}</h3>${s ? `<span>${s}</span>` : ''}</div>`;
-  const prodTd = p => `<td><b>${esc2(p?.nombre || '—')}</b><small>${esc2(p?.grupo || 'Otras marcas')}</small></td>`;
-  const vacio = (cols, t) => `<tr><td colspan="${cols}" class="fx-empty">${t}</td></tr>`;
-  const cadChip = iso => { const d = invDias(iso); return d < 0 ? `<span class="fx-c r">Caducó ${invFC(iso)}</span>` : `<span class="fx-c ${d <= 30 ? 'r' : 'a'}">${d} d · ${invFC(iso)}</span>`; };
-  const tm = top[0], mm = mk[0];
-  const PAL = ['#0B1628','#2BB3A8','#2563EB','#7C3AED','#D97706','#0D9488','#94A3B8','#CBD5E1'];
-  const totM = mk.reduce((a, [, x]) => a + (C ? x.v : x.q), 0) || 1;
-  const dona = (() => { const R = 52, CIR = 2 * Math.PI * R; let acc = 0, o = '';
-    mk.forEach(([, x], i) => { const f = (C ? x.v : x.q) / totM; o += `<circle cx="70" cy="70" r="${R}" fill="none" stroke="${PAL[i % 8]}" stroke-width="22" stroke-dasharray="${(CIR * f).toFixed(2)} ${CIR.toFixed(2)}" stroke-dashoffset="${(-CIR * acc).toFixed(2)}" transform="rotate(-90 70 70)"/>`; acc += f; });
-    return `<svg viewBox="0 0 140 140" class="fb-donut">${o || `<circle cx="70" cy="70" r="${R}" fill="none" stroke="#E8EDF3" stroke-width="22"/>`}<text x="70" y="68" text-anchor="middle" class="t">${C ? $(D.finV) : D.fin}</text><text x="70" y="84" text-anchor="middle" class="s">${C ? 'a costo' : 'piezas'}</text></svg>`; })();
-  const cadCols = (() => { const mx = Math.max(1, ...bq.map(x => x[0])), Wc = 46; let o = '';
-    B.forEach((b, i) => { const q = bq[i][0], h = q / mx * 92, x = 8 + i * Wc;
-      o += `<rect x="${x}" y="${(108 - h).toFixed(1)}" width="32" height="${Math.max(1.5, h).toFixed(1)}" rx="3" fill="${b[3]}"/><text x="${x + 16}" y="${(104 - h).toFixed(1)}" text-anchor="middle" class="v">${q}</text><text x="${x + 16}" y="122" text-anchor="middle" class="l">${b[0]}</text>`; });
-    return `<svg viewBox="0 0 330 128" class="fb-cad">${o}<line x1="2" x2="328" y1="108" y2="108" stroke="#E2E8F0"/></svg>`; })();
-  const fila = (n, mid, r) => `<div class="fb-r"><span class="n">${esc2(n)}</span>${mid}<b>${r}</b></div>`;
-  const nada = t => `<p class="fb-empty">${t}</p>`;
-  document.getElementById('fx').innerHTML = `
-  <div class="fx-hd"><div class="fx-logo">NH</div><div><h2>Flash report de inventario</h2><p>NovaHouse · Farmacia y mostrador · ${per} · generado ${gen}</p></div>
-    <div class="fx-est"><small>Estado general</small><span class="fx-badge ${estado[0]}"><i></i>${estado[1]}</span></div></div>
-  <div class="fb-bd">
-   <div class="fb-hero">
-    <div class="fb-big"><small>Inventario en mostrador</small><b>${D.fin} pzas</b><span class="fx-d ${varPz < 0 ? 'dn' : 'up'}">${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} pzas (${Math.abs(pct).toFixed(1)}%)</span><p>${C && D.finV ? $(D.finV) + ' a costo · ' : ''}${conEx.length} productos · ${nMarcas} marcas</p></div>
-    <div class="fb-mini">
-     <div class="fb-c"><div><small>Venta farmacia</small><b>${$(D.ventaPesos)}</b><em>${D.pzVend} pzas · ${D.ventas.length} ventas</em></div></div>
-     <div class="fb-c"><div><small>Margen bruto</small><b>${margen != null ? $(margen) : '—'}</b><em>${margen != null ? (D.ventaPesos ? Math.round(margen / D.ventaPesos * 100) + '% sobre venta' : '') : 'falta costo de lo vendido'}</em></div></div>
-    </div>
-    <div class="fb-mini">
-     <div class="fb-c">${ring(D.rot, '#2BB3A8', D.rot.toFixed(2) + '×')}<div><small>Rotación</small><b>${D.diasInv ? Math.round(D.diasInv) + ' días' : '—'}</b><em>${D.diasInv ? 'de inventario' : 'sin ventas en el periodo'}</em></div></div>
-     <div class="fb-c">${ring(servicio, '#059669', Math.round(servicio * 100) + '%')}<div><small>Nivel de servicio</small><b>${Math.round(servicio * 100)}%</b><em>${D.quiebres.length} vendido${D.quiebres.length === 1 ? '' : 's'} sin existencia</em></div></div>
-    </div>
-   </div>
-   <div class="fx-sem">${S.map(([a, b, c]) => `<div><i class="fx-dot ${c}"></i><div><span>${a}</span><b>${b}</b></div></div>`).join('')}</div>
-   <div class="fb-grid">
-    <div class="fb-card"><h4>Flujo del periodo<span>piezas</span></h4>${cascada}</div>
-    <div class="fb-card"><h4>${C ? 'Dinero en anaquel' : 'Piezas'} por marca<span>${C ? 'a costo' : 'piezas'}</span></h4>
-     <div class="fb-dn">${dona}<div>${mk.map(([m, x], i) => `<div class="fb-dl"><i style="background:${PAL[i % 8]}"></i><span>${esc2(m)}</span><b>${Math.round((C ? x.v : x.q) / totM * 100)}%</b><em>${C ? $(x.v) : x.q + ' pzas'}</em></div>`).join('') || nada('Sin existencias.')}</div></div></div>
-   </div>
-   <div class="fb-grid">
-    <div class="fb-card"><h4>Más vendidos<span>venta del periodo</span></h4>${top.map(x => `<div class="fb-tb"><span class="n">${esc2(x.n)}</span><div class="t"><i style="width:${(x.m / mxT * 100).toFixed(0)}%"></i></div><b>${$(x.m)}</b></div>`).join('') || nada('Sin ventas de farmacia en el periodo.')}</div>
-    <div class="fb-card"><h4>Perfil de caducidad<span>piezas por rango</span></h4>${cadCols}</div>
-   </div>
-   <div class="fb-acts">
-    <div class="fb-ac p"><small>🛒 Pedir</small><div class="k">${pedir.length} producto${pedir.length === 1 ? '' : 's'}${C && pedirTot ? ` <em>~${$(pedirTot)}</em>` : ''}</div>
-     ${pedir.slice(0, 6).map(x => fila(x.p.nombre, `<span class="fx-q">+${x.sug}</span>`, C && invCostoDe(x.p) ? $(x.sug * invCostoDe(x.p)) : `hay ${x.ex}`)).join('') || nada('Nada urgente. Pon mínimos por producto para afinar esta lista.')}</div>
-    <div class="fb-ac e"><small>⏳ Empujar en recepción</small><div class="k">${pzR} pzas <em>${C && vR ? $(vR) + ' · ' : ''}≤ 90 días</em></div>
-     ${lotesR.slice(0, 6).map(l => fila(nom(l.producto_id), `<span class="q">${l.cantidad}</span>`, cadChip(l.caducidad))).join('') || nada('Sin productos por caducar en 90 días.')}</div>
-    <div class="fb-ac d"><small>💤 Sin venta en el periodo</small><div class="k">${C && vDorm ? $(vDorm) : pzDorm + ' pzas'} <em>en anaquel</em></div>
-     ${dorm.slice(0, 6).map(p => fila(p.nombre, `<span class="q">${p.existencia}</span>`, invValor(p) ? $(invValor(p)) : '—')).join('') || nada('Todo lo que hay se movió.')}</div>
-   </div>
-  </div>
-  <div class="fx-ft"><span>Consultas NovaHouse · Mediconsulting S.C.</span><span>Uso interno · cifras a costo sin IVA</span></div>`;
+    return `<svg viewBox="0 0 ${W} ${H}" class="nr-ch">${o}<line x1="${pad - 8}" x2="${W - pad + 8}" y1="${y(0).toFixed(1)}" y2="${y(0).toFixed(1)}" stroke="#334155"/></svg>`; })();
+  const ventaDiaria = (() => { const n = D.diasPer, dias = Array(n).fill(0), t0 = new Date(D.desde + 'T12:00:00');
+    D.ventas.forEach(v => { const i = Math.round((new Date(v.fecha + 'T12:00:00') - t0) / 864e5); if(i >= 0 && i < n) dias[i] += Number(v.monto) || 0; });
+    const W = 560, H = 190, pl = 44, pb = 24, mx = Math.max(...dias) * 1.15 || 1, bw = (W - pl - 10) / n, y = v => H - pb - v / mx * (H - pb - 12); let o = '';
+    for(let i = 0; i < 5; i++){ const v = mx / 4 * i, yy = y(v); o += `<line x1="${pl}" x2="${W - 6}" y1="${yy.toFixed(1)}" y2="${yy.toFixed(1)}" stroke="#E5E7EB"/><text x="${pl - 6}" y="${(yy + 3).toFixed(1)}" text-anchor="end" class="cx">${v ? '$' + (v >= 1000 ? (v / 1000).toFixed(v >= 10000 ? 0 : 1) + 'k' : Math.round(v)) : '0'}</text>`; }
+    const paso = n > 40 ? 14 : n > 20 ? 4 : n > 10 ? 2 : 1;
+    dias.forEach((v, i) => { const x = pl + i * bw + Math.min(2, bw * .15), w = Math.max(1, bw - Math.min(4, bw * .3)), yy = y(v);
+      o += `<rect x="${x.toFixed(1)}" y="${yy.toFixed(1)}" width="${w.toFixed(1)}" height="${(H - pb - yy).toFixed(1)}" rx="${w > 6 ? 2 : 0}" fill="${PUR}"/>`;
+      if(i % paso === 0){ const d = new Date(t0); d.setDate(d.getDate() + i); o += `<text x="${(x + w / 2).toFixed(1)}" y="${H - 8}" text-anchor="middle" class="cx">${d.getDate()}</text>`; } });
+    const avg = dias.reduce((a, v) => a + v, 0) / n, ya = y(avg);
+    if(avg > 0) o += `<line x1="${pl}" x2="${W - 6}" y1="${ya.toFixed(1)}" y2="${ya.toFixed(1)}" stroke="${NAVY}" stroke-width="1.5" stroke-dasharray="5 3"/><text x="${W - 8}" y="${(ya - 4).toFixed(1)}" text-anchor="end" class="cl2">promedio ${$(avg)}/día</text>`;
+    return `<svg viewBox="0 0 ${W} ${H}" class="nr-ch">${o}<line x1="${pl}" x2="${W - 6}" y1="${H - pb}" y2="${H - pb}" stroke="#334155"/></svg>`; })();
+  const cadCols = (() => { const mx = Math.max(1, ...bq.map(x => x[0])), W = 330, H = 150, pb = 22; let o = '';
+    B.forEach((b, i) => { const q = bq[i][0], h = q / mx * (H - pb - 18), x = 8 + i * 46;
+      o += `<rect x="${x}" y="${(H - pb - h).toFixed(1)}" width="34" height="${Math.max(1.5, h).toFixed(1)}" fill="${b[3]}"/><text x="${x + 17}" y="${(H - pb - h - 4).toFixed(1)}" text-anchor="middle" class="cv">${q}</text><text x="${x + 17}" y="${H - 7}" text-anchor="middle" class="cx">${b[0]}</text>`; });
+    return `<svg viewBox="0 0 ${W} ${H}" class="nr-ch">${o}<line x1="2" x2="${W - 2}" y1="${H - pb}" y2="${H - pb}" stroke="#334155"/></svg>`; })();
+  const dona = (() => { const R = 50, CC = 2 * Math.PI * R; let acc = 0, o = '';
+    mv.forEach(([, v], i) => { const f = v / totV; o += `<circle cx="64" cy="64" r="${R}" fill="none" stroke="${PALV[i % 7]}" stroke-width="22" stroke-dasharray="${(CC * f).toFixed(2)} ${CC.toFixed(2)}" stroke-dashoffset="${(-CC * acc).toFixed(2)}" transform="rotate(-90 64 64)"/>`; acc += f; });
+    return `<svg viewBox="0 0 128 128">${o || `<circle cx="64" cy="64" r="${R}" fill="none" stroke="#E8EDF3" stroke-width="22"/>`}<text x="64" y="62" text-anchor="middle" class="dt">${$(D.ventaPesos)}</text><text x="64" y="77" text-anchor="middle" class="ds">venta</text></svg>`; })();
+
+  // ── Piezas de la hoja 1 ──
+  const sec = (t, s) => `<h2 class="nr-h2">${t}${s ? ` <small>${s}</small>` : ''}</h2>`;
+  const vacio = t => `<p class="nr-vacio">${t}</p>`;
+  const hd = (t1, t2, chico) => chico
+    ? `<div class="nr-hd s"><div><div class="br">Flash report de inventario · NovaHouse</div><h1>${t1}</h1></div><div class="dt"><strong>${titPer}</strong>${rango}</div></div>`
+    : `<div class="nr-hd"><div><div class="br">NovaHouse · Farmacia y mostrador</div><h1>Flash report de <b>inventario</b></h1></div><div class="dt"><strong>${titPer}</strong>${rango} · generado ${gen}</div></div>`;
+  const tm = top[0], mm = mv[0];
+  const bullets = [
+    D.diasInv ? `Al ritmo actual el inventario alcanza para <b>${Math.round(D.diasInv)} días</b>.` : 'No hubo ventas de farmacia en el periodo.',
+    mm && tm ? `<b>${E(mm[0])}</b> es la marca que más vende (${Math.round(mm[1] / totV * 100)}% de la venta); el producto líder es <b>${E(tm.n)}</b>.` : '',
+    `<b>${dorm.length} ${pl(dorm.length, 'producto')}</b> no se ${dorm.length === 1 ? 'movió' : 'movieron'} en el periodo (${C && vDorm ? $(vDorm) : pzDorm + ' pzas'}) — Anexo A.`,
+    `<b>${pzR} ${pl(pzR, 'pieza')}</b> caducan en 90 días o menos${C && vR ? ` (${$(vR)})` : ''} — Anexo B.`,
+    pedir.length ? `Hay que pedir <b>${pedir.length} ${pl(pedir.length, 'producto')}</b>${C && pedirTot ? `, ~${$(pedirTot)}` : ''} — Anexo C.` : 'No hay productos urgentes por pedir — Anexo C.',
+  ].filter(Boolean);
+  const pag1 = `${hd()}<div class="nr-bd">
+   <div class="nr-g2" style="grid-template-columns:1fr 1.15fr"><div>${sec('Resumen ejecutivo')}
+    <p class="nr-lead">Al ${f1.getDate()} de ${MES[f1.getMonth()]} hay <b>${D.fin} piezas</b> en mostrador${C && D.finV ? ` por <b>${$(D.finV)}</b> a costo` : ''}, ${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} pzas (${Math.abs(pct).toFixed(1)}%) contra el inicio del periodo. Se vendieron <b>${$(D.ventaPesos)}</b>${margen != null ? ` con margen de <b>${$(margen)}</b>${D.ventaPesos ? ` (${Math.round(margen / D.ventaPesos * 100)}%)` : ''}` : ''}.</p>
+    <ul class="nr-bul">${bullets.map(b => `<li>${b}</li>`).join('')}</ul></div>
+    <div>${sec('Indicadores')}<table class="nr-t"><thead><tr><th>Indicador</th><th class="num">Valor</th><th class="num">Detalle</th></tr></thead><tbody>
+     <tr><td>Inventario final</td><td class="num"><b>${D.fin} pzas</b></td><td class="num">${C && D.finV ? $(D.finV) + ' a costo' : conEx.length + ' productos'}</td></tr>
+     <tr><td>Venta de farmacia</td><td class="num"><b>${$(D.ventaPesos)}</b></td><td class="num">${D.pzVend} pzas · ${D.ventas.length} ${pl(D.ventas.length, 'venta')}</td></tr>
+     <tr><td>Margen bruto</td><td class="num"><b>${margen != null ? $(margen) : '—'}</b></td><td class="num">${margen != null ? (D.ventaPesos ? Math.round(margen / D.ventaPesos * 100) + '% sobre venta' : '') : 'falta costo de lo vendido'}</td></tr>
+     <tr><td>Rotación del periodo</td><td class="num"><b>${D.rot.toFixed(2)}×</b></td><td class="num">${D.diasInv ? Math.round(D.diasInv) + ' días de inventario' : 'sin ventas'}</td></tr>
+     <tr><td>Nivel de servicio</td><td class="num ${servicio < .95 ? 'warn' : ''}"><b>${Math.round(servicio * 100)}%</b></td><td class="num">${D.quiebres.length} vendido${D.quiebres.length === 1 ? '' : 's'} sin existencia</td></tr>
+    </tbody></table></div></div>
+   <div>${sec('Pendientes', 'el detalle completo va en los anexos')}<div class="nr-al">
+    <div class="nr-a w"><b>${dorm.length}</b><div><strong>${pl(dorm.length, 'Producto')} sin movimiento</strong><br>${pzDorm} pzas${C && vDorm ? ' · ' + $(vDorm) : ''} · <u>Anexo A</u></div></div>
+    <div class="nr-a r"><b>${pzR}</b><div><strong>${pl(pzR, 'Pieza')} por caducar ≤ 90 días</strong><br>${lotesR.length} ${pl(lotesR.length, 'lote')}${C && vR ? ' · ' + $(vR) : ''} · <u>Anexo B</u></div></div>
+    <div class="nr-a o"><b>${pedir.length}</b><div><strong>${pl(pedir.length, 'Producto')} por pedir</strong><br>+${pedirPz} pzas${C && pedirTot ? ' · ~' + $(pedirTot) : ''} · <u>Anexo C</u></div></div></div></div>
+   <div class="nr-g2"><div>${sec('Marcas más vendidas', 'venta del periodo')}${mv.length ? `<div class="nr-dv">${dona}<div>${mv.map(([g, v], i) => `<div class="nr-dl"><i style="background:${PALV[i % 7]}"></i><span>${E(g)}</span><b>${Math.round(v / totV * 100)}%</b><em>${$(v)}</em></div>`).join('')}</div></div>` : vacio('Sin ventas de farmacia en el periodo.')}</div>
+    <div>${sec('Top 10 productos más vendidos', 'venta del periodo')}${top.map((x, i) => `<div class="nr-tp"><span class="r">${i + 1}</span><span class="n">${E(x.n)}</span><div class="t"><i style="width:${(x.m / mxT * 100).toFixed(0)}%"></i></div><span class="q">${x.q} pz</span><b>${$(x.m)}</b></div>`).join('') || vacio('Sin ventas de farmacia en el periodo.')}</div></div>
+   <div class="nr-g2"><div>${sec('Venta diaria de farmacia', 'pesos por día')}${ventaDiaria}</div><div>${sec('Flujo del periodo', 'piezas')}${cascada}</div></div>
+   <div class="nr-g2"><div>${sec('Valor en anaquel por marca', C ? 'a costo' : 'piezas')}${mk.map(([g, x]) => `<div class="nr-hb"><span>${E(g)}</span><div><i style="width:${(mkVal(x) / mxM * 100).toFixed(1)}%"></i></div><b>${C ? $(x.v) : x.q + ' pzas'}</b><em>${Math.round(mkVal(x) / totM * 100)}%</em></div>`).join('') || vacio('Sin existencias.')}</div>
+    <div>${sec('Perfil de caducidad', 'piezas por rango')}${cadCols}</div></div>
+  </div>`;
+
+  // ── Anexos ──
+  const fch = iso => iso ? fmtFechaCorta(iso) : '—';
+  const box = (a, b) => `<div><small>${a}</small><b>${b}</b></div>`;
+  const filasA = [];
+  const gA = {}; dorm.forEach(p => (gA[grupo(p)] = gA[grupo(p)] || []).push(p));
+  Object.entries(gA).sort((a, b) => (b[1].reduce((s, p) => s + invValor(p), 0) - a[1].reduce((s, p) => s + invValor(p), 0)) || (b[1].reduce((s, p) => s + p.existencia, 0) - a[1].reduce((s, p) => s + p.existencia, 0))).forEach(([g, lst]) => {
+    lst.sort((a, b) => (invValor(b) - invValor(a)) || (b.existencia - a.existencia));
+    filasA.push(['g', `<tr class="gh"><td colspan="5">${E(g)}</td><td class="num">${lst.reduce((s, p) => s + p.existencia, 0)} pzas</td><td class="num">${C ? $(lst.reduce((s, p) => s + invValor(p), 0)) : ''}</td></tr>`]);
+    lst.forEach(p => { const pc = invProxCad(p), d = pc ? invDias(pc) : null, lts = invLotesDe(p.id).filter(l => l.cantidad > 0).length, cu = invCostoDe(p);
+      filasA.push(['r', `<tr><td>${E(p.nombre)}</td><td class="num">${lts}</td><td class="num">${p.existencia}</td><td class="num">${cu ? $(cu) : '—'}</td><td class="${d == null || d > 90 ? '' : d < 0 ? 'neg' : 'warn'}">${fch(pc)}</td><td></td><td class="num">${cu ? $(p.existencia * cu) : 'sin costo'}</td></tr>`]); });
+  });
+  const sinC = dorm.filter(p => !invCostoDe(p)).length;
+  const anexoA = { code:'A', t:'Productos sin movimiento',
+    intro: `<div class="nr-ai">${box('Productos', dorm.length)}${box('Piezas', pzDorm)}${box('Importe a costo', C ? $(vDorm) : '—')}${box('% del inventario', D.fin ? Math.round((C && D.finV ? vDorm / D.finV : pzDorm / D.fin) * 100) + '%' : '—')}</div>
+      <p class="nr-note">Productos con existencia que no tuvieron ninguna venta en el periodo (${E(per)}), agrupados por marca y ordenados por importe.${sinC ? ` ${sinC} no ${sinC === 1 ? 'tiene' : 'tienen'} costo registrado.` : ''} En naranja, caducidad en 90 días o menos.</p>`,
+    head: '<tr><th>Producto</th><th class="num">Lotes</th><th class="num">Pzas</th><th class="num">Costo unit.</th><th>Caducidad próxima</th><th></th><th class="num">Importe</th></tr>',
+    filas: filasA, vacio: 'Todo lo que hay en anaquel tuvo venta en el periodo.',
+    tot: `<div class="nr-tot"><span>Total sin movimiento · ${dorm.length} ${pl(dorm.length, 'producto')} · ${pzDorm} pzas</span><b>${C ? $(vDorm) : pzDorm + ' pzas'}</b></div>` };
+  const anexoB = { code:'B', t:'Por caducar en 90 días o menos',
+    intro: `<div class="nr-ai">${box('Lotes', lotesR.length)}${box('Piezas', pzR)}${box('Importe a costo', C ? $(vR) : '—')}${box('Ya vencidos', `<span class="neg">${lotesR.filter(l => invDias(l.caducidad) < 0).length}</span>`)}</div>`,
+    head: '<tr><th>Producto</th><th>Marca</th><th>Lote</th><th class="num">Pzas</th><th>Caduca</th><th class="num">Días</th><th class="num">Importe</th><th>Acción sugerida</th></tr>',
+    filas: lotesR.map(l => { const p = pid(l.producto_id), d = invDias(l.caducidad), c = costoL(l);
+      return ['r', `<tr><td>${E(p?.nombre || '—')}</td><td>${E(grupo(p))}</td><td>${E(l.lote || '—')}</td><td class="num">${l.cantidad}</td><td class="${d < 0 ? 'neg' : 'warn'}">${fch(l.caducidad)}</td><td class="num">${d}</td><td class="num">${c ? $(l.cantidad * c) : '—'}</td><td>${d < 0 ? 'Dar baja como merma' : d <= 30 ? 'Promover en recepción' : 'Vender primero / pedir cambio'}</td></tr>`]; }),
+    vacio: 'Sin lotes por caducar en los próximos 90 días.',
+    tot: `<div class="nr-tot"><span>Total por caducar · ${lotesR.length} ${pl(lotesR.length, 'lote')} · ${pzR} pzas</span><b>${C ? $(vR) : pzR + ' pzas'}</b></div>` };
+  const anexoC = { code:'C', t:'Sugerido de compra',
+    intro: `<div class="nr-ai">${box('Productos', pedir.length)}${box('Piezas a pedir', '+' + pedirPz)}${box('Costo estimado', C && pedirTot ? $(pedirTot) : '—')}${box('Agotados', `<span class="neg">${pedir.filter(x => x.ex <= 0).length}</span>`)}</div>
+      <p class="nr-note">Productos activos bajo su mínimo o con menos de 30 días de cobertura. La cantidad cubre 45 días al ritmo de venta del periodo.</p>`,
+    head: '<tr><th>Producto</th><th>Marca</th><th class="num">Hay</th><th class="num">Mínimo</th><th class="num">Vendió</th><th class="num">Cobertura</th><th class="num">Pedir</th><th class="num">Costo est.</th></tr>',
+    filas: pedir.map(x => ['r', `<tr><td>${E(x.p.nombre)}</td><td>${E(grupo(x.p))}</td><td class="num">${x.ex}</td><td class="num">${x.p.stock_minimo ?? '—'}</td><td class="num">${vendPz[x.p.id] || 0}</td><td class="num ${x.ex <= 0 ? 'neg' : ''}">${x.ex <= 0 ? 'agotado' : x.d != null ? Math.round(x.d) + ' d' : '—'}</td><td class="num"><b>+${x.sug}</b></td><td class="num">${invCostoDe(x.p) ? $(x.sug * invCostoDe(x.p)) : '—'}</td></tr>`]),
+    vacio: 'Nada urgente. Pon mínimos por producto para afinar esta lista.',
+    tot: `<div class="nr-tot"><span>Total sugerido · ${pedir.length} ${pl(pedir.length, 'producto')} · +${pedirPz} pzas</span><b>${C && pedirTot ? $(pedirTot) : '+' + pedirPz + ' pzas'}</b></div>` };
+  const hojasAnexo = [];
+  [anexoA, anexoB, anexoC].forEach(ax => {
+    let i = 0, primera = true;
+    do {
+      let chunk = ax.filas.slice(i, i + (primera ? 36 : 44));
+      if(chunk.length > 1 && chunk[chunk.length - 1][0] === 'g') chunk = chunk.slice(0, -1);
+      i += Math.max(1, chunk.length);
+      const ultima = i >= ax.filas.length;
+      hojasAnexo.push(`${hd(`Anexo ${ax.code} · ${ax.t}${primera ? '' : ' (continuación)'}`, '', true)}<div class="nr-bd ax">${primera ? ax.intro : ''}
+        ${ax.filas.length ? `<table class="nr-t"><thead>${ax.head}</thead><tbody>${chunk.map(r => r[1]).join('')}</tbody></table>` : `<p class="nr-vacio" style="padding:30px 0;text-align:center">${ax.vacio}</p>`}
+        ${ultima ? ax.tot : '<p class="nr-cont">continúa en la siguiente hoja…</p>'}</div>`);
+      primera = false;
+    } while(i < ax.filas.length);
+  });
+  const hojas = [pag1, ...hojasAnexo], n = hojas.length;
+  document.getElementById('fx').innerHTML = hojas.map((h, k) => `<div class="nr-sheet">${h}<div class="nr-ft"><span>Consultas NovaHouse · Mediconsulting S.C. · uso interno · cifras a costo sin IVA</span><span>Hoja ${k + 1} de ${n}</span></div></div>`).join('');
+  invFlashZoom();
   document.querySelectorAll('#fr-per button').forEach(b => b.classList.toggle('on', b.dataset.p === INV_FR));
-  window._INV_FR = { D, per, varPz, pzR, vR, pzDorm, top, margen, pedir, pedirTot, C };
+  window._INV_FR = { D, per, varPz, pzR, vR, top, margen, pedir, pedirTot, C, dorm: dorm.length, vDorm, pzDorm };
 }
+// Ajusta las hojas carta al ancho disponible en pantalla.
+function invFlashZoom(){
+  const fx = document.getElementById('fx'); if(!fx || !fx.offsetParent) return;
+  const k = Math.min(1, (fx.clientWidth - 2) / 816);
+  fx.style.setProperty('--nrz', k.toFixed(4));
+}
+window.addEventListener('resize', () => { if(INV_TAB === 'flash') invFlashZoom(); });
 function invCopiarWA(){
   const x = window._INV_FR; if(!x) return;
-  const { D, per, varPz, pzR, vR, top, margen, pedir, pedirTot, C } = x, $ = v => fmtMoney0(v || 0);
+  const { D, per, varPz, pzR, vR, top, margen, pedir, pedirTot, C, dorm, vDorm, pzDorm } = x, $ = v => fmtMoney0(v || 0);
   const t = [`📦 *Flash report de inventario · NovaHouse*`, per, '',
     `• Inventario: *${D.fin} pzas*${C && D.finV ? ' · ' + $(D.finV) + ' a costo' : ''} (${varPz < 0 ? '▼' : '▲'} ${Math.abs(varPz)} vs. inicio)`,
     `• Venta farmacia: *${$(D.ventaPesos)}*${margen != null ? ` · margen ${$(margen)}${D.ventaPesos ? ` (${Math.round(margen / D.ventaPesos * 100)}%)` : ''}` : ''}`,
     `• Rotación ${D.rot.toFixed(2)}×${D.diasInv ? ' · ' + Math.round(D.diasInv) + ' días de inventario' : ''}`,
+    `• Sin movimiento: *${dorm} productos* (${C && vDorm ? $(vDorm) : pzDorm + ' pzas'})`,
     `• Por caducar ≤90 días: *${pzR} pzas*${C && vR ? ' (' + $(vR) + ')' : ''}`,
-    `• Pedir ya: ${pedir.length} producto${pedir.length === 1 ? '' : 's'}${C && pedirTot ? ' (~' + $(pedirTot) + ')' : ''}`,
-    D.quiebres.length ? `• ⚠ Vendidos sin existencia: ${D.quiebres.length}` : '',
+    `• Pedir: ${pedir.length} producto${pedir.length === 1 ? '' : 's'}${C && pedirTot ? ' (~' + $(pedirTot) + ')' : ''}`,
     top[0] ? `\n🏆 Más vendido: ${top[0].n}` : ''].filter(Boolean).join('\n');
   const fin = () => toast('✓ Copiado. Pégalo en WhatsApp.');
   if(navigator.clipboard?.writeText) navigator.clipboard.writeText(t).then(fin).catch(() => mostrarPrompt({ icono:'💬', titulo:'Copia el resumen', valorInicial:t, mensaje:'Copia el texto:' }, () => {}));
   else mostrarPrompt({ icono:'💬', titulo:'Copia el resumen', valorInicial:t, mensaje:'Copia el texto:' }, () => {});
+}
+function invCargarJs(src){
+  return new Promise((ok, ko) => {
+    const ya = document.querySelector(`script[src="${src}"]`);
+    if(ya && ya.dataset.ok) return ok();
+    const s = ya || document.createElement('script');
+    s.addEventListener('load', () => { s.dataset.ok = '1'; ok(); });
+    s.addEventListener('error', () => ko(new Error('No cargó ' + src)));
+    if(!ya){ s.src = src; document.head.appendChild(s); }
+  });
+}
+// Descarga directa del Flash report como PDF (una página carta por hoja), sin ventana de impresión.
+async function invDescargarPDF(){
+  const btn = document.getElementById('fr-pdf'), txt = btn.textContent;
+  if(!document.querySelector('#fx .nr-sheet')) return;
+  btn.disabled = true; btn.textContent = '⏳ Generando PDF…';
+  let fr = null;
+  try{
+    await invCargarJs('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+    await invCargarJs('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+    fr = document.createElement('iframe');
+    fr.setAttribute('aria-hidden', 'true');
+    fr.style.cssText = 'position:fixed;left:-12000px;top:0;width:860px;height:1200px;border:0;visibility:hidden';
+    document.body.appendChild(fr);
+    const estilos = [...document.querySelectorAll('style,link[rel="stylesheet"]')].map(e => e.outerHTML).join('');
+    const d = fr.contentDocument;
+    d.open(); d.write(`<!doctype html><html lang="es"><head><meta charset="utf-8">${estilos}<style>body{margin:0;background:#fff}.fx-doc{--nrz:1}.nr-sheet{margin:0!important;box-shadow:none!important}</style></head><body><div class="fx-doc">${document.getElementById('fx').innerHTML}</div></body></html>`); d.close();
+    await new Promise(r => setTimeout(r, 300));
+    try{ await d.fonts.ready; }catch(e){}
+    const pdf = new window.jspdf.jsPDF({ unit: 'pt', format: 'letter', orientation: 'portrait' });
+    const pw = pdf.internal.pageSize.getWidth(), ph = pdf.internal.pageSize.getHeight();
+    const hojas = [...d.querySelectorAll('.nr-sheet')];
+    for(let i = 0; i < hojas.length; i++){
+      btn.textContent = `⏳ Generando PDF… ${i + 1}/${hojas.length}`;
+      const canvas = await window.html2canvas(hojas[i], { scale: 2, backgroundColor: '#ffffff', useCORS: true, logging: false, windowWidth: 860 });
+      if(i) pdf.addPage('letter', 'portrait');
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.9), 'JPEG', 0, 0, pw, ph);
+    }
+    pdf.setProperties({ title: 'Flash report de inventario · NovaHouse', author: 'Consultas NovaHouse' });
+    pdf.save(`Flash_inventario_NovaHouse_${INV_FR === 'sem' ? 'semana' : INV_FR === 'tri' ? 'trimestre' : 'mes'}_${invHoy()}.pdf`);
+    toast('✓ PDF descargado.');
+  }catch(e){
+    console.error('[NovaHouse] Error generando el PDF del flash report:', e);
+    toast('No se pudo generar el PDF. Revisa tu conexión e inténtalo de nuevo.');
+  }finally{
+    if(fr) fr.remove();
+    btn.disabled = false; btn.textContent = txt;
+  }
 }
 // ── Eventos ──
 (function(){
@@ -4375,7 +4516,7 @@ function invCopiarWA(){
   document.getElementById('iv-m-q').addEventListener('input', invRenderMovs);
   document.getElementById('fr-per').addEventListener('click', e => { const b = e.target.closest('button[data-p]'); if(b){ INV_FR = b.dataset.p; invRenderFlash(); } });
   document.getElementById('fr-wa').addEventListener('click', invCopiarWA);
-  document.getElementById('fr-pdf').addEventListener('click', () => { document.body.classList.add('iv-print'); setTimeout(() => { window.print(); setTimeout(() => document.body.classList.remove('iv-print'), 400); }, 50); });
+  document.getElementById('fr-pdf').addEventListener('click', invDescargarPDF);
   document.addEventListener('keydown', e => { if(e.key === 'Escape') invCerrar(); });
 })();
 

@@ -1629,6 +1629,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .bell-it.cxp{cursor:pointer;background:#fff8f0;box-shadow:inset 3px 0 0 #B7791F}
 .bell-it.cxp.v{background:#fff3f3;box-shadow:inset 3px 0 0 #C53030}
 .bell-it.cxp:hover{filter:brightness(.97)}
+.bell-it.stk{cursor:pointer;background:#fffaf0;box-shadow:inset 3px 0 0 #D69E2E}.bell-it.stk.v{background:#fff3f3;box-shadow:inset 3px 0 0 #C53030}.bell-it.stk:hover{filter:brightness(.97)}
 @media (max-width:1100px){.cxp-split{grid-template-columns:1fr}.cxp-kpis{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.cxp-alerta .x{margin-left:0;width:100%}.cxp-alerta .x .btn-sm{flex:1}.cxp-fil input{margin-left:0;width:100%}.cxp-tblwrap{overflow-x:auto}.cxp-tbl{min-width:760px}}
 
@@ -1927,6 +1928,18 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .nr-ai small{display:block;font-size:8.3px;text-transform:uppercase;letter-spacing:.08em;color:#8794A8;font-weight:700}.nr-ai b{font:800 15px var(--font-d);color:#0B1628}
 .nr-note{font-size:9.5px;color:#5B6B84;margin:0 0 6px}.nr-cont{color:#8794A8;font-size:9px;font-style:italic;margin:4px 0 0}.nr-vacio{color:#8794A8;font-size:10.5px;margin:6px 0}
 .nr-tot{display:flex;justify-content:space-between;align-items:center;background:#0B1628;color:#fff;border-radius:10px;padding:10px 16px;margin-top:8px;font-size:10px}.nr-tot b{font:800 17px var(--font-d)}
+
+/* Inventario por ubicación: Mostrador / Quirófano / Refrigerador */
+.iv-ub{display:flex;gap:6px;margin:14px 0 0;background:var(--g1);border-radius:12px;padding:4px;width:max-content;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.iv-ub button{border:0;background:none;border-radius:9px;padding:8px 16px;font:700 13px var(--font-b);color:var(--g6);cursor:pointer;white-space:nowrap}
+.iv-ub button.on{background:#fff;color:var(--navy);box-shadow:0 1px 4px rgba(11,22,40,.14)}
+#iv-ins .iv-tabs{margin-top:4px}
+.is-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.is-acts button{justify-content:center;padding:8px 6px;font-size:12px}
+.is-acts button.on{background:var(--navy);border-color:var(--navy);color:#fff}.is-acts button:disabled{opacity:.45;cursor:not-allowed}
+.is-form{margin-top:10px;border:1px solid var(--g2);border-radius:12px;padding:12px 14px;background:#FAFBFD}.is-form input,.is-form select{border:1.5px solid var(--g2);border-radius:9px;padding:8px 10px;font:500 13px var(--font-b);background:#fff;color:var(--navy);width:100%}.is-form input:focus,.is-form select:focus{outline:none;border-color:var(--teal)}
+.is-form h4{margin:0 0 10px;font:800 14px var(--font-d);color:var(--navy)}
+.is-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.is-top .iv-fil{flex:1;margin:0}
+@media (max-width:760px){.iv-ub{width:auto}.iv-ub button{flex:1;padding:8px 10px}.is-acts{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:1100px){.iv-al,.iv-kpis,.fr-hero{grid-template-columns:1fr 1fr}.iv-split{grid-template-columns:minmax(0,1fr)}.fr-grid{grid-template-columns:1fr 1fr}.fr-flow{grid-template-columns:1fr 1fr}.fr-flow .op{display:none}.fr-flow>div{border-bottom:1px solid var(--g2)}}
 @media (max-width:700px){
   .iv-hero{margin:-14px -13px 0;padding:16px 14px}.iv-hero h1{font-size:23px}.iv-hero .acts{margin-left:0;width:100%}.iv-hero .acts .iv-hbtn{flex:1;padding:9px 6px;font-size:12px}
@@ -2055,8 +2068,8 @@ body:has(#app-view.act) #app-version-tag{display:none}
       <span class="s3-role-chip" id="app-role-chip">—</span>
       <span id="app-user-name">—</span>
       <div class="bell-wrap" id="bell-wrap" style="display:none">
-        <button class="s3-config bell-btn" id="btn-bell" type="button" title="Registros tardíos" aria-label="Registros tardíos" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="bell-badge" id="bell-badge" hidden>0</span></button>
-        <div class="bell-panel" id="bell-panel" role="dialog" aria-label="Registros tardíos">
+        <button class="s3-config bell-btn" id="btn-bell" type="button" title="Avisos" aria-label="Avisos" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="bell-badge" id="bell-badge" hidden>0</span></button>
+        <div class="bell-panel" id="bell-panel" role="dialog" aria-label="Avisos">
           <div class="bell-head"><b>Avisos</b><button type="button" id="bell-marcar">Marcar vistas</button></div>
           <div class="bell-list" id="bell-list"></div>
           <button type="button" class="bell-foot" id="bell-ver-todo">Ver actividad completa</button>
@@ -2567,6 +2580,33 @@ body:has(#app-view.act) #app-version-tag{display:none}
     <div class="card screen2" id="app-screen-inv">
       <div class="iv-hero"><div class="ico">📦</div><div><h1>Inventario</h1><p>Farmacia y mostrador · existencias por lote y caducidad</p></div>
         <div class="acts"><button type="button" class="iv-hbtn" data-ivt="flash">⚡ Flash report</button><button type="button" class="iv-hbtn" data-ivt="conteo">🧮 Conteo físico</button><button type="button" class="iv-hbtn solid" data-ivt="ent">➕ Registrar entrada</button></div></div>
+      <div class="iv-ub" id="iv-ub" role="tablist" aria-label="Inventario"><button type="button" data-ub="mostrador" class="on">💊 Mostrador</button><button type="button" data-ub="quirofano">🏥 Quirófano</button><button type="button" data-ub="refrigerador">❄️ Refrigerador</button></div>
+      <div id="iv-ins" style="display:none">
+        <div class="iv-tabs" id="is-tabs"><button type="button" data-ist="exist" class="on">📦 Existencias <em id="is-n">—</em></button><button type="button" data-ist="movs">🔄 Movimientos</button></div>
+        <div id="is-v-exist">
+          <div class="iv-al" id="is-al"></div>
+          <div class="iv-kpis" id="is-kpis"></div>
+          <div class="is-top"><div class="iv-fil" id="is-fil">
+            <button type="button" class="pill on" data-f="todos">Todos</button>
+            <button type="button" class="pill" data-f="con">Con existencia</button>
+            <button type="button" class="pill" data-f="agot">Agotados</button>
+            <button type="button" class="pill" data-f="uso">🔓 En uso</button>
+            <button type="button" class="pill" data-f="cad">⏳ Caducan ≤ 90 días</button>
+            <button type="button" class="pill" data-f="venc">⛔ Caducados</button>
+            <button type="button" class="pill" data-f="min">⚠ Pocas existencias</button>
+            <button type="button" class="pill" data-f="inact">Dados de baja</button>
+            <select id="is-cat"><option value="">Todas las categorías</option></select>
+            <input type="text" id="is-q" placeholder="🔎 Buscar producto…" autocomplete="off"/>
+          </div><button type="button" class="btn-sm" id="is-nuevo" style="background:var(--teal);border-color:var(--teal);color:#fff">➕ Nuevo producto</button></div>
+          <div class="iv-tw"><table class="iv-t cards"><thead><tr><th>Producto</th><th class="n">Cerradas</th><th class="n">En uso</th><th class="n">Mínimo</th><th>Caducidad próxima</th><th>Estado</th></tr></thead><tbody id="is-tb"></tbody></table></div>
+          <p class="iv-hint" style="margin-top:10px">Toca un producto para registrar consumo, entrada, abrir o terminar piezas en uso, conteo físico o cambiar su mínimo.</p>
+        </div>
+        <div id="is-v-movs" style="display:none">
+          <div class="iv-fil" id="is-m-fil"><button type="button" class="pill on" data-m="">Todos</button><button type="button" class="pill" data-m="consumo">🩺 Consumos</button><button type="button" class="pill" data-m="entrada">🚚 Entradas</button><button type="button" class="pill" data-m="abierto">🔓 Abiertos</button><button type="button" class="pill" data-m="terminado">✔ Terminados</button><button type="button" class="pill" data-m="ajuste">🧮 Ajustes</button><button type="button" class="pill" data-m="merma">🗑 Mermas</button><button type="button" class="pill" data-m="inicial">📥 Carga inicial</button><input type="text" id="is-m-q" placeholder="🔎 Buscar producto…" autocomplete="off"/></div>
+          <div class="iv-tw"><table class="iv-t cards"><thead><tr><th>Fecha</th><th>Tipo</th><th>Producto</th><th class="n">Cantidad</th><th>Caducidad</th><th>Detalle</th><th>Quién</th></tr></thead><tbody id="is-tb-m"></tbody></table></div>
+          <p class="iv-hint" style="margin-top:10px">Últimos 6 meses.</p>
+        </div>
+      </div>
       <div class="iv-tabs" id="iv-tabs">
         <button type="button" data-ivt="exist" class="on">📦 Existencias <em id="iv-n-exist">—</em></button>
         <button type="button" data-ivt="ent">🚚 Entradas</button>
@@ -2583,7 +2623,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
           <button type="button" class="pill" data-f="con">Con existencia</button>
           <button type="button" class="pill" data-f="agot">Agotados</button>
           <button type="button" class="pill" data-f="cad">⏳ Caducan ≤ 90 días</button>
-          <button type="button" class="pill" data-f="min">⚠ Bajo mínimo</button>
+          <button type="button" class="pill" data-f="min">⚠ Pocas existencias</button>
           <button type="button" class="pill" data-f="inact">🚫 Sin activar para venta</button>
           <select id="iv-grupo"><option value="">Todas las marcas</option></select>
           <input type="text" id="iv-q" placeholder="🔎 Buscar producto…" autocomplete="off"/>
@@ -3061,7 +3101,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.18-1';
+const APP_VERSION = 'v2026.11.18-4';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -3350,8 +3390,10 @@ function entrarAlShell(perfil){
     document.getElementById('cierre-kpi-total-l').textContent = 'Ingreso total';
     document.getElementById('cierre-kpi-consultas-l').textContent = 'Consultas';
   }
-  document.getElementById('bell-wrap').style.display = showConfig ? 'inline-flex' : 'none';
-  if(showConfig) cargarCampana();
+  document.getElementById('bell-wrap').style.display = (showConfig || perfil.rol === 'recepcion') ? 'inline-flex' : 'none';
+  document.getElementById('bell-ver-todo').style.display = showConfig ? '' : 'none';
+  document.getElementById('bell-marcar').style.display = showConfig ? '' : 'none';
+  if(showConfig || perfil.rol === 'recepcion') cargarCampana();
   window.MI_PUEDE_ELIMINAR_PAPELERA = perfil.rol === 'admin' && perfil.permisos?.puede_eliminar_papelera !== false;
   window.MI_PUEDE_EXPORTAR = perfil.permisos?.puede_exportar !== false;
 
@@ -4020,14 +4062,17 @@ function invProxCad(p){ const c = invLotesDe(p.id).filter(l => l.cantidad > 0 &&
 function invCostoDe(p){ if(Number(p.costo) > 0) return Number(p.costo); const l = invLotesDe(p.id).find(x => Number(x.costo_unitario) > 0); return l ? Number(l.costo_unitario) : 0; }
 function invValor(p){ return Math.max(0, p.existencia || 0) * invCostoDe(p); }
 const invEsCad = p => { const c = invProxCad(p); return !!c && invDias(c) <= 90; };
-const invEsMin = p => p.stock_minimo != null && (p.existencia || 0) > 0 && p.existencia <= p.stock_minimo;
+// Pocas existencias: producto activo en su mínimo o por debajo. Sin mínimo propio: 2 piezas o menos y que se haya vendido en los últimos 120 días.
+const INV_POCAS_DEF = 2;
+const invUmbral = p => p.stock_minimo != null ? p.stock_minimo : INV_POCAS_DEF;
+const invEsMin = p => !!p.activo && (p.existencia || 0) > 0 && p.existencia <= invUmbral(p) && (p.stock_minimo != null || INV_V.some(v => v.producto_id === p.id));
 const invEsAgot = p => (p.existencia || 0) <= 0;
 function invEstado(p){
   const c = invProxCad(p);
   if((p.existencia || 0) < 0) return '<span class="iv-ch r">Vendido sin existencia</span>';
   if(c && invDias(c) < 0) return '<span class="iv-ch r">Lote caducado</span>';
   if(invEsAgot(p)) return '<span class="iv-ch x">Agotado</span>';
-  if(invEsMin(p)) return '<span class="iv-ch a">Bajo mínimo</span>';
+  if(invEsMin(p)) return '<span class="iv-ch a">Pocas existencias</span>';
   if(!p.activo) return '<span class="iv-ch p">Sin activar</span>';
   return '<span class="iv-ch g">OK</span>';
 }
@@ -4038,6 +4083,7 @@ function invAplicarPermisos(){
 }
 async function invCargar(){
   invAplicarPermisos();
+  if(typeof INV_UB !== 'undefined' && INV_UB !== 'mostrador') insCargar();
   if(!invEdita() && (INV_TAB === 'ent' || INV_TAB === 'conteo')) INV_TAB = 'exist';
   const desde = new Date(); desde.setDate(desde.getDate() - 120);
   const d0 = isoLocal(desde);
@@ -4057,6 +4103,7 @@ async function invCargar(){
   ['iv-grupo','iv-c-grupo'].forEach(id => { const sel = document.getElementById(id); const v = sel.value; sel.innerHTML = '<option value="">Todas las marcas</option>' + grupos.map(g => `<option>${esc2(g)}</option>`).join(''); sel.value = grupos.includes(v) ? v : ''; });
   document.getElementById('iv-dl-prod').innerHTML = INV_P.map(p => `<option value="${esc2(p.nombre)}">`).join('');
   invRender();
+  if(typeof stockAlCargar === 'function') stockAlCargar().then(bellRender);
 }
 function invRender(){
   document.getElementById('iv-n-exist').textContent = INV_P.length;
@@ -4070,7 +4117,7 @@ function invTab(t){
   if(!invEdita() && (t === 'ent' || t === 'conteo')) t = 'exist';
   INV_TAB = t;
   document.querySelectorAll('#iv-tabs button').forEach(b => b.classList.toggle('on', b.dataset.ivt === t));
-  ['exist','ent','conteo','movs','flash'].forEach(v => document.getElementById('iv-v-' + v).style.display = v === t ? '' : 'none');
+  ['exist','ent','conteo','movs','flash'].forEach(v => document.getElementById('iv-v-' + v).style.display = v === t && INV_UB === 'mostrador' ? '' : 'none');
   invRender();
 }
 function invRenderExist(){
@@ -4085,7 +4132,7 @@ function invRenderExist(){
   document.getElementById('iv-alertas').innerHTML = `
     <div class="r" data-f="cad"><span class="i">⛔</span><div><b>${venc.length} lote${venc.length === 1 ? '' : 's'} caducado${venc.length === 1 ? '' : 's'}</b>${venc.length ? esc2(venc.slice(0, 2).map(l => nom(l.producto_id)).join(', ')) + ' · dales baja como merma' : 'Nada caducado en anaquel'}</div></div>
     <div class="a" data-f="cad"><span class="i">⏳</span><div><b>${lotesCad.length - venc.length} lote${lotesCad.length - venc.length === 1 ? '' : 's'} caducan en ≤ 90 días</b>${lotesCad.reduce((a, l) => a + (invDias(l.caducidad) >= 0 ? l.cantidad : 0), 0)} piezas · véndelos primero</div></div>
-    <div class="b" data-f="${min.length ? 'min' : 'agot'}"><span class="i">📉</span><div><b>${min.length} bajo mínimo · ${agot.length} agotados</b>${neg.length ? neg.length + ' vendidos sin existencia' : 'Revisa qué pedir'}</div></div>
+    <div class="b" data-f="${min.length ? 'min' : 'agot'}"><span class="i">📉</span><div><b>${min.length} con pocas existencias · ${agot.length} agotados</b>${neg.length ? neg.length + ' vendidos sin existencia' : 'Revisa qué pedir'}</div></div>
     <div class="p" data-f="inact"><span class="i">🚫</span><div><b>${inact.length} con piezas pero sin activar</b>No salen en Registro: ponles precio en Configuración</div></div>`;
   document.getElementById('iv-kpis').innerHTML = `
     <div class="iv-kpi"><div class="l">Productos con existencia</div><div class="v">${conEx.length}</div><div class="s">de ${INV_P.length} en inventario</div></div>
@@ -4100,7 +4147,7 @@ function invRenderExist(){
     const nl = invLotesDe(p.id).filter(l => l.cantidad > 0).length, c = invCostoDe(p);
     return `<tr class="clk" data-id="${esc2(p.id)}"><td class="c1"><div class="iv-pn">${esc2(p.nombre)}<small>${esc2(p.grupo || 'Otras marcas')}${nl > 1 ? ' · ' + nl + ' lotes' : ''}</small></div></td>
       <td class="n"><span class="iv-q ${p.existencia > 0 ? '' : p.existencia < 0 ? 'neg' : 'z'}">${p.existencia || 0}</span> <span class="iv-mut" style="font-size:11px">pzas</span></td>
-      <td class="n hm">${p.stock_minimo != null ? p.stock_minimo : '<span class="iv-mut">—</span>'}</td>
+      <td class="n hm">${p.stock_minimo != null ? p.stock_minimo : `<span class="iv-mut" title="Sin mínimo propio: avisa con ${INV_POCAS_DEF} piezas si se ha vendido en los últimos 4 meses">${INV_POCAS_DEF}</span>`}</td>
       <td>${p.existencia > 0 ? invCadChip(invProxCad(p)) : '<span class="iv-mut">—</span>'}</td>
       <td class="n hm">${c ? fmtMoney0(c) : '<span class="iv-mut">—</span>'}</td>
       <td class="n hm"><b>${p.existencia > 0 && c ? fmtMoney0(invValor(p)) : '—'}</b></td>
@@ -4492,6 +4539,214 @@ async function invDescargarPDF(){
     btn.disabled = false; btn.textContent = txt;
   }
 }
+// ============================================================
+// Inventarios de insumos: Quirófano y Refrigerador (no se venden; las salidas se registran a mano)
+//  · Existencia = suma de lotes (insumo_lotes). "En uso" = piezas abiertas, se cuentan aparte.
+//  · Todo movimiento pasa por funciones ins_* de la base, que solo deja a administración.
+// ============================================================
+let INV_UB = 'mostrador', INS_P = [], INS_L = [], INS_M = [], INS_TAB = 'exist', INS_F = 'todos', INS_MF = '', INS_CARGADO = '';
+const INS_UB = { mostrador:{ ico:'💊', t:'Mostrador', s:'Farmacia y mostrador · existencias por lote y caducidad' },
+  quirofano:{ ico:'🏥', t:'Quirófano', s:'Insumos de quirófano, fajas y prendas · lo que se usa se registra como consumo' },
+  refrigerador:{ ico:'❄️', t:'Refrigerador', s:'Red fría · piezas cerradas y en uso por caducidad' } };
+const insTipo = { inicial:'📥 Carga inicial', entrada:'🚚 Entrada', consumo:'🩺 Consumo', ajuste:'🧮 Ajuste', merma:'🗑 Merma', abierto:'🔓 Se abrió', terminado:'✔ Se terminó' };
+const insN = v => { const n = Number(v) || 0; return Number.isInteger(n) ? String(n) : n.toLocaleString('es-MX', { maximumFractionDigits: 2 }); };
+const insLotes = id => INS_L.filter(l => l.insumo_id === id);
+const insProxCad = p => { const c = insLotes(p.id).filter(l => Number(l.cantidad) > 0 && l.caducidad).map(l => l.caducidad).sort(); return c[0] || null; };
+const insEx = p => Number(p.existencia) || 0, insAb = p => Number(p.abiertos) || 0;
+const insEsMin = p => p.activo && p.stock_minimo != null && insEx(p) <= Number(p.stock_minimo);
+const insEsCad = p => { const c = insProxCad(p); return !!c && invDias(c) <= 90; };
+const insEsVenc = p => { const c = insProxCad(p); return !!c && invDias(c) < 0; };
+function insEstado(p){
+  if(insEsVenc(p)) return '<span class="iv-ch r">Lote caducado</span>';
+  if(insEx(p) <= 0 && insAb(p) <= 0) return '<span class="iv-ch x">Agotado</span>';
+  if(insEx(p) <= 0) return '<span class="iv-ch a">Solo en uso</span>';
+  if(insEsMin(p)) return '<span class="iv-ch a">Pocas existencias</span>';
+  if(insEsCad(p)) return '<span class="iv-ch a">Por caducar</span>';
+  return '<span class="iv-ch g">OK</span>';
+}
+async function insCargar(){
+  const ub = INV_UB; if(ub === 'mostrador') return;
+  const desde = new Date(); desde.setDate(desde.getDate() - 180);
+  const [rp, rl, rm] = await Promise.all([
+    sb.from('insumos').select('*').eq('ubicacion', ub).order('nombre').limit(3000),
+    sb.from('insumo_lotes').select('id,insumo_id,lote,caducidad,cantidad,created_at,insumos!inner(ubicacion)').eq('insumos.ubicacion', ub).limit(5000),
+    sb.from('insumo_movimientos').select('id,fecha,tipo,insumo_id,lote_id,cantidad,caducidad,nota,created_at,quien:personal!creado_por(nombre),insumos!inner(ubicacion)').eq('insumos.ubicacion', ub).gte('fecha', isoLocal(desde)).order('fecha', { ascending:false }).order('created_at', { ascending:false }).limit(3000),
+  ]);
+  const err = rp.error || rl.error || rm.error;
+  if(err){ console.error('[NovaHouse] Error cargando insumos:', err); toast('No se pudo cargar el inventario de ' + INS_UB[ub].t.toLowerCase() + '.'); return; }
+  if(ub !== INV_UB) return;
+  INS_P = rp.data || []; INS_L = rl.data || []; INS_M = rm.data || []; INS_CARGADO = ub;
+  const cats = [...new Set(INS_P.map(p => p.categoria || 'Insumos'))].sort((a, b) => a.localeCompare(b, 'es'));
+  const sel = document.getElementById('is-cat'), v = sel.value;
+  sel.innerHTML = '<option value="">Todas las categorías</option>' + cats.map(c => `<option>${esc2(c)}</option>`).join('');
+  sel.value = cats.includes(v) ? v : ''; sel.style.display = cats.length > 1 ? '' : 'none';
+  insRender();
+}
+function insRender(){
+  document.getElementById('is-n').textContent = INS_P.filter(p => p.activo).length;
+  document.querySelectorAll('#is-tabs button').forEach(b => b.classList.toggle('on', b.dataset.ist === INS_TAB));
+  document.getElementById('is-v-exist').style.display = INS_TAB === 'exist' ? '' : 'none';
+  document.getElementById('is-v-movs').style.display = INS_TAB === 'movs' ? '' : 'none';
+  document.getElementById('is-nuevo').style.display = invEdita() ? '' : 'none';
+  if(INS_TAB === 'exist') insRenderExist(); else insRenderMovs();
+}
+function insRenderExist(){
+  const act = INS_P.filter(p => p.activo), nom = id => INS_P.find(p => p.id === id)?.nombre || '';
+  const lotesCad = INS_L.filter(l => Number(l.cantidad) > 0 && l.caducidad && invDias(l.caducidad) <= 90 && INS_P.find(p => p.id === l.insumo_id)?.activo);
+  const venc = lotesCad.filter(l => invDias(l.caducidad) < 0), prox = lotesCad.filter(l => invDias(l.caducidad) >= 0);
+  const min = act.filter(insEsMin), agot = act.filter(p => insEx(p) <= 0), uso = act.filter(p => insAb(p) > 0);
+  const sinMin = act.filter(p => p.stock_minimo == null).length;
+  document.getElementById('is-al').innerHTML = `
+    <div class="r" data-f="venc"><span class="i">⛔</span><div><b>${venc.length} lote${venc.length === 1 ? '' : 's'} caducado${venc.length === 1 ? '' : 's'}</b>${venc.length ? esc2([...new Set(venc.map(l => nom(l.insumo_id)))].slice(0, 2).join(', ')) + ' · dales baja' : 'Nada caducado'}</div></div>
+    <div class="a" data-f="cad"><span class="i">⏳</span><div><b>${prox.length} lote${prox.length === 1 ? '' : 's'} caducan en ≤ 90 días</b>${insN(prox.reduce((a, l) => a + Number(l.cantidad), 0))} piezas · úsalos primero</div></div>
+    <div class="b" data-f="${min.length ? 'min' : 'agot'}"><span class="i">📉</span><div><b>${min.length} con pocas existencias · ${agot.length} agotados</b>${sinMin ? sinMin + ' sin mínimo: ponlo en la ficha para que avise' : 'Revisa qué pedir'}</div></div>
+    <div class="p" data-f="uso"><span class="i">🔓</span><div><b>${uso.length} producto${uso.length === 1 ? '' : 's'} con piezas en uso</b>${insN(uso.reduce((a, p) => a + insAb(p), 0))} abiertas en total</div></div>`;
+  const conEx = act.filter(p => insEx(p) > 0);
+  document.getElementById('is-kpis').innerHTML = `
+    <div class="iv-kpi"><div class="l">Productos con existencia</div><div class="v">${conEx.length}</div><div class="s">de ${act.length} en ${INS_UB[INV_UB].t.toLowerCase()}</div></div>
+    <div class="iv-kpi k2"><div class="l">Piezas cerradas</div><div class="v">${insN(conEx.reduce((a, p) => a + insEx(p), 0))}</div><div class="s">varias unidades: piezas, cajas, litros</div></div>
+    <div class="iv-kpi k3"><div class="l">En uso / abiertas</div><div class="v">${insN(act.reduce((a, p) => a + insAb(p), 0))}</div><div class="s">${uso.length} productos</div></div>
+    <div class="iv-kpi k4"><div class="l">Por caducar (≤ 90 días)</div><div class="v">${insN(lotesCad.reduce((a, l) => a + Number(l.cantidad), 0))}</div><div class="s">${lotesCad.length} lotes · ${venc.length} ya caducados</div></div>`;
+  const q = normalizar(document.getElementById('is-q').value || ''), cat = document.getElementById('is-cat').value;
+  const ok = p => INS_F === 'todos' ? p.activo : INS_F === 'con' ? p.activo && insEx(p) > 0 : INS_F === 'agot' ? p.activo && insEx(p) <= 0 : INS_F === 'cad' ? p.activo && insEsCad(p) : INS_F === 'venc' ? p.activo && insEsVenc(p) : INS_F === 'min' ? insEsMin(p) : INS_F === 'uso' ? p.activo && insAb(p) > 0 : INS_F === 'inact' ? !p.activo : true;
+  const rows = INS_P.filter(ok).filter(p => !cat || (p.categoria || 'Insumos') === cat).filter(p => !q || normalizar(p.nombre).includes(q))
+    .sort((a, b) => ((INS_F === 'cad' || INS_F === 'venc') ? (insProxCad(a) || '9').localeCompare(insProxCad(b) || '9') : 0) || (((a.categoria || 'Insumos') === 'Fajas y prendas') - ((b.categoria || 'Insumos') === 'Fajas y prendas')) || (a.categoria || '').localeCompare(b.categoria || '') || a.nombre.localeCompare(b.nombre, 'es'));
+  document.getElementById('is-tb').innerHTML = rows.map(p => {
+    const nl = insLotes(p.id).filter(l => Number(l.cantidad) > 0).length;
+    return `<tr class="clk" data-id="${esc2(p.id)}"><td class="c1"><div class="iv-pn">${esc2(p.nombre)}<small>${esc2(p.categoria || 'Insumos')}${p.unidad ? ' · ' + esc2(p.unidad) : ''}${nl > 1 ? ' · ' + nl + ' lotes' : ''}</small></div></td>
+      <td class="n"><span class="iv-q ${insEx(p) > 0 ? '' : 'z'}">${insN(insEx(p))}</span></td>
+      <td class="n">${insAb(p) > 0 ? `<span class="iv-ch p">🔓 ${insN(insAb(p))}</span>` : '<span class="iv-mut">—</span>'}</td>
+      <td class="n hm">${p.stock_minimo != null ? insN(p.stock_minimo) : '<span class="iv-mut">—</span>'}</td>
+      <td>${insEx(p) > 0 ? invCadChip(insProxCad(p)) : '<span class="iv-mut">—</span>'}</td>
+      <td>${insEstado(p)}</td></tr>`;
+  }).join('') || '<tr><td colspan="6" class="iv-empty">Nada por aquí 🎉</td></tr>';
+  document.querySelectorAll('#is-fil .pill').forEach(b => b.classList.toggle('on', b.dataset.f === INS_F));
+}
+function insRenderMovs(){
+  const q = normalizar(document.getElementById('is-m-q').value || ''), nom = id => INS_P.find(p => p.id === id)?.nombre || '—';
+  const rows = INS_M.filter(m => !INS_MF || m.tipo === INS_MF).filter(m => !q || normalizar(nom(m.insumo_id)).includes(q)).slice(0, 400);
+  document.getElementById('is-tb-m').innerHTML = rows.map(m => `<tr><td>${invFC(m.fecha)}</td><td>${insTipo[m.tipo] || esc2(m.tipo)}</td><td class="c1"><div class="iv-pn">${esc2(nom(m.insumo_id))}</div></td>
+    <td class="n"><b style="color:${m.cantidad > 0 ? '#2F855A' : '#C53030'}">${m.cantidad > 0 ? '+' : ''}${insN(m.cantidad)}</b></td><td class="hm">${m.caducidad ? invFC(m.caducidad) : '<span class="iv-mut">—</span>'}</td>
+    <td class="iv-mut">${esc2(m.nota || '—')}</td><td class="hm">${esc2(m.quien?.nombre || '—')}</td></tr>`).join('') || '<tr><td colspan="7" class="iv-empty">Sin movimientos.</td></tr>';
+  document.querySelectorAll('#is-m-fil .pill').forEach(b => b.classList.toggle('on', b.dataset.m === INS_MF));
+}
+// Cambia entre Mostrador, Quirófano y Refrigerador
+function invUbicacion(ub){
+  if(!INS_UB[ub]) ub = 'mostrador';
+  INV_UB = ub; invCerrar();
+  const m = ub === 'mostrador', info = INS_UB[ub];
+  document.querySelectorAll('#iv-ub button').forEach(b => b.classList.toggle('on', b.dataset.ub === ub));
+  const hero = document.querySelector('#app-screen-inv .iv-hero');
+  hero.querySelector('.ico').textContent = m ? '📦' : info.ico;
+  hero.querySelector('h1').textContent = m ? 'Inventario' : 'Inventario · ' + info.t;
+  hero.querySelector('p').textContent = info.s;
+  hero.querySelector('.acts').style.display = m ? '' : 'none';
+  document.getElementById('iv-tabs').style.display = m ? '' : 'none';
+  ['exist','ent','conteo','movs','flash'].forEach(v => document.getElementById('iv-v-' + v).style.display = m && v === INV_TAB ? '' : 'none');
+  document.getElementById('iv-ins').style.display = m ? 'none' : '';
+  if(m){ invRender(); return; }
+  if(INS_CARGADO !== ub){ INS_P = []; INS_L = []; INS_M = []; INS_F = 'todos'; insRender(); }
+  insCargar();
+}
+// ── Ficha del insumo ──
+function insAbrir(id){
+  const p = INS_P.find(x => x.id === id); if(!p) return;
+  const ed = invEdita(), u = p.unidad ? esc2(p.unidad) : 'piezas';
+  document.getElementById('iv-d-n').textContent = p.nombre;
+  document.getElementById('iv-d-m').textContent = [INS_UB[p.ubicacion]?.t, p.categoria, p.unidad].filter(Boolean).join(' · ') + (p.activo ? '' : ' · dado de baja');
+  const lotes = insLotes(id).filter(l => Number(l.cantidad) !== 0).sort((a, b) => (a.caducidad || '9').localeCompare(b.caducidad || '9'));
+  const movs = INS_M.filter(m => m.insumo_id === id).slice(0, 25);
+  document.getElementById('iv-d-b').innerHTML = `
+    <div class="iv-mini"><div><span>Cerradas</span><b>${insN(insEx(p))}</b></div><div><span>En uso</span><b>${insN(insAb(p))}</b></div><div><span>Mínimo</span><b>${p.stock_minimo != null ? insN(p.stock_minimo) : '—'}</b></div></div>
+    ${p.nota ? `<p class="iv-hint" style="margin-top:8px">📝 ${esc2(p.nota)}</p>` : ''}
+    ${ed ? `<div class="iv-sec">Registrar</div>
+      <div class="is-acts"><button type="button" class="btn-sm btn-outline" data-a="consumo">🩺 Consumo</button><button type="button" class="btn-sm btn-outline" data-a="entrada">🚚 Entrada</button><button type="button" class="btn-sm btn-outline" data-a="abrir">🔓 Abrir</button><button type="button" class="btn-sm btn-outline" data-a="terminar"${insAb(p) > 0 ? '' : ' disabled'}>✔ Terminar</button><button type="button" class="btn-sm btn-outline" data-a="conteo">🧮 Conteo</button><button type="button" class="btn-sm btn-outline" data-a="editar">✏️ Datos</button></div>
+      <div class="is-form" id="is-form" style="display:none"></div>`
+    : '<p class="iv-hint" style="margin-top:12px">Solo administración puede registrar consumos, entradas o ajustes.</p>'}
+    <div class="iv-sec">Lotes y caducidad</div>
+    ${lotes.map(l => `<div class="iv-lote"><span><b>${insN(l.cantidad)}</b> ${u}${l.lote ? ' · <span class="iv-mut">' + esc2(l.lote) + '</span>' : ''}</span>${invCadChip(l.caducidad)}
+      ${ed ? `<span class="acc"><button type="button" class="btn-sm btn-outline is-l-cad" data-l="${esc2(l.id)}" title="Corregir caducidad">📅</button>${Number(l.cantidad) > 0 ? `<button type="button" class="btn-sm btn-del is-l-merma" data-l="${esc2(l.id)}" title="Dar de baja (merma o caducado)">🗑</button>` : ''}</span>` : ''}</div>`).join('') || '<p class="iv-hint">Sin piezas cerradas.</p>'}
+    <div class="iv-sec">Movimientos recientes</div>
+    ${movs.map(m => `<div class="iv-mov"><span class="iv-mut">${invFC(m.fecha).slice(0, 6)}</span><span>${insTipo[m.tipo] || esc2(m.tipo)}<br/><small class="iv-mut">${esc2([m.nota, m.quien?.nombre].filter(Boolean).join(' · '))}</small></span><span class="q ${m.cantidad > 0 ? 'in' : 'out'}">${m.cantidad > 0 ? '+' : ''}${insN(m.cantidad)}</span></div>`).join('') || '<p class="iv-hint">Sin movimientos en los últimos 6 meses.</p>'}`;
+  document.querySelectorAll('#iv-d-b .is-acts button').forEach(b => b.addEventListener('click', () => insForm(p, b.dataset.a)));
+  document.querySelectorAll('#iv-d-b .is-l-merma').forEach(b => b.addEventListener('click', () => insMerma(b.dataset.l)));
+  document.querySelectorAll('#iv-d-b .is-l-cad').forEach(b => b.addEventListener('click', () => insEditarCad(b.dataset.l)));
+  document.getElementById('iv-dr').classList.add('open'); document.getElementById('iv-ov').classList.add('show');
+}
+function insForm(p, a){
+  const f = document.getElementById('is-form'); if(!f) return;
+  document.querySelectorAll('#iv-d-b .is-acts button').forEach(b => b.classList.toggle('on', b.dataset.a === a));
+  const u = esc2(p.unidad || 'piezas'), num = (id, lab, val = '') => `<div class="iv-fg"><label>${lab}</label><input type="number" id="${id}" min="0" step="any" value="${val}" placeholder="0"/></div>`;
+  const txt = (id, lab, val = '', ph = 'Opcional') => `<div class="iv-fg"><label>${lab}</label><input type="text" id="${id}" value="${esc2(val)}" placeholder="${ph}"/></div>`;
+  const T = { consumo:['🩺 Registrar consumo', `${num('is-f-q', 'Cantidad usada (' + u + ')')}${txt('is-f-nota', 'Nota', '', 'Ej. cirugía, paciente, procedimiento')}`, 'Se descuenta del lote que caduca primero.'],
+    entrada:['🚚 Registrar entrada', `<div class="iv-row2">${num('is-f-q', 'Cantidad (' + u + ')')}<div class="iv-fg"><label>Caducidad</label><input type="date" id="is-f-cad"/></div></div><div class="iv-row2">${txt('is-f-lote', 'Lote')}${txt('is-f-nota', 'Nota', '', 'Proveedor, factura…')}</div>`, 'Se suma al lote con esa caducidad.'],
+    abrir:['🔓 Abrir para uso', `${num('is-f-q', 'Cuántas se abren', 1)}${txt('is-f-nota', 'Nota')}`, 'Pasan de cerradas a "en uso" (sale del lote que caduca primero).'],
+    terminar:['✔ Se terminó / desechó', `${num('is-f-q', 'Cuántas en uso se terminaron', 1)}${txt('is-f-nota', 'Nota')}`, `Hay ${insN(insAb(p))} en uso.`],
+    conteo:['🧮 Conteo físico', `${num('is-f-q', 'Piezas cerradas contadas (' + u + ')', insN(insEx(p)))}${txt('is-f-nota', 'Nota', '', 'Conteo físico')}`, `Hoy el sistema tiene ${insN(insEx(p))}. Se ajusta la diferencia.`],
+    editar:['✏️ Datos del producto', `${txt('is-f-nom', 'Nombre', p.nombre, '')}<div class="iv-row2">${txt('is-f-uni', 'Unidad', p.unidad || '', 'pieza, caja, litros…')}${txt('is-f-cat', 'Categoría', p.categoria || '', '')}</div><div class="iv-row2">${num('is-f-min', 'Mínimo (avisa al llegar aquí)', p.stock_minimo ?? '')}<div class="iv-fg"><label>Estado</label><select id="is-f-act"><option value="1"${p.activo ? ' selected' : ''}>Activo</option><option value="0"${p.activo ? '' : ' selected'}>Dado de baja</option></select></div></div>`, 'El mínimo activa el aviso de pocas existencias en la campanita.'] };
+  const [tit, body, hint] = T[a];
+  f.style.display = ''; f.innerHTML = `<h4>${tit}</h4>${body}<p class="iv-hint">${hint}</p><div style="display:flex;gap:8px"><button type="button" class="btn-sm btn-outline" id="is-f-x" style="flex:1;justify-content:center">Cancelar</button><button type="button" class="btn-sm" id="is-f-ok" style="flex:2;justify-content:center;background:var(--teal);border-color:var(--teal);color:#fff">✓ Guardar</button></div>`;
+  document.getElementById('is-f-x').onclick = () => { f.style.display = 'none'; document.querySelectorAll('#iv-d-b .is-acts button').forEach(b => b.classList.remove('on')); };
+  document.getElementById('is-f-ok').onclick = () => insGuardar(p, a);
+  setTimeout(() => f.querySelector('input')?.focus(), 30);
+}
+async function insGuardar(p, a){
+  const val = id => document.getElementById(id)?.value ?? '', q = parseFloat(val('is-f-q')), nota = val('is-f-nota').trim() || null;
+  const btn = document.getElementById('is-f-ok');
+  if(a !== 'editar' && (a === 'conteo' ? !(q >= 0) : !(q > 0))){ toast('Pon una cantidad válida.'); return; }
+  if(btn) btn.disabled = true;
+  let r;
+  if(a === 'consumo') r = await sb.rpc('ins_consumo', { p_insumo: p.id, p_cantidad: q, p_nota: nota });
+  if(a === 'entrada') r = await sb.rpc('ins_entrada', { p_insumo: p.id, p_cantidad: q, p_caducidad: val('is-f-cad') || null, p_lote: val('is-f-lote').trim() || null, p_nota: nota, p_fecha: null });
+  if(a === 'abrir') r = await sb.rpc('ins_abrir', { p_insumo: p.id, p_cantidad: q, p_nota: nota });
+  if(a === 'terminar') r = await sb.rpc('ins_terminar', { p_insumo: p.id, p_cantidad: q, p_nota: nota });
+  if(a === 'conteo') r = await sb.rpc('ins_ajustar', { p_insumo: p.id, p_fisico: q, p_nota: nota });
+  if(a === 'editar'){
+    const mn = val('is-f-min');
+    r = await sb.rpc('ins_editar', { p_insumo: p.id, p_nombre: val('is-f-nom').trim(), p_unidad: val('is-f-uni').trim(), p_categoria: val('is-f-cat').trim(), p_minimo: mn === '' ? null : parseFloat(mn), p_activo: val('is-f-act') === '1' });
+  }
+  if(r?.error){ console.error('[NovaHouse] Error en insumo:', r.error); toast(/existencias|inválida|negativo/i.test(r.error.message || '') ? r.error.message : 'No se pudo guardar.'); if(btn) btn.disabled = false; return; }
+  toast({ consumo:'✓ Consumo registrado', entrada:'✓ Entrada registrada', abrir:'✓ Marcado en uso', terminar:'✓ Actualizado', conteo:'✓ Conteo aplicado', editar:'✓ Datos guardados' }[a]);
+  await insCargar(); if(typeof stockAlCargar === 'function') stockAlCargar().then(bellRender); insAbrir(p.id);
+}
+async function insMerma(loteId){
+  const l = INS_L.find(x => x.id === loteId); if(!l) return;
+  const p = INS_P.find(x => x.id === l.insumo_id);
+  const v = await invPedir({ icono:'🗑', titulo:'Dar de baja', tipo:'number', valorInicial: insN(l.cantidad), mensaje:`${esc2(p?.nombre || '')} · lote ${l.caducidad ? 'que caduca ' + invFC(l.caducidad) : 'sin caducidad'} (${insN(l.cantidad)}).<br>¿Cuánto sale por merma o caducidad?` });
+  const n = parseFloat(v); if(!(n > 0)) return;
+  if(n > Number(l.cantidad)){ toast('Ese lote solo tiene ' + insN(l.cantidad) + '.'); return; }
+  const { error } = await sb.rpc('ins_merma', { p_lote: loteId, p_cantidad: n, p_nota: l.caducidad && invDias(l.caducidad) < 0 ? 'Caducado' : 'Merma' });
+  if(error){ console.error('[NovaHouse] Error en merma de insumo:', error); toast('No se pudo dar de baja.'); return; }
+  toast('✓ Dado de baja'); await insCargar(); insAbrir(l.insumo_id);
+}
+async function insEditarCad(loteId){
+  const l = INS_L.find(x => x.id === loteId); if(!l) return;
+  const v = await invPedir({ icono:'📅', titulo:'Corregir caducidad', tipo:'date', valorInicial: l.caducidad || '', mensaje:'Fecha de caducidad de este lote (déjala vacía si no tiene):' });
+  if(v === null || v === undefined) return;
+  const { error } = await sb.rpc('ins_editar_lote', { p_lote: loteId, p_caducidad: v || null, p_lote_txt: l.lote || null });
+  if(error){ toast('No se pudo guardar la caducidad.'); return; }
+  toast('✓ Caducidad actualizada'); await insCargar(); insAbrir(l.insumo_id);
+}
+async function insNuevo(){
+  if(!invEdita()) return;
+  const n = await invPedir({ icono:'➕', titulo:'Nuevo producto en ' + INS_UB[INV_UB].t.toLowerCase(), tipo:'text', valorInicial:'', mensaje:'Nombre del producto (después registras su entrada con cantidad y caducidad):' });
+  if(!n || !n.trim()) return;
+  const cat = INV_UB === 'refrigerador' ? 'Red fría' : (document.getElementById('is-cat').value || 'Insumos');
+  const { data, error } = await sb.rpc('ins_crear', { p_ubicacion: INV_UB, p_nombre: n.trim(), p_unidad: 'pieza', p_categoria: cat, p_minimo: null });
+  if(error){ console.error('[NovaHouse] Error creando insumo:', error); toast('No se pudo crear.'); return; }
+  toast('✓ Producto agregado'); await insCargar(); insAbrir(data); insForm(INS_P.find(x => x.id === data), 'entrada');
+}
+(function(){
+  document.getElementById('iv-ub').addEventListener('click', e => { const b = e.target.closest('button[data-ub]'); if(b) invUbicacion(b.dataset.ub); });
+  document.getElementById('is-tabs').addEventListener('click', e => { const b = e.target.closest('[data-ist]'); if(b){ INS_TAB = b.dataset.ist; insRender(); } });
+  document.getElementById('is-fil').addEventListener('click', e => { const b = e.target.closest('.pill'); if(b){ INS_F = b.dataset.f; insRenderExist(); } });
+  document.getElementById('is-al').addEventListener('click', e => { const b = e.target.closest('[data-f]'); if(b){ INS_F = b.dataset.f; insRenderExist(); } });
+  ['is-cat','is-q'].forEach(id => document.getElementById(id).addEventListener(id === 'is-q' ? 'input' : 'change', insRenderExist));
+  document.getElementById('is-tb').addEventListener('click', e => { const tr = e.target.closest('tr[data-id]'); if(tr) insAbrir(tr.dataset.id); });
+  document.getElementById('is-m-fil').addEventListener('click', e => { const b = e.target.closest('.pill'); if(b){ INS_MF = b.dataset.m; insRenderMovs(); } });
+  document.getElementById('is-m-q').addEventListener('input', insRenderMovs);
+  document.getElementById('is-nuevo').addEventListener('click', insNuevo);
+})();
 // ── Eventos ──
 (function(){
   document.querySelector('[data-screen2="inv"]').addEventListener('click', () => invCargar());
@@ -6287,6 +6542,7 @@ async function guardarRegistro(){
           facturado: factura, nota: notas || null,
         };
       });
+      window._REG_VENDIDOS = filasFarm.map(f => f.producto_id).filter(Boolean);
       const { error: errFarm } = await sb.from('farmacia_ventas').insert(filasFarm);
       if(errFarm){
         console.error('[NovaHouse] Error guardando farmacia:', errFarm);
@@ -6302,7 +6558,7 @@ async function guardarRegistro(){
     }
 
     toast(hayServ && hayFarm ? '✓ Registro y venta de farmacia guardados.' : (hayFarm ? '✓ Venta de farmacia guardada.' : '✓ Registro guardado correctamente.'));
-    if(hayFarm) cargarCatalogoFarmaciaReg(); // el inventario ya descontó: refresca las piezas que se ven en el catálogo
+    if(hayFarm){ cargarCatalogoFarmaciaReg(); stockAlCargar().then(() => { bellRender(); const bajos = STOCK_AL.filter(p => (window._REG_VENDIDOS || []).includes(p.id)); if(bajos.length) toast(`📦 Pocas existencias: ${bajos.slice(0, 2).map(p => p.nombre + ' (' + Math.max(0, p.ex) + ')').join(', ')}${bajos.length > 2 ? ' y ' + (bajos.length - 2) + ' más' : ''}`); }); } // el inventario ya descontó: refresca catálogo y alertas
     limpiarRegistroParcial();
   }catch(err){
     console.error('[NovaHouse] Error guardando registro:', err);
@@ -10636,13 +10892,36 @@ function cxpIr(filtro){
 // ── Campanita: registros tardíos (solo admin) ──
 const BELL_ACCIONES = ['registro_tardio','fecha_retroactiva'];
 let BELL_ITEMS = [];
+// Pocas existencias (admin y recepción): activos en su mínimo o por debajo, y agotados que se vendieron en los últimos 120 días.
+let STOCK_AL = [];
+async function stockAlCargar(){
+  if(!MI_PERFIL || !['admin','recepcion'].includes(MI_PERFIL.rol)) { STOCK_AL = []; return; }
+  const d0 = new Date(); d0.setDate(d0.getDate() - 120);
+  const [rp, rv] = await Promise.all([
+    sb.from('farmacia_productos').select('id,nombre,grupo,existencia,stock_minimo,activo').eq('activo', true).lte('existencia', 50).limit(2000),
+    sb.from('farmacia_ventas').select('producto_id').gte('fecha', isoLocal(d0)).not('producto_id', 'is', null).limit(5000),
+  ]);
+  if(rp.error || rv.error){ console.error('[NovaHouse] Error cargando alertas de existencias:', rp.error || rv.error); return; }
+  const vendidos = new Set((rv.data || []).map(v => v.producto_id));
+  const ri = await sb.from('insumos').select('id,nombre,categoria,ubicacion,existencia,stock_minimo,activo').eq('activo', true).not('stock_minimo', 'is', null).limit(2000);
+  const ins = (ri.data || []).filter(p => Number(p.existencia) <= Number(p.stock_minimo)).map(p => ({ id: p.id, nombre: p.nombre, grupo: (p.ubicacion === 'refrigerador' ? '❄️ Refrigerador' : '🏥 Quirófano'), ex: Number(p.existencia) || 0, um: Number(p.stock_minimo), stock_minimo: p.stock_minimo, ub: p.ubicacion }));
+  STOCK_AL = (rp.data || []).map(p => ({ ...p, ex: p.existencia || 0, um: p.stock_minimo != null ? p.stock_minimo : 2 }))
+    .filter(p => (p.ex > 0 && p.ex <= p.um && (p.stock_minimo != null || vendidos.has(p.id))) || (p.ex <= 0 && (vendidos.has(p.id) || p.stock_minimo != null)))
+    .concat(ins).sort((a, b) => a.ex - b.ex || a.nombre.localeCompare(b.nombre));
+}
+function stockIr(f, ub){
+  const nav = document.getElementById('nav-btn-inv'); if(!nav) return;
+  if(ub){ INS_F = f === 'agot' ? 'agot' : 'min'; nav.click(); invUbicacion(ub); return; }
+  INV_F = f; nav.click(); invUbicacion('mostrador'); invTab('exist');
+}
 function bellKey(){ return 'nh_bell_seen_' + (MI_PERFIL?.id || ''); }
 function bellVisto(){ try{ return localStorage.getItem(bellKey()) || ''; }catch(e){ return ''; } }
 function bellGuardarVisto(ts){ try{ localStorage.setItem(bellKey(), ts); }catch(e){} }
 function bellNuevos(){ const v = bellVisto(); return BELL_ITEMS.filter(a => !v || a.created_at > v); }
 function bellRender(){
   const cxpAl = (typeof CXP_ROWS !== 'undefined' && cxpEsAdmin()) ? CXP_ROWS.filter(cxpEnAlerta).sort((a, b) => a.vence.localeCompare(b.vence)) : [];
-  const n = bellNuevos().length + cxpAl.length;
+  const stk = STOCK_AL || [];
+  const n = bellNuevos().length + cxpAl.length + stk.length;
   const badge = document.getElementById('bell-badge'), btn = document.getElementById('btn-bell');
   if(!badge || !btn) return;
   badge.hidden = n === 0;
@@ -10653,11 +10932,13 @@ function bellRender(){
   const list = document.getElementById('bell-list');
   const cxpHtml = cxpAl.length ? `<div class="bell-sec">📅 Cuentas por pagar</div>` + cxpAl.map(r => { const d = cxpDias(r.vence);
       return `<div class="bell-it cxp${d < 0 ? ' v' : ''}" data-cxp="${d < 0 ? 'ven' : 'pro'}"><b>${esc2(r.proveedor)}</b> · ${fmtMoney0(r.monto)}<br/>${esc2(r.concepto)} · <span class="dd" style="color:${d < 0 ? '#C53030' : '#B7791F'}">${d < 0 ? 'vencida hace ' + (-d) + ' día' + (d === -1 ? '' : 's') : d === 0 ? 'vence hoy' : 'vence en ' + d + ' día' + (d === 1 ? '' : 's')}</span><span class="ts">Vence el ${fmtFechaCorta(r.vence)}</span></div>`; }).join('') + (BELL_ITEMS.length ? `<div class="bell-sec">🕒 Registros tardíos</div>` : '') : '';
+  const stkHtml = stk.length ? `<div class="bell-sec">📦 Pocas existencias</div>` + stk.slice(0, 12).map(p => `<div class="bell-it stk${p.ex <= 0 ? ' v' : ''}" data-stk="${p.ex <= 0 ? 'agot' : 'min'}" data-ub="${p.ub || ''}"><b>${esc2(p.nombre)}</b>${p.grupo ? ' · ' + esc2(p.grupo) : ''}<br/><span class="dd" style="color:${p.ex <= 0 ? '#C53030' : '#B7791F'}">${p.ex <= 0 ? 'Agotado' : 'Queda' + (p.ex === 1 ? ' 1 pieza' : 'n ' + (Number.isInteger(p.ex) ? p.ex : p.ex.toFixed(1)) + ' piezas')}</span>${p.ub ? ' · mínimo ' + p.um : p.ex <= 0 ? (p.stock_minimo != null ? ' · mínimo ' + p.um : ' · se vendió en los últimos 4 meses') : ' · mínimo ' + p.um + (p.stock_minimo == null ? ' (automático, se está vendiendo)' : '')}</div>`).join('')
+    + (stk.length > 12 ? `<div class="bell-it stk" data-stk="min" style="text-align:center;font-weight:700;color:var(--navy2)">y ${stk.length - 12} más · ver en Inventario</div>` : '') : '';
   if(!BELL_ITEMS.length){
-    list.innerHTML = cxpHtml || '<div class="bell-vacio">Sin avisos. Aquí te avisaremos de cuentas por pagar próximas a vencer y de consultas capturadas tarde.</div>';
+    list.innerHTML = (stkHtml + cxpHtml) || `<div class="bell-vacio">Sin avisos. Aquí te avisaremos de productos con pocas existencias${MI_PERFIL?.rol === 'admin' ? ', cuentas por pagar próximas a vencer y consultas capturadas tarde' : ''}.</div>`;
     return;
   }
-  list.innerHTML = cxpHtml + BELL_ITEMS.map(a => {
+  list.innerHTML = stkHtml + cxpHtml + BELL_ITEMS.map(a => {
     const d = a.detalle || {};
     const dias = Number(d.dias) || 0;
     const que = a.accion === 'registro_tardio' ? 'registró consulta del' : `cambió una consulta (antes ${fmtFechaCorta(d.fecha_anterior)}) al`;
@@ -10667,7 +10948,9 @@ function bellRender(){
   }).join('');
 }
 async function cargarCampana(){
-  if(!MI_PERFIL || MI_PERFIL.rol !== 'admin') return;
+  if(!MI_PERFIL || !['admin','recepcion'].includes(MI_PERFIL.rol)) return;
+  await stockAlCargar();
+  if(MI_PERFIL.rol !== 'admin'){ bellRender(); return; }
   await cxpCargar(); cxpPintarTabN();
   const { data, error } = await sb.from('audit_log').select('*, personal(nombre)').in('accion', BELL_ACCIONES).order('created_at', { ascending:false }).limit(30);
   if(error){ console.error('[NovaHouse] Error cargando campanita:', error); return; }
@@ -10707,7 +10990,7 @@ async function campanaNuevaFila(row){
   document.addEventListener('keydown', e => { if(e.key === 'Escape') abrir(false); });
   window.addEventListener('resize', () => abrir(false));
   document.getElementById('bell-marcar').addEventListener('click', marcar);
-  document.getElementById('bell-list').addEventListener('click', e => { const it = e.target.closest('.bell-it.cxp'); if(!it) return; abrir(false); cxpIr(it.dataset.cxp); });
+  document.getElementById('bell-list').addEventListener('click', e => { const st = e.target.closest('.bell-it.stk'); if(st){ abrir(false); stockIr(st.dataset.stk, st.dataset.ub || ''); return; } const it = e.target.closest('.bell-it.cxp'); if(!it) return; abrir(false); cxpIr(it.dataset.cxp); });
   document.getElementById('bell-ver-todo').addEventListener('click', () => {
     abrir(false);
     document.getElementById('btn-config-header').click();

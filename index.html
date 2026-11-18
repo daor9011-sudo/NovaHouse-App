@@ -1945,6 +1945,21 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .is-form h4{margin:0 0 10px;font:800 14px var(--font-d);color:var(--navy)}
 .is-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.is-top .iv-fil{flex:1;margin:0}
 @media (max-width:760px){.iv-ub{width:auto}.iv-ub button{flex:1;padding:8px 10px}.is-acts{grid-template-columns:repeat(2,1fr)}}
+
+.fr-modal{position:fixed;inset:0;z-index:9980;background:rgba(11,22,40,.45);display:none;align-items:center;justify-content:center;padding:16px}
+.fr-modal.show{display:flex}
+.fr-box{background:#fff;border-radius:18px;width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:18px 20px 20px;box-shadow:0 24px 60px rgba(11,22,40,.35);text-align:left}
+.fr-mh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}.fr-mh b{display:block;font:800 18px var(--font-d);color:var(--navy)}.fr-mh small{color:var(--g6);font-size:12px}
+.fr-mh button{border:0;background:var(--g1);border-radius:9px;width:32px;height:32px;cursor:pointer;font-size:14px;color:var(--g6)}
+.fr-ml{font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--g6);margin:14px 0 7px}
+#fr-m-per{width:max-content}
+.fr-alc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fr-alc button{display:grid;grid-template-columns:30px 1fr;grid-template-rows:auto auto;column-gap:8px;align-items:center;text-align:left;border:1.5px solid var(--g2);background:#fff;border-radius:12px;padding:11px 12px;cursor:pointer;font-family:var(--font-b);color:var(--navy);transition:border-color .15s,background .15s}
+.fr-alc button span{grid-row:1/3;font-size:22px}.fr-alc button b{font-size:14px}.fr-alc button small{font-size:11px;color:var(--g6);line-height:1.3}
+.fr-alc button:hover:not(:disabled){border-color:var(--teal);background:#F2FBFB}.fr-alc button.sug{border-color:#9FDCDC}
+.fr-alc button.all{grid-column:1/-1;background:linear-gradient(135deg,#0B1628,#1B3A6B);border-color:#0B1628;color:#fff}.fr-alc button.all small{color:rgba(255,255,255,.8)}
+.fr-alc button:disabled{opacity:.6;cursor:wait}
+@media (max-width:520px){.fr-alc{grid-template-columns:1fr}}
 @media (max-width:1100px){.iv-al,.iv-kpis,.fr-hero{grid-template-columns:1fr 1fr}.iv-split{grid-template-columns:minmax(0,1fr)}.fr-grid{grid-template-columns:1fr 1fr}.fr-flow{grid-template-columns:1fr 1fr}.fr-flow .op{display:none}.fr-flow>div{border-bottom:1px solid var(--g2)}}
 @media (max-width:700px){
   .iv-hero{margin:-14px -13px 0;padding:16px 14px}.iv-hero h1{font-size:23px}.iv-hero .acts{margin-left:0;width:100%}.iv-hero .acts .iv-hbtn{flex:1;padding:9px 6px;font-size:12px}
@@ -2678,6 +2693,19 @@ body:has(#app-view.act) #app-version-tag{display:none}
         <div class="fx-doc" id="fx"></div>
       </div>
     </div>
+    <div class="fr-modal" id="fr-modal" role="dialog" aria-label="Descargar Flash report"><div class="fr-box">
+      <div class="fr-mh"><div><b>⚡ Flash report de inventario</b><small>Se descarga en PDF directo, sin vista previa.</small></div><button type="button" id="fr-m-x" aria-label="Cerrar">✕</button></div>
+      <div class="fr-ml">Periodo</div>
+      <div class="fr-per" id="fr-m-per"><button type="button" data-p="sem">Semana</button><button type="button" data-p="mes" class="on">Mes</button><button type="button" data-p="tri">Trimestre</button></div>
+      <div class="fr-ml">¿Qué quieres descargar?</div>
+      <div class="fr-alc" id="fr-m-alc">
+        <button type="button" data-alc="todo" class="all"><span>📚</span><b>Todo</b><small>Mostrador, quirófano y refrigerador con todos sus anexos</small></button>
+        <button type="button" data-alc="mostrador"><span>💊</span><b>Mostrador</b><small>Farmacia: ventas, sin movimiento, por caducar y pedir</small></button>
+        <button type="button" data-alc="quirofano"><span>🏥</span><b>Quirófano</b><small>Insumos, fajas y prendas: consumos, en uso y caducidad</small></button>
+        <button type="button" data-alc="refrigerador"><span>❄️</span><b>Refrigerador</b><small>Red fría: consumos, en uso y caducidad</small></button>
+      </div>
+      <button type="button" class="btn-sm btn-outline" id="fr-m-wa" style="width:100%;justify-content:center;margin-top:12px">💬 Copiar resumen para WhatsApp</button>
+    </div></div>
     <div class="iv-ov" id="iv-ov"></div>
     <div class="iv-dr" id="iv-dr"><div class="iv-dh"><div><h3 id="iv-d-n"></h3><small id="iv-d-m"></small></div><button type="button" id="iv-d-x">✕</button></div><div class="iv-db" id="iv-d-b"></div></div>
     <div class="card screen2" id="app-screen-personal">
@@ -3106,7 +3134,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.18-5';
+const APP_VERSION = 'v2026.11.18-6';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -4117,9 +4145,9 @@ function invRender(){
   if(INV_TAB === 'ent') invRenderEnt();
   if(INV_TAB === 'conteo') invRenderConteo();
   if(INV_TAB === 'movs') invRenderMovs();
-  if(INV_TAB === 'flash') invRenderFlash();
 }
 function invTab(t){
+  if(t === 'flash'){ frAbrir(); return; }
   if(!invEdita() && (t === 'ent' || t === 'conteo')) t = 'exist';
   INV_TAB = t;
   document.querySelectorAll('#iv-tabs button').forEach(b => b.classList.toggle('on', b.dataset.ivt === t));
@@ -4304,7 +4332,7 @@ function invFlashDatos(per){
 // ── Flash report de inventario · formato narrativo (estilo cierre de mes) ──
 //  Hoja 1: resumen, indicadores, pendientes y gráficas. Anexos: A sin movimiento, B por caducar, C sugerido de compra.
 //  La pantalla muestra las mismas hojas carta que salen en el PDF.
-function invRenderFlash(){
+function invRenderFlash(scope = 'todo'){
   const D = invFlashDatos(INV_FR), varPz = D.fin - D.ini, pct = D.ini ? varPz / D.ini * 100 : 0;
   const MES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
   const hoy = new Date(), cap = s => s.charAt(0).toUpperCase() + s.slice(1);
@@ -4392,8 +4420,8 @@ function invRenderFlash(){
   const vacio = t => `<p class="nr-vacio">${t}</p>`;
   const hd = (t1, t2, chico) => chico
     ? `<div class="nr-hd s"><div><div class="br">Flash report de inventario · NovaHouse</div><h1>${t1}</h1></div><div class="dt"><strong>${titPer}</strong>${rango}</div></div>`
-    : `<div class="nr-hd"><div><div class="br">NovaHouse · Mostrador, quirófano y refrigerador</div><h1>Flash report de <b>inventario</b></h1></div><div class="dt"><strong>${titPer}</strong>${rango} · generado ${gen}</div></div>`;
-  const extra = typeof insFlashHojas === 'function' ? insFlashHojas({ D, hd }) : { pags: [], anexos: [], bullet: '' };
+    : `<div class="nr-hd"><div><div class="br">NovaHouse · ${scope === 'todo' ? 'Mostrador, quirófano y refrigerador' : 'Farmacia y mostrador'}</div><h1>Flash report de <b>${scope === 'todo' ? 'inventario' : 'mostrador'}</b></h1></div><div class="dt"><strong>${titPer}</strong>${rango} · generado ${gen}</div></div>`;
+  const extra = typeof insFlashHojas === 'function' ? insFlashHojas({ D, hd, titPer, rango, gen }) : { pags: [], anexos: [], bullet: '', porUb: {} };
   const tm = top[0], mm = mv[0];
   const bullets = [
     D.diasInv ? `Al ritmo actual el inventario alcanza para <b>${Math.round(D.diasInv)} días</b>.` : 'No hubo ventas de farmacia en el periodo.',
@@ -4401,7 +4429,7 @@ function invRenderFlash(){
     `<b>${dorm.length} ${pl(dorm.length, 'producto')}</b> no se ${dorm.length === 1 ? 'movió' : 'movieron'} en el periodo (${C && vDorm ? $(vDorm) : pzDorm + ' pzas'}) — Anexo A.`,
     `<b>${pzR} ${pl(pzR, 'pieza')}</b> caducan en 90 días o menos${C && vR ? ` (${$(vR)})` : ''} — Anexo B.`,
     pedir.length ? `Hay que pedir <b>${pedir.length} ${pl(pedir.length, 'producto')}</b>${C && pedirTot ? `, ~${$(pedirTot)}` : ''} — Anexo C.` : 'No hay productos urgentes por pedir — Anexo C.',
-    extra.bullet,
+    scope === 'todo' ? extra.bullet : '',
   ].filter(Boolean);
   const pag1 = `${hd()}<div class="nr-bd">
    <div class="nr-g2" style="grid-template-columns:1fr 1.15fr"><div>${sec('Resumen ejecutivo')}
@@ -4471,11 +4499,11 @@ function invRenderFlash(){
       primera = false;
     } while(i < ax.filas.length);
   });
-  const hojas = [pag1, ...extra.pags, ...hojasAnexo, ...extra.anexos], n = hojas.length;
-  document.getElementById('fx').innerHTML = hojas.map((h, k) => `<div class="nr-sheet">${h}<div class="nr-ft"><span>Consultas NovaHouse · Mediconsulting S.C. · uso interno · cifras a costo sin IVA</span><span>Hoja ${k + 1} de ${n}</span></div></div>`).join('');
-  invFlashZoom();
-  document.querySelectorAll('#fr-per button').forEach(b => b.classList.toggle('on', b.dataset.p === INV_FR));
+  const u = extra.porUb?.[scope];
+  const hojas = scope === 'mostrador' ? [pag1, ...hojasAnexo] : scope === 'todo' ? [pag1, ...extra.pags, ...hojasAnexo, ...extra.anexos] : (u ? [u.pag, ...u.anexos] : []), n = hojas.length;
+  const html = hojas.map((h, k) => `<div class="nr-sheet">${h}<div class="nr-ft"><span>Consultas NovaHouse · Mediconsulting S.C. · uso interno${scope === 'quirofano' || scope === 'refrigerador' ? '' : ' · cifras a costo sin IVA'}</span><span>Hoja ${k + 1} de ${n}</span></div></div>`).join('');
   window._INV_FR = { D, per, varPz, pzR, vR, top, margen, pedir, pedirTot, C, dorm: dorm.length, vDorm, pzDorm, ins: extra.bullet.replace(/<[^>]+>/g, '').replace(/ — hojas 2 y 3\.$/, '') };
+  return { html, n };
 }
 // ── Flash report: hojas de Quirófano y Refrigerador (consumos, en uso, caducidad) + anexos D y E ──
 let INSF_P = [], INSF_L = [], INSF_M = [], INSF_OK = false;
@@ -4488,11 +4516,11 @@ async function insFlashCargar(){
   ]);
   if(rp.error || rl.error || rm.error){ console.error('[NovaHouse] Error cargando insumos para el flash report:', rp.error || rl.error || rm.error); return; }
   INSF_P = rp.data || []; INSF_L = rl.data || []; INSF_M = rm.data || []; INSF_OK = true;
-  if(INV_TAB === 'flash' && INV_UB === 'mostrador') invRenderFlash();
 }
 function insFlashHojas(o){
   const { D, hd } = o, E = esc2, N = v => insN(v);
-  if(!INSF_OK) return { pags: [], anexos: [], bullet: '' };
+  if(!INSF_OK) return { pags: [], anexos: [], bullet: '', porUb: {} };
+  const porUb = {};
   const sec = (t, s) => `<h2 class="nr-h2">${t}${s ? ` <small>${s}</small>` : ''}</h2>`;
   const vacio = t => `<p class="nr-vacio">${t}</p>`;
   const fch = iso => iso ? fmtFechaCorta(iso) : '—';
@@ -4534,7 +4562,7 @@ function insFlashHojas(o){
     const filasU = enUso.slice(0, 8).map(p => `<tr><td>${E(p.nombre)}</td><td class="num"><b>${N(ab(p))}</b></td><td class="num">${N(ex(p))}</td><td>${E(p.unidad || '')}</td></tr>`).join('');
     const filasP = pocas.slice(0, 8).map(p => `<tr><td>${E(p.nombre)}</td><td class="num ${ex(p) <= 0 ? 'neg' : 'warn'}">${ex(p) <= 0 ? 'agotado' : N(ex(p))}</td><td class="num">${p.stock_minimo != null ? N(p.stock_minimo) : '—'}</td><td class="num">${N(ab(p))}</td></tr>`).join('');
     const kpi = (l, v, s, cls = '') => `<div class="nr-k ${cls}"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`;
-    pags.push(`${hd(`${tit} · ${sub}`, '', true)}<div class="nr-bd">
+    const cuerpo = (`<div class="nr-bd">
       <div class="nr-ks">${kpi('Productos con existencia', conEx.length, `de ${P.length} activos`, 'main')}${kpi('Piezas cerradas', N(conEx.reduce((a, p) => a + ex(p), 0)), 'piezas, cajas, litros')}${kpi('En uso / abiertas', N(P.reduce((a, p) => a + ab(p), 0)), `${enUso.length} productos`)}${kpi('Consumido en el periodo', N(qUso), `${usos.length} registros · entradas +${N(qEnt)}`)}${kpi('Por caducar ≤ 90 d', N(riesgo.reduce((a, l) => a + Number(l.cantidad), 0)), `${riesgo.length} lotes · ${venc.length} caducados`, venc.length ? 'alr' : '')}</div>
       <div class="nr-al">
        <div class="nr-a r"><b>${venc.length}</b><div><strong>${venc.length === 1 ? 'Lote caducado' : 'Lotes caducados'}</strong><br>${venc.length ? E([...new Set(venc.map(l => pid(l.insumo_id)?.nombre))].slice(0, 2).join(', ')) + ' · dar de baja' : 'Nada caducado'}</div></div>
@@ -4547,6 +4575,8 @@ function insFlashHojas(o){
       <div class="nr-g2"><div>${sec('Piezas en uso', 'abiertas')}${filasU ? `<table class="nr-t"><thead><tr><th>Producto</th><th class="num">En uso</th><th class="num">Cerradas</th><th>Unidad</th></tr></thead><tbody>${filasU}</tbody></table>` : vacio('Nada abierto.')}</div>
        <div>${sec('Pocas existencias', 'mínimo o agotado')}${filasP ? `<table class="nr-t"><thead><tr><th>Producto</th><th class="num">Hay</th><th class="num">Mínimo</th><th class="num">En uso</th></tr></thead><tbody>${filasP}</tbody></table>${pocas.length > 8 ? `<p class="nr-cont">y ${pocas.length - 8} más en el Anexo ${code}</p>` : ''}` : vacio('Todo arriba de su mínimo.')}</div></div>
      </div>`);
+    pags.push(hd(`${tit} · ${sub}`, '', true) + cuerpo);
+    porUb[ub] = { pag: `<div class="nr-hd"><div><div class="br">NovaHouse · ${sub}</div><h1>Flash report de <b>${tit.toLowerCase()}</b></h1></div><div class="dt"><strong>${o.titPer}</strong>${o.rango} · generado ${o.gen}</div></div>` + cuerpo, anexos: [] };
     resumen.push(`${tit}: <b>${conEx.length} productos</b>, ${N(P.reduce((a, p) => a + ab(p), 0))} en uso${venc.length ? `, <b class="neg">${venc.length} caducado${venc.length === 1 ? '' : 's'}</b>` : ''}`);
     // Anexo: existencias completas por categoría
     const filas = [], cats = {};
@@ -4562,14 +4592,15 @@ function insFlashHojas(o){
       if(chunk.length > 1 && chunk[chunk.length - 1][0] === 'g') chunk = chunk.slice(0, -1);
       i += Math.max(1, chunk.length);
       const ultima = i >= filas.length;
-      anexos.push(`${hd(`Anexo ${code} · ${tit}: existencias${primera ? '' : ' (continuación)'}`, '', true)}<div class="nr-bd ax">
+      const hojaAx = (`${hd(`Anexo ${code} · ${tit}: existencias${primera ? '' : ' (continuación)'}`, '', true)}<div class="nr-bd ax">
         ${primera ? `<div class="nr-ai"><div><small>Productos activos</small><b>${P.length}</b></div><div><small>Con existencia</small><b>${conEx.length}</b></div><div><small>En uso</small><b>${N(P.reduce((a, p) => a + ab(p), 0))}</b></div><div><small>Caducados</small><b class="neg">${venc.length}</b></div></div><p class="nr-note">Inventario completo al ${fch(D.hasta)}. En naranja, caducidad en 90 días o menos; en rojo, caducado.</p>` : ''}
         <table class="nr-t"><thead><tr><th>Producto</th><th>Unidad</th><th class="num">Cerradas</th><th class="num">En uso</th><th>Caducidad próxima</th><th class="num">Mínimo</th></tr></thead><tbody>${chunk.map(r => r[1]).join('')}</tbody></table>
         ${ultima ? `<div class="nr-tot"><span>Total ${tit.toLowerCase()} · ${P.length} productos · ${N(P.reduce((a, p) => a + ab(p), 0))} en uso</span><b>${N(conEx.reduce((a, p) => a + ex(p), 0))} cerradas</b></div>` : '<p class="nr-cont">continúa en la siguiente hoja…</p>'}</div>`);
+      anexos.push(hojaAx); porUb[ub].anexos.push(hojaAx.replace(`Anexo ${code} · `, 'Anexo · '));
       primera = false;
     } while(i < filas.length);
   });
-  return { pags, anexos, bullet: resumen.length ? resumen.join(' · ') + ' — hojas 2 y 3.' : '' };
+  return { pags, anexos, porUb, bullet: resumen.length ? resumen.join(' · ') + ' — hojas 2 y 3.' : '' };
 }
 // Ajusta las hojas carta al ancho disponible en pantalla.
 function invFlashZoom(){
@@ -4579,6 +4610,7 @@ function invFlashZoom(){
 }
 window.addEventListener('resize', () => { if(INV_TAB === 'flash') invFlashZoom(); });
 function invCopiarWA(){
+  invRenderFlash('todo');
   const x = window._INV_FR; if(!x) return;
   const { D, per, varPz, pzR, vR, top, margen, pedir, pedirTot, C, dorm, vDorm, pzDorm, ins } = x, $ = v => fmtMoney0(v || 0);
   const t = [`📦 *Flash report de inventario · NovaHouse*`, per, '',
@@ -4605,12 +4637,29 @@ function invCargarJs(src){
   });
 }
 // Descarga directa del Flash report como PDF (una página carta por hoja), sin ventana de impresión.
-async function invDescargarPDF(){
-  const btn = document.getElementById('fr-pdf'), txt = btn.textContent;
-  if(!document.querySelector('#fx .nr-sheet')) return;
-  btn.disabled = true; btn.textContent = '⏳ Generando PDF…';
+const FR_ALC = { todo:['Todo', 'todo'], mostrador:['Mostrador', 'mostrador'], quirofano:['Quirófano', 'quirofano'], refrigerador:['Refrigerador', 'refrigerador'] };
+function frAbrir(){
+  const m = document.getElementById('fr-modal'); if(!m) return;
+  document.querySelectorAll('#fr-m-per button').forEach(b => b.classList.toggle('on', b.dataset.p === INV_FR));
+  document.querySelectorAll('#fr-m-alc button').forEach(b => b.classList.toggle('sug', b.dataset.alc === (typeof INV_UB !== 'undefined' ? INV_UB : 'mostrador')));
+  m.classList.add('show');
+  if(!INSF_OK) insFlashCargar();
+}
+function frCerrar(){ document.getElementById('fr-modal')?.classList.remove('show'); }
+// Descarga directa del Flash report (todo o por inventario), una página carta por hoja, sin vista previa ni ventana de impresión.
+async function invDescargarPDF(scope, btn){
+  if(!FR_ALC[scope]) scope = 'todo';
+  const lbl = btn ? btn.querySelector('b') : null, txt = lbl ? lbl.textContent : '';
+  const todos = [...document.querySelectorAll('#fr-m-alc button')];
+  todos.forEach(b => b.disabled = true);
+  const estado = t => { if(lbl) lbl.textContent = t; };
   let fr = null;
   try{
+    estado('⏳ Preparando…');
+    if(scope !== 'quirofano' && scope !== 'refrigerador' && !INV_P.length) await invCargar();
+    if(scope !== 'mostrador' && !INSF_OK) await insFlashCargar();
+    const { html, n } = invRenderFlash(scope);
+    if(!n){ toast('No hay datos de ' + FR_ALC[scope][0].toLowerCase() + ' para el reporte.'); return; }
     await invCargarJs('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
     await invCargarJs('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
     fr = document.createElement('iframe');
@@ -4619,27 +4668,34 @@ async function invDescargarPDF(){
     document.body.appendChild(fr);
     const estilos = [...document.querySelectorAll('style,link[rel="stylesheet"]')].map(e => e.outerHTML).join('');
     const d = fr.contentDocument;
-    d.open(); d.write(`<!doctype html><html lang="es"><head><meta charset="utf-8">${estilos}<style>body{margin:0;background:#fff}.fx-doc{--nrz:1}.nr-sheet{margin:0!important;box-shadow:none!important}</style></head><body><div class="fx-doc">${document.getElementById('fx').innerHTML}</div></body></html>`); d.close();
+    d.open(); d.write(`<!doctype html><html lang="es"><head><meta charset="utf-8">${estilos}<style>body{margin:0;background:#fff}.fx-doc{--nrz:1}.nr-sheet{margin:0!important;box-shadow:none!important}</style></head><body><div class="fx-doc">${html}</div></body></html>`); d.close();
     await new Promise(r => setTimeout(r, 300));
     try{ await d.fonts.ready; }catch(e){}
     const pdf = new window.jspdf.jsPDF({ unit: 'pt', format: 'letter', orientation: 'portrait' });
     const pw = pdf.internal.pageSize.getWidth(), ph = pdf.internal.pageSize.getHeight();
     const hojas = [...d.querySelectorAll('.nr-sheet')];
     for(let i = 0; i < hojas.length; i++){
-      btn.textContent = `⏳ Generando PDF… ${i + 1}/${hojas.length}`;
+      estado(`⏳ Hoja ${i + 1} de ${hojas.length}…`);
       const canvas = await window.html2canvas(hojas[i], { scale: 2, backgroundColor: '#ffffff', useCORS: true, logging: false, windowWidth: 860 });
       if(i) pdf.addPage('letter', 'portrait');
       pdf.addImage(canvas.toDataURL('image/jpeg', 0.9), 'JPEG', 0, 0, pw, ph);
     }
     pdf.setProperties({ title: 'Flash report de inventario · NovaHouse', author: 'Consultas NovaHouse' });
-    pdf.save(`Flash_inventario_NovaHouse_${INV_FR === 'sem' ? 'semana' : INV_FR === 'tri' ? 'trimestre' : 'mes'}_${invHoy()}.pdf`);
-    toast('✓ PDF descargado.');
+    const nombre = `Flash_${scope === 'todo' ? 'inventario' : FR_ALC[scope][1]}_NovaHouse_${INV_FR === 'sem' ? 'semana' : INV_FR === 'tri' ? 'trimestre' : 'mes'}_${invHoy()}.pdf`;
+    // Descarga directa del archivo (sin abrir el PDF en otra pestaña)
+    const url = URL.createObjectURL(pdf.output('blob'));
+    const a = document.createElement('a'); a.href = url; a.download = nombre; a.style.display = 'none';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 30000);
+    toast('✓ PDF descargado: ' + FR_ALC[scope][0]);
+    frCerrar();
   }catch(e){
     console.error('[NovaHouse] Error generando el PDF del flash report:', e);
     toast('No se pudo generar el PDF. Revisa tu conexión e inténtalo de nuevo.');
   }finally{
     if(fr) fr.remove();
-    btn.disabled = false; btn.textContent = txt;
+    todos.forEach(b => b.disabled = false);
+    if(lbl) lbl.textContent = txt;
   }
 }
 // ============================================================
@@ -4841,7 +4897,7 @@ async function insNuevo(){
 }
 (function(){
   document.getElementById('iv-ub').addEventListener('click', e => { const b = e.target.closest('button[data-ub]'); if(b) invUbicacion(b.dataset.ub); });
-  document.getElementById('is-tabs').addEventListener('click', e => { const b = e.target.closest('[data-ist]'); if(!b) return; if(b.dataset.ist === 'flash'){ invUbicacion('mostrador'); invTab('flash'); return; } INS_TAB = b.dataset.ist; insRender(); });
+  document.getElementById('is-tabs').addEventListener('click', e => { const b = e.target.closest('[data-ist]'); if(!b) return; if(b.dataset.ist === 'flash'){ frAbrir(); return; } INS_TAB = b.dataset.ist; insRender(); });
   document.getElementById('is-fil').addEventListener('click', e => { const b = e.target.closest('.pill'); if(b){ INS_F = b.dataset.f; insRenderExist(); } });
   document.getElementById('is-al').addEventListener('click', e => { const b = e.target.closest('[data-f]'); if(b){ INS_F = b.dataset.f; insRenderExist(); } });
   ['is-cat','is-q'].forEach(id => document.getElementById(id).addEventListener(id === 'is-q' ? 'input' : 'change', insRenderExist));
@@ -4880,9 +4936,11 @@ async function insNuevo(){
   document.getElementById('iv-c-aplicar').addEventListener('click', invAplicarConteo);
   document.getElementById('iv-m-fil').addEventListener('click', e => { const b = e.target.closest('.pill'); if(b){ INV_MF = b.dataset.m; invRenderMovs(); } });
   document.getElementById('iv-m-q').addEventListener('input', invRenderMovs);
-  document.getElementById('fr-per').addEventListener('click', e => { const b = e.target.closest('button[data-p]'); if(b){ INV_FR = b.dataset.p; invRenderFlash(); } });
-  document.getElementById('fr-wa').addEventListener('click', invCopiarWA);
-  document.getElementById('fr-pdf').addEventListener('click', invDescargarPDF);
+  document.getElementById('fr-m-per').addEventListener('click', e => { const b = e.target.closest('button[data-p]'); if(!b) return; INV_FR = b.dataset.p; document.querySelectorAll('#fr-m-per button').forEach(x => x.classList.toggle('on', x === b)); });
+  document.getElementById('fr-m-alc').addEventListener('click', e => { const b = e.target.closest('button[data-alc]'); if(b && !b.disabled) invDescargarPDF(b.dataset.alc, b); });
+  document.getElementById('fr-m-wa').addEventListener('click', invCopiarWA);
+  document.getElementById('fr-m-x').addEventListener('click', frCerrar);
+  document.getElementById('fr-modal').addEventListener('click', e => { if(e.target.id === 'fr-modal') frCerrar(); });
   document.addEventListener('keydown', e => { if(e.key === 'Escape') invCerrar(); });
 })();
 

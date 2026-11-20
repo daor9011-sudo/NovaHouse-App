@@ -1982,6 +1982,64 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .cm-firma{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:auto;padding-top:24px}.cm-firma div{border-top:1px solid #0B1628;text-align:center;padding-top:4px;font-size:9px;color:#5B6B84}
 
 .com-tabs{margin:0 -22px 16px}
+/* Comisiones · Liquidación (estado de cuenta) */
+.cl-md{display:grid;grid-template-columns:290px minmax(0,1fr);gap:16px;align-items:start}
+.cl-lst{border:1.5px solid var(--g2);border-radius:14px;overflow:hidden;background:#fff;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto}
+.cl-it{display:flex;gap:10px;align-items:center;width:100%;padding:10px 12px;border:0;border-bottom:1px solid var(--g2);background:#fff;cursor:pointer;text-align:left;font:inherit;color:var(--navy)}
+.cl-it:last-child{border-bottom:0}.cl-it:hover{background:#F8FAFC}.cl-it.on{background:#F3F0F8;box-shadow:inset 3px 0 0 #7D3C98}
+.cl-it .tx{min-width:0;flex:1}.cl-it .tx b{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cl-it .tx small{display:block;font-size:11.5px;color:var(--g6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cl-it .v{text-align:right;font-family:var(--font-d);font-weight:800;font-size:13px;white-space:nowrap}.cl-it .v small{display:block;font-family:var(--font-b);font-weight:600;font-size:10.5px;color:var(--g6)}
+.cl-gh{background:var(--g1);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--g6);padding:6px 12px}
+.cl-dot{font-weight:700}.cl-dot.r{color:#B91C1C}.cl-dot.w{color:#B45309}
+.cl-av{flex:0 0 34px;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#7D3C98,#A56CC1);color:#fff;display:grid;place-items:center;font-weight:800;font-size:12.5px}
+.cl-av.renta{background:linear-gradient(135deg,#1B3A6B,#3B6BB5)}.cl-av.cli,.cl-av.sig{background:linear-gradient(135deg,#0B6B6B,#2ABFBF)}
+.cl-av.big{flex-basis:46px;width:46px;height:46px;border-radius:13px;font-size:15px}
+.chip.cl-ok{background:#DCFCE7;color:#166534}.chip.cl-bad{background:#FEE2E2;color:#B91C1C}.chip.cl-wa{background:#FEF3C7;color:#92400E}.chip.cl-nv{background:#E6ECFB;color:#1B3A6B}.chip.cl-te{background:#E0F7F7;color:#0B6B6B}
+.cl-der{min-width:0}
+.cl-dist{border:1.5px solid var(--g2);border-radius:14px;padding:11px 14px;margin:10px 0 4px;background:#fff}.cl-dist:empty{display:none}
+.cl-dist-h{display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--g6)}.cl-dist-h b{color:var(--navy)}.cl-dist-h span{font-weight:700}
+.cl-dist-bar{display:flex;height:12px;border-radius:99px;overflow:hidden;margin:8px 0;background:var(--g1)}.cl-dist-bar span{display:block}
+.cl-dist-lg{display:flex;gap:6px 16px;flex-wrap:wrap;font-size:12px;color:var(--g6)}.cl-dist-lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}.cl-dist-lg b{color:var(--navy)}
+.cl-sec-hint{font-weight:600;text-transform:none;letter-spacing:0;font-size:10.5px;color:var(--g6)}
+.cl-nomina{overflow-x:auto}
+.cl-t{width:100%;border-collapse:separate;border-spacing:0;font-size:12.5px}
+.cl-t th{background:var(--navy);color:#fff;text-align:left;font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;padding:9px 9px;font-weight:800;white-space:nowrap;border-bottom:3px solid var(--teal,#2ABFBF)}
+.cl-t th:first-child{border-top-left-radius:10px}.cl-t th:last-child{border-top-right-radius:10px}
+.cl-t td{padding:8px 9px;border-bottom:1px solid var(--g2);vertical-align:middle}
+.cl-t tbody tr{cursor:pointer}.cl-t tbody tr:hover td{background:#F8FAFC}
+.cl-t .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.cl-t td small{display:block;font-size:10.5px;color:var(--g6);font-weight:600}
+.cl-t tfoot td{border-top:2px solid var(--navy);border-bottom:0;background:var(--g1);font-weight:800}
+.cl-who{display:flex;gap:9px;align-items:center;min-width:170px}.cl-t .cl-st{margin-top:3px}.cl-t .cl-st .chip{font-size:10px;padding:2px 8px}.cl-who b{display:block;font-size:13px}.cl-who small{font-size:11px}
+.cl-net{font-family:var(--font-d);font-weight:800;font-size:15px;color:#7D3C98}.cl-net.bad{color:#B91C1C}.cl-net.nv{color:#1B3A6B}
+.cl-neg{color:#B91C1C;font-weight:600}.cl-mut{color:var(--g6)}
+.cl-split{height:6px;border-radius:99px;background:#2ABFBF;overflow:hidden;margin:4px 0 0 auto;width:80px}.cl-split i{display:block;height:100%;background:#7D3C98}
+.cl-all{margin-top:14px;border:1.5px solid var(--g2);border-radius:12px;padding:10px 14px;background:#fff}.cl-all summary{cursor:pointer;font-weight:800;font-size:13px;color:var(--navy)}.cl-all summary span{font-weight:600;font-size:11px;color:var(--g6)}.cl-all[open] summary{margin-bottom:10px}
+.cl-edo{border:1.5px solid var(--g2);border-radius:16px;overflow:hidden;background:#fff}
+.cl-edo-h{display:flex;gap:12px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--g2);background:linear-gradient(180deg,#FAFBFD,#fff);flex-wrap:wrap}
+.cl-edo-h .tt{min-width:0;flex:1}.cl-edo-h h3{margin:0;font:800 19px var(--font-d);color:var(--navy)}.cl-edo-h small{color:var(--g6);font-size:12.5px}
+.cl-edo-h .acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cl-pdf{border:1.5px solid var(--navy);background:var(--navy);color:#fff;border-radius:9px;padding:6px 12px;font-weight:700;cursor:pointer}.cl-pdf:disabled{opacity:.6;cursor:wait}
+.cl-edo-b{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.cl-wf{padding:12px 18px;border-right:1px solid var(--g2)}
+.cl-wf .ln{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed var(--g2);font-size:13px;color:#334155}.cl-wf .ln b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.cl-wf .ln.sub span{padding-left:14px;color:var(--g6);font-size:12.5px}.cl-wf .ln.sub b{font-weight:600;color:var(--g6)}
+.cl-wf .ln.tot{border-bottom:0;border-top:2px solid var(--navy);margin-top:4px;padding-top:10px;align-items:baseline}.cl-wf .ln.tot span{font-weight:800;color:var(--navy)}.cl-wf .ln.tot b{font:800 26px var(--font-d);color:#7D3C98}.cl-wf .ln.tot b.bad{color:#B91C1C}.cl-wf .ln.tot b.te{color:#0B6B6B}
+.cl-pie{padding:12px 18px;display:flex;flex-direction:column;gap:10px}
+.cl-pie .bx{border:1.5px solid var(--g2);border-radius:12px;padding:10px 12px}.cl-pie .bx small{display:block;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--g6);margin-bottom:6px}
+.cl-pie .bx.bad{border-color:#FCA5A5;background:#FEF2F2}.cl-pie .bx.bad small{color:#B91C1C}.cl-pie .bx.wa{border-color:#FCD34D;background:#FFFBEB}.cl-pie .bx.wa small{color:#92400E}
+.cl-pie .lg{display:flex;justify-content:space-between;font-size:12px;color:var(--g6);margin-top:6px}
+.cl-bar2{display:flex;height:22px;border-radius:7px;overflow:hidden;font-size:11px;font-weight:800;color:#fff;background:#2ABFBF}.cl-bar2 span{display:flex;align-items:center;padding:0 8px;white-space:nowrap;background:#7D3C98}.cl-bar2 span.n{flex:1;background:#2ABFBF;color:var(--navy)}
+.cl-rg{font-size:12.5px;color:var(--g6)}.cl-rg b{color:var(--navy)}
+.cl-edo-s{padding:10px 18px 16px;border-top:1px solid var(--g2)}
+.cl-sh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}.cl-sh b{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--g6)}
+.cl-seg{display:inline-flex;border:1.5px solid var(--g2);border-radius:10px;overflow:hidden}.cl-seg button{border:0;background:#fff;padding:6px 12px;font-weight:700;font-size:12px;color:var(--g6);cursor:pointer}.cl-seg button.on{background:var(--navy);color:#fff}
+.cl-mini-wrap{overflow-x:auto}
+.cl-mini{width:100%;border-collapse:collapse;font-size:12.5px}.cl-mini th{font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--g6);text-align:left;padding:7px 8px;border-bottom:1.5px solid var(--g2);white-space:nowrap}.cl-mini td{padding:6px 8px;border-bottom:1px dashed var(--g2)}.cl-mini .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cl-tg{display:inline-block;font-size:10.5px;font-weight:700;color:var(--g6);background:var(--g1);border-radius:6px;padding:2px 7px;white-space:nowrap}.cl-tg.ref{background:#E0F7F7;color:#0B6B6B}.cl-tg.fx{background:#F3E8FA;color:#6B2C85}.cl-tg.rt{background:#E6ECFB;color:#1B3A6B}.cl-tg.wa{background:#FEF3C7;color:#92400E}
+#com-kpis .k-net .kico{background:#F0E3F8}
+@media (max-width:1100px){.cl-md{grid-template-columns:250px minmax(0,1fr)}.cl-t .cl-hm{display:none}}
+@media (max-width:900px){.cl-md{grid-template-columns:minmax(0,1fr)}.cl-lst{position:static;max-height:none}.cl-edo-b{grid-template-columns:minmax(0,1fr)}.cl-wf{border-right:0;border-bottom:1px solid var(--g2)}.cl-mini .cl-hm{display:none}.cl-mini td,.cl-mini th{padding:6px 5px}.cl-t .cl-st{display:block}.cl-t .cl-hp{display:none}.cl-who{min-width:0}.cl-edo-h{padding:12px 14px}.cl-edo-h .acts{flex-basis:100%}.cl-edo-h h3{font-size:17px}.cl-wf,.cl-pie,.cl-edo-s{padding-left:14px;padding-right:14px}}
+
 .cr-intro{background:#F2FBFA;border:1px solid #CDEEE9;border-radius:12px;padding:12px 16px;margin-bottom:12px;font-size:13px;color:var(--navy)}.cr-intro p{margin:4px 0 0;color:var(--g6);line-height:1.5}
 .cr-top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}.cr-top input{margin-left:auto;min-width:240px;border:1.5px solid var(--g2);border-radius:10px;padding:8px 12px;font:500 13px var(--font-b)}
 .cr-pill{border:1.5px solid var(--g2);background:#fff;border-radius:999px;padding:6px 13px;font:700 12.5px var(--font-b);color:var(--g6);cursor:pointer}.cr-pill.on{background:var(--navy);border-color:var(--navy);color:#fff}
@@ -2466,23 +2524,29 @@ body:has(#app-view.act) #app-version-tag{display:none}
         <details class="cr-sin" id="com-reg-sinpct" style="display:none"></details>
       </div>
       <div class="subpanel active" id="com-resumen-panel">
-        <div class="kpi-grid cols4" id="com-kpis"></div>
-
-
-        <div class="sec-title">Liquidación por doctora</div>
-        <div class="persona-grid" id="com-persona-grid"></div>
-        <div id="com-persona-detalle"></div>
-
-        <div class="sec-title">Detalle de servicios <span style="font-weight:600;text-transform:none;letter-spacing:0;font-size:10.5px" id="com-detalle-count"></span></div>
-        <div class="com-filtros">
-          <label>Atendió<select id="com-f-atiende"><option value="">Todos</option></select></label>
-          <label>Doctora del paciente<select id="com-f-dueno"><option value="">Todos</option></select></label>
-          <label>Paciente o servicio<input type="search" id="com-f-q" placeholder="Buscar..." autocomplete="off"/></label>
-          <button class="btn-sm btn-outline" id="com-f-limpiar" type="button">Limpiar</button>
+        <div class="cl-md">
+          <div class="cl-lst" id="com-lst"></div>
+          <div class="cl-der" id="com-der">
+            <div id="com-res-view">
+              <div class="kpi-grid cols4" id="com-kpis"></div>
+              <div class="cl-dist" id="com-dist"></div>
+              <div class="sec-title">Liquidación por doctora <span class="cl-sec-hint">clic en una fila para ver su estado de cuenta</span></div>
+              <div class="cl-nomina" id="com-nomina"></div>
+              <details class="cl-all" id="com-all"><summary>Detalle de servicios <span id="com-detalle-count"></span></summary>
+                <div class="com-filtros">
+                  <label>Atendió<select id="com-f-atiende"><option value="">Todos</option></select></label>
+                  <label>Doctora del paciente<select id="com-f-dueno"><option value="">Todos</option></select></label>
+                  <label>Paciente o servicio<input type="search" id="com-f-q" placeholder="Buscar..." autocomplete="off"/></label>
+                  <button class="btn-sm btn-outline" id="com-f-limpiar" type="button">Limpiar</button>
+                </div>
+                <div class="com-filtros-res" id="com-f-res"></div>
+                <div class="com-leg"><span><i style="background:#2ABFBF"></i>Doctora</span><span><i style="background:#2F6FD0"></i>NovaHouse</span></div>
+                <div class="tx-table-wrap" id="com-detalle-wrap"><div class="empty-note">Cargando...</div></div>
+              </details>
+            </div>
+            <div id="com-doc-view" style="display:none"></div>
+          </div>
         </div>
-        <div class="com-filtros-res" id="com-f-res"></div>
-        <div class="com-leg"><span><i style="background:#2ABFBF"></i>Doctora</span><span><i style="background:#2F6FD0"></i>NovaHouse</span></div>
-        <div class="tx-table-wrap" id="com-detalle-wrap"><div class="empty-note">Cargando...</div></div>
       </div>
 
     </div>
@@ -3196,7 +3260,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.19-3';
+const APP_VERSION = 'v2026.11.19-4';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -5236,16 +5300,21 @@ function comReporteHtml(soloId){
     const porSrv = {}; x.lista.forEach(r => { const k = r.servicio + '|' + (r.tipo === 'referido' ? 'ref' : 'p') + '|' + (r.pct ?? 'f'); const o = porSrv[k] || (porSrv[k] = { s: r.servicio, ref: r.tipo === 'referido', p: r.pct, regla: r.regla, q: 0, m: 0, c: 0 }); o.q++; o.m += r.monto; o.c += r.comDoctor; });
     const con = Object.values(porSrv).sort((a, b) => b.c - a.c);
     const det = x.lista.slice().sort((a, b) => a.fecha < b.fecha ? -1 : 1);
-    const lineas = con.slice(0, 12).map(o => `<tr><td>${E(o.s)}${o.ref ? ' <span class="chip wa">referido</span>' : ''}</td><td class="num">${o.q}</td><td class="num">${$(o.m)}</td><td class="num">${o.p != null ? fmtPct(o.p * 100) + '%' : 'fijo'}</td><td class="num"><b>${$(o.c, 2)}</b></td></tr>`).join('');
-    const filas = det.slice(0, 18).map(r => `<tr><td>${fmtFechaCorta(r.fecha)}</td><td>${E(r.pacienteNombre)}</td><td>${E(r.servicio)}</td><td>${r.tipo === 'referido' ? 'Referido' : 'Propio'}</td><td class="num">${$(r.monto)}</td><td class="num">${$(r.comDoctor, 2)}</td></tr>`).join('');
+    const lineas = con.slice(0, 12).map(o => `<tr><td>${E(o.s)}${o.ref ? ' <span class="chip wa">referido</span>' : ''}</td><td class="num">${o.q}</td><td class="num">${$(o.m)}</td><td class="num">${o.p != null && !/fijo/i.test(o.regla || '') ? fmtPct(o.p * 100) + '%' : 'fijo'}</td><td class="num"><b>${$(o.c, 2)}</b></td></tr>`).join('');
+    const filaD = r => `<tr><td>${fmtFechaCorta(r.fecha)}</td><td>${E(r.pacienteNombre)}</td><td>${E(r.servicio)}</td><td>${r.tipo === 'referido' ? 'Referido' + (r.atiendeNombre ? ' · ' + E(String(r.atiendeNombre).replace(/^Dra?\.\s*/i, '')) : '') : 'Propio'}</td><td class="num">${$(r.monto)}</td><td class="num">${r.pct != null && !/fijo/i.test(r.regla || '') ? fmtPct(r.pct * 100) + '%' : 'fijo'}</td><td class="num">${$(r.comDoctor, 2)}</td></tr>`;
+    const filas = det.slice(0, 18).map(filaD).join('');
+    const thD = '<thead><tr><th>Fecha</th><th>Paciente</th><th>Servicio</th><th>Tipo</th><th class="num">Cobrado</th><th class="num">%</th><th class="num">Comisión</th></tr></thead>';
+    const anexos = det.length > 18 ? nrPaginar(det.slice(18).map(r => ['r', filaD(r)]), 40, 40).map((pg, k, arr) => `${nrHds('Comisiones de doctoras · NovaHouse', 'Detalle de servicios · ' + E(x.d.nombre) + (k ? ' (continuación)' : ''), E(titPer), E(rango))}<div class="nr-bd ax">
+     <table class="nr-t">${thD}<tbody>${pg.filas}</tbody></table>
+     ${pg.ultima ? `<div class="nr-tot"><span>Total · ${det.length} servicios · cobrado ${$(x.cob)}</span><b>${$(x.com, 2)}</b></div>` : '<p class="nr-cont">continúa en la siguiente hoja…</p>'}</div>`) : [];
     const e = x.e;
-    return `${nrHds('Comisiones de doctoras · NovaHouse', 'Estado de cuenta · ' + E(x.d.nombre), E(titPer), E(x.d.especialidad || rango))}<div class="nr-bd">
+    return [`${nrHds('Comisiones de doctoras · NovaHouse', 'Estado de cuenta · ' + E(x.d.nombre), E(titPer), E(x.d.especialidad || rango))}<div class="nr-bd">
      <div class="nr-ks">${nrKpi('Comisión bruta', $(x.com, 2), `${x.lista.length} servicio${x.lista.length === 1 ? '' : 's'}`, 'main')}${nrKpi('Cobrado a pacientes', $(x.cob), 'base de la comisión')}${nrKpi('+ IVA 16%', x.f.iva ? $(x.f.iva, 2) : '—', e?.con_iva ? 'factura con IVA' : 'sin IVA')}${nrKpi('− Retenciones', $(x.f.risr + x.f.riva, 2), !e ? 'sin esquema fiscal' : e.regimen === 'resico' ? 'RESICO · ISR 1.25%' + (e.con_iva ? ' + IVA' : '') : e.regimen === 'honorarios' ? 'Honorarios · ISR 10%' + (e.con_iva ? ' + IVA' : '') : 'sin retención')}${nrKpi('Neto a pagar', $(x.f.neto, 2), csf(e).replace(/<[^>]+>/g, ''))}</div>
      <div class="nr-g2" style="grid-template-columns:1.25fr 1fr"><div>${nrSec('Comisión por concepto')}<table class="nr-t"><thead><tr><th>Concepto</th><th class="num">Cant.</th><th class="num">Cobrado</th><th class="num">%</th><th class="num">Comisión</th></tr></thead><tbody>${lineas}</tbody></table>${con.length > 12 ? `<p class="nr-cont">y ${con.length - 12} conceptos más</p>` : ''}</div>
       <div>${nrSec('Cálculo fiscal')}<table class="nr-t cm-f"><tbody><tr><td>Subtotal (comisión)</td><td class="num">${$(x.com, 2)}</td></tr>${x.f.iva ? `<tr><td>+ IVA 16%</td><td class="num">${$(x.f.iva, 2)}</td></tr>` : ''}${x.f.risr ? `<tr><td>− Retención ISR ${e.regimen === 'resico' ? '1.25% (RESICO)' : '10%'}</td><td class="num neg">-${$(x.f.risr, 2).slice(1)}</td></tr>` : ''}${x.f.riva ? `<tr><td>− Retención IVA (2/3 · 10.67%)</td><td class="num neg">-${$(x.f.riva, 2).slice(1)}</td></tr>` : ''}<tr class="t"><td>Total a pagar</td><td class="num">${$(x.f.neto, 2)}</td></tr></tbody></table>
       <p class="nr-note" style="margin-top:6px">${e ? `La doctora emite su CFDI por el subtotal${e.con_iva ? ' más IVA' : ''}; NovaHouse entera las retenciones.` : 'Sin esquema fiscal: configúralo en Comisiones › Esquemas.'}${e?.csf === 'falta' ? ' <b class="neg">Falta su constancia fiscal.</b>' : ''}</p></div></div>
-     <div>${nrSec('Detalle de servicios', det.length > 18 ? `primeros 18 de ${det.length}` : `${det.length} servicios`)}<table class="nr-t"><thead><tr><th>Fecha</th><th>Paciente</th><th>Servicio</th><th>Tipo</th><th class="num">Cobrado</th><th class="num">Comisión</th></tr></thead><tbody>${filas}</tbody></table></div>
-     <div class="cm-firma"><div>Elaboró · Administración</div><div>Recibí de conformidad · ${E(x.d.nombre)}</div></div></div>`;
+     <div>${nrSec('Detalle de servicios', det.length > 18 ? `primeros 18 de ${det.length} · el resto en las hojas siguientes` : `${det.length} servicios`)}<table class="nr-t">${thD}<tbody>${filas}</tbody></table></div>
+     <div class="cm-firma"><div>Elaboró · Administración</div><div>Recibí de conformidad · ${E(x.d.nombre)}</div></div></div>`, ...anexos];
   };
   const cfgFilas = docs.map(d => { const e = COM_ESQ[d.id], nr = COM_RS_LIST.filter(r => r.personal_id === d.id).length;
     return ['r', `<tr><td><b>${nm(d.nombre)}</b><small>${E(d.especialidad || '')}</small></td><td class="num">${d.esquema_pago === 'renta' ? 'renta ' + $(d.renta_mensual || 0) : e && e.pct_consulta != null ? fmtPct(e.pct_consulta * 100) + '%' : 'catálogo'}</td><td class="num">${e && e.pct_referido != null ? fmtPct(e.pct_referido * 100) + '%' : '—'}</td><td class="num">${nr || '—'}</td><td>${reg(e)}</td><td>${e ? (e.con_iva ? 'Con IVA' : 'Sin IVA') : '—'}</td><td>${csf(e)}</td></tr>`]; });
@@ -5254,8 +5323,8 @@ function comReporteHtml(soloId){
    <table class="nr-t cm-t"><thead><tr><th>Doctora</th><th class="num">% consulta</th><th class="num">% referidos</th><th class="num">Reglas</th><th>Régimen</th><th>IVA</th><th>CSF</th></tr></thead><tbody>${cfgFilas.map(r => r[1]).join('')}</tbody></table>
    ${nrSec('Fiscal')}<ul class="nr-bul"><li>Honorarios: retención de ISR 10%. RESICO: 1.25%.</li><li>Si factura con IVA: se suma 16% y se retienen 2/3 del IVA (10.67%).</li></ul></div>`;
   let hojas;
-  if(soloId){ const x = liq.find(y => y.d.id === soloId && y.com > 0); hojas = x ? [edo(x)] : []; }
-  else hojas = [resumen, ...act.map(edo), cfg];
+  if(soloId){ const x = liq.find(y => y.d.id === soloId && y.com > 0); hojas = x ? edo(x) : []; }
+  else hojas = [resumen, ...act.flatMap(edo), cfg];
   return { html: nrHojas(hojas), n: hojas.length };
 }
 function comRepAbrir(){
@@ -5654,134 +5723,191 @@ function comMesesPeriodo(rows){
   return [...new Set(rows.map(r => String(r.fecha).slice(0,7)))].sort();
 }
 
-function renderComisionesResumen(){
-  const rows = COM_SERVICE_ROWS;
-  const ingresoTotal = rows.reduce((a,r)=> a + r.monto, 0);
-  const aDoctoras = rows.filter(r => !r.esRenta).reduce((a,r)=> a + r.comDoctor, 0);
-  const comNova = rows.reduce((a,r)=> a + r.comClinica, 0);
+// Liquidación (layout "estado de cuenta"): lista de cuentas a la izquierda; a la derecha el resumen del periodo
+// (tabla tipo nómina) o el estado de cuenta de la doctora seleccionada.
+let COM_SEL = '__res', COM_MODO = 'serv', COM_CUENTAS = [], COM_TOT = null;
+function comCuentas(rows){
   const desdeCom = document.getElementById('com-desde').value;
   const meses = comMesesPeriodo(rows);
   const doctoresTodos = (CATALOGOS.personal || []).filter(p => p.rol === 'doctor');
-  const rentaDe = d => (d.esquema_pago === 'renta' && Number(d.renta_mensual) > 0) ? Number(d.renta_mensual) * meses.length : 0;
-  const rentas = doctoresTodos.filter(d => personalVigente(d, desdeCom)).reduce((a, d) => a + rentaDe(d), 0);
-  const sinPct = rows.filter(r => r.regla === 'Sin % configurado');
-
-  const kpi = (cls, ico, label, val) => `<div class="kpi-card ${cls}"><div class="kico">${ico}</div><div class="ktx"><div class="kpi-label">${label}</div><div class="kpi-val">${val}</div></div></div>`;
-  document.getElementById('com-kpis').innerHTML =
-    kpi('k-ing', '💰', 'Ingreso por servicios', fmtMoney0(ingresoTotal)) +
-    kpi('k-com', '👩‍⚕️', 'Comisión doctoras (bruta)', fmtMoney0(aDoctoras)) +
-    kpi('k-due', '🏠', 'NovaHouse' + (rentas > 0 ? ' (incluye rentas)' : ''), fmtMoney0(comNova + rentas)) +
-    kpi('k-ser', '🧾', 'Servicios en el periodo', rows.length);
-
-
-
-  const panelDetalleHtml = (panelId, titulo, nombreCorto, lista, valDe, etiquetaValor) => {
-    const filasL = lista.slice().sort((a,b)=> (a.fecha < b.fecha ? 1 : -1));
-    const sumaValor = filasL.reduce((a,r)=> a + r.monto, 0);
-    const sumaCom = filasL.reduce((a,r)=> a + valDe(r), 0);
-    const filas = filasL.map(r => `<tr>
-        <td>${fmtFechaCorta(r.fecha)}</td>
-        <td>${esc2(r.pacienteNombre)}</td>
-        <td>${esc2(r.servicio)}</td>
-        <td class="num">${fmtMoney0(r.monto)}</td>
-        <td>${comReglaChip(r.regla)}</td>
-        <td class="num"><b>${fmtMoney0(valDe(r))}</b></td>
-      </tr>`).join('');
-    return `<div class="com-det-panel" id="${panelId}">
-      <div class="com-det-head">
-        <div><h4>${esc2(titulo)}</h4><div class="sub">${filasL.length} servicio${filasL.length===1?'':'s'} en este periodo</div></div>
-        <button class="cerrar" type="button" data-cerrar>✕ Cerrar</button>
-      </div>
-      <div class="com-det-wrap"><table class="com-det">
-        <thead><tr><th>Fecha</th><th>Paciente</th><th>Servicio</th><th class="num">Valor pagado</th><th>Regla</th><th class="num">${esc2(etiquetaValor)}</th></tr></thead>
-        <tbody>${filas || '<tr><td colspan="6" style="text-align:center;color:var(--g6);padding:22px">Sin servicios en este periodo.</td></tr>'}</tbody>
-      </table></div>
-      <div class="com-det-foot"><span>Valor pagado: <b>${fmtMoney0(sumaValor)}</b></span><span>${esc2(etiquetaValor)}: <b>${fmtMoney0(sumaCom)}</b></span></div>
-    </div>`;
-  };
-
-  // Tarjetas: una por doctora con producción en el periodo (o con renta fija vigente). Se ordenan por producción.
+  const rentaDe = d => (d.esquema_pago === 'renta' && Number(d.renta_mensual) > 0 && personalVigente(d, desdeCom)) ? Number(d.renta_mensual) * meses.length : 0;
   const prodDe = d => rows.filter(r => d.esquema_pago === 'clinica' ? r.atiendeId === d.id : (r.benefId || r.atiendeId) === d.id);
-  const doctores = doctoresTodos
-    .filter(d => prodDe(d).length || (rentaDe(d) > 0 && personalVigente(d, desdeCom)))
-    .map(d => ({ d, lista: prodDe(d) }))
-    .sort((a, b) => b.lista.reduce((s,r)=>s+r.monto,0) - a.lista.reduce((s,r)=>s+r.monto,0));
-  // Servicios atendidos por alguien que no es doctora (si algún día hay cosmetólogas u otro personal)
-  const otros = rows.filter(r => !doctoresTodos.some(d => d.id === r.atiendeId));
-
-  let panelesHtml = '';
-  let personaHtml = '';
-  doctores.forEach(({ d, lista }, i) => {
-    const prod = lista.reduce((a,r)=> a + r.monto, 0);
-    const panelId = `com-det-${d.id}`;
-    const nombreCorto = d.nombre.split(' ').slice(0,2).join(' ');
-    const esp = d.especialidad ? ` · ${esc2(d.especialidad)}` : '';
-    if(d.esquema_pago === 'clinica'){
-      panelesHtml += panelDetalleHtml(panelId, `${d.nombre} — servicios (100% NovaHouse)`, nombreCorto, lista, r => r.comClinica, 'NovaHouse');
-      personaHtml += `<div class="persona cosm">
-        <div class="nombre">${esc2(d.nombre)}</div>
-        <div class="rol">Servicios de la clínica · ${lista.length} servicio${lista.length===1?'':'s'}</div>
-        <div class="fila acordeon" data-panel="${panelId}" title="Ver el detalle"><span>Producción <span class="chev">▾</span></span><b>${fmtMoney0(prod)}</b></div>
-        <div class="spacer"></div><div class="total-block"><div class="total-label">Para NovaHouse</div><div class="total-value">${fmtMoney0(prod)}</div></div>
-      </div>`;
-      return;
-    }
-    if(d.esquema_pago === 'renta'){
-      const renta = rentaDe(d);
-      panelesHtml += panelDetalleHtml(panelId, `${d.nombre} — servicios (cobra en su terminal)`, nombreCorto, lista, r => r.monto, 'Cobrado por ella');
-      personaHtml += `<div class="persona doc1">
-        <div class="nombre">${esc2(d.nombre)}</div>
-        <div class="rol">Renta fija${esp} · ${lista.length} servicio${lista.length===1?'':'s'}</div>
-        <div class="fila acordeon" data-panel="${panelId}" title="Ver el detalle"><span>Producción (cobra ella) <span class="chev">▾</span></span><b>${fmtMoney0(prod)}</b></div>
-        <div class="fila"><span>Renta mensual</span><b>${fmtMoney0(d.renta_mensual || 0)}</b></div>
-        ${lista.some(r => !r.esRenta && r.comDoctor > 0) ? `<div class="fila"><span>Comisión procedimientos y referidos</span><b>${fmtMoney0(lista.filter(r => !r.esRenta).reduce((a, r) => a + r.comDoctor, 0))}</b></div>` : ''}
-        <div class="spacer"></div><div class="total-block"><div class="total-label">Renta a cobrar${meses.length > 1 ? ' (' + meses.length + ' meses)' : ''}</div><div class="total-value">${fmtMoney0(renta)}</div></div>
-      </div>`;
-      return;
-    }
+  const cuentas = doctoresTodos.map(d => {
+    const lista = prodDe(d), renta = rentaDe(d);
+    if(!lista.length && !renta) return null;
+    const tipo = d.esquema_pago === 'clinica' ? 'cli' : d.esquema_pago === 'renta' ? 'renta' : 'pct';
     const propios = lista.filter(r => r.atiendeId === d.id), refs = lista.filter(r => r.atiendeId !== d.id);
-    const prodP = propios.reduce((a,r)=> a + r.monto, 0), refM = refs.reduce((a,r)=> a + r.monto, 0), comRef = refs.reduce((a,r)=> a + r.comDoctor, 0);
-    const comD = lista.reduce((a,r)=> a + r.comDoctor, 0);
-    const comC = propios.reduce((a,r)=> a + r.comClinica, 0);
-    const fis = comFiscal(d.id, comD), eq = fis.esq;
-    const csfTxt = !eq ? '<span class="chip chip-7030" title="Configúralo en Esquemas">sin esquema fiscal</span>' : eq.csf === 'falta' ? '<span class="chip chip-7030">⚠ falta CSF</span>' : eq.csf === 'sin_dato' ? '<span class="chip">CSF sin confirmar</span>' : '';
-    const pcts = [...new Set(lista.filter(r => r.pct !== null).map(r => fmtPct(r.pct * 100)))];
-    const pctTxt = pcts.length === 1 ? pcts[0] + '%' : pcts.length ? 'varía (' + pcts.join(' / ') + '%)' : '—';
-    panelesHtml += panelDetalleHtml(panelId, `${d.nombre} — detalle`, nombreCorto, lista, r => r.comDoctor, 'Le corresponde');
-    personaHtml += `<div class="persona ${i % 2 ? 'doc2' : 'doc1'}">
-      <div class="nombre">${esc2(d.nombre)}</div>
-      <div class="rol">${lista.length} servicio${lista.length===1?'':'s'}${esp} ${csfTxt}</div>
-      <div class="fila acordeon" data-panel="${panelId}" title="Ver el detalle"><span>Producción <span class="chev">▾</span></span><b>${fmtMoney0(prodP)}</b></div>
-      <div class="fila"><span>% doctora</span><b>${esc2(pctTxt)}</b></div>
-      ${refs.length ? `<div class="fila"><span>Referidos (${refs.length}) · ${fmtMoney0(refM)}</span><b>${fmtMoney0(comRef)}</b></div>` : ''}
-      <div class="fila"><span>Para NovaHouse</span><b>${fmtMoney0(comC)}</b></div>
-      <div class="fila"><span>Comisión bruta</span><b>${fmtMoney0(comD)}</b></div>
-      ${eq && eq.regimen !== 'ninguno' ? `${fis.iva ? `<div class="fila"><span>+ IVA 16%</span><b>${fmtMoney0(fis.iva)}</b></div>` : ''}<div class="fila"><span>− Retenciones ${eq.regimen === 'resico' ? '(RESICO)' : '(ISR 10%)'}${fis.riva ? ' + IVA' : ''}</span><b style="color:#B91C1C">-${fmtMoney0(fis.risr + fis.riva).replace('$','$')}</b></div>` : ''}
-      <div class="spacer"></div><div class="total-block"><div class="total-label">${eq && eq.regimen !== 'ninguno' ? 'Neto a pagar' : 'A pagar a la doctora'}</div><div class="total-value">${fmtMoney0(fis.neto)}</div></div>
-    </div>`;
-  });
+    const propNR = propios.filter(r => !r.esRenta);
+    const cobP = propNR.reduce((a, r) => a + r.monto, 0), comP = propNR.reduce((a, r) => a + r.comDoctor, 0);
+    const refM = refs.reduce((a, r) => a + r.monto, 0), comR = refs.reduce((a, r) => a + r.comDoctor, 0);
+    const term = propios.filter(r => r.esRenta).reduce((a, r) => a + r.monto, 0);
+    const bruta = tipo === 'cli' ? 0 : comP + comR;
+    const f = tipo === 'cli' ? { esq: null, iva: 0, risr: 0, riva: 0, neto: 0 } : comFiscal(d.id, bruta), e = f.esq;
+    const estado = tipo === 'cli' ? 'cli' : tipo === 'renta' && !bruta ? 'renta' : !e ? 'sinesq' : e.csf === 'falta' ? 'falta' : e.csf === 'sin_dato' ? 'conf' : 'ok';
+    return { id: d.id, d, tipo, lista, propios, refs, cobP, comP, refM, comR, term, renta, bruta, f, e, estado,
+      prod: lista.filter(r => r.atiendeId === d.id).reduce((a, r) => a + r.monto, 0),
+      nova: tipo === 'cli' ? lista.reduce((a, r) => a + r.comClinica, 0) : propNR.reduce((a, r) => a + r.comClinica, 0),
+      refPag: tipo === 'cli' ? lista.reduce((a, r) => a + r.comDoctor, 0) : 0 };
+  }).filter(Boolean);
+  const otros = rows.filter(r => !doctoresTodos.some(d => d.id === r.atiendeId));
   if(otros.length){
-    const prod = otros.reduce((a,r)=> a + r.monto, 0);
-    panelesHtml += panelDetalleHtml('com-det-otros', 'Otro personal — 100% NovaHouse', 'NovaHouse', otros, r => r.comClinica, 'NovaHouse');
-    personaHtml += `<div class="persona cosm">
-      <div class="nombre">Otro personal</div>
-      <div class="rol">Servicios atendidos por personal que no es doctora</div>
-      <div class="fila acordeon" data-panel="com-det-otros" title="Ver el detalle"><span>Producción <span class="chev">▾</span></span><b>${fmtMoney0(prod)}</b></div>
-      <div class="spacer"></div><div class="total-block"><div class="total-label">Para NovaHouse</div><div class="total-value">${fmtMoney0(prod)}</div></div>
-    </div>`;
+    const prod = otros.reduce((a, r) => a + r.monto, 0);
+    cuentas.push({ id: '__otros', d: { id: '__otros', nombre: 'Otro personal', especialidad: 'Personal que no es doctora' }, tipo: 'cli', lista: otros, propios: otros, refs: [], cobP: prod, comP: 0, refM: 0, comR: 0, term: 0, renta: 0, bruta: 0, f: { esq: null, iva: 0, risr: 0, riva: 0, neto: 0 }, e: null, estado: 'cli', prod, nova: otros.reduce((a, r) => a + r.comClinica, 0), refPag: otros.reduce((a, r) => a + r.comDoctor, 0) });
   }
-  const gridPersonas = document.getElementById('com-persona-grid');
-  gridPersonas.innerHTML = personaHtml || '<div class="empty-note">Sin servicios en este periodo.</div>';
-  {
-    const nTot = gridPersonas.querySelectorAll(':scope > .persona').length;
-    if(nTot) gridPersonas.style.setProperty('--pg-cols', `repeat(${Math.min(nTot, 4)}, minmax(0, 1fr))`);
-    else gridPersonas.style.removeProperty('--pg-cols');
-  }
-  document.getElementById('com-persona-detalle').innerHTML = panelesHtml;
+  const orden = { pct: 0, renta: 1, cli: 2 };
+  cuentas.sort((a, b) => orden[a.tipo] - orden[b.tipo] || b.f.neto - a.f.neto || b.prod - a.prod);
+  return { cuentas, meses };
+}
+function comEstadoChip(c){
+  return ({ ok: '<span class="chip cl-ok">Lista para pagar</span>', falta: '<span class="chip cl-bad">Falta CSF · no pagar</span>', conf: '<span class="chip cl-wa">CSF sin confirmar</span>', sinesq: '<span class="chip cl-wa">Sin esquema fiscal</span>', renta: '<span class="chip cl-nv">Renta a cobrar</span>', cli: '<span class="chip cl-te">100% NovaHouse</span>' })[c.estado] || '';
+}
+const comSinDr = n => String(n || '').replace(/^Dra?\.\s*/i, '');
+const comIni = n => comSinDr(n).split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+const comRegTxt = e => !e ? 'Sin esquema fiscal' : e.regimen === 'ninguno' ? 'Sin retenciones' : (e.regimen === 'resico' ? 'RESICO 1.25%' : 'Honorarios 10%') + (e.con_iva ? ' · con IVA' : '');
+function comTag(r){
+  if(r.esRenta) return '<span class="cl-tg rt">Renta · cobra ella</span>';
+  if(String(r.regla || '').startsWith('Sin %')) return '<span class="cl-tg wa">⚠ Sin %</span>';
+  if(r.tipo === 'referido') return `<span class="cl-tg ref" title="${esc2(r.regla)}">Referido ${r.monto ? fmtPct(r.comDoctor / r.monto * 100) : 0}%</span>`;
+  if((r.pct == null || /fijo/i.test(r.regla || '')) && r.comDoctor > 0) return `<span class="cl-tg fx" title="${esc2(r.regla)}">${fmtMoney0(r.comDoctor)} fijo</span>`;
+  if(r.comDoctor > 0) return `<span class="cl-tg" title="${esc2(r.regla)}">${fmtPct(r.comDoctor / r.monto * 100)}% doctora</span>`;
+  return `<span class="cl-tg" title="${esc2(r.regla)}">100% NovaHouse</span>`;
+}
 
+function renderComisionesResumen(){
+  const rows = COM_SERVICE_ROWS;
+  const { cuentas, meses } = comCuentas(rows);
+  COM_CUENTAS = cuentas;
+  const pagan = cuentas.filter(c => c.tipo !== 'cli');
+  const T = {
+    ing: rows.reduce((a, r) => a + r.monto, 0),
+    bruta: pagan.reduce((a, c) => a + c.bruta, 0),
+    neto: pagan.reduce((a, c) => a + c.f.neto, 0),
+    iva: pagan.reduce((a, c) => a + c.f.iva, 0),
+    ret: pagan.reduce((a, c) => a + c.f.risr + c.f.riva, 0),
+    rentas: cuentas.reduce((a, c) => a + c.renta, 0),
+    novaSrv: rows.reduce((a, r) => a + r.comClinica, 0),
+    term: rows.filter(r => r.esRenta).reduce((a, r) => a + r.monto, 0),
+    meses: meses.length,
+  };
+  COM_TOT = T;
+  if(COM_SEL !== '__res' && !cuentas.some(c => c.id === COM_SEL)) COM_SEL = '__res';
+
+  // KPIs
+  const kpi = (cls, ico, label, val, sub) => `<div class="kpi-card ${cls}"><div class="kico">${ico}</div><div class="ktx"><div class="kpi-label">${label}</div><div class="kpi-val">${val}</div>${sub ? `<div class="kpi-sub">${sub}</div>` : ''}</div></div>`;
+  document.getElementById('com-kpis').innerHTML =
+    kpi('k-ing', '💰', 'Cobrado a pacientes', fmtMoney0(T.ing), `${rows.length} servicio${rows.length === 1 ? '' : 's'}`) +
+    kpi('k-com', '👩‍⚕️', 'Comisión bruta', fmtMoney0(T.bruta), `${pagan.filter(c => c.bruta > 0).length} doctoras`) +
+    kpi('k-net', '🧾', 'Neto a pagar', fmtMoney0(T.neto), 'después de IVA y retenciones') +
+    kpi('k-due', '🏠', 'Para NovaHouse', fmtMoney0(T.novaSrv + T.rentas), T.rentas ? `incluye ${fmtMoney0(T.rentas)} de rentas` : '');
+  // ¿A dónde se fue lo cobrado?
+  const base = T.bruta + T.novaSrv + T.term || 1, w = v => (v / base * 100).toFixed(2) + '%';
+  document.getElementById('com-dist').innerHTML = rows.length ? `<div class="cl-dist-h"><b>¿A dónde se fue lo cobrado?</b><span>${fmtMoney0(T.ing)}</span></div>
+    <div class="cl-dist-bar"><span style="width:${w(T.bruta)};background:#7D3C98" title="Doctoras"></span><span style="width:${w(T.novaSrv)};background:#2ABFBF" title="NovaHouse"></span><span style="width:${w(T.term)};background:#9DB2D3" title="Cobrado en su terminal (renta)"></span></div>
+    <div class="cl-dist-lg"><span><i style="background:#7D3C98"></i>Doctoras <b>${fmtMoney0(T.bruta)}</b></span><span><i style="background:#2ABFBF"></i>NovaHouse <b>${fmtMoney0(T.novaSrv)}</b></span>${T.term ? `<span><i style="background:#9DB2D3"></i>Cobrado en su terminal (renta) <b>${fmtMoney0(T.term)}</b></span>` : ''}${T.rentas ? `<span>+ Rentas fijas <b>${fmtMoney0(T.rentas)}</b></span>` : ''}${T.ret ? `<span>Retenciones a enterar <b>${fmtMoney0(T.ret)}</b></span>` : ''}</div>` : '';
+  comPintarLista();
+  comPintarNomina();
   comDetalleOpciones(rows);
   comDetallePintar();
+  comPintarDerecha();
 }
+function comPintarLista(){
+  const E = esc2, cs = COM_CUENTAS, T = COM_TOT;
+  const av = c => `<div class="cl-av ${c.tipo}">${E(c.id === '__otros' ? 'OP' : comIni(c.d.nombre))}</div>`;
+  const sub = c => c.estado === 'falta' ? '<span class="cl-dot r">● Falta CSF</span>' : c.estado === 'conf' ? '<span class="cl-dot w">● CSF sin confirmar</span>' : c.estado === 'sinesq' ? '<span class="cl-dot w">● Sin esquema fiscal</span>' : E(c.d.especialidad || (c.tipo === 'cli' ? 'Servicios de la clínica' : ''));
+  const val = c => c.tipo === 'cli' ? [fmtMoney0(c.nova), 'NovaHouse'] : c.tipo === 'renta' ? [fmtMoney0(c.renta), 'renta'] : [fmtMoney0(c.f.neto), 'neto'];
+  const it = c => { const v = val(c); return `<button type="button" class="cl-it${COM_SEL === c.id ? ' on' : ''}" data-csel="${E(c.id)}">${av(c)}<span class="tx"><b>${E(c.tipo === 'cli' ? c.d.nombre : comSinDr(c.d.nombre))}</b><small>${sub(c)}</small></span><span class="v">${v[0]}<small>${v[1]}</small></span></button>`; };
+  const g = (t, L) => L.length ? `<div class="cl-gh">${t} · ${L.length}</div>${L.map(it).join('')}` : '';
+  const pend = cs.filter(c => ['falta', 'conf', 'sinesq'].includes(c.estado) && c.bruta > 0).length;
+  document.getElementById('com-lst').innerHTML = `<button type="button" class="cl-it res${COM_SEL === '__res' ? ' on' : ''}" data-csel="__res"><div class="cl-av sig">Σ</div><span class="tx"><b>Resumen del periodo</b><small>${cs.length} cuenta${cs.length === 1 ? '' : 's'}${pend ? ` · <span class="cl-dot r">${pend} pendiente${pend === 1 ? '' : 's'}</span>` : ''}</small></span><span class="v">${fmtMoney0(T.neto)}<small>a pagar</small></span></button>`
+    + g('A pagar', cs.filter(c => c.tipo === 'pct')) + g('Renta fija', cs.filter(c => c.tipo === 'renta')) + g('Clínica', cs.filter(c => c.tipo === 'cli'))
+    + (cs.length ? '' : '<div class="empty-note">Sin servicios en este periodo.</div>');
+}
+function comPintarNomina(){
+  const E = esc2, $ = fmtMoney0, cs = COM_CUENTAS, T = COM_TOT;
+  const neg = v => v > 0.004 ? `<span class="cl-neg">-${$(v).replace('$', '$')}</span>` : '<span class="cl-mut">—</span>';
+  const filas = cs.map(c => {
+    const pc = c.cobP ? c.comP / c.cobP : 0;
+    const neto = c.tipo === 'cli' ? '<span class="cl-mut">—</span>' : c.tipo === 'renta' ? `<b class="cl-net nv">${$(c.renta)}</b><small>renta a cobrar${c.bruta ? ` · se le paga ${$(c.f.neto)}` : ''}</small>` : `<b class="cl-net${c.estado === 'falta' ? ' bad' : ''}">${$(c.f.neto)}</b>`;
+    return `<tr data-csel="${E(c.id)}" title="Ver su estado de cuenta"><td><div class="cl-who"><div class="cl-av ${c.tipo}">${E(c.id === '__otros' ? 'OP' : comIni(c.d.nombre))}</div><div><b>${E(c.tipo === 'cli' ? c.d.nombre : comSinDr(c.d.nombre))}</b><small>${c.tipo === 'renta' ? 'Renta fija · ' : ''}${c.lista.length} serv.${c.refs.length ? ` · ${c.refs.length} ref.` : ''}</small></div></div></td>
+      <td class="num cl-hp">${$(c.prod)}${c.tipo === 'pct' && c.cobP ? `<div class="cl-split" title="${fmtPct(pc * 100)}% doctora"><i style="width:${(pc * 100).toFixed(1)}%"></i></div>` : ''}</td>
+      <td class="num cl-hm">${c.tipo === 'cli' ? `<span class="cl-mut">—</span>` : $(c.bruta)}${c.comR ? `<small>incl. ${$(c.comR)} ref.</small>` : ''}</td>
+      <td class="num cl-hm">${neg(c.f.risr + c.f.riva)}${c.f.iva ? `<small>+${$(c.f.iva)} IVA</small>` : ''}</td>
+      <td class="num">${neto}<div class="cl-st">${comEstadoChip(c)}</div></td></tr>`;
+  }).join('');
+  document.getElementById('com-nomina').innerHTML = cs.length ? `<table class="cl-t"><thead><tr><th>Doctora</th><th class="num cl-hp">Producción</th><th class="num cl-hm">Comisión bruta</th><th class="num cl-hm">Retenciones</th><th class="num">Neto a pagar</th></tr></thead><tbody>${filas}</tbody>
+    <tfoot><tr><td>Total · ${cs.length}</td><td class="num cl-hp">${$(cs.reduce((a, c) => a + c.prod, 0))}</td><td class="num cl-hm">${$(T.bruta)}</td><td class="num cl-hm">${neg(T.ret)}${T.iva ? `<small>+${$(T.iva)} IVA</small>` : ''}</td><td class="num"><b class="cl-net">${$(T.neto)}</b></td></tr></tfoot></table>` : '<div class="empty-note">Sin servicios en este periodo.</div>';
+}
+function comPintarDerecha(){
+  const res = COM_SEL === '__res';
+  document.getElementById('com-res-view').style.display = res ? '' : 'none';
+  const box = document.getElementById('com-doc-view');
+  box.style.display = res ? 'none' : '';
+  if(res){ box.innerHTML = ''; return; }
+  const c = COM_CUENTAS.find(x => x.id === COM_SEL); if(!c){ box.innerHTML = ''; return; }
+  const E = esc2, $ = fmtMoney0, e = c.e, f = c.f;
+  const ln = (t, v, cls) => `<div class="ln ${cls || ''}"><span>${t}</span><b>${v}</b></div>`;
+  const menos = v => '-' + $(v);
+  let wf = '';
+  if(c.tipo === 'cli'){
+    wf = ln(`Cobrado a pacientes (${c.lista.length})`, $(c.prod)) + (c.refPag ? ln('Comisión a doctoras por referidos', menos(c.refPag), 'sub') : '') + `<div class="ln tot"><span>Para NovaHouse</span><b class="te">${$(c.nova)}</b></div>`;
+  } else {
+    if(c.tipo === 'renta'){
+      if(c.term) wf += ln('Consultas cobradas en su terminal', $(c.term));
+      wf += ln(`Renta a cobrarle${COM_TOT.meses > 1 ? ` (${COM_TOT.meses} meses)` : ''}`, $(c.renta));
+    }
+    const nP = c.propios.filter(r => !r.esRenta).length;
+    if(nP) wf += ln(`Cobrado por sus servicios (${nP})`, $(c.cobP)) + ln('Parte de NovaHouse', menos(c.nova), 'sub') + ln('Su comisión', $(c.comP));
+    if(c.refs.length) wf += ln(`Referidos (${c.refs.length} de ${$(c.refM)})`, '+' + $(c.comR));
+    if(c.bruta || c.tipo === 'pct'){
+      wf += ln('<b>Comisión bruta</b>', $(c.bruta));
+      if(f.iva) wf += ln('+ IVA 16%', '+' + $(f.iva), 'sub');
+      if(f.risr) wf += ln(`− ISR ${e.regimen === 'resico' ? '1.25% (RESICO)' : '10%'}`, menos(f.risr), 'sub');
+      if(f.riva) wf += ln('− Retención IVA (2/3)', menos(f.riva), 'sub');
+      wf += `<div class="ln tot"><span>Neto a pagar</span><b${c.estado === 'falta' ? ' class="bad"' : ''}>${$(f.neto)}</b></div>`;
+    }
+  }
+  const pc = c.cobP ? c.comP / c.cobP : 0;
+  const pacientes = new Set(c.lista.map(r => r.pacienteNombre)).size;
+  const lado = `${c.tipo !== 'cli' && c.cobP ? `<div class="bx"><small>Reparto de sus servicios</small><div class="cl-bar2"><span style="width:${(pc * 100).toFixed(1)}%">${pc >= .12 ? fmtPct(pc * 100) + '%' : ''}</span><span class="n">${1 - pc >= .12 ? fmtPct(100 - pc * 100) + '%' : ''}</span></div><div class="lg"><span>Ella ${$(c.comP)}</span><span>NovaHouse ${$(c.nova)}</span></div></div>` : ''}
+    <div class="bx"><small>Movimiento</small><div class="cl-rg"><b>${c.lista.length}</b> servicio${c.lista.length === 1 ? '' : 's'} · <b>${pacientes}</b> paciente${pacientes === 1 ? '' : 's'}${c.refs.length ? ` · <b>${c.refs.length}</b> referido${c.refs.length === 1 ? '' : 's'}` : ''}</div></div>
+    ${c.estado === 'falta' ? '<div class="bx bad"><small>No pagar todavía</small><div class="cl-rg">Falta su Constancia de Situación Fiscal. Captúrala en ⚙️ Esquemas por doctora.</div></div>' : c.estado === 'conf' || c.estado === 'sinesq' ? `<div class="bx wa"><small>Revisar antes de pagar</small><div class="cl-rg">${c.estado === 'conf' ? 'Su CSF está sin confirmar.' : 'No tiene esquema fiscal; se calcula sin retenciones.'} Revísalo en ⚙️ Esquemas por doctora.</div></div>` : ''}`;
+  // Servicios
+  let tabla;
+  if(COM_MODO === 'serv'){
+    const g = {}; c.lista.forEach(r => { const k = r.servicio + '|' + r.tipo + '|' + (r.esRenta ? 'r' : '') + '|' + r.regla; const o = g[k] || (g[k] = { r, n: 0, m: 0, d: 0, nh: 0 }); o.n++; o.m += r.monto; o.d += r.esRenta ? 0 : r.comDoctor; o.nh += r.esRenta ? 0 : r.comClinica; });
+    tabla = `<table class="cl-mini"><thead><tr><th>Servicio</th><th class="num">Veces</th><th class="num">Cobrado</th><th class="cl-hm">Regla</th><th class="num">${c.tipo === 'cli' ? 'Doctoras' : 'Le toca'}</th><th class="num cl-hm">NovaHouse</th></tr></thead><tbody>${Object.values(g).sort((a, b) => b.d - a.d || b.m - a.m).map(o => `<tr><td>${E(o.r.servicio)}</td><td class="num">${o.n}</td><td class="num">${$(o.m)}</td><td class="cl-hm">${comTag(o.r)}</td><td class="num"><b>${o.r.esRenta ? '—' : $(o.d)}</b></td><td class="num cl-hm">${o.r.esRenta ? '—' : $(o.nh)}</td></tr>`).join('')}</tbody></table>`;
+  } else {
+    const conAt = c.refs.length > 0 || c.tipo === 'cli';
+    const fc = f => { const x = String(f || '').split('-'); return x.length === 3 ? `${x[2]}/${x[1]}/${x[0].slice(2)}` : f; };
+    tabla = `<table class="cl-mini"><thead><tr><th>Fecha</th><th>Paciente</th><th>Servicio</th>${conAt ? `<th class="cl-hm">${c.tipo === 'cli' ? 'Doctora del paciente' : 'Atendió'}</th>` : ''}<th class="num cl-hm">Cobrado</th><th class="cl-hm">Regla</th><th class="num">${c.tipo === 'cli' ? 'Doctora' : 'Le toca'}</th><th class="num cl-hm">NovaHouse</th></tr></thead><tbody>${c.lista.slice().sort((a, b) => a.fecha < b.fecha ? 1 : -1).map(r => `<tr><td>${fc(r.fecha)}</td><td>${E(r.pacienteNombre)}</td><td>${E(r.servicio)}</td>${conAt ? `<td class="cl-hm">${E(comSinDr(c.tipo === 'cli' ? (r.duenoNombre || '—') : r.atiendeNombre))}</td>` : ''}<td class="num cl-hm">${$(r.monto)}</td><td class="cl-hm">${comTag(r)}</td><td class="num"><b>${r.esRenta ? '—' : $(r.comDoctor)}</b></td><td class="num cl-hm">${r.esRenta ? '—' : $(r.comClinica)}</td></tr>`).join('')}</tbody></table>`;
+  }
+  const puedePdf = c.tipo !== 'cli' && c.bruta > 0;
+  box.innerHTML = `<div class="cl-edo"><div class="cl-edo-h"><div class="cl-av big ${c.tipo}">${E(c.id === '__otros' ? 'OP' : comIni(c.d.nombre))}</div><div class="tt"><h3>${E(c.d.nombre)}</h3><small>${E(c.d.especialidad || (c.tipo === 'cli' ? 'Servicios de la clínica' : ''))}${c.tipo !== 'cli' ? ' · ' + comRegTxt(e) : ''}</small></div>
+      <div class="acts">${comEstadoChip(c)}${puedePdf ? `<button type="button" class="btn-sm cl-pdf" data-cpdf="${E(c.id)}">⬇ Flash report</button>` : ''}</div></div>
+    <div class="cl-edo-b"><div class="cl-wf">${wf}</div><div class="cl-pie">${lado}</div></div>
+    <div class="cl-edo-s"><div class="cl-sh"><b>Servicios</b><span class="cl-seg"><button type="button" data-cmodo="serv" class="${COM_MODO === 'serv' ? 'on' : ''}">Por servicio</button><button type="button" data-cmodo="uno" class="${COM_MODO === 'uno' ? 'on' : ''}">Uno por uno</button></span></div><div class="cl-mini-wrap">${tabla}</div></div></div>`;
+}
+async function comFlashDoctora(btn, id){
+  const txt = btn.textContent; btn.disabled = true;
+  try{
+    btn.textContent = '⏳ Preparando…';
+    const { html, n } = comReporteHtml(id);
+    if(!n){ toast('Sin comisión en el periodo.'); return; }
+    const d = (CATALOGOS.personal || []).find(p => p.id === id);
+    const per = (document.getElementById('com-desde').value || 'historial') + (document.getElementById('com-hasta').value ? '_a_' + document.getElementById('com-hasta').value : '');
+    await nrPdf(html, `Flash_comisiones_${(d ? comSinDr(d.nombre) : 'doctora').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^A-Za-z0-9]+/g, '_')}_${per}.pdf`, t => btn.textContent = t);
+    toast('✓ PDF descargado');
+  }catch(e){ console.error('[NovaHouse] Error en flash de doctora:', e); toast('No se pudo generar el PDF. Revisa tu conexión e inténtalo de nuevo.'); }
+  finally{ btn.disabled = false; btn.textContent = txt; }
+}
+document.getElementById('com-resumen-panel').addEventListener('click', e => {
+  const pdf = e.target.closest('[data-cpdf]'); if(pdf){ comFlashDoctora(pdf, pdf.dataset.cpdf); return; }
+  const m = e.target.closest('[data-cmodo]'); if(m){ COM_MODO = m.dataset.cmodo; comPintarDerecha(); return; }
+  const s = e.target.closest('[data-csel]'); if(s){
+    COM_SEL = s.dataset.csel; comPintarLista(); comPintarDerecha();
+    if(window.innerWidth <= 900 || s.closest('#com-nomina')) document.getElementById('com-der').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+});
 
 const COM_FILTRO = { atiende:'', dueno:'', q:'' };
 const comNorm = t => String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -5846,30 +5972,6 @@ document.getElementById('com-f-limpiar').addEventListener('click', () => {
   COM_FILTRO.atiende = ''; COM_FILTRO.dueno = ''; COM_FILTRO.q = '';
   document.getElementById('com-f-atiende').value = ''; document.getElementById('com-f-dueno').value = ''; document.getElementById('com-f-q').value = '';
   comDetallePintar();
-});
-
-// Paneles de detalle de "Liquidación por doctora": solo uno abierto a la vez.
-function comAbrirCerrarPanel(panelId){
-  const panel = document.getElementById(panelId);
-  if(!panel) return;
-  const yaAbierto = panel.classList.contains('show');
-  document.querySelectorAll('#com-persona-detalle .com-det-panel.show').forEach(p => p.classList.remove('show'));
-  document.querySelectorAll('#com-persona-grid .fila.acordeon.open').forEach(f => f.classList.remove('open'));
-  if(!yaAbierto){
-    panel.classList.add('show');
-    document.querySelector(`#com-persona-grid .fila.acordeon[data-panel="${panelId}"]`)?.classList.add('open');
-    panel.scrollIntoView({ behavior:'smooth', block:'nearest' });
-  }
-}
-document.getElementById('com-persona-grid').addEventListener('click', (e) => {
-  const fila = e.target.closest('.fila.acordeon');
-  if(fila) comAbrirCerrarPanel(fila.dataset.panel);
-});
-document.getElementById('com-persona-detalle').addEventListener('click', (e) => {
-  const btn = e.target.closest('[data-cerrar]');
-  if(!btn) return;
-  btn.closest('.com-det-panel').classList.remove('show');
-  document.querySelectorAll('#com-persona-grid .fila.acordeon.open').forEach(f => f.classList.remove('open'));
 });
 
 document.getElementById('com-mes').addEventListener('change', function(){

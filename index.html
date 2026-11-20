@@ -1980,6 +1980,20 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .nr-sheet .chip{display:inline-block;font-size:8.5px;font-weight:700;padding:1px 7px;border-radius:999px;white-space:nowrap}.nr-sheet .chip.ok{background:#DCFCE7;color:#166534}.nr-sheet .chip.bad{background:#FEE2E2;color:#B91C1C}.nr-sheet .chip.wa{background:#FEF3C7;color:#92400E}
 .cm-f tr.t td{font-weight:800;border-top:1px solid #0B1628;border-bottom:3px double #0B1628;background:#F2FBFA}.cm-f td{padding:4px 6px}
 .cm-firma{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:auto;padding-top:24px}.cm-firma div{border-top:1px solid #0B1628;text-align:center;padding-top:4px;font-size:9px;color:#5B6B84}
+
+.com-tabs{margin:0 -22px 16px}
+.cr-intro{background:#F2FBFA;border:1px solid #CDEEE9;border-radius:12px;padding:12px 16px;margin-bottom:12px;font-size:13px;color:var(--navy)}.cr-intro p{margin:4px 0 0;color:var(--g6);line-height:1.5}
+.cr-top{margin-bottom:12px}.cr-top input{width:100%;max-width:380px;border:1.5px solid var(--g2);border-radius:10px;padding:9px 12px;font:500 13px var(--font-b)}
+.cr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cr-card{border:1px solid var(--g2);border-radius:14px;padding:14px 16px;background:#fff;border-top:4px solid #7D3C98}
+.cr-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px}.cr-h b{font:800 15px var(--font-d);color:var(--navy)}.cr-h small{display:block;color:var(--g6);font-size:12px}
+.cr-chips{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.cr-chip{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--g1);color:var(--g6);white-space:nowrap}.cr-chip.ok{background:#DCFCE7;color:#166534}.cr-chip.bad{background:#FEE2E2;color:#B91C1C}.cr-chip.wa{background:#FEF3C7;color:#92400E}
+.cr-l{margin:0;padding-left:18px;font-size:13px;line-height:1.55;color:#24324a}.cr-l>li{margin:5px 0}.cr-l ul{margin:3px 0 0;padding-left:16px;font-size:12.5px}.cr-l li.warn{color:#B45309}
+.cr-l .ej{display:block;color:var(--g6);font-size:12px}
+.cr-nota{margin:8px 0 0;font-size:12px;color:#92400E;background:#FFF7ED;border-radius:8px;padding:6px 10px}
+.cr-sin{margin-top:14px;border:1px solid var(--g2);border-radius:12px;padding:10px 14px;font-size:12.5px;color:var(--g6)}.cr-sin summary{cursor:pointer;font-weight:700;color:var(--navy)}
+@media (max-width:900px){.cr-grid{grid-template-columns:minmax(0,1fr)}.com-tabs{margin:0 -13px 14px}}
 @media (max-width:1100px){.iv-al,.iv-kpis,.fr-hero{grid-template-columns:1fr 1fr}.iv-split{grid-template-columns:minmax(0,1fr)}.fr-grid{grid-template-columns:1fr 1fr}.fr-flow{grid-template-columns:1fr 1fr}.fr-flow .op{display:none}.fr-flow>div{border-bottom:1px solid var(--g2)}}
 @media (max-width:700px){
   .iv-hero{margin:-14px -13px 0;padding:16px 14px}.iv-hero h1{font-size:23px}.iv-hero .acts{margin-left:0;width:100%}.iv-hero .acts .iv-hbtn{flex:1;padding:9px 6px;font-size:12px}
@@ -2436,10 +2450,16 @@ body:has(#app-view.act) #app-version-tag{display:none}
 
       <div class="cc-bar" id="com-cierre-bar" style="display:none"></div>
 
+      <div class="iv-tabs com-tabs" id="com-tabs"><button type="button" data-cv="liq" class="on">💰 Liquidación</button><button type="button" data-cv="reg">📋 Reglas y condiciones</button></div>
+      <div id="com-reglas-panel" style="display:none">
+        <div class="cr-intro"><b>Cómo se liquida a cada doctora</b><p>Por cada servicio cobrado se busca, en este orden: 1) su regla para ese servicio (% o monto fijo), 2) el % del catálogo de servicios, 3) su % general de consulta. Los tratamientos que hace la clínica a pacientes a su nombre le pagan su % de referido. Al final se aplican IVA y retenciones según su régimen.</p></div>
+        <div class="cr-top"><input type="search" id="com-reg-q" placeholder="🔎 Buscar doctora o especialidad…" autocomplete="off"/></div>
+        <div class="cr-grid" id="com-reglas-list"></div>
+        <details class="cr-sin" id="com-reg-sinpct" style="display:none"></details>
+      </div>
       <div class="subpanel active" id="com-resumen-panel">
         <div class="kpi-grid cols4" id="com-kpis"></div>
 
-        <div class="note" id="com-aviso-pct" style="display:none;margin:4px 0 14px;background:#FFF7E6;border-left:3px solid #C8820A;color:#7A4B00"></div>
 
         <div class="sec-title">Liquidación por doctora</div>
         <div class="persona-grid" id="com-persona-grid"></div>
@@ -3168,7 +3188,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.19-1';
+const APP_VERSION = 'v2026.11.19-2';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -5253,6 +5273,67 @@ async function comRepDescargar(btn, soloId){
   finally{ todos.forEach(b => b.disabled = false); lbl.textContent = txt; }
 }
 
+// ── Pestaña "Reglas y condiciones": cómo se liquida a cada doctora, en palabras ──
+let COM_VISTA = 'liq';
+function comVista(v){
+  COM_VISTA = v;
+  document.querySelectorAll('#com-tabs button').forEach(b => b.classList.toggle('on', b.dataset.cv === v));
+  document.getElementById('com-resumen-panel').style.display = v === 'liq' ? '' : 'none';
+  document.getElementById('com-reglas-panel').style.display = v === 'reg' ? '' : 'none';
+  if(v === 'reg') comReglasRender();
+}
+async function comReglasRender(){
+  const box = document.getElementById('com-reglas-list');
+  if(!Object.keys(COM_ESQ).length) await comCargarEsquemas();
+  const E = esc2, $ = v => fmtMoney0(v || 0), P = p => fmtPct(Number(p) * 100) + '%';
+  const tipos = CATALOGOS.tiposServicioAll || [];
+  const q = comNorm(document.getElementById('com-reg-q').value || '');
+  const docs = (CATALOGOS.personal || []).filter(p => p.rol === 'doctor' && p.esquema_pago !== 'clinica' && (!q || comNorm(p.nombre + ' ' + (p.especialidad || '')).includes(q)))
+    .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+  const ej = 10000;
+  box.innerHTML = docs.map(d => {
+    const e = COM_ESQ[d.id] || null, reglas = COM_RS_LIST.filter(r => r.personal_id === d.id);
+    const nomS = id => tipos.find(t => t.id === id)?.nombre || reglas.find(r => r.tipo_servicio_id === id)?.catalogo_tipos_servicio?.nombre || 'Servicio';
+    const precioS = id => Number(tipos.find(t => t.id === id)?.precio || reglas.find(r => r.tipo_servicio_id === id)?.catalogo_tipos_servicio?.precio || 0);
+    const consCat = tipos.filter(t => t.doctor_id === d.id && t.activo !== false && !reglas.some(r => r.tipo_servicio_id === t.id && (r.monto_fijo != null || r.pct_realiza != null)));
+    const realiza = reglas.filter(r => r.monto_fijo != null || r.pct_realiza != null).sort((a, b) => nomS(a.tipo_servicio_id).localeCompare(nomS(b.tipo_servicio_id), 'es'));
+    const refEsp = reglas.filter(r => r.pct_referido != null && (e?.pct_referido == null || Number(r.pct_referido) !== Number(e.pct_referido)));
+    const items = [];
+    // Consultas
+    if(d.esquema_pago === 'renta'){
+      items.push(`<li><b>Consultas:</b> paga una <b>renta fija de ${$(d.renta_mensual)}</b> al mes y cobra sus consultas en su propia terminal; esas consultas no se liquidan.</li>`);
+    } else {
+      const cs = consCat.filter(t => t.pct_doctor != null);
+      if(cs.length) items.push(`<li><b>Consultas y servicios propios:</b><ul>${cs.map(t => `<li>${E(t.nombre)}: <b>${P(t.pct_doctor)}</b>${Number(t.precio) ? ` → ${$(Number(t.precio) * Number(t.pct_doctor))} de ${$(t.precio)}` : ''}</li>`).join('')}</ul></li>`);
+      if(e && e.pct_consulta != null) items.push(`<li>Cualquier otra <b>consulta</b> suya sin % en el catálogo: <b>${P(e.pct_consulta)}</b> de lo que pague la paciente.</li>`);
+      if(!cs.length && !(e && e.pct_consulta != null) && !realiza.length) items.push(`<li class="warn">Sin % de consulta configurado: lo que atienda se queda 100% en NovaHouse hasta que se capture.</li>`);
+    }
+    // Procedimientos que realiza ella
+    if(realiza.length) items.push(`<li><b>Procedimientos que realiza ella:</b><ul>${realiza.map(r => `<li>${E(nomS(r.tipo_servicio_id))}: ${r.monto_fijo != null ? `<b>${$(r.monto_fijo)} fijos</b> por servicio` : `<b>${P(r.pct_realiza)}</b>${precioS(r.tipo_servicio_id) ? ` → ${$(precioS(r.tipo_servicio_id) * Number(r.pct_realiza))} de ${$(precioS(r.tipo_servicio_id))}` : ''}`}${r.nota ? ` <i>(${E(r.nota)})</i>` : ''}</li>`).join('')}</ul></li>`);
+    // Referidos
+    if(e && e.pct_referido != null && Number(e.pct_referido) > 0) items.push(`<li><b>Tratamientos de sus pacientes que hace la clínica:</b> <b>${P(e.pct_referido)}</b> de lo que pague la paciente${refEsp.length ? `, salvo: ${refEsp.map(r => `${E(nomS(r.tipo_servicio_id))} <b>${P(r.pct_referido)}</b>`).join(', ')}` : ''}. Cuenta cuando la paciente está a su nombre.</li>`);
+    else if(refEsp.length) items.push(`<li><b>Tratamientos de sus pacientes que hace la clínica:</b> ${refEsp.map(r => `${E(nomS(r.tipo_servicio_id))} <b>${P(r.pct_referido)}</b>`).join(', ')}.</li>`);
+    else items.push('<li>No recibe comisión por tratamientos de sus pacientes que haga la clínica.</li>');
+    // Fiscal
+    const f = comFiscal(d.id, ej);
+    if(!e || e.regimen === 'ninguno') items.push(`<li><b>Fiscal:</b> ${e ? 'sin retenciones' : 'sin esquema fiscal capturado'}: se le paga la comisión completa.</li>`);
+    else items.push(`<li><b>Fiscal:</b> ${e.regimen === 'resico' ? 'RESICO' : 'honorarios'}${e.con_iva ? ', factura con IVA' : ', sin IVA'}. Emite su CFDI por la comisión${e.con_iva ? ' más 16% de IVA' : ''}; NovaHouse le retiene <b>ISR ${e.regimen === 'resico' ? '1.25%' : '10%'}</b>${e.con_iva ? ' y <b>2/3 del IVA (10.67%)</b>' : ''}. <span class="ej">Ejemplo: por ${$(ej)} de comisión recibe <b>${$(f.neto)}</b>${f.iva ? ` (+${$(f.iva)} de IVA, ` : ' ('}−${$(f.risr + f.riva)} de retenciones).</span></li>`);
+    const csf = !e ? '<span class="cr-chip wa">Sin esquema</span>' : e.csf === 'ok' ? '<span class="cr-chip ok">CSF ✓</span>' : e.csf === 'falta' ? '<span class="cr-chip bad">Falta CSF · no pagar</span>' : '<span class="cr-chip wa">CSF sin confirmar</span>';
+    const reg = d.esquema_pago === 'renta' ? '<span class="cr-chip">Renta fija</span>' : '<span class="cr-chip">Por porcentaje</span>';
+    return `<div class="cr-card"><div class="cr-h"><div><b>${E(d.nombre)}</b><small>${E(d.especialidad || '')}</small></div><div class="cr-chips">${reg}${csf}</div></div>
+      <ol class="cr-l">${items.join('')}</ol>${e?.nota ? `<p class="cr-nota">📝 ${E(e.nota)}</p>` : ''}</div>`;
+  }).join('') || '<div class="empty-note">Sin doctoras.</div>';
+  // Servicios sin % (antes salían como aviso arriba)
+  const sinPct = (COM_SERVICE_ROWS || []).filter(r => r.regla === 'Sin % configurado');
+  const det = document.getElementById('com-reg-sinpct');
+  const nombres = [...new Set(sinPct.map(r => r.servicio))].sort((a, b) => a.localeCompare(b, 'es'));
+  det.style.display = nombres.length ? '' : 'none';
+  det.innerHTML = `<summary>${sinPct.length} servicio${sinPct.length === 1 ? '' : 's'} del periodo sin regla para la doctora que lo atendió (quedan 100% en NovaHouse)</summary><p>${nombres.map(E).join(' · ')}</p><p class="iv-hint">Si alguno sí debe pagar comisión, agrégalo en <b>⚙️ Esquemas por doctora</b> → reglas por servicio.</p>`;
+}
+(function(){
+  document.getElementById('com-tabs')?.addEventListener('click', e => { const b = e.target.closest('button[data-cv]'); if(b) comVista(b.dataset.cv); });
+  document.getElementById('com-reg-q')?.addEventListener('input', comReglasRender);
+})();
 // ═════════ Configuración de esquemas (solo admin) ═════════
 let COM_ESQ_DOC = null;
 function comEsqAbrir(){
@@ -5298,7 +5379,7 @@ async function comEsqGuardar(){
   }
   btn.disabled = false;
   if(err){ console.error('[NovaHouse] Error guardando esquemas:', err); toast('No se pudieron guardar los esquemas.'); return; }
-  toast('✓ Esquemas guardados'); await comCargarEsquemas(); comEsqPintar(); cargarComisiones();
+  toast('✓ Esquemas guardados'); await comCargarEsquemas(); comEsqPintar(); cargarComisiones(); if(COM_VISTA === 'reg') comReglasRender();
 }
 async function comEsqAgregarRegla(){
   const nom = document.getElementById('ce-add-s').value.trim();
@@ -5526,6 +5607,7 @@ async function cargarComisiones(){
   COM_SERVICE_ROWS = calc;
   comRenderBarraCierre();
   renderComisionesResumen();
+  if(typeof COM_VISTA !== 'undefined' && COM_VISTA === 'reg') comReglasRender();
 }
 
 // Meses que abarca el periodo de Comisiones (para la renta fija). Sin fechas: los meses que tienen servicios.
@@ -5558,14 +5640,7 @@ function renderComisionesResumen(){
     kpi('k-due', '🏠', 'NovaHouse' + (rentas > 0 ? ' (incluye rentas)' : ''), fmtMoney0(comNova + rentas)) +
     kpi('k-ser', '🧾', 'Servicios en el periodo', rows.length);
 
-  const aviso = document.getElementById('com-aviso-pct');
-  if(aviso){
-    if(sinPct.length){
-      const nombres = [...new Set(sinPct.map(r => r.servicio))];
-      aviso.innerHTML = `⚠️ <b>${sinPct.length} servicio${sinPct.length === 1 ? '' : 's'}</b> sin % de doctora configurado (${nombres.map(esc2).join(', ')}): por ahora quedan 100% en NovaHouse. Captura el % en Configuración → Tipos de servicio.`;
-      aviso.style.display = '';
-    } else aviso.style.display = 'none';
-  }
+
 
   const panelDetalleHtml = (panelId, titulo, nombreCorto, lista, valDe, etiquetaValor) => {
     const filasL = lista.slice().sort((a,b)=> (a.fecha < b.fecha ? 1 : -1));

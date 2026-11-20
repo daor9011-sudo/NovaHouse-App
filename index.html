@@ -1960,6 +1960,26 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .fr-alc button.all{grid-column:1/-1;background:linear-gradient(135deg,#0B1628,#1B3A6B);border-color:#0B1628;color:#fff}.fr-alc button.all small{color:rgba(255,255,255,.8)}
 .fr-alc button:disabled{opacity:.6;cursor:wait}
 @media (max-width:520px){.fr-alc{grid-template-columns:1fr}}
+
+/* Comisiones: acciones, esquemas y reporte */
+.com-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.com-ab{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;border-radius:10px;padding:8px 14px;font:700 13px var(--font-b);cursor:pointer}
+.com-ab:hover{background:rgba(255,255,255,.18)}
+.ce-box{width:min(980px,100%)}
+.ce-t{width:100%;border-collapse:collapse;font-size:12.5px}.ce-t th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--g6);padding:7px 6px;border-bottom:2px solid var(--navy);white-space:nowrap}
+.ce-t td{padding:6px;border-bottom:1px solid var(--g2);vertical-align:middle}.ce-t td small{display:block;color:var(--g6);font-size:11px}
+.ce-t input,.ce-t select,.ce-add input{border:1.5px solid var(--g2);border-radius:8px;padding:6px 8px;font:500 12.5px var(--font-b);width:100%;min-width:70px;background:#fff;color:var(--navy)}
+.ce-t input[type=checkbox]{width:18px;min-width:0;height:18px}
+.ce-reglas{margin-top:14px;border:1px solid var(--g2);border-radius:12px;padding:12px 14px;background:#FAFBFD}.ce-reglas h4{display:flex;align-items:center;gap:8px;margin:0 0 6px;font:800 14px var(--font-d);color:var(--navy)}
+.ce-add{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:6px;margin-top:10px}
+@media (max-width:700px){.ce-add{grid-template-columns:1fr 1fr}.ce-add input:first-child{grid-column:1/-1}}
+.cm-bars{display:flex;flex-direction:column;gap:1px}.cm-b{display:grid;grid-template-columns:128px minmax(0,1fr) 62px;gap:8px;align-items:center;font-size:10px}
+.cm-b span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}.cm-b div{display:flex;height:9px;background:#F1F4F9;border-radius:4px;overflow:hidden}
+.cm-b i.d{background:#7D3C98}.cm-b i.n{background:#C9D2DE}.cm-b b{text-align:right}
+.cm-t td small{display:block;color:#8794A8;font-size:8.3px;line-height:1.1}.cm-t td{padding:2px 6px;line-height:1.25}
+.nr-sheet .chip{display:inline-block;font-size:8.5px;font-weight:700;padding:1px 7px;border-radius:999px;white-space:nowrap}.nr-sheet .chip.ok{background:#DCFCE7;color:#166534}.nr-sheet .chip.bad{background:#FEE2E2;color:#B91C1C}.nr-sheet .chip.wa{background:#FEF3C7;color:#92400E}
+.cm-f tr.t td{font-weight:800;border-top:1px solid #0B1628;border-bottom:3px double #0B1628;background:#F2FBFA}.cm-f td{padding:4px 6px}
+.cm-firma{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:auto;padding-top:24px}.cm-firma div{border-top:1px solid #0B1628;text-align:center;padding-top:4px;font-size:9px;color:#5B6B84}
 @media (max-width:1100px){.iv-al,.iv-kpis,.fr-hero{grid-template-columns:1fr 1fr}.iv-split{grid-template-columns:minmax(0,1fr)}.fr-grid{grid-template-columns:1fr 1fr}.fr-flow{grid-template-columns:1fr 1fr}.fr-flow .op{display:none}.fr-flow>div{border-bottom:1px solid var(--g2)}}
 @media (max-width:700px){
   .iv-hero{margin:-14px -13px 0;padding:16px 14px}.iv-hero h1{font-size:23px}.iv-hero .acts{margin-left:0;width:100%}.iv-hero .acts .iv-hbtn{flex:1;padding:9px 6px;font-size:12px}
@@ -2411,6 +2431,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
             <div class="com-todo-note">Todo el historial · sin filtro de fechas</div>
           </div>
         </div>
+        <div class="com-acts" id="com-acts"><button type="button" class="com-ab" id="com-btn-rep">⬇ Reporte PDF</button><button type="button" class="com-ab" id="com-btn-esq">⚙️ Esquemas por doctora</button></div>
       </div>
 
       <div class="cc-bar" id="com-cierre-bar" style="display:none"></div>
@@ -2526,6 +2547,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
               <button type="button" class="pill" data-f="pag">✅ Pagadas</button>
               <button type="button" class="pill" data-f="todo">Todas</button>
               <input type="text" id="cxp-q" placeholder="🔎 Buscar proveedor o concepto…"/>
+              <button type="button" class="btn-sm" id="cxp-flash" style="background:var(--navy);border-color:var(--navy);color:#fff">⚡ Flash report</button>
             </div>
             <div class="tx-table-wrap cxp-tblwrap">
               <table class="tx-table cxp-tbl">
@@ -2693,6 +2715,18 @@ body:has(#app-view.act) #app-version-tag{display:none}
         <div class="fx-doc" id="fx"></div>
       </div>
     </div>
+    <div class="fr-modal" id="com-rep-modal" role="dialog" aria-label="Reporte de comisiones"><div class="fr-box">
+      <div class="fr-mh"><div><b>⬇ Reporte de comisiones</b><small>Periodo: <span id="com-rep-per"></span> · se descarga en PDF directo</small></div><button type="button" data-cerrar aria-label="Cerrar">✕</button></div>
+      <div class="fr-alc"><button type="button" class="all"><span>📚</span><b>Reporte completo</b><small>Resumen, estado de cuenta de cada doctora y esquemas</small></button></div>
+      <div class="fr-ml">Estado de cuenta individual</div>
+      <div class="fr-alc" id="com-rep-docs"></div>
+    </div></div>
+    <div class="fr-modal" id="com-esq-modal" role="dialog" aria-label="Esquemas de comisión"><div class="fr-box ce-box">
+      <div class="fr-mh"><div><b>⚙️ Esquemas de comisión por doctora</b><small>% en porcentaje (60 = 60%). Si "% consulta" va vacío se usa el % del catálogo de servicios.</small></div><button type="button" data-cerrar aria-label="Cerrar">✕</button></div>
+      <div class="tx-table-wrap"><table class="ce-t"><thead><tr><th>Doctora</th><th>% consulta</th><th>% referidos</th><th>Régimen</th><th>IVA</th><th>CSF</th><th>Por servicio</th></tr></thead><tbody id="com-esq-tb"></tbody></table></div>
+      <div class="ce-reglas" id="com-esq-reglas" style="display:none"></div>
+      <button type="button" class="btn-sm" id="com-esq-guardar" style="width:100%;justify-content:center;margin-top:12px;background:var(--teal);border-color:var(--teal);color:#fff;padding:10px">✓ Guardar esquemas</button>
+    </div></div>
     <div class="fr-modal" id="fr-modal" role="dialog" aria-label="Descargar Flash report"><div class="fr-box">
       <div class="fr-mh"><div><b>⚡ Flash report de inventario</b><small>Se descarga en PDF directo, sin vista previa.</small></div><button type="button" id="fr-m-x" aria-label="Cerrar">✕</button></div>
       <div class="fr-ml">Periodo</div>
@@ -3134,7 +3168,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.18-6';
+const APP_VERSION = 'v2026.11.19-1';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -4966,26 +5000,340 @@ let comReqId = 0;
 let COM_REGLAS = [];
 async function comCargarReglas(){ return COM_REGLAS; }
 
+// ── Esquemas de comisión por doctora (comision_esquemas) y reglas por servicio (comision_reglas_servicio) ──
+let COM_ESQ = {}, COM_RS = {}, COM_RS_LIST = [];
+async function comCargarEsquemas(){
+  const [re, rr] = await Promise.all([
+    sb.from('comision_esquemas').select('*'),
+    sb.from('comision_reglas_servicio').select('*, catalogo_tipos_servicio(nombre,precio)'),
+  ]);
+  if(re.error || rr.error){ console.error('[NovaHouse] Error cargando esquemas de comisión:', re.error || rr.error); return; }
+  COM_ESQ = {}; (re.data || []).forEach(e => COM_ESQ[e.personal_id] = e);
+  COM_RS = {}; COM_RS_LIST = rr.data || []; COM_RS_LIST.forEach(r => COM_RS[r.personal_id + '|' + r.tipo_servicio_id] = r);
+}
+const comNum = v => (v === null || v === undefined || v === '' || isNaN(Number(v))) ? null : Number(v);
+const comPctTxt = p => fmtPct(p * 100) + '%';
+const comCorto = n => String(n || '').replace(/^Dra?\.\s*/i, '').split(/\s+/).slice(0, 2).join(' ');
+function comDocInfo(id){ return (CATALOGOS.personal || []).find(p => p.id === id) || null; }
+// Fiscal: honorarios retienen ISR 10%, RESICO 1.25%. Con IVA: +16% y se retienen 2/3 del IVA (10.6667%).
+function comFiscal(personalId, base){
+  const e = COM_ESQ[personalId];
+  if(!e || e.regimen === 'ninguno') return { esq: e || null, iva: 0, risr: 0, riva: 0, neto: base };
+  const iva = e.con_iva ? base * 0.16 : 0, risr = base * (e.regimen === 'resico' ? 0.0125 : 0.10), riva = e.con_iva ? base * 0.16 * 2 / 3 : 0;
+  return { esq: e, iva, risr, riva, neto: base + iva - risr - riva };
+}
 function comCalcularFila(row){
   const monto = Number(row.monto) || 0;
-  const pctRaw = row.pct;
-  const pct = (pctRaw === null || pctRaw === undefined || pctRaw === '' || isNaN(Number(pctRaw))) ? null : Number(pctRaw);
-  let comDoctor = 0, comClinica = monto, regla = '';
-  const esRenta = row.atiendeEsquema === 'renta';
-  if(row.atiendeEsquema === 'clinica'){
-    regla = 'Nova House · 100% NovaHouse';
+  const pctCat = comNum(row.pct);
+  let comDoctor = 0, comClinica = monto, regla = '', benefId = row.atiendeId, tipo = 'propio', pctAplicado = null;
+  const esRenta = row.atiendeEsquema === 'renta' && !!row.esConsulta;
+  const r = COM_RS[row.atiendeId + '|' + row.tipoServicioId], esq = COM_ESQ[row.atiendeId];
+  const aplica = (p, txt) => { pctAplicado = p; comDoctor = monto * p; comClinica = monto - comDoctor; regla = txt || `${fmtPct(p * 100)}% doctora / ${fmtPct(100 - p * 100)}% NovaHouse`; };
+  if(row.atiendeEsquema === 'clinica' || row.atiendeRol !== 'doctor'){
+    // Tratamiento que hizo la clínica (u otro personal) a una paciente de una doctora → comisión por referido
+    const d = row.duenoId, dd = d && d !== row.atiendeId ? comDocInfo(d) : null;
+    const rr = dd ? COM_RS[d + '|' + row.tipoServicioId] : null, ed = dd ? COM_ESQ[d] : null;
+    const p = rr && comNum(rr.pct_referido) != null ? Number(rr.pct_referido) : (ed && comNum(ed.pct_referido) != null ? Number(ed.pct_referido) : null);
+    if(dd && dd.rol === 'doctor' && dd.esquema_pago !== 'clinica' && p){
+      benefId = d; tipo = 'referido'; aplica(p, `Referido · ${fmtPct(p * 100)}% a ${comCorto(dd.nombre)}`);
+    } else regla = row.atiendeEsquema === 'clinica' ? 'Nova House · 100% NovaHouse' : 'Sin doctora · 100% NovaHouse';
+  } else if(r && comNum(r.monto_fijo) != null){
+    pctAplicado = monto ? Math.min(1, Number(r.monto_fijo) / monto) : 0;
+    comDoctor = Math.min(monto, Number(r.monto_fijo)); comClinica = monto - comDoctor; regla = `${fmtMoney0(Number(r.monto_fijo))} fijo a la doctora`;
+  } else if(r && comNum(r.pct_realiza) != null){
+    aplica(Number(r.pct_realiza));
   } else if(esRenta){
     comDoctor = monto; comClinica = 0; regla = 'Renta fija · cobra en su terminal';
-  } else if(row.atiendeRol !== 'doctor'){
-    regla = 'Sin doctora · 100% NovaHouse';
-  } else if(pct === null){
-    regla = 'Sin % configurado';
+  } else if(pctCat !== null){
+    aplica(pctCat);
+  } else if(row.esConsulta && esq && comNum(esq.pct_consulta) != null){
+    aplica(Number(esq.pct_consulta));
   } else {
-    comDoctor = monto * pct; comClinica = monto - comDoctor;
-    regla = `${fmtPct(pct * 100)}% doctora / ${fmtPct(100 - pct * 100)}% NovaHouse`;
+    regla = 'Sin % configurado';
   }
-  return { ...row, pct, esRenta, comDoctor, comClinica, regla };
+  return { ...row, pct: pctAplicado, esRenta, comDoctor, comClinica, regla, benefId, tipo };
 }
+
+// ── PDF genérico: hojas .nr-sheet → descarga directa ──
+async function nrPdf(html, nombre, estado){
+  await invCargarJs('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+  await invCargarJs('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+  const fr = document.createElement('iframe');
+  fr.setAttribute('aria-hidden', 'true');
+  fr.style.cssText = 'position:fixed;left:-12000px;top:0;width:860px;height:1200px;border:0;visibility:hidden';
+  document.body.appendChild(fr);
+  try{
+    const estilos = [...document.querySelectorAll('style,link[rel="stylesheet"]')].map(e => e.outerHTML).join('');
+    const d = fr.contentDocument;
+    d.open(); d.write(`<!doctype html><html lang="es"><head><meta charset="utf-8">${estilos}<style>body{margin:0;background:#fff}.fx-doc{--nrz:1}.nr-sheet{margin:0!important;box-shadow:none!important}</style></head><body><div class="fx-doc">${html}</div></body></html>`); d.close();
+    await new Promise(r => setTimeout(r, 300));
+    try{ await d.fonts.ready; }catch(e){}
+    const pdf = new window.jspdf.jsPDF({ unit: 'pt', format: 'letter', orientation: 'portrait' });
+    const pw = pdf.internal.pageSize.getWidth(), ph = pdf.internal.pageSize.getHeight();
+    const hojas = [...d.querySelectorAll('.nr-sheet')];
+    for(let i = 0; i < hojas.length; i++){
+      if(estado) estado(`⏳ Hoja ${i + 1} de ${hojas.length}…`);
+      const canvas = await window.html2canvas(hojas[i], { scale: 2, backgroundColor: '#ffffff', useCORS: true, logging: false, windowWidth: 860 });
+      if(i) pdf.addPage('letter', 'portrait');
+      pdf.addImage(canvas.toDataURL('image/jpeg', 0.9), 'JPEG', 0, 0, pw, ph);
+    }
+    pdf.setProperties({ title: nombre.replace(/\.pdf$/, ''), author: 'Consultas NovaHouse' });
+    const url = URL.createObjectURL(pdf.output('blob'));
+    const a = document.createElement('a'); a.href = url; a.download = nombre; a.style.display = 'none';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 30000);
+  } finally { fr.remove(); }
+}
+const nrHojas = (hojas, pie) => hojas.map((h, k) => `<div class="nr-sheet">${h}<div class="nr-ft"><span>${pie || 'Consultas NovaHouse · Mediconsulting S.C. · uso interno'}</span><span>Hoja ${k + 1} de ${hojas.length}</span></div></div>`).join('');
+const nrHd = (br, t1, t2, dt1, dt2) => `<div class="nr-hd"><div><div class="br">${br}</div><h1>${t1} <b>${t2}</b></h1></div><div class="dt"><strong>${dt1}</strong>${dt2}</div></div>`;
+const nrHds = (br, t, dt1, dt2) => `<div class="nr-hd s"><div><div class="br">${br}</div><h1>${t}</h1></div><div class="dt"><strong>${dt1}</strong>${dt2}</div></div>`;
+const nrSec = (t, s) => `<h2 class="nr-h2">${t}${s ? ` <small>${s}</small>` : ''}</h2>`;
+const nrKpi = (l, v, s, cls = '') => `<div class="nr-k ${cls}"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`;
+const nrGen = () => new Date().toLocaleString('es-MX', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit', hour12:true }).replace(',', ' ·');
+// Pagina filas de una tabla en varias hojas
+function nrPaginar(filas, primera, resto){
+  const out = []; let i = 0, p = true;
+  do { let ch = filas.slice(i, i + (p ? primera : resto)); if(ch.length > 1 && ch[ch.length - 1][0] === 'g') ch = ch.slice(0, -1); i += Math.max(1, ch.length); out.push({ filas: ch.map(r => r[1]).join(''), primera: p, ultima: i >= filas.length }); p = false; } while(i < filas.length);
+  return out;
+}
+
+// ═════════ Flash report de Cuentas por pagar ═════════
+function cxpFlashHtml(){
+  const E = esc2, $ = v => fmtMoney0(v || 0), hoy = cxpHoyISO(), f = new Date(hoy + 'T12:00:00');
+  const MES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const titPer = MES[f.getMonth()][0].toUpperCase() + MES[f.getMonth()].slice(1) + ' ' + f.getFullYear(), rango = `al ${f.getDate()} de ${MES[f.getMonth()]}`;
+  const pend = CXP_ROWS.filter(r => !r.pagado_en), pagM = CXP_ROWS.filter(r => r.pagado_en && r.pagado_en.slice(0, 7) === hoy.slice(0, 7));
+  const d = r => cxpDias(r.vence), T = L => L.reduce((a, r) => a + Number(r.monto || 0), 0), TP = L => L.reduce((a, r) => a + Number(r.monto_pagado || r.monto || 0), 0);
+  const venc = pend.filter(r => d(r) < 0), sem = pend.filter(r => d(r) >= 0 && d(r) <= 7), mes = pend.filter(r => d(r) >= 8 && d(r) <= 30), tot = T(pend);
+  const pl = (n, s) => n + ' ' + s + (n === 1 ? '' : 's');
+  // antigüedad
+  const AG = [['Vencido +30 d', x => x < -30, '#7F1D1D'], ['Vencido 1–30 d', x => x >= -30 && x < 0, '#B91C1C'], ['Vence 0–7 d', x => x >= 0 && x <= 7, '#D97706'], ['8–30 d', x => x >= 8 && x <= 30, '#1B3A6B'], ['31–60 d', x => x >= 31 && x <= 60, '#2ABFBF'], ['+60 d', x => x > 60, '#A9B4C4']];
+  const ag = AG.map(([l, fn, c]) => { const L = pend.filter(r => fn(d(r))); return [l, T(L), L.length, c]; }), mxa = Math.max(1, ...ag.map(a => a[1]));
+  const k$ = v => v >= 1000 ? '$' + (v / 1000).toFixed(v >= 10000 ? 0 : 1) + 'k' : $(v);
+  const agsvg = `<svg viewBox="0 0 560 184" class="nr-ch">${ag.map(([l, v, n, c], i) => { const h = v / mxa * 120, x = 20 + i * 90; return `<rect x="${x}" y="${(150 - h).toFixed(1)}" width="62" height="${Math.max(1.5, h).toFixed(1)}" rx="3" fill="${c}"/><text x="${x + 31}" y="${(144 - h).toFixed(1)}" text-anchor="middle" class="cv">${k$(v)}</text><text x="${x + 31}" y="166" text-anchor="middle" class="cx">${l}</text><text x="${x + 31}" y="178" text-anchor="middle" class="cx">${n} fact.</text>`; }).join('')}<line x1="10" x2="550" y1="150" y2="150" stroke="#334155"/></svg>`;
+  // calendario 8 semanas
+  const wk = []; for(let w = 0; w < 8; w++){ const a = new Date(f); a.setDate(a.getDate() + w * 7); const b = new Date(a); b.setDate(b.getDate() + 6); const ai = isoLocal(a), bi = isoLocal(b); wk.push([a, T(pend.filter(r => r.vence >= ai && r.vence <= bi))]); }
+  const mxw = Math.max(1, ...wk.map(x => x[1]));
+  const cal = `<svg viewBox="0 0 560 165" class="nr-ch">${wk.map(([a, v], i) => { const h = v / mxw * 110, x = 30 + i * 66; return `<rect x="${x}" y="${(140 - h).toFixed(1)}" width="46" height="${Math.max(1.5, h).toFixed(1)}" rx="3" fill="${i === 0 ? '#D97706' : '#7D3C98'}"/><text x="${x + 23}" y="${(134 - h).toFixed(1)}" text-anchor="middle" class="cv">${k$(v)}</text><text x="${x + 23}" y="156" text-anchor="middle" class="cx">${a.getDate()}/${a.getMonth() + 1}</text>`; }).join('')}<line x1="20" x2="550" y1="140" y2="140" stroke="#334155"/></svg>`;
+  // categorías
+  const cats = {}; pend.forEach(r => { const c = r.categoria || 'otros'; cats[c] = (cats[c] || 0) + Number(r.monto || 0); });
+  const ce = Object.entries(cats).sort((a, b) => b[1] - a[1]), PAL = ['#7D3C98','#2ABFBF','#1B3A6B','#A56CC1','#0F8F8F','#5B7DB1','#D5DCE6','#F2B35E'];
+  let acc = 0; const R = 50, CC = 2 * Math.PI * R;
+  const dona = `<svg viewBox="0 0 128 128">${ce.map(([, v], i) => { const fr = tot ? v / tot : 0; const s = `<circle cx="64" cy="64" r="${R}" fill="none" stroke="${PAL[i % 8]}" stroke-width="22" stroke-dasharray="${(CC * fr).toFixed(2)} ${CC.toFixed(2)}" stroke-dashoffset="${(-CC * acc).toFixed(2)}" transform="rotate(-90 64 64)"/>`; acc += fr; return s; }).join('') || `<circle cx="64" cy="64" r="${R}" fill="none" stroke="#E8EDF3" stroke-width="22"/>`}<text x="64" y="62" text-anchor="middle" class="dt">${k$(tot)}</text><text x="64" y="77" text-anchor="middle" class="ds">por pagar</text></svg>`;
+  const cap = s => String(s || '').charAt(0).toUpperCase() + String(s || '').slice(1);
+  const leg = ce.map(([k, v], i) => `<div class="nr-dl"><i style="background:${PAL[i % 8]}"></i><span>${E(cap(k))}</span><b>${tot ? Math.round(v / tot * 100) : 0}%</b><em>${$(v)}</em></div>`).join('');
+  const pv = {}; pend.forEach(r => { pv[r.proveedor] = (pv[r.proveedor] || 0) + Number(r.monto || 0); });
+  const pvs = Object.entries(pv).sort((a, b) => b[1] - a[1]).slice(0, 8), mxp = pvs[0]?.[1] || 1;
+  const provb = pvs.map(([k, v], i) => `<div class="nr-tp"><span class="r">${i + 1}</span><span class="n">${E(k)}</span><div class="t"><i style="width:${(v / mxp * 100).toFixed(0)}%;background:#1B3A6B"></i></div><span class="q">${pend.filter(r => r.proveedor === k).length} f.</span><b>${$(v)}</b></div>`).join('');
+  const dtd = r => { const x = d(r); return `<td class="${x < 0 ? 'neg' : x <= 7 ? 'warn' : ''}">${fmtFechaCorta(r.vence)}</td><td class="num ${x < 0 ? 'neg' : ''}">${x < 0 ? 'vencida ' + (-x) + ' d' : x === 0 ? 'hoy' : x + ' d'}</td>`; };
+  const prox = pend.filter(r => d(r) <= 14).sort((a, b) => a.vence.localeCompare(b.vence));
+  const vacio = t => `<p class="nr-vacio">${t}</p>`;
+  const semMax = wk.reduce((m, x) => x[1] > m[1] ? x : m, wk[0]);
+  const p1 = `${nrHd('NovaHouse · Gastos', 'Flash report de', 'cuentas por pagar', titPer, rango + ' · generado ' + nrGen())}<div class="nr-bd">
+   <div class="nr-g2" style="grid-template-columns:1fr 1.15fr"><div>${nrSec('Resumen ejecutivo')}
+    <p class="nr-lead">${pend.length ? `Hay <b>${pl(pend.length, 'factura')} por pagar</b> por <b>${$(tot)}</b>.` : 'No hay cuentas pendientes.'}${venc.length ? ` <b class="neg">${pl(venc.length, 'está vencida').replace('estás vencidas', 'están vencidas').replace('está vencidas', 'están vencidas')}</b> (${$(T(venc))}).` : ' Nada vencido.'}${sem.length ? ` ${sem.length} vence${sem.length === 1 ? '' : 'n'} en los próximos 7 días (${$(T(sem))}).` : ''}</p>
+    <ul class="nr-bul"><li>En el mes se han pagado <b>${pl(pagM.length, 'factura')}</b> por ${$(TP(pagM))}.</li>
+     ${pvs[0] ? `<li><b>${E(pvs[0][0])}</b> es el proveedor con más saldo (${$(pvs[0][1])}).</li>` : ''}
+     ${semMax[1] ? `<li>La semana más pesada empieza el <b>${semMax[0].getDate()}/${semMax[0].getMonth() + 1}</b> con ${$(semMax[1])}.</li>` : ''}
+     <li>${pl(pend.filter(r => r.recurrente).length, 'cuenta')} recurrente${pend.filter(r => r.recurrente).length === 1 ? '' : 's'}: al pagarlas se programa la del siguiente mes.</li></ul></div>
+    <div>${nrSec('Indicadores')}<table class="nr-t"><thead><tr><th>Indicador</th><th class="num">Monto</th><th class="num">Facturas</th></tr></thead><tbody>
+     <tr><td>Total por pagar</td><td class="num"><b>${$(tot)}</b></td><td class="num">${pend.length}</td></tr>
+     <tr><td>Vencido</td><td class="num neg"><b>${$(T(venc))}</b></td><td class="num">${venc.length}</td></tr>
+     <tr><td>Vence en 7 días</td><td class="num warn"><b>${$(T(sem))}</b></td><td class="num">${sem.length}</td></tr>
+     <tr><td>Vence en 8 a 30 días</td><td class="num"><b>${$(T(mes))}</b></td><td class="num">${mes.length}</td></tr>
+     <tr><td>Pagado en el mes</td><td class="num"><b>${$(TP(pagM))}</b></td><td class="num">${pagM.length}</td></tr></tbody></table></div></div>
+   <div>${nrSec('Pendientes', 'el detalle completo va en los anexos')}<div class="nr-al">
+    <div class="nr-a r"><b>${venc.length}</b><div><strong>Facturas vencidas</strong><br>${$(T(venc))} · pagar primero · <u>Anexo A</u></div></div>
+    <div class="nr-a w"><b>${sem.length}</b><div><strong>Vencen en 7 días</strong><br>${$(T(sem))} · programar pago · <u>Anexo A</u></div></div>
+    <div class="nr-a o"><b>${pagM.length}</b><div><strong>Pagadas en el mes</strong><br>${$(TP(pagM))} · ya están en Gastos · <u>Anexo B</u></div></div></div></div>
+   <div class="nr-g2"><div>${nrSec('Antigüedad de saldos', 'monto por rango de vencimiento')}${pend.length ? agsvg : vacio('Sin saldos pendientes.')}</div><div>${nrSec('Por categoría', 'saldo pendiente')}${ce.length ? `<div class="nr-dv">${dona}<div>${leg}</div></div>` : vacio('Sin saldos pendientes.')}</div></div>
+   <div class="nr-g2"><div>${nrSec('Calendario de pagos', 'próximas 8 semanas · inicio de semana')}${cal}</div><div>${nrSec('Proveedores con más saldo', 'pendiente')}${provb || vacio('Sin saldos pendientes.')}</div></div>
+   <div>${nrSec('Próximos vencimientos', 'vencidas y siguientes 14 días')}${prox.length ? `<table class="nr-t"><thead><tr><th>Proveedor</th><th>Concepto</th><th>Vence</th><th class="num">Días</th><th class="num">Monto</th></tr></thead><tbody>${prox.slice(0, 10).map(r => `<tr><td>${E(r.proveedor)}</td><td>${E(r.concepto || '')}</td>${dtd(r)}<td class="num"><b>${$(r.monto)}</b></td></tr>`).join('')}</tbody></table>${prox.length > 10 ? `<p class="nr-cont">y ${prox.length - 10} más en el Anexo A</p>` : ''}` : vacio('Nada vence en los próximos 14 días.')}</div>
+  </div>`;
+  const filaA = r => ['r', `<tr><td>${E(r.proveedor)}<small style="display:block;color:#8794A8;font-size:8.5px">${E(r.concepto || '')}</small></td><td>${E(cap(r.categoria))}</td><td>${E(r.num_factura || '—')}</td><td>${r.fecha_factura ? fmtFechaCorta(r.fecha_factura) : '—'}</td>${dtd(r)}<td class="num">${r.recurrente ? '↻' : ''}</td><td class="num"><b>${$(r.monto)}</b></td></tr>`];
+  const filaB = r => ['r', `<tr><td>${E(r.proveedor)}<small style="display:block;color:#8794A8;font-size:8.5px">${E(r.concepto || '')}</small></td><td>${E(cap(r.categoria))}</td><td>${E(r.num_factura || '—')}</td><td>${fmtFechaCorta(r.vence)}</td><td>${fmtFechaCorta(r.pagado_en)}</td><td class="num"><b>${$(r.monto_pagado || r.monto)}</b></td></tr>`];
+  const hojas = [p1];
+  nrPaginar(pend.slice().sort((a, b) => a.vence.localeCompare(b.vence)).map(filaA), 30, 34).forEach(pg => hojas.push(`${nrHds('Flash report de cuentas por pagar · NovaHouse', 'Anexo A · Cuentas pendientes de pago' + (pg.primera ? '' : ' (continuación)'), titPer, rango)}<div class="nr-bd ax">
+    ${pg.primera ? `<div class="nr-ai"><div><small>Facturas</small><b>${pend.length}</b></div><div><small>Por pagar</small><b>${$(tot)}</b></div><div><small>Vencido</small><b class="neg">${$(T(venc))}</b></div><div><small>Recurrentes</small><b>${pend.filter(r => r.recurrente).length}</b></div></div><p class="nr-note">Ordenadas por vencimiento. ↻ = recurrente (al pagarla se crea la del siguiente mes).</p>` : ''}
+    ${pend.length ? `<table class="nr-t"><thead><tr><th>Proveedor</th><th>Categoría</th><th>Factura</th><th>Fecha factura</th><th>Vence</th><th class="num">Días</th><th class="num"></th><th class="num">Monto</th></tr></thead><tbody>${pg.filas}</tbody></table>` : vacio('No hay cuentas pendientes.')}
+    ${pg.ultima ? `<div class="nr-tot"><span>Total por pagar · ${pl(pend.length, 'factura')}</span><b>${$(tot)}</b></div>` : '<p class="nr-cont">continúa en la siguiente hoja…</p>'}</div>`));
+  nrPaginar(pagM.slice().sort((a, b) => a.pagado_en.localeCompare(b.pagado_en)).map(filaB), 34, 36).forEach(pg => hojas.push(`${nrHds('Flash report de cuentas por pagar · NovaHouse', 'Anexo B · Pagadas en el mes' + (pg.primera ? '' : ' (continuación)'), titPer, rango)}<div class="nr-bd ax">
+    ${pg.primera ? '<p class="nr-note">Cuentas pagadas en el mes; cada pago ya quedó registrado como gasto.</p>' : ''}
+    ${pagM.length ? `<table class="nr-t"><thead><tr><th>Proveedor</th><th>Categoría</th><th>Factura</th><th>Vencía</th><th>Pagada</th><th class="num">Monto</th></tr></thead><tbody>${pg.filas}</tbody></table>` : vacio('Sin pagos en el mes.')}
+    ${pg.ultima ? `<div class="nr-tot"><span>Total pagado en el mes · ${pl(pagM.length, 'factura')}</span><b>${$(TP(pagM))}</b></div>` : '<p class="nr-cont">continúa en la siguiente hoja…</p>'}</div>`));
+  return nrHojas(hojas);
+}
+async function cxpFlashDescargar(){
+  const btn = document.getElementById('cxp-flash'), txt = btn.textContent;
+  btn.disabled = true; btn.textContent = '⏳ Preparando…';
+  try{
+    await cxpCargar();
+    await nrPdf(cxpFlashHtml(), `Flash_cuentas_por_pagar_NovaHouse_${cxpHoyISO()}.pdf`, t => btn.textContent = t);
+    toast('✓ PDF descargado');
+  }catch(e){ console.error('[NovaHouse] Error en flash de cuentas por pagar:', e); toast('No se pudo generar el PDF. Revisa tu conexión e inténtalo de nuevo.'); }
+  finally{ btn.disabled = false; btn.textContent = txt; }
+}
+
+// ═════════ Reporte de comisiones (PDF) ═════════
+function comReporteHtml(soloId){
+  const E = esc2, $ = (v, d = 0) => '$' + Number(v || 0).toLocaleString('es-MX', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const rows = COM_SERVICE_ROWS, docs = (CATALOGOS.personal || []).filter(p => p.rol === 'doctor' && p.esquema_pago !== 'clinica');
+  const desde = document.getElementById('com-desde').value, hasta = document.getElementById('com-hasta').value;
+  const per = document.getElementById('com-hero-per')?.textContent || '';
+  const titPer = per || 'Periodo', rango = desde && hasta ? `del ${fmtFechaCorta(desde)} al ${fmtFechaCorta(hasta)}` : 'todo el historial';
+  const liq = docs.map(d => {
+    const lista = rows.filter(r => (r.benefId || r.atiendeId) === d.id && r.comDoctor > 0 && !r.esRenta);
+    const renta = rows.filter(r => r.atiendeId === d.id && r.esRenta);
+    const cob = lista.reduce((a, r) => a + r.monto, 0), com = lista.reduce((a, r) => a + r.comDoctor, 0);
+    return { d, lista, renta, cob, com, f: comFiscal(d.id, com), e: COM_ESQ[d.id] || null };
+  }).filter(x => x.com > 0 || x.renta.length).sort((a, b) => b.com - a.com);
+  const act = liq.filter(x => x.com > 0);
+  const TC = act.reduce((a, x) => a + x.cob, 0), TB = act.reduce((a, x) => a + x.com, 0), TN = act.reduce((a, x) => a + x.f.neto, 0), TR = act.reduce((a, x) => a + x.f.risr + x.f.riva, 0), TI = act.reduce((a, x) => a + x.f.iva, 0);
+  const csf = e => !e ? '<span class="chip wa">Sin esquema</span>' : e.csf === 'ok' ? '<span class="chip ok">CSF ✓</span>' : e.csf === 'falta' ? '<span class="chip bad">Falta CSF</span>' : '<span class="chip wa">Sin dato</span>';
+  const reg = e => !e ? '—' : e.regimen === 'resico' ? 'RESICO' : e.regimen === 'honorarios' ? 'Honorarios' : 'Sin retención';
+  const sinCsf = act.filter(x => x.e?.csf === 'falta'), sinDato = act.filter(x => !x.e || x.e.csf === 'sin_dato'), rentas = liq.filter(x => x.renta.length);
+  const mxc = Math.max(1, ...act.map(x => x.cob));
+  const nm = n => E(String(n).replace(/^Dra?\.\s*/i, ''));
+  const resumen = `${nrHd('NovaHouse · Comisiones', 'Comisiones de', 'doctoras', E(titPer), rango + ' · generado ' + nrGen())}<div class="nr-bd">
+   <div class="nr-ks">${nrKpi('Cobrado por servicios con comisión', $(TC), `${act.length} doctora${act.length === 1 ? '' : 's'} con comisión`, 'main')}${nrKpi('Comisión bruta doctoras', $(TB), TC ? Math.round(TB / TC * 100) + '% de lo cobrado' : '')}${nrKpi('Para NovaHouse', $(TC - TB), TC ? Math.round((TC - TB) / TC * 100) + '% de lo cobrado' : '')}${nrKpi('Retenciones (ISR + IVA)', $(TR), 'se enteran al SAT')}${nrKpi('Neto a pagar', $(TN), 'incluye IVA trasladado ' + $(TI))}</div>
+   <div class="nr-al">
+    <div class="nr-a r"><b>${sinCsf.length}</b><div><strong>Sin constancia fiscal (CSF)</strong><br>${sinCsf.length ? sinCsf.map(x => nm(x.d.nombre)).join(', ') + ' · no pagar sin CSF' : 'Todas las que cobran tienen CSF'}</div></div>
+    <div class="nr-a w"><b>${sinDato.length}</b><div><strong>CSF o esquema sin confirmar</strong><br>${sinDato.length ? sinDato.map(x => nm(x.d.nombre)).join(', ') : 'Todo confirmado'}</div></div>
+    <div class="nr-a o"><b>${rentas.length}</b><div><strong>Renta fija (consultas no comisionan)</strong><br>${rentas.length ? rentas.map(x => nm(x.d.nombre) + ' · ' + $(x.d.renta_mensual || 0)).join(', ') : '—'}</div></div></div>
+   <div>${nrSec('Comisión por doctora', 'morado = doctora · gris = NovaHouse')}<div class="cm-bars">${act.map(x => `<div class="cm-b"><span>${nm(x.d.nombre)}</span><div><i style="width:${(x.com / mxc * 100).toFixed(1)}%" class="d"></i><i style="width:${((x.cob - x.com) / mxc * 100).toFixed(1)}%" class="n"></i></div><b>${$(x.com)}</b></div>`).join('') || '<p class="nr-vacio">Sin comisiones en el periodo.</p>'}</div></div>
+   <div>${nrSec('Resumen por doctora', E(rango))}<table class="nr-t cm-t"><thead><tr><th>Doctora</th><th class="num">Cobrado</th><th class="num">Comisión</th><th class="num">+ IVA</th><th class="num">− Retenciones</th><th class="num">Neto a pagar</th><th>CSF</th></tr></thead><tbody>
+    ${act.slice(0, 16).map(x => `<tr><td><b>${nm(x.d.nombre)}</b><small>${E(x.d.especialidad || '')} · ${reg(x.e)}${x.e?.con_iva ? ' · con IVA' : ''}</small></td><td class="num">${$(x.cob)}</td><td class="num">${$(x.com)}</td><td class="num">${x.f.iva ? $(x.f.iva) : '—'}</td><td class="num neg">${x.f.risr + x.f.riva ? '-' + $(x.f.risr + x.f.riva).slice(1) : '—'}</td><td class="num"><b>${$(x.f.neto)}</b></td><td>${csf(x.e)}</td></tr>`).join('')}</tbody></table>
+    <div class="nr-tot"><span>Total a pagar a doctoras · ${act.length}</span><b>${$(TN)}</b></div></div></div>`;
+  const edo = x => {
+    const porSrv = {}; x.lista.forEach(r => { const k = r.servicio + '|' + (r.tipo === 'referido' ? 'ref' : 'p') + '|' + (r.pct ?? 'f'); const o = porSrv[k] || (porSrv[k] = { s: r.servicio, ref: r.tipo === 'referido', p: r.pct, regla: r.regla, q: 0, m: 0, c: 0 }); o.q++; o.m += r.monto; o.c += r.comDoctor; });
+    const con = Object.values(porSrv).sort((a, b) => b.c - a.c);
+    const det = x.lista.slice().sort((a, b) => a.fecha < b.fecha ? -1 : 1);
+    const lineas = con.slice(0, 12).map(o => `<tr><td>${E(o.s)}${o.ref ? ' <span class="chip wa">referido</span>' : ''}</td><td class="num">${o.q}</td><td class="num">${$(o.m)}</td><td class="num">${o.p != null ? fmtPct(o.p * 100) + '%' : 'fijo'}</td><td class="num"><b>${$(o.c, 2)}</b></td></tr>`).join('');
+    const filas = det.slice(0, 18).map(r => `<tr><td>${fmtFechaCorta(r.fecha)}</td><td>${E(r.pacienteNombre)}</td><td>${E(r.servicio)}</td><td>${r.tipo === 'referido' ? 'Referido' : 'Propio'}</td><td class="num">${$(r.monto)}</td><td class="num">${$(r.comDoctor, 2)}</td></tr>`).join('');
+    const e = x.e;
+    return `${nrHds('Comisiones de doctoras · NovaHouse', 'Estado de cuenta · ' + E(x.d.nombre), E(titPer), E(x.d.especialidad || rango))}<div class="nr-bd">
+     <div class="nr-ks">${nrKpi('Comisión bruta', $(x.com, 2), `${x.lista.length} servicio${x.lista.length === 1 ? '' : 's'}`, 'main')}${nrKpi('Cobrado a pacientes', $(x.cob), 'base de la comisión')}${nrKpi('+ IVA 16%', x.f.iva ? $(x.f.iva, 2) : '—', e?.con_iva ? 'factura con IVA' : 'sin IVA')}${nrKpi('− Retenciones', $(x.f.risr + x.f.riva, 2), !e ? 'sin esquema fiscal' : e.regimen === 'resico' ? 'RESICO · ISR 1.25%' + (e.con_iva ? ' + IVA' : '') : e.regimen === 'honorarios' ? 'Honorarios · ISR 10%' + (e.con_iva ? ' + IVA' : '') : 'sin retención')}${nrKpi('Neto a pagar', $(x.f.neto, 2), csf(e).replace(/<[^>]+>/g, ''))}</div>
+     <div class="nr-g2" style="grid-template-columns:1.25fr 1fr"><div>${nrSec('Comisión por concepto')}<table class="nr-t"><thead><tr><th>Concepto</th><th class="num">Cant.</th><th class="num">Cobrado</th><th class="num">%</th><th class="num">Comisión</th></tr></thead><tbody>${lineas}</tbody></table>${con.length > 12 ? `<p class="nr-cont">y ${con.length - 12} conceptos más</p>` : ''}</div>
+      <div>${nrSec('Cálculo fiscal')}<table class="nr-t cm-f"><tbody><tr><td>Subtotal (comisión)</td><td class="num">${$(x.com, 2)}</td></tr>${x.f.iva ? `<tr><td>+ IVA 16%</td><td class="num">${$(x.f.iva, 2)}</td></tr>` : ''}${x.f.risr ? `<tr><td>− Retención ISR ${e.regimen === 'resico' ? '1.25% (RESICO)' : '10%'}</td><td class="num neg">-${$(x.f.risr, 2).slice(1)}</td></tr>` : ''}${x.f.riva ? `<tr><td>− Retención IVA (2/3 · 10.67%)</td><td class="num neg">-${$(x.f.riva, 2).slice(1)}</td></tr>` : ''}<tr class="t"><td>Total a pagar</td><td class="num">${$(x.f.neto, 2)}</td></tr></tbody></table>
+      <p class="nr-note" style="margin-top:6px">${e ? `La doctora emite su CFDI por el subtotal${e.con_iva ? ' más IVA' : ''}; NovaHouse entera las retenciones.` : 'Sin esquema fiscal: configúralo en Comisiones › Esquemas.'}${e?.csf === 'falta' ? ' <b class="neg">Falta su constancia fiscal.</b>' : ''}</p></div></div>
+     <div>${nrSec('Detalle de servicios', det.length > 18 ? `primeros 18 de ${det.length}` : `${det.length} servicios`)}<table class="nr-t"><thead><tr><th>Fecha</th><th>Paciente</th><th>Servicio</th><th>Tipo</th><th class="num">Cobrado</th><th class="num">Comisión</th></tr></thead><tbody>${filas}</tbody></table></div>
+     <div class="cm-firma"><div>Elaboró · Administración</div><div>Recibí de conformidad · ${E(x.d.nombre)}</div></div></div>`;
+  };
+  const cfgFilas = docs.map(d => { const e = COM_ESQ[d.id], nr = COM_RS_LIST.filter(r => r.personal_id === d.id).length;
+    return ['r', `<tr><td><b>${nm(d.nombre)}</b><small>${E(d.especialidad || '')}</small></td><td class="num">${d.esquema_pago === 'renta' ? 'renta ' + $(d.renta_mensual || 0) : e && e.pct_consulta != null ? fmtPct(e.pct_consulta * 100) + '%' : 'catálogo'}</td><td class="num">${e && e.pct_referido != null ? fmtPct(e.pct_referido * 100) + '%' : '—'}</td><td class="num">${nr || '—'}</td><td>${reg(e)}</td><td>${e ? (e.con_iva ? 'Con IVA' : 'Sin IVA') : '—'}</td><td>${csf(e)}</td></tr>`]; });
+  const cfg = `${nrHds('Comisiones de doctoras · NovaHouse', 'Esquemas por doctora', 'Vigente', 'Comisiones › Esquemas')}<div class="nr-bd ax">
+   <p class="nr-note">Consulta: % del catálogo de servicios; si el servicio no trae %, se usa el de la doctora. Reglas por servicio: % o monto fijo cuando la doctora lo realiza y % cuando lo realiza la clínica a su paciente. Referidos: % de lo que su paciente pagó en tratamientos que hizo la clínica.</p>
+   <table class="nr-t cm-t"><thead><tr><th>Doctora</th><th class="num">% consulta</th><th class="num">% referidos</th><th class="num">Reglas</th><th>Régimen</th><th>IVA</th><th>CSF</th></tr></thead><tbody>${cfgFilas.map(r => r[1]).join('')}</tbody></table>
+   ${nrSec('Fiscal')}<ul class="nr-bul"><li>Honorarios: retención de ISR 10%. RESICO: 1.25%.</li><li>Si factura con IVA: se suma 16% y se retienen 2/3 del IVA (10.67%).</li></ul></div>`;
+  let hojas;
+  if(soloId){ const x = liq.find(y => y.d.id === soloId && y.com > 0); hojas = x ? [edo(x)] : []; }
+  else hojas = [resumen, ...act.map(edo), cfg];
+  return { html: nrHojas(hojas), n: hojas.length };
+}
+function comRepAbrir(){
+  const m = document.getElementById('com-rep-modal'); if(!m) return;
+  const docs = (CATALOGOS.personal || []).filter(p => p.rol === 'doctor' && p.esquema_pago !== 'clinica');
+  const conCom = docs.map(d => ({ d, c: COM_SERVICE_ROWS.filter(r => (r.benefId || r.atiendeId) === d.id && !r.esRenta).reduce((a, r) => a + r.comDoctor, 0) })).filter(x => x.c > 0).sort((a, b) => b.c - a.c);
+  document.getElementById('com-rep-docs').innerHTML = conCom.map(x => `<button type="button" data-doc="${esc2(x.d.id)}"><span>👩‍⚕️</span><b>${esc2(x.d.nombre)}</b><small>Estado de cuenta · comisión ${fmtMoney0(x.c)}</small></button>`).join('') || '<p class="iv-hint">Sin comisiones en el periodo seleccionado.</p>';
+  document.getElementById('com-rep-per').textContent = document.getElementById('com-hero-per')?.textContent || '';
+  m.classList.add('show');
+}
+async function comRepDescargar(btn, soloId){
+  const lbl = btn.querySelector('b'), txt = lbl.textContent, todos = [...document.querySelectorAll('#com-rep-modal .fr-alc button')];
+  todos.forEach(b => b.disabled = true);
+  try{
+    lbl.textContent = '⏳ Preparando…';
+    const { html, n } = comReporteHtml(soloId);
+    if(!n){ toast('No hay comisiones en el periodo.'); return; }
+    const d = soloId ? (CATALOGOS.personal || []).find(p => p.id === soloId) : null;
+    const per = (document.getElementById('com-desde').value || 'historial') + (document.getElementById('com-hasta').value ? '_a_' + document.getElementById('com-hasta').value : '');
+    await nrPdf(html, `Comisiones_${d ? d.nombre.replace(/^Dra?\.\s*/i, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z0-9]+/g, '_') : 'doctoras'}_${per}.pdf`, t => lbl.textContent = t);
+    toast('✓ PDF descargado'); document.getElementById('com-rep-modal').classList.remove('show');
+  }catch(e){ console.error('[NovaHouse] Error en reporte de comisiones:', e); toast('No se pudo generar el PDF. Revisa tu conexión e inténtalo de nuevo.'); }
+  finally{ todos.forEach(b => b.disabled = false); lbl.textContent = txt; }
+}
+
+// ═════════ Configuración de esquemas (solo admin) ═════════
+let COM_ESQ_DOC = null;
+function comEsqAbrir(){
+  const m = document.getElementById('com-esq-modal'); if(!m) return;
+  comEsqPintar(); m.classList.add('show');
+}
+function comEsqPintar(){
+  const docs = (CATALOGOS.personal || []).filter(p => p.rol === 'doctor' && p.esquema_pago !== 'clinica').sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+  const v = x => x == null ? '' : +(Number(x) * 100).toFixed(3);
+  document.getElementById('com-esq-tb').innerHTML = docs.map(d => { const e = COM_ESQ[d.id] || {}, nr = COM_RS_LIST.filter(r => r.personal_id === d.id).length;
+    return `<tr data-id="${esc2(d.id)}"><td><b>${esc2(d.nombre)}</b><small>${esc2(d.especialidad || '')}${d.esquema_pago === 'renta' ? ' · renta fija' : ''}</small></td>
+      <td><input type="number" class="ce-pc" min="0" max="100" step="0.01" value="${v(e.pct_consulta)}" placeholder="catálogo"/></td>
+      <td><input type="number" class="ce-pr" min="0" max="100" step="0.01" value="${e.personal_id ? v(e.pct_referido) : 5}"/></td>
+      <td><select class="ce-rg"><option value="honorarios"${e.regimen === 'honorarios' || !e.regimen ? ' selected' : ''}>Honorarios 10%</option><option value="resico"${e.regimen === 'resico' ? ' selected' : ''}>RESICO 1.25%</option><option value="ninguno"${e.regimen === 'ninguno' ? ' selected' : ''}>Sin retención</option></select></td>
+      <td style="text-align:center"><input type="checkbox" class="ce-iva"${e.con_iva ? ' checked' : ''}/></td>
+      <td><select class="ce-csf"><option value="ok"${e.csf === 'ok' ? ' selected' : ''}>✓ Tiene</option><option value="falta"${e.csf === 'falta' ? ' selected' : ''}>Falta</option><option value="sin_dato"${!e.csf || e.csf === 'sin_dato' ? ' selected' : ''}>Sin dato</option></select></td>
+      <td><button type="button" class="btn-sm btn-outline ce-reg">${nr ? nr + ' reglas' : '+ reglas'}</button></td></tr>`; }).join('');
+  comEsqReglasPintar();
+}
+function comEsqReglasPintar(){
+  const box = document.getElementById('com-esq-reglas');
+  if(!COM_ESQ_DOC){ box.style.display = 'none'; return; }
+  const d = comDocInfo(COM_ESQ_DOC), L = COM_RS_LIST.filter(r => r.personal_id === COM_ESQ_DOC).sort((a, b) => (a.catalogo_tipos_servicio?.nombre || '').localeCompare(b.catalogo_tipos_servicio?.nombre || '', 'es'));
+  const v = x => x == null ? '' : +(Number(x) * 100).toFixed(3);
+  const servs = (CATALOGOS.tiposServicioAll || CATALOGOS.tiposServicio || []).filter(s => s.activo !== false);
+  box.style.display = '';
+  box.innerHTML = `<h4>Reglas por servicio · ${esc2(d?.nombre || '')} <button type="button" class="btn-sm btn-outline" id="ce-reg-x" style="margin-left:auto">Cerrar</button></h4>
+   <p class="iv-hint">Si la doctora realiza el servicio: % o monto fijo. Si lo realiza la clínica a su paciente: % de referido (si no hay, se usa su % de referidos general).</p>
+   <div class="tx-table-wrap"><table class="ce-t"><thead><tr><th>Servicio</th><th>% si lo realiza</th><th>$ fijo</th><th>% si lo hace la clínica</th><th></th></tr></thead><tbody>
+   ${L.map(r => `<tr data-rid="${esc2(r.id)}"><td>${esc2(r.catalogo_tipos_servicio?.nombre || '—')}${r.nota ? `<small>${esc2(r.nota)}</small>` : ''}</td><td><input type="number" class="cr-pr" step="0.01" value="${v(r.pct_realiza)}"/></td><td><input type="number" class="cr-mf" step="1" value="${r.monto_fijo ?? ''}"/></td><td><input type="number" class="cr-pf" step="0.01" value="${v(r.pct_referido)}"/></td><td><button type="button" class="btn-sm btn-del cr-del" title="Quitar">🗑</button></td></tr>`).join('') || '<tr><td colspan="5" class="iv-empty">Sin reglas: usa el % del catálogo y su % de referidos.</td></tr>'}
+   </tbody></table></div>
+   <div class="ce-add"><input list="ce-dl" id="ce-add-s" placeholder="Agregar servicio…"/><datalist id="ce-dl">${servs.map(s => `<option value="${esc2(s.nombre)}">`).join('')}</datalist><input type="number" id="ce-add-pr" placeholder="% realiza" step="0.01"/><input type="number" id="ce-add-mf" placeholder="$ fijo"/><input type="number" id="ce-add-pf" placeholder="% clínica" step="0.01"/><button type="button" class="btn-sm" id="ce-add-ok" style="background:var(--teal);border-color:var(--teal);color:#fff">+ Agregar</button></div>`;
+}
+async function comEsqGuardar(){
+  const btn = document.getElementById('com-esq-guardar'); btn.disabled = true;
+  const p = x => x === '' ? null : Math.max(0, Math.min(100, Number(x))) / 100;
+  const filas = [...document.querySelectorAll('#com-esq-tb tr[data-id]')].map(tr => ({ personal_id: tr.dataset.id, pct_consulta: p(tr.querySelector('.ce-pc').value), pct_referido: p(tr.querySelector('.ce-pr').value), regimen: tr.querySelector('.ce-rg').value, con_iva: tr.querySelector('.ce-iva').checked, csf: tr.querySelector('.ce-csf').value, updated_at: new Date().toISOString() }));
+  const { error } = await sb.from('comision_esquemas').upsert(filas, { onConflict: 'personal_id' });
+  let err = error;
+  if(!err){
+    const regs = [...document.querySelectorAll('#com-esq-reglas tr[data-rid]')].map(tr => ({ id: tr.dataset.rid, pct_realiza: p(tr.querySelector('.cr-pr').value), monto_fijo: tr.querySelector('.cr-mf').value === '' ? null : Number(tr.querySelector('.cr-mf').value), pct_referido: p(tr.querySelector('.cr-pf').value) }));
+    for(const r of regs){ const { id, ...c } = r; const res = await sb.from('comision_reglas_servicio').update(c).eq('id', id); if(res.error){ err = res.error; break; } }
+  }
+  btn.disabled = false;
+  if(err){ console.error('[NovaHouse] Error guardando esquemas:', err); toast('No se pudieron guardar los esquemas.'); return; }
+  toast('✓ Esquemas guardados'); await comCargarEsquemas(); comEsqPintar(); cargarComisiones();
+}
+async function comEsqAgregarRegla(){
+  const nom = document.getElementById('ce-add-s').value.trim();
+  const servs = (CATALOGOS.tiposServicioAll || CATALOGOS.tiposServicio || []);
+  const s = servs.find(x => x.nombre === nom); if(!s){ toast('Elige un servicio de la lista.'); return; }
+  const p = id => { const v = document.getElementById(id).value; return v === '' ? null : Number(v) / 100; };
+  const mf = document.getElementById('ce-add-mf').value;
+  const fila = { personal_id: COM_ESQ_DOC, tipo_servicio_id: s.id, pct_realiza: p('ce-add-pr'), monto_fijo: mf === '' ? null : Number(mf), pct_referido: p('ce-add-pf') };
+  if(fila.pct_realiza == null && fila.monto_fijo == null && fila.pct_referido == null){ toast('Pon al menos un % o monto.'); return; }
+  const { error } = await sb.from('comision_reglas_servicio').upsert(fila, { onConflict: 'personal_id,tipo_servicio_id' });
+  if(error){ console.error('[NovaHouse] Error agregando regla:', error); toast('No se pudo agregar la regla.'); return; }
+  toast('✓ Regla agregada'); await comCargarEsquemas(); comEsqPintar();
+}
+async function comEsqQuitarRegla(id){
+  const { error } = await sb.from('comision_reglas_servicio').delete().eq('id', id);
+  if(error){ toast('No se pudo quitar la regla.'); return; }
+  await comCargarEsquemas(); comEsqPintar();
+}
+(function(){
+  document.getElementById('cxp-flash')?.addEventListener('click', cxpFlashDescargar);
+  document.getElementById('com-btn-rep')?.addEventListener('click', comRepAbrir);
+  document.getElementById('com-btn-esq')?.addEventListener('click', comEsqAbrir);
+  const rm = document.getElementById('com-rep-modal');
+  rm?.addEventListener('click', e => { if(e.target === rm || e.target.closest('[data-cerrar]')) rm.classList.remove('show'); const b = e.target.closest('.fr-alc button'); if(b && !b.disabled) comRepDescargar(b, b.dataset.doc || null); });
+  const em = document.getElementById('com-esq-modal');
+  em?.addEventListener('click', e => {
+    if(e.target === em || e.target.closest('[data-cerrar]')){ em.classList.remove('show'); return; }
+    const rb = e.target.closest('.ce-reg'); if(rb){ COM_ESQ_DOC = rb.closest('tr').dataset.id; comEsqReglasPintar(); document.getElementById('com-esq-reglas').scrollIntoView({ behavior:'smooth', block:'start' }); return; }
+    if(e.target.id === 'ce-reg-x'){ COM_ESQ_DOC = null; comEsqReglasPintar(); return; }
+    if(e.target.id === 'ce-add-ok'){ comEsqAgregarRegla(); return; }
+    const del = e.target.closest('.cr-del'); if(del){ comEsqQuitarRegla(del.closest('tr').dataset.rid); return; }
+    if(e.target.id === 'com-esq-guardar') comEsqGuardar();
+  });
+})();
+
 
 // Cuánto de un servicio se pagó en efectivo (para el Excel). Si el servicio ya trae su propio 1er/2do pago se usa tal cual;
 // si no (registros anteriores), se reparte el pago de la consulta proporcionalmente (1er pago → medio_pago, 2do → medio_pago_2).
@@ -5124,6 +5472,7 @@ function comFilasDesdeConsultas(consultas){
         tipoServicioId: cs.tipo_servicio_id || null,
         servicio: cs.catalogo_tipos_servicio?.nombre || '—',
         pct: cs.catalogo_tipos_servicio?.pct_doctor ?? null,
+        esConsulta: !!cs.catalogo_tipos_servicio?.es_consulta,
         atiendeId: cs.atendido_por || c.doctor_id || null,
         atiendeRol: at?.rol || null,
         atiendeNombre: at?.nombre || '—',
@@ -5147,7 +5496,7 @@ async function cargarComisiones(){
   const hasta = document.getElementById('com-hasta').value;
 
   let q = sb.from('consultas')
-    .select('id,fecha,monto,monto_2,medio_pago,medio_pago_2,doctor_id,terminal_id,no_vino,catalogo_terminales(nombre),pacientes!inner(nombre,dueno_id,dueno:personal!dueno_id(nombre,rol)),doctor:personal!doctor_id(nombre,rol,esquema_pago),consulta_servicios(monto,monto_1,monto_2,tipo_servicio_id,atendido_por,catalogo_tipos_servicio(nombre,pct_doctor),atendido:personal(nombre,rol,esquema_pago))')
+    .select('id,fecha,monto,monto_2,medio_pago,medio_pago_2,doctor_id,terminal_id,no_vino,catalogo_terminales(nombre),pacientes!inner(nombre,dueno_id,dueno:personal!dueno_id(nombre,rol)),doctor:personal!doctor_id(nombre,rol,esquema_pago),consulta_servicios(monto,monto_1,monto_2,tipo_servicio_id,atendido_por,catalogo_tipos_servicio(nombre,pct_doctor,es_consulta),atendido:personal(nombre,rol,esquema_pago))')
     .eq('deleted', false)
     .eq('no_vino', false)
     .order('fecha', { ascending:false })
@@ -5165,6 +5514,7 @@ async function cargarComisiones(){
   if((data || []).length >= 5000) console.warn('[NovaHouse] Comisiones: se alcanzó el límite de 5000 consultas en el periodo.');
 
   const serviceRows = comFilasDesdeConsultas(data);
+  await comCargarEsquemas();
   await comCargarCierres();
   if(miReqId !== comReqId) return;
   // Meses cerrados: se usan SOLO los valores congelados al cierre (no lo que haya hoy en la base)
@@ -5204,7 +5554,7 @@ function renderComisionesResumen(){
   const kpi = (cls, ico, label, val) => `<div class="kpi-card ${cls}"><div class="kico">${ico}</div><div class="ktx"><div class="kpi-label">${label}</div><div class="kpi-val">${val}</div></div></div>`;
   document.getElementById('com-kpis').innerHTML =
     kpi('k-ing', '💰', 'Ingreso por servicios', fmtMoney0(ingresoTotal)) +
-    kpi('k-com', '👩‍⚕️', 'A pagar a doctoras', fmtMoney0(aDoctoras)) +
+    kpi('k-com', '👩‍⚕️', 'Comisión doctoras (bruta)', fmtMoney0(aDoctoras)) +
     kpi('k-due', '🏠', 'NovaHouse' + (rentas > 0 ? ' (incluye rentas)' : ''), fmtMoney0(comNova + rentas)) +
     kpi('k-ser', '🧾', 'Servicios en el periodo', rows.length);
 
@@ -5243,10 +5593,10 @@ function renderComisionesResumen(){
   };
 
   // Tarjetas: una por doctora con producción en el periodo (o con renta fija vigente). Se ordenan por producción.
-  const prodDe = id => rows.filter(r => r.atiendeId === id);
+  const prodDe = d => rows.filter(r => d.esquema_pago === 'clinica' ? r.atiendeId === d.id : (r.benefId || r.atiendeId) === d.id);
   const doctores = doctoresTodos
-    .filter(d => prodDe(d.id).length || (rentaDe(d) > 0 && personalVigente(d, desdeCom)))
-    .map(d => ({ d, lista: prodDe(d.id) }))
+    .filter(d => prodDe(d).length || (rentaDe(d) > 0 && personalVigente(d, desdeCom)))
+    .map(d => ({ d, lista: prodDe(d) }))
     .sort((a, b) => b.lista.reduce((s,r)=>s+r.monto,0) - a.lista.reduce((s,r)=>s+r.monto,0));
   // Servicios atendidos por alguien que no es doctora (si algún día hay cosmetólogas u otro personal)
   const otros = rows.filter(r => !doctoresTodos.some(d => d.id === r.atiendeId));
@@ -5276,22 +5626,30 @@ function renderComisionesResumen(){
         <div class="rol">Renta fija${esp} · ${lista.length} servicio${lista.length===1?'':'s'}</div>
         <div class="fila acordeon" data-panel="${panelId}" title="Ver el detalle"><span>Producción (cobra ella) <span class="chev">▾</span></span><b>${fmtMoney0(prod)}</b></div>
         <div class="fila"><span>Renta mensual</span><b>${fmtMoney0(d.renta_mensual || 0)}</b></div>
+        ${lista.some(r => !r.esRenta && r.comDoctor > 0) ? `<div class="fila"><span>Comisión procedimientos y referidos</span><b>${fmtMoney0(lista.filter(r => !r.esRenta).reduce((a, r) => a + r.comDoctor, 0))}</b></div>` : ''}
         <div class="spacer"></div><div class="total-block"><div class="total-label">Renta a cobrar${meses.length > 1 ? ' (' + meses.length + ' meses)' : ''}</div><div class="total-value">${fmtMoney0(renta)}</div></div>
       </div>`;
       return;
     }
+    const propios = lista.filter(r => r.atiendeId === d.id), refs = lista.filter(r => r.atiendeId !== d.id);
+    const prodP = propios.reduce((a,r)=> a + r.monto, 0), refM = refs.reduce((a,r)=> a + r.monto, 0), comRef = refs.reduce((a,r)=> a + r.comDoctor, 0);
     const comD = lista.reduce((a,r)=> a + r.comDoctor, 0);
-    const comC = lista.reduce((a,r)=> a + r.comClinica, 0);
+    const comC = propios.reduce((a,r)=> a + r.comClinica, 0);
+    const fis = comFiscal(d.id, comD), eq = fis.esq;
+    const csfTxt = !eq ? '<span class="chip chip-7030" title="Configúralo en Esquemas">sin esquema fiscal</span>' : eq.csf === 'falta' ? '<span class="chip chip-7030">⚠ falta CSF</span>' : eq.csf === 'sin_dato' ? '<span class="chip">CSF sin confirmar</span>' : '';
     const pcts = [...new Set(lista.filter(r => r.pct !== null).map(r => fmtPct(r.pct * 100)))];
     const pctTxt = pcts.length === 1 ? pcts[0] + '%' : pcts.length ? 'varía (' + pcts.join(' / ') + '%)' : '—';
     panelesHtml += panelDetalleHtml(panelId, `${d.nombre} — detalle`, nombreCorto, lista, r => r.comDoctor, 'Le corresponde');
     personaHtml += `<div class="persona ${i % 2 ? 'doc2' : 'doc1'}">
       <div class="nombre">${esc2(d.nombre)}</div>
-      <div class="rol">${lista.length} servicio${lista.length===1?'':'s'}${esp}</div>
-      <div class="fila acordeon" data-panel="${panelId}" title="Ver el detalle"><span>Producción <span class="chev">▾</span></span><b>${fmtMoney0(prod)}</b></div>
+      <div class="rol">${lista.length} servicio${lista.length===1?'':'s'}${esp} ${csfTxt}</div>
+      <div class="fila acordeon" data-panel="${panelId}" title="Ver el detalle"><span>Producción <span class="chev">▾</span></span><b>${fmtMoney0(prodP)}</b></div>
       <div class="fila"><span>% doctora</span><b>${esc2(pctTxt)}</b></div>
+      ${refs.length ? `<div class="fila"><span>Referidos (${refs.length}) · ${fmtMoney0(refM)}</span><b>${fmtMoney0(comRef)}</b></div>` : ''}
       <div class="fila"><span>Para NovaHouse</span><b>${fmtMoney0(comC)}</b></div>
-      <div class="spacer"></div><div class="total-block"><div class="total-label">A pagar a la doctora</div><div class="total-value">${fmtMoney0(comD)}</div></div>
+      <div class="fila"><span>Comisión bruta</span><b>${fmtMoney0(comD)}</b></div>
+      ${eq && eq.regimen !== 'ninguno' ? `${fis.iva ? `<div class="fila"><span>+ IVA 16%</span><b>${fmtMoney0(fis.iva)}</b></div>` : ''}<div class="fila"><span>− Retenciones ${eq.regimen === 'resico' ? '(RESICO)' : '(ISR 10%)'}${fis.riva ? ' + IVA' : ''}</span><b style="color:#B91C1C">-${fmtMoney0(fis.risr + fis.riva).replace('$','$')}</b></div>` : ''}
+      <div class="spacer"></div><div class="total-block"><div class="total-label">${eq && eq.regimen !== 'ninguno' ? 'Neto a pagar' : 'A pagar a la doctora'}</div><div class="total-value">${fmtMoney0(fis.neto)}</div></div>
     </div>`;
   });
   if(otros.length){
@@ -6890,7 +7248,7 @@ async function cargarHistorial(){
   let q = null;
   if(quiereServ){
     q = sb.from('consultas')
-      .select('id,fecha,monto,medio_pago,monto_2,medio_pago_2,factura,num_factura,no_vino,notas,paciente_id,doctor_id,terminal_id,pacientes!inner(nombre,telefono,dueno_id,procedencia_id,catalogo_procedencia(nombre),dueno:personal!dueno_id(nombre,rol)),doctor:personal!doctor_id(nombre,rol,esquema_pago),catalogo_terminales(nombre),consulta_servicios(tipo_servicio_id,monto,monto_1,monto_2,atendido_por,catalogo_tipos_servicio(nombre,pct_doctor),atendido:personal(nombre,rol,esquema_pago))')
+      .select('id,fecha,monto,medio_pago,monto_2,medio_pago_2,factura,num_factura,no_vino,notas,paciente_id,doctor_id,terminal_id,pacientes!inner(nombre,telefono,dueno_id,procedencia_id,catalogo_procedencia(nombre),dueno:personal!dueno_id(nombre,rol)),doctor:personal!doctor_id(nombre,rol,esquema_pago),catalogo_terminales(nombre),consulta_servicios(tipo_servicio_id,monto,monto_1,monto_2,atendido_por,catalogo_tipos_servicio(nombre,pct_doctor,es_consulta),atendido:personal(nombre,rol,esquema_pago))')
       .eq('deleted', false)
       .order('fecha', { ascending:false })
       .order('created_at', { ascending:false })
@@ -7733,7 +8091,7 @@ document.getElementById('export-btn-confirmar').addEventListener('click', async 
         if(!desde && !hasta){ toast('Elige al menos una fecha.'); btn.disabled = false; btn.textContent = '↓ Exportar a Excel'; return; }
       }
       let q = sb.from('consultas')
-        .select('fecha,monto,medio_pago,monto_2,medio_pago_2,factura,num_factura,no_vino,notas,doctor_id,pacientes(nombre,telefono,dueno_id,procedencia_id,catalogo_procedencia(nombre),dueno:personal!dueno_id(nombre,rol)),doctor:personal!doctor_id(nombre,rol,esquema_pago),catalogo_terminales(nombre),consulta_servicios(tipo_servicio_id,monto,monto_1,monto_2,atendido_por,catalogo_tipos_servicio(nombre,pct_doctor),atendido:personal(nombre,rol,esquema_pago))')
+        .select('fecha,monto,medio_pago,monto_2,medio_pago_2,factura,num_factura,no_vino,notas,doctor_id,pacientes(nombre,telefono,dueno_id,procedencia_id,catalogo_procedencia(nombre),dueno:personal!dueno_id(nombre,rol)),doctor:personal!doctor_id(nombre,rol,esquema_pago),catalogo_terminales(nombre),consulta_servicios(tipo_servicio_id,monto,monto_1,monto_2,atendido_por,catalogo_tipos_servicio(nombre,pct_doctor,es_consulta),atendido:personal(nombre,rol,esquema_pago))')
         .eq('deleted', false)
         .order('fecha', { ascending:false });
       if(desde) q = q.gte('fecha', desde);
@@ -8671,7 +9029,7 @@ async function cargarDashboard(){
   // doctor se aplica abajo en memoria) porque la productividad de un doctor depende de cabina y de
   // pacientes de otros doctores.
   let q = sb.from('consultas')
-    .select('fecha,monto,monto_2,medio_pago,medio_pago_2,paciente_id,doctor_id,doctor:personal!doctor_id(nombre,rol,esquema_pago),pacientes(nombre,dueno_id,dueno:personal!dueno_id(nombre,rol)),consulta_servicios(tipo_servicio_id,monto,monto_1,monto_2,atendido_por,catalogo_tipos_servicio(nombre,pct_doctor),atendido:personal(nombre,rol,esquema_pago))')
+    .select('fecha,monto,monto_2,medio_pago,medio_pago_2,paciente_id,doctor_id,doctor:personal!doctor_id(nombre,rol,esquema_pago),pacientes(nombre,dueno_id,dueno:personal!dueno_id(nombre,rol)),consulta_servicios(tipo_servicio_id,monto,monto_1,monto_2,atendido_por,catalogo_tipos_servicio(nombre,pct_doctor,es_consulta),atendido:personal(nombre,rol,esquema_pago))')
     .eq('deleted', false)
     .eq('no_vino', false)
     .order('fecha', { ascending:true })
@@ -8709,6 +9067,7 @@ async function cargarDashboard(){
     if(gres.error){ console.error('[NovaHouse] Error cargando gastos del dashboard:', gres.error); }
     else {
       DASH_GASTOS = gres.data || [];
+      if(!Object.keys(COM_ESQ).length) await comCargarEsquemas();
       DASH_PROD = comFilasDesdeConsultas(DASH_ALL).map(r => comCalcularFila(r));
       DASH_FIN_OK = true;
     }

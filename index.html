@@ -1946,6 +1946,36 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .is-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.is-top .iv-fil{flex:1;margin:0}
 @media (max-width:760px){.iv-ub{width:auto}.iv-ub button{flex:1;padding:8px 10px}.is-acts{grid-template-columns:repeat(2,1fr)}}
 
+/* Ticket por WhatsApp */
+.fr-modal .fr-box.tk-box{width:min(860px,100%);padding:0;overflow:auto}
+.tk-mh{display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#075E54,#128C7E);color:#fff;padding:14px 18px;position:sticky;top:0;z-index:2}.tk-mh .ic{font-size:22px}.tk-mh b{display:block;font:800 17px var(--font-d)}.tk-mh small{opacity:.85;font-size:12px}
+.tk-mh button{margin-left:auto;border:0;background:rgba(255,255,255,.18);color:#fff;border-radius:9px;width:32px;height:32px;cursor:pointer}
+.tk-body{display:grid;grid-template-columns:minmax(0,1fr) 352px;gap:18px;padding:16px 18px;align-items:start}
+.tk-fld{display:block;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--g6);margin:0 0 12px}
+.tk-fld input,.tk-fld textarea{display:block;width:100%;margin-top:5px;border:1.5px solid var(--g2);border-radius:10px;padding:9px 12px;font:500 14px var(--font-b);color:var(--navy);text-transform:none;letter-spacing:0;box-sizing:border-box}
+.tk-fld textarea{font-size:13px;line-height:1.45;resize:vertical;min-height:110px}
+.tk-chk{display:flex;gap:6px;align-items:center;font-size:12.5px;color:var(--navy);margin:-6px 0 12px}
+.tk-seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:5px}
+.tk-seg button{border:1.5px solid var(--g2);background:#fff;border-radius:12px;padding:9px 11px;cursor:pointer;text-align:left;font:600 12px var(--font-b);color:var(--g6)}.tk-seg button b{display:block;font-size:13px;color:var(--navy);margin-bottom:2px}
+.tk-seg button.on{border-color:#25D366;background:#E7F9EE;box-shadow:0 0 0 3px rgba(37,211,102,.18)}
+.tk-hint{font-size:12px;color:var(--g6);margin:0;background:var(--g1);border-radius:10px;padding:8px 11px}
+.tk-prev{background:#EFEAE2;border-radius:14px;padding:12px;display:flex;justify-content:center;max-height:62vh;overflow:auto}
+.tk-mf{display:flex;gap:8px;align-items:center;padding:12px 18px;border-top:1px solid var(--g2);background:#FAFBFD;position:sticky;bottom:0}
+.tk-wa{background:#25D366!important;border:1.5px solid #25D366!important;color:#fff!important;font-weight:800;border-radius:10px;padding:8px 14px;cursor:pointer}
+.tk-rc{width:328px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(11,22,40,.12);font:13px/1.4 var(--font-b);color:#0B1628;text-align:left}
+.tk-hd{background:#FBF7F2;padding:14px 18px 12px;text-align:center;border-bottom:1px solid #EFE4D6}.tk-hd img{width:118px;display:block;margin:0 auto 4px}.tk-hd b{font:800 18px var(--font-d);letter-spacing:2px;color:#8A7560}.tk-hd small{display:block;color:#8A7560;font-size:11px}
+.tk-bd{padding:12px 18px 6px}
+.tk-mt{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:12px;margin-bottom:8px}.tk-mt span{display:block;color:#5B6B84;font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.tk-ln{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid #E3E8F0}.tk-ln small{display:block;color:#5B6B84;font-size:11px}.tk-ln b{white-space:nowrap;font-variant-numeric:tabular-nums}
+.tk-tt{display:flex;justify-content:space-between;align-items:center;background:#0B1628;color:#fff;border-radius:12px;padding:10px 14px;margin:8px 0}.tk-tt span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}.tk-tt b{font:800 22px var(--font-d)}
+.tk-pg div{display:flex;justify-content:space-between;font-size:12.5px;padding:2px 0}
+.tk-ft{background:#F7F9FC;padding:10px 18px 14px;text-align:center;font-size:10.5px;color:#5B6B84;margin-top:8px;border-top:1px solid #E3E8F0}.tk-ft b{display:block;color:#0B1628;font-size:12.5px;margin-bottom:3px}
+.tk-ok{position:fixed;right:18px;bottom:18px;z-index:9970;display:none;gap:12px;align-items:center;background:#fff;border:1.5px solid #A9DFC5;border-radius:14px;padding:10px 12px;box-shadow:0 14px 34px rgba(11,22,40,.2);max-width:calc(100vw - 24px)}
+.tk-ok.show{display:flex}.tk-ok .ic{width:34px;height:34px;border-radius:10px;background:#14764f;color:#fff;display:grid;place-items:center;flex:none}
+.tk-ok .tx{min-width:0}.tk-ok b{display:block;font-size:13px;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:240px}.tk-ok small{color:#14764f;font-size:12px}
+.tk-ok .x{border:0;background:var(--g1);border-radius:8px;width:28px;height:28px;cursor:pointer;color:var(--g6)}
+.btn-tk{border:1.5px solid var(--g2);background:#fff;border-radius:8px;cursor:pointer;font-size:13px;padding:3px 6px;line-height:1.2}.btn-tk:hover{border-color:#25D366;background:#E7F9EE}.btn-tk.sent{border-color:#25D366;background:#E7F9EE;position:relative}.btn-tk.sent::after{content:'✓';position:absolute;right:-5px;top:-6px;background:#25D366;color:#fff;border-radius:50%;width:13px;height:13px;font-size:9px;line-height:13px;text-align:center;font-weight:800}
+@media (max-width:760px){.tk-body{grid-template-columns:minmax(0,1fr);padding:14px}.tk-prev{max-height:none}.tk-mf{flex-wrap:wrap}.tk-mf>span{display:none}.tk-mf .tk-wa{flex:1 1 100%;order:-1;padding:11px}.tk-ok{left:12px;right:12px;bottom:12px}.tk-ok b{max-width:none}}
 .fr-modal{position:fixed;inset:0;z-index:9980;background:rgba(11,22,40,.45);display:none;align-items:center;justify-content:center;padding:16px}
 .fr-modal.show{display:flex}
 .fr-box{background:#fff;border-radius:18px;width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:18px 20px 20px;box-shadow:0 24px 60px rgba(11,22,40,.35);text-align:left}
@@ -2819,6 +2849,18 @@ body:has(#app-view.act) #app-version-tag{display:none}
       <div class="ce-reglas" id="com-esq-reglas" style="display:none"></div>
       <button type="button" class="btn-sm" id="com-esq-guardar" style="width:100%;justify-content:center;margin-top:12px;background:var(--teal);border-color:var(--teal);color:#fff;padding:10px">✓ Guardar esquemas</button>
     </div></div>
+    <div class="fr-modal tk-modal" id="tk-modal" role="dialog" aria-label="Enviar ticket por WhatsApp"><div class="fr-box tk-box">
+      <div class="tk-mh"><span class="ic">📲</span><div><b>Enviar ticket por WhatsApp</b><small id="tk-sub">—</small></div><button type="button" data-tk-x aria-label="Cerrar">✕</button></div>
+      <div class="tk-body"><div class="tk-form">
+        <label class="tk-fld">WhatsApp de la paciente<input type="tel" id="tk-tel" placeholder="10 dígitos, ej. 55 1234 5678" autocomplete="off"/></label>
+        <label class="tk-chk" id="tk-guardar-tel-w" style="display:none"><input type="checkbox" id="tk-guardar-tel" checked/> Guardar este número en su ficha</label>
+        <div class="tk-fld">¿Cómo enviarlo?<div class="tk-seg" id="tk-modo"><button type="button" data-tkm="imagen" class="on"><b>🧾 Imagen + mensaje</b>El ticket como imagen, con el logo</button><button type="button" data-tkm="texto"><b>💬 Solo texto</b>El ticket escrito en el mensaje</button></div></div>
+        <label class="tk-fld">Mensaje<textarea id="tk-msg" rows="5"></textarea></label>
+        <p class="tk-hint" id="tk-hint"></p>
+      </div><div class="tk-prev" id="tk-prev"></div></div>
+      <div class="tk-mf"><button type="button" class="btn-sm btn-outline" id="tk-down">⬇ Descargar imagen</button><span style="flex:1"></span><button type="button" class="btn-sm btn-outline" data-tk-x>Cancelar</button><button type="button" class="btn-sm tk-wa" id="tk-send">Abrir WhatsApp →</button></div>
+    </div></div>
+    <div class="tk-ok" id="tk-ok" role="status"><div class="ic">✓</div><div class="tx"><b>Registro guardado</b><small></small></div><button type="button" class="tk-wa" id="tk-ok-send">📲 Enviar ticket</button><button type="button" class="x" data-tk-x aria-label="Cerrar">✕</button></div>
     <div class="fr-modal" id="fr-modal" role="dialog" aria-label="Descargar Flash report"><div class="fr-box">
       <div class="fr-mh"><div><b>⚡ Flash report de inventario</b><small>Se descarga en PDF directo, sin vista previa.</small></div><button type="button" id="fr-m-x" aria-label="Cerrar">✕</button></div>
       <div class="fr-ml">Periodo</div>
@@ -3260,7 +3302,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.19-4';
+const APP_VERSION = 'v2026.11.24-1';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -7218,6 +7260,7 @@ async function guardarRegistro(){
       if(errDuenoExistente) throw errDuenoExistente;
     }
 
+    let tkRef = null;
     const filasServ = serviciosSeleccionados.filter(x => !esFarmKey(x.tipo_servicio_id));
     const filasFarmSel = serviciosSeleccionados.filter(x => esFarmKey(x.tipo_servicio_id));
 
@@ -7243,6 +7286,7 @@ async function guardarRegistro(){
       };
       const { data: nuevaConsulta, error: errConsulta } = await sb.from('consultas').insert(payload).select('id').single();
       if(errConsulta) throw errConsulta;
+      tkRef = { consultaId: nuevaConsulta.id };
 
       const filasServicios = filasServ.map(s => ({ consulta_id: nuevaConsulta.id, tipo_servicio_id: s.tipo_servicio_id, monto: s.monto, monto_1: s.monto_1, monto_2: s.monto_2, atendido_por: s.atendido_por }));
       const { error: errServ } = await sb.from('consulta_servicios').insert(filasServicios);
@@ -7272,7 +7316,8 @@ async function guardarRegistro(){
         };
       });
       window._REG_VENDIDOS = filasFarm.map(f => f.producto_id).filter(Boolean);
-      const { error: errFarm } = await sb.from('farmacia_ventas').insert(filasFarm);
+      const { data: farmIns, error: errFarm } = await sb.from('farmacia_ventas').insert(filasFarm).select('id');
+      if(!errFarm && !tkRef && farmIns?.length) tkRef = { farmId: farmIns[0].id };
       if(errFarm){
         console.error('[NovaHouse] Error guardando farmacia:', errFarm);
         if(filasServ.length){
@@ -7286,6 +7331,7 @@ async function guardarRegistro(){
       }
     }
 
+    if(tkRef && !noVino){ try{ tkAvisoGuardado(tkRef, nombre, serviciosSeleccionados.length, serviciosSeleccionados.reduce((a, x) => a + (Number(x.monto) || 0), 0)); }catch(e){ console.warn(e); } }
     toast(hayServ && hayFarm ? '✓ Registro y venta de farmacia guardados.' : (hayFarm ? '✓ Venta de farmacia guardada.' : '✓ Registro guardado correctamente.'));
     if(hayFarm){ cargarCatalogoFarmaciaReg(); stockAlCargar().then(() => { bellRender(); const bajos = STOCK_AL.filter(p => (window._REG_VENDIDOS || []).includes(p.id)); if(bajos.length) toast(`📦 Pocas existencias: ${bajos.slice(0, 2).map(p => p.nombre + ' (' + Math.max(0, p.ex) + ')').join(', ')}${bajos.length > 2 ? ' y ' + (bajos.length - 2) + ' más' : ''}`); }); } // el inventario ya descontó: refresca catálogo y alertas
     limpiarRegistroParcial();
@@ -7653,7 +7699,7 @@ function renderHistorial(){
       <td>${puedeEditarFarm()
         ? `<input type="text" class="hist-inline-factura hist-farm-factura${f.facturado && !f.num_factura ? ' pendiente' : ''}${f.num_factura ? ' ok' : ''}" data-farm-id="${esc2(f.id)}" data-factura="${f.facturado ? '1' : '0'}" value="${esc2(f.num_factura||'')}" placeholder="${f.facturado?'Pendiente':'—'}"/>`
         : `<span style="font-size:11px;color:var(--g6)">${f.facturado ? esc2(f.num_factura || 'Pendiente') : '<span class="h-mut">—</span>'}</span>`}</td>
-      <td>${puedeEditarFarm() ? `<button class="btn-sm btn-edit hist-farm-edit" data-id="${esc2(f.id)}" type="button" title="Editar esta venta">✏️</button>${MI_PERFIL?.rol === 'admin' ? ` <button class="btn-sm btn-del hist-farm-del" data-id="${esc2(f.id)}" type="button" title="Eliminar esta venta">🗑</button>` : ''}` : ''}</td>
+      <td style="white-space:nowrap"><button class="btn-tk" type="button" data-tk-f="${esc2(f.id)}" title="Enviar ticket por WhatsApp">📲</button> ${puedeEditarFarm() ? `<button class="btn-sm btn-edit hist-farm-edit" data-id="${esc2(f.id)}" type="button" title="Editar esta venta">✏️</button>${MI_PERFIL?.rol === 'admin' ? ` <button class="btn-sm btn-del hist-farm-del" data-id="${esc2(f.id)}" type="button" title="Eliminar esta venta">🗑</button>` : ''}` : ''}</td>
     </tr>`;
     }
     const pago1 = r.no_vino ? '—' : `<span class="h-pay">${iconoPago(r.medio_pago)}${esc2(r.medio_pago || '—')}</span>`;
@@ -7681,7 +7727,7 @@ function renderHistorial(){
       <td><b style="color:var(--teal)">${fmtMoney(monto)}</b></td>
       <td>${pago1}${pago2}</td>
       <td><input type="text" class="hist-inline-factura${r.factura && !r.num_factura ? ' pendiente' : ''}${r.num_factura ? ' ok' : ''}" data-id="${esc2(r.id)}" data-factura="${r.factura ? '1' : '0'}" value="${esc2(r.num_factura||'')}" placeholder="${r.factura?'Pendiente':'—'}"/></td>
-      <td><button class="btn-sm btn-edit" data-id="${esc2(r.id)}" type="button">✏️</button></td>
+      <td style="white-space:nowrap">${r.no_vino ? '' : `<button class="btn-tk" type="button" data-tk-c="${esc2(r.id)}" title="Enviar ticket por WhatsApp">📲</button> `}<button class="btn-sm btn-edit" data-id="${esc2(r.id)}" type="button">✏️</button></td>
     </tr>`;
   }).join('');
 
@@ -7704,7 +7750,234 @@ function renderHistorial(){
     }
     inp.addEventListener('input', ()=>{ inp.classList.toggle('pendiente', inp.dataset.factura === '1' && !inp.value.trim()); inp.classList.toggle('ok', !!inp.value.trim()); });
   });
+  tkMarcarHist();
 }
+
+// ═════════ Ticket por WhatsApp ═════════
+// Datos de la clínica que salen en el ticket (vacío = no se muestra esa línea).
+const TICKET_CFG = { direccion: '', telefono: '', instagram: '' };
+let TK = null, TK_MODO = 'imagen';
+const TK_MIN = 30 * 60 * 1000; // farmacia de la misma visita: mismo paciente, mismo día, ±30 min
+const tkPad = n => String(n || 0).padStart(6, '0');
+const tkNomServ = n => String(n || 'Servicio').split(' · ')[0];
+const tkQuien = p => !p ? '' : (p.rol === 'clinica' || /^nova\s*house$/i.test(p.nombre || '')) ? 'Clínica' : p.nombre;
+function tkCerca(a, b){ return Math.abs(new Date(a).getTime() - new Date(b).getTime()) <= TK_MIN; }
+async function tkCargar({ consultaId, farmId }){
+  const selF = 'id,folio,fecha,created_at,paciente,paciente_id,medicamento,cantidad,monto,medio_pago,monto_2,medio_pago_2,monto_3,medio_pago_3';
+  if(!consultaId && farmId){
+    const { data: f0, error } = await sb.from('farmacia_ventas').select(selF).eq('id', farmId).single();
+    if(error) throw error;
+    if(f0.paciente_id){
+      const { data: cs } = await sb.from('consultas').select('id,created_at').eq('paciente_id', f0.paciente_id).eq('fecha', f0.fecha).eq('deleted', false).eq('no_vino', false);
+      const c = (cs || []).find(x => tkCerca(x.created_at, f0.created_at));
+      if(c) return tkCargar({ consultaId: c.id });
+    }
+    let farm = [f0];
+    if(f0.paciente_id){
+      const { data } = await sb.from('farmacia_ventas').select(selF).eq('paciente_id', f0.paciente_id).eq('fecha', f0.fecha);
+      farm = (data || []).filter(x => tkCerca(x.created_at, f0.created_at));
+      if(!farm.some(x => x.id === f0.id)) farm.push(f0);
+    }
+    let tel = '', nombre = nomProp(f0.paciente) || '';
+    if(f0.paciente_id){ const { data: p } = await sb.from('pacientes').select('nombre,telefono').eq('id', f0.paciente_id).single(); tel = p?.telefono || ''; nombre = nomProp(p?.nombre) || nombre; }
+    return tkArmar(null, farm, { nombre, tel, pacienteId: f0.paciente_id, farmId: f0.id, folio: 'NH-F-' + tkPad(Math.min(...farm.map(x => x.folio || 0)) || f0.folio), fecha: f0.fecha, hora: f0.created_at });
+  }
+  const { data: c, error } = await sb.from('consultas')
+    .select('id,folio,fecha,created_at,paciente_id,monto,medio_pago,monto_2,medio_pago_2,no_vino,pacientes(nombre,telefono),doctor:personal!doctor_id(nombre,rol),consulta_servicios(monto,catalogo_tipos_servicio(nombre),atendido:personal(nombre,rol))')
+    .eq('id', consultaId).single();
+  if(error) throw error;
+  let farm = [];
+  if(c.paciente_id){
+    const { data } = await sb.from('farmacia_ventas').select(selF).eq('paciente_id', c.paciente_id).eq('fecha', c.fecha);
+    farm = (data || []).filter(x => tkCerca(x.created_at, c.created_at));
+  }
+  return tkArmar(c, farm, { nombre: nomProp(c.pacientes?.nombre) || '', tel: c.pacientes?.telefono || '', pacienteId: c.paciente_id, consultaId: c.id, folio: 'NH-' + tkPad(c.folio), fecha: c.fecha, hora: c.created_at });
+}
+function tkArmar(c, farm, base){
+  const items = [], pagos = new Map();
+  const pago = (m, v) => { v = Number(v) || 0; if(!m || v <= 0) return; pagos.set(m, (pagos.get(m) || 0) + v); };
+  if(c){
+    (c.consulta_servicios || []).forEach(s => items.push({ n: tkNomServ(s.catalogo_tipos_servicio?.nombre), a: tkQuien(s.atendido || c.doctor), m: Number(s.monto) || 0 }));
+    if(!c.no_vino){ pago(c.medio_pago, c.monto); pago(c.medio_pago_2, c.monto_2); }
+  }
+  farm.forEach(f => {
+    const q = Math.max(1, parseInt(f.cantidad, 10) || 1);
+    items.push({ n: (q > 1 ? q + ' × ' : '') + (f.medicamento || 'Producto de farmacia'), a: 'Farmacia', m: Number(f.monto) || 0 });
+    const m2 = Number(f.monto_2) || 0, m3 = Number(f.monto_3) || 0;
+    pago(f.medio_pago, (Number(f.monto) || 0) - m2 - m3); pago(f.medio_pago_2, m2); pago(f.medio_pago_3, m3);
+  });
+  const total = items.reduce((a, x) => a + x.m, 0);
+  return { ...base, farmId: base.farmId || farm[0]?.id || null, items, pagos: [...pagos.entries()], total };
+}
+function tkFechaTxt(t){
+  const [y, m, d] = String(t.fecha || '').split('-');
+  const h = t.hora ? new Date(t.hora).toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', hour12: false }) : '';
+  return `${d}/${m}/${y}${h ? ' · ' + h : ''}`;
+}
+function tkHtml(t){
+  const E = esc2, logo = document.querySelector('img.nh-logo')?.src || '';
+  const cfg = [TICKET_CFG.direccion, [TICKET_CFG.telefono && 'Tel. ' + TICKET_CFG.telefono, TICKET_CFG.instagram].filter(Boolean).join(' · ')].filter(Boolean);
+  return `<div class="tk-rc"><div class="tk-hd">${logo ? `<img src="${logo}" alt="NovaHouse">` : '<b>NOVA HOUSE</b>'}${cfg.map(x => `<small>${E(x)}</small>`).join('')}</div><div class="tk-bd">
+    <div class="tk-mt"><div><span>Folio</span><b>${E(t.folio)}</b></div><div><span>Fecha</span><b>${E(tkFechaTxt(t))}</b></div><div style="grid-column:1/-1"><span>Paciente</span><b>${E(t.nombre || '—')}</b></div></div>
+    ${t.items.map(x => `<div class="tk-ln"><div>${E(x.n)}${x.a ? `<small>${x.a === 'Farmacia' ? 'Farmacia' : 'Atendió: ' + E(x.a)}</small>` : ''}</div><b>${fmtMoney(x.m)}</b></div>`).join('')}
+    <div class="tk-tt"><span>Total</span><b>${fmtMoney(t.total)}</b></div>
+    <div class="tk-pg">${t.pagos.map(([m, v]) => `<div><span>${E(m)}</span><span>${fmtMoney(v)}</span></div>`).join('')}</div></div>
+    <div class="tk-ft"><b>¡Gracias por tu visita!</b>Precios con IVA incluido. Este ticket no es un comprobante fiscal. Si requieres factura, solicítala dentro del mes de tu compra.</div></div>`;
+}
+function tkTexto(t){
+  return [`*NOVA HOUSE* · Ticket de venta`, `Folio: *${t.folio}*`, tkFechaTxt(t), `Paciente: ${t.nombre || '—'}`, '',
+    ...t.items.map(x => `• ${x.n}\n   ${fmtMoney(x.m)}`), '', `*TOTAL: ${fmtMoney(t.total)}*`, '',
+    ...t.pagos.map(([m, v]) => `${m}: ${fmtMoney(v)}`), '',
+    `_Este ticket no es un comprobante fiscal. Si necesitas factura, responde a este mensaje._`, `¡Gracias por tu visita! 💜`].join('\n');
+}
+function tkMensaje(t){
+  const nom = String(t.nombre || '').split(/\s+/)[0];
+  return `Hola${nom ? ', ' + nom : ''} 😊 Gracias por tu visita a NovaHouse. Te compartimos tu ticket del ${tkFechaTxt(t).split(' · ')[0]} por ${fmtMoney(t.total)} (folio ${t.folio}). Si necesitas factura, responde a este mensaje.`;
+}
+function tkTelNorm(v){
+  let d = String(v || '').replace(/\D/g, '');
+  if(d.length === 13 && d.startsWith('521')) d = '52' + d.slice(3);
+  if(d.length === 10) d = '52' + d;
+  return d.length >= 11 && d.length <= 15 ? d : '';
+}
+async function tkImagen(t){
+  await invCargarJs('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+  const host = document.createElement('div');
+  host.style.cssText = 'position:fixed;left:-10000px;top:0;width:360px;padding:0;background:#fff';
+  host.innerHTML = tkHtml(t); document.body.appendChild(host);
+  try{
+    await Promise.all([...host.querySelectorAll('img')].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })));
+    const cv = await window.html2canvas(host.firstElementChild, { scale: 2, backgroundColor: '#ffffff', logging: false, useCORS: true });
+    return await new Promise(r => cv.toBlob(r, 'image/png'));
+  }finally{ host.remove(); }
+}
+async function tkAbrir(ref){
+  const m = document.getElementById('tk-modal');
+  document.getElementById('tk-ok')?.classList.remove('show');
+  m.classList.add('show');
+  document.getElementById('tk-prev').innerHTML = '<div class="empty-note">Cargando ticket…</div>';
+  try{
+    TK = await tkCargar(ref);
+  }catch(e){ console.error('[NovaHouse] Error cargando ticket:', e); toast('No se pudo cargar el ticket.'); m.classList.remove('show'); return; }
+  if(!TK.items.length){ toast('Este registro no tiene servicios con monto.'); m.classList.remove('show'); return; }
+  document.getElementById('tk-sub').textContent = `Folio ${TK.folio} · ${fmtMoney(TK.total)}`;
+  const tel = document.getElementById('tk-tel');
+  tel.value = TK.tel || ''; tel.dataset.orig = TK.tel || '';
+  document.getElementById('tk-guardar-tel-w').style.display = 'none';
+  document.getElementById('tk-guardar-tel').checked = true;
+  document.getElementById('tk-prev').innerHTML = tkHtml(TK);
+  tkModo(TK_MODO);
+  TK.blobP = tkImagen(TK).catch(e => { console.error('[NovaHouse] Error generando imagen del ticket:', e); return null; });
+  if(!TK.tel) setTimeout(() => tel.focus(), 50);
+}
+function tkModo(md){
+  TK_MODO = md;
+  document.querySelectorAll('#tk-modo [data-tkm]').forEach(b => b.classList.toggle('on', b.dataset.tkm === md));
+  if(TK) document.getElementById('tk-msg').value = md === 'texto' ? tkTexto(TK) : tkMensaje(TK);
+  document.getElementById('tk-hint').textContent = md === 'texto'
+    ? 'Se abre el chat de la paciente con el ticket ya escrito. Solo da enviar.'
+    : (tkEsMovil() ? 'Se abre el menú de compartir: elige WhatsApp y el chat de la paciente.' : 'Se copia la imagen y se abre el chat de la paciente con el mensaje. Pega la imagen con Ctrl+V (⌘+V en Mac) y envía.');
+}
+const tkEsMovil = () => matchMedia('(pointer:coarse)').matches && !!navigator.canShare;
+async function tkRegistrar(modo, tel){
+  try{
+    await sb.from('ticket_envios').insert({ consulta_id: TK.consultaId || null, farmacia_venta_id: TK.consultaId ? null : TK.farmId, paciente_id: TK.pacienteId || null, folio: TK.folio, telefono: tel || '', modo, total: TK.total });
+  }catch(e){ console.warn('[NovaHouse] No se registró el envío del ticket:', e); }
+}
+function tkNombreArchivo(){ return `Ticket_${TK.folio}.png`; }
+function tkBajar(blob){
+  const url = URL.createObjectURL(blob), a = document.createElement('a');
+  a.href = url; a.download = tkNombreArchivo(); document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 20000);
+}
+async function tkEnviar(){
+  if(!TK) return;
+  const telIn = document.getElementById('tk-tel'), tel = tkTelNorm(telIn.value);
+  if(!tel){ alertaCampo('tk-tel', 'Escribe el WhatsApp de la paciente (10 dígitos).'); return; }
+  const msg = document.getElementById('tk-msg').value.trim();
+  const url = `https://wa.me/${tel}?text=${encodeURIComponent(msg)}`;
+  if(TK_MODO === 'texto'){
+    window.open(url, '_blank', 'noopener');
+  } else if(tkEsMovil()){
+    const blob = await TK.blobP;
+    if(!blob){ toast('No se pudo generar la imagen. Envíalo como texto.'); return; }
+    const file = new File([blob], tkNombreArchivo(), { type: 'image/png' });
+    if(navigator.canShare({ files: [file] })){
+      try{ await navigator.share({ files: [file], text: msg }); }
+      catch(e){ if(e?.name === 'AbortError') return; window.open(url, '_blank', 'noopener'); tkBajar(blob); }
+    } else { tkBajar(blob); window.open(url, '_blank', 'noopener'); }
+  } else {
+    let copiado = false;
+    try{
+      if(window.ClipboardItem && navigator.clipboard?.write){
+        await navigator.clipboard.write([new ClipboardItem({ 'image/png': TK.blobP.then(b => b || Promise.reject(new Error('sin imagen'))) })]);
+        copiado = true;
+      }
+    }catch(e){ console.warn('[NovaHouse] No se pudo copiar la imagen:', e); }
+    window.open(url, '_blank', 'noopener');
+    if(copiado) toast('✓ Imagen copiada. En el chat pega con Ctrl+V y envía.');
+    else { const b = await TK.blobP; if(b){ tkBajar(b); toast('Se descargó la imagen del ticket: adjúntala en el chat.'); } }
+  }
+  const orig = tkTelNorm(telIn.dataset.orig);
+  if(TK.pacienteId && tel !== orig && document.getElementById('tk-guardar-tel').checked){
+    const { error } = await sb.from('pacientes').update({ telefono: telIn.value.trim() }).eq('id', TK.pacienteId);
+    if(error) console.warn('[NovaHouse] No se actualizó el teléfono:', error);
+  }
+  tkRegistrar(TK_MODO, tel);
+  document.getElementById('tk-modal').classList.remove('show');
+  if(typeof HIST_ROWS !== 'undefined' && document.getElementById('hist-tbody')?.offsetParent) tkMarcarHist();
+}
+async function tkDescargar(btn){
+  if(!TK) return;
+  const t = btn.textContent; btn.disabled = true; btn.textContent = '⏳';
+  try{ const b = await TK.blobP; if(b){ tkBajar(b); tkRegistrar('descarga', tkTelNorm(document.getElementById('tk-tel').value)); } else toast('No se pudo generar la imagen.'); }
+  finally{ btn.disabled = false; btn.textContent = t; }
+}
+// Aviso después de guardar en Registro
+function tkAvisoGuardado(ref, nombre, n, total){
+  const box = document.getElementById('tk-ok');
+  box.querySelector('b').textContent = `Registro guardado · ${nombre}`;
+  box.querySelector('small').textContent = `${n} concepto${n === 1 ? '' : 's'} · ${fmtMoney(total)}`;
+  box._ref = ref; box.classList.add('show');
+  clearTimeout(box._t); box._t = setTimeout(() => box.classList.remove('show'), 60000);
+}
+// Historial: marca los tickets ya enviados
+async function tkMarcarHist(){
+  const tb = document.getElementById('hist-tbody'); if(!tb) return;
+  const cIds = [...new Set([...tb.querySelectorAll('[data-tk-c]')].map(b => b.dataset.tkC))];
+  const fIds = [...new Set([...tb.querySelectorAll('[data-tk-f]')].map(b => b.dataset.tkF))];
+  if(!cIds.length && !fIds.length) return;
+  const env = [];
+  for(let i = 0; i < cIds.length; i += 150){ const { data } = await sb.from('ticket_envios').select('consulta_id,telefono,modo,created_at').in('consulta_id', cIds.slice(i, i + 150)); env.push(...(data || [])); }
+  for(let i = 0; i < fIds.length; i += 150){ const { data } = await sb.from('ticket_envios').select('farmacia_venta_id,telefono,modo,created_at').in('farmacia_venta_id', fIds.slice(i, i + 150)); env.push(...(data || [])); }
+  const ult = new Map();
+  env.forEach(e => { const k = e.consulta_id || e.farmacia_venta_id; if(!ult.has(k) || ult.get(k).created_at < e.created_at) ult.set(k, e); });
+  tb.querySelectorAll('[data-tk-c],[data-tk-f]').forEach(b => {
+    const e = ult.get(b.dataset.tkC || b.dataset.tkF); b.classList.toggle('sent', !!e);
+    b.title = e ? `Ticket ${e.modo === 'descarga' ? 'descargado' : 'enviado'} el ${new Date(e.created_at).toLocaleString('es-MX', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}${e.telefono ? ' a +' + e.telefono : ''} · clic para reenviar` : 'Enviar ticket por WhatsApp';
+  });
+}
+(function(){
+  const m = document.getElementById('tk-modal');
+  m.addEventListener('click', e => {
+    if(e.target === m || e.target.closest('[data-tk-x]')) { m.classList.remove('show'); return; }
+    const b = e.target.closest('[data-tkm]'); if(b){ tkModo(b.dataset.tkm); return; }
+    if(e.target.closest('#tk-send')){ tkEnviar(); return; }
+    const d = e.target.closest('#tk-down'); if(d) tkDescargar(d);
+  });
+  document.getElementById('tk-tel').addEventListener('input', e => {
+    document.getElementById('tk-guardar-tel-w').style.display = TK?.pacienteId && tkTelNorm(e.target.value) && tkTelNorm(e.target.value) !== tkTelNorm(e.target.dataset.orig) ? '' : 'none';
+  });
+  const ok = document.getElementById('tk-ok');
+  ok.addEventListener('click', e => {
+    if(e.target.closest('[data-tk-x]')){ ok.classList.remove('show'); return; }
+    if(e.target.closest('#tk-ok-send') && ok._ref) tkAbrir(ok._ref);
+  });
+  document.getElementById('hist-tbody')?.addEventListener('click', e => {
+    const b = e.target.closest('[data-tk-c],[data-tk-f]'); if(!b) return;
+    tkAbrir(b.dataset.tkC ? { consultaId: b.dataset.tkC } : { farmId: b.dataset.tkF });
+  });
+})();
 
 // ── Editar venta de farmacia (admin) ──
 // Editan farmacia admin, recepción y doctores (la cosmetóloga no ve farmacia). Eliminar sigue siendo solo del admin.

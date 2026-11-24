@@ -1970,6 +1970,13 @@ body:has(#app-view.act) #app-version-tag{display:none}
 .tk-tt{display:flex;justify-content:space-between;align-items:center;background:#0B1628;color:#fff;border-radius:12px;padding:10px 14px;margin:8px 0}.tk-tt span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}.tk-tt b{font:800 22px var(--font-d)}
 .tk-pg div{display:flex;justify-content:space-between;font-size:12.5px;padding:2px 0}
 .tk-ft{background:#F7F9FC;padding:10px 18px 14px;text-align:center;font-size:10.5px;color:#5B6B84;margin-top:8px;border-top:1px solid #E3E8F0}.tk-ft b{display:block;color:#0B1628;font-size:12.5px;margin-bottom:3px}
+.tk-paso2{padding:26px 26px 22px;text-align:center}.tk-paso2[hidden]{display:none}
+.tk-p2-ic{font-size:40px}.tk-paso2>b{display:block;font:800 20px var(--font-d);color:var(--navy);margin:6px 0}
+.tk-paso2 p{max-width:520px;margin:0 auto 14px;color:#334155;font-size:14px;line-height:1.55}
+.tk-paso2 kbd{display:inline-block;border:1.5px solid var(--g2);border-bottom-width:3px;border-radius:6px;padding:0 6px;font:700 12px var(--font-b);background:#fff}
+.tk-p2-b{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.tk-paso2 .tk-p2-n{font-size:12px;color:var(--g6)}
+.tk-box.p2 .tk-body,.tk-box.p2 .tk-mf{display:none}
 .tk-ok{position:fixed;right:18px;bottom:18px;z-index:9970;display:none;gap:12px;align-items:center;background:#fff;border:1.5px solid #A9DFC5;border-radius:14px;padding:10px 12px;box-shadow:0 14px 34px rgba(11,22,40,.2);max-width:calc(100vw - 24px)}
 .tk-ok.show{display:flex}.tk-ok .ic{width:34px;height:34px;border-radius:10px;background:#14764f;color:#fff;display:grid;place-items:center;flex:none}
 .tk-ok .tx{min-width:0}.tk-ok b{display:block;font-size:13px;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:240px}.tk-ok small{color:#14764f;font-size:12px}
@@ -2858,6 +2865,14 @@ body:has(#app-view.act) #app-version-tag{display:none}
         <label class="tk-fld">Mensaje<textarea id="tk-msg" rows="5"></textarea></label>
         <p class="tk-hint" id="tk-hint"></p>
       </div><div class="tk-prev" id="tk-prev"></div></div>
+      <div class="tk-paso2" id="tk-paso2" hidden>
+        <div class="tk-p2-ic">📋</div>
+        <b id="tk-p2-t">Ahora pega el ticket en el chat</b>
+        <p id="tk-p2-d">WhatsApp ya se abrió con el mensaje escrito. El ticket está copiado: haz clic en la caja de mensaje del chat y pega con <kbd>Ctrl</kbd> + <kbd>V</kbd> (en Mac <kbd>⌘</kbd> + <kbd>V</kbd>). Aparece la imagen con el mensaje abajo; da enviar.</p>
+        <div class="tk-p2-b"><button type="button" class="btn-sm tk-wa" id="tk-recopiar">📋 Copiar el ticket otra vez</button><button type="button" class="btn-sm btn-outline" id="tk-down2">⬇ Descargar imagen</button><button type="button" class="btn-sm btn-outline" id="tk-reabrir">↗ Abrir el chat otra vez</button></div>
+        <p class="tk-p2-n">WhatsApp no deja adjuntar imágenes desde un enlace; por eso el ticket se pega a mano. Si descargas la imagen, arrástrala al chat.</p>
+        <button type="button" class="btn-sm btn-outline" data-tk-x style="margin-top:6px">Listo</button>
+      </div>
       <div class="tk-mf"><button type="button" class="btn-sm btn-outline" id="tk-down">⬇ Descargar imagen</button><span style="flex:1"></span><button type="button" class="btn-sm btn-outline" data-tk-x>Cancelar</button><button type="button" class="btn-sm tk-wa" id="tk-send">Abrir WhatsApp →</button></div>
     </div></div>
     <div class="tk-ok" id="tk-ok" role="status"><div class="ic">✓</div><div class="tx"><b>Registro guardado</b><small></small></div><button type="button" class="tk-wa" id="tk-ok-send">📲 Enviar ticket</button><button type="button" class="x" data-tk-x aria-label="Cerrar">✕</button></div>
@@ -3302,7 +3317,7 @@ body:has(#app-view.act) #app-version-tag{display:none}
 // ============================================================
 // NovaHouse Consultas — cliente Supabase real
 // ============================================================
-const APP_VERSION = 'v2026.11.24-1';
+const APP_VERSION = 'v2026.11.24-2';
 console.log('[NovaHouse] versión', APP_VERSION);
 document.getElementById('app-version-tag').textContent = APP_VERSION;
 document.getElementById('app-version-foot').textContent = '· ' + APP_VERSION;
@@ -7855,6 +7870,7 @@ async function tkAbrir(ref){
   const m = document.getElementById('tk-modal');
   document.getElementById('tk-ok')?.classList.remove('show');
   m.classList.add('show');
+  m.querySelector('.tk-box').classList.remove('p2'); document.getElementById('tk-paso2').hidden = true;
   document.getElementById('tk-prev').innerHTML = '<div class="empty-note">Cargando ticket…</div>';
   try{
     TK = await tkCargar(ref);
@@ -7876,7 +7892,7 @@ function tkModo(md){
   if(TK) document.getElementById('tk-msg').value = md === 'texto' ? tkTexto(TK) : tkMensaje(TK);
   document.getElementById('tk-hint').textContent = md === 'texto'
     ? 'Se abre el chat de la paciente con el ticket ya escrito. Solo da enviar.'
-    : (tkEsMovil() ? 'Se abre el menú de compartir: elige WhatsApp y el chat de la paciente.' : 'Se copia la imagen y se abre el chat de la paciente con el mensaje. Pega la imagen con Ctrl+V (⌘+V en Mac) y envía.');
+    : (tkEsMovil() ? 'Se abre el menú de compartir: elige WhatsApp y el chat de la paciente.' : 'Se abre el chat de la paciente con el mensaje y el ticket queda copiado: en el chat pégalo con Ctrl+V (⌘+V en Mac) y envía. WhatsApp no deja adjuntarlo solo.');
 }
 const tkEsMovil = () => matchMedia('(pointer:coarse)').matches && !!navigator.canShare;
 async function tkRegistrar(modo, tel){
@@ -7915,8 +7931,9 @@ async function tkEnviar(){
       }
     }catch(e){ console.warn('[NovaHouse] No se pudo copiar la imagen:', e); }
     window.open(url, '_blank', 'noopener');
-    if(copiado) toast('✓ Imagen copiada. En el chat pega con Ctrl+V y envía.');
-    else { const b = await TK.blobP; if(b){ tkBajar(b); toast('Se descargó la imagen del ticket: adjúntala en el chat.'); } }
+    TK.url = url;
+    if(!copiado){ const b = await TK.blobP; if(b) tkBajar(b); }
+    tkPaso2(copiado);
   }
   const orig = tkTelNorm(telIn.dataset.orig);
   if(TK.pacienteId && tel !== orig && document.getElementById('tk-guardar-tel').checked){
@@ -7924,8 +7941,25 @@ async function tkEnviar(){
     if(error) console.warn('[NovaHouse] No se actualizó el teléfono:', error);
   }
   tkRegistrar(TK_MODO, tel);
-  document.getElementById('tk-modal').classList.remove('show');
+  if(!TK.paso2) document.getElementById('tk-modal').classList.remove('show');
   if(typeof HIST_ROWS !== 'undefined' && document.getElementById('hist-tbody')?.offsetParent) tkMarcarHist();
+}
+function tkPaso2(copiado){
+  TK.paso2 = true;
+  document.querySelector('#tk-modal .tk-box').classList.add('p2');
+  document.getElementById('tk-paso2').hidden = false;
+  document.getElementById('tk-p2-t').textContent = copiado ? 'Ahora pega el ticket en el chat' : 'Se descargó el ticket: adjúntalo en el chat';
+  document.getElementById('tk-p2-d').innerHTML = copiado
+    ? 'WhatsApp ya se abrió con el mensaje escrito. El ticket está copiado: haz clic en la caja de mensaje del chat y pega con <kbd>Ctrl</kbd> + <kbd>V</kbd> (en Mac <kbd>⌘</kbd> + <kbd>V</kbd>). Aparece la imagen con el mensaje abajo; da enviar.'
+    : 'WhatsApp ya se abrió con el mensaje escrito. Este navegador no dejó copiar la imagen, así que se descargó: arrástrala desde Descargas al chat, o usa “Copiar el ticket otra vez”.';
+}
+async function tkRecopiar(btn){
+  const t = btn.textContent;
+  try{
+    await navigator.clipboard.write([new ClipboardItem({ 'image/png': TK.blobP.then(b => b || Promise.reject(new Error('sin imagen'))) })]);
+    btn.textContent = '✓ Copiado'; setTimeout(() => btn.textContent = t, 1800);
+    document.getElementById('tk-p2-t').textContent = 'Ahora pega el ticket en el chat';
+  }catch(e){ console.warn('[NovaHouse] No se pudo copiar la imagen:', e); const b = await TK.blobP; if(b) tkBajar(b); toast('No se pudo copiar; se descargó la imagen para que la arrastres al chat.'); }
 }
 async function tkDescargar(btn){
   if(!TK) return;
@@ -7963,7 +7997,9 @@ async function tkMarcarHist(){
     if(e.target === m || e.target.closest('[data-tk-x]')) { m.classList.remove('show'); return; }
     const b = e.target.closest('[data-tkm]'); if(b){ tkModo(b.dataset.tkm); return; }
     if(e.target.closest('#tk-send')){ tkEnviar(); return; }
-    const d = e.target.closest('#tk-down'); if(d) tkDescargar(d);
+    const d = e.target.closest('#tk-down,#tk-down2'); if(d){ tkDescargar(d); return; }
+    const rc = e.target.closest('#tk-recopiar'); if(rc){ tkRecopiar(rc); return; }
+    if(e.target.closest('#tk-reabrir') && TK?.url) window.open(TK.url, '_blank', 'noopener');
   });
   document.getElementById('tk-tel').addEventListener('input', e => {
     document.getElementById('tk-guardar-tel-w').style.display = TK?.pacienteId && tkTelNorm(e.target.value) && tkTelNorm(e.target.value) !== tkTelNorm(e.target.dataset.orig) ? '' : 'none';
